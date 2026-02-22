@@ -22,11 +22,23 @@ $$
 
 De las columnas pivotales (primera y tercera), deducimos una base $B_{Im}$ para la imagen $Im(f) = Col(A)$:
 
+??? info "Observación Teórica: Independencia Lineal"
+    Esto lo podemos hacer porque la primer y tercer columnas de la escalonada contienen a los pivotes (escalones principales no nulos), lo que garantiza algebraicamente que las columnas originales interrelacionadas en la matriz $A$ inicial son Linealmente Independientes (LI). 
+    
+    **(La demostración analítica de este teorema se encuentra documentada en [Independencia Lineal de las Columnas Pivotales](../../demostraciones/05_independencia_pivotes.md)).**
+
 $$
 B_{Im} = \left\{ \begin{pmatrix} -1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ -1 \\ 0 \\ 1 \end{pmatrix} \right\}
 $$
 
-De las variables libres ($x_2$ y $x_4$), derivamos las ecuaciones del núcleo $Nu(f)$: $x_1 - x_2 - x_4 = 0$ y $x_3 + x_4 = 0$. Expresado paramétricamente, $x_1 = x_2 + x_4$ y $x_3 = -x_4$. Por lo que obtenemos una base $B_{Nu}$:
+De las variables libres ($x_2$ y $x_4$), derivamos las ecuaciones del núcleo $Nu(f)$.
+
+??? info "Observación Teórica: ¿Cómo derivamos estas ecuaciones rref?"
+    Las ecuaciones surgen de traducir directamente las filas no nulas de la matriz escalonada reducida por filas (la forma RREF obtenida arriba) de vuelta a un sistema homogéneo ($Ax = 0$).
+    - La **primera fila** $(1, -1, 0, -1)$ representa la ecuación: $1 \cdot x_1 + (-1) \cdot x_2 + 0 \cdot x_3 + (-1) \cdot x_4 = 0 \implies x_1 - x_2 - x_4 = 0$.
+    - La **segunda fila** $(0, 0, 1, 1)$ representa la ecuación: $0 \cdot x_1 + 0 \cdot x_2 + 1 \cdot x_3 + 1 \cdot x_4 = 0 \implies x_3 + x_4 = 0$.
+
+Expresado paramétricamente de acuerdo a las variables libres, despejamos con $x_1 = x_2 + x_4$ y $x_3 = -x_4$. Por lo que obtenemos una base $B_{Nu}$:
 
 $$
 B_{Nu} = \left\{ \begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \end{pmatrix} \right\}

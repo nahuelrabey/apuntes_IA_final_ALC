@@ -41,6 +41,9 @@ markdown_extensions:
         - name: math
           class: arithmatex
           format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.snippets:
       base_path:
         - docs
@@ -74,3 +77,4 @@ nav:
       - 02. Independencia de Autovectores: demostraciones/02_autovalores_distintos.md
       - 03. Regla del Determinante: demostraciones/03_determinante_producto.md
       - 04. Teorema Espectral: demostraciones/04_teorema_espectral.md
+      - 05. Independencia Columnas Pivotales: demostraciones/05_independencia_pivotes.md
