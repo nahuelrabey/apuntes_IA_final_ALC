@@ -8,6 +8,22 @@ A través de las validaciones teórico-prácticas elaboradas en nuestra metodolo
 - **Acotación de Errores con Valores Singulares:** Demostramos teóricamente y empíricamente cómo las aproximaciones de rango inferior truncando la SVD acotan su error máximo en norma Euclídea por el valor del siguiente valor singular omitido ($\sigma_2$). Esto reafirma la contundente utilidad de SVD en compresión matemática de datos con pérdidas rígidamente controladas.
 - **Convergencia Práctica del Método de la Potencia:** Demostramos mediante álgebra cómo iterar estocásticamente $x^{(k+1)} = \frac{Bx^{(k)}}{||Bx^{(k)}||}$ alinea rápidamente el vector a la componente principal dominante purgando a las demás bases por diferencias en el ratio de sus autovalores $\left(\frac{\lambda_2}{\lambda_1}\right)^k \to 0$. Esto nos permitió desarrollar una rutina de aproximación de rango 1 que iguala analíticamente en su resultado a las librerías industriales complejas.
 
+### Ejercicio 2 - Diagonalización
+- **Independencia en Espectros Discretos:** Corroboramos en papel y máquina cómo una matriz con valores intrínsecos no repetidos despliega ineludiblemente un abanico hiper-dimensional completo de autovectores que componen una base lineal sin vacíos formales dentro de $\mathbb{R}^n$. Toda matriz estocástica generada artificialmente con auto-valores dispares presentará por ley matemática rango pleno en su subespacio.
+- **Isomorfismo de la Matriz Semejante C:** Entender la ecuación universal $AC = CS$ elimina en su completitud el "misterio" de la diagonalización abstracta. Al desgranar paso por paso que la multiplicación por bloques y extraer las variables demostramos cómo esta transformación de autovectores unificada como matriz sencilla enmascara el escalado puro espectral dentro de la base general del sistema.
+
+### Ejercicio 3 - Matrices Ortogonales y Simétricas
+- **Teorema de la Traza en Espectros de Matrices Involutivas:** Ante una matriz de dimensión superior, si el marco teórico asegura (debido a su involución $A^2 = I$) que el espectro está condenado a valer $1$ o $-1$, la multiplicidad espectral decanta algebraicamente en un sistema de ecuaciones simplificado aplicando la traza. En el código dedujimos, y Python constató, cómo $Tr(B) = 2$ es una impronta en la materia que denota implacablemente que $k \cdot 1 + m \cdot (-1) = 2$.
+- **Transparencia Espectral frente a Factorización SVD:** Asimilamos conceptualmente que las matrices unitarias / ortogonales puras como $A$ carecen de re-escalado intrínseco. Como en su factorización sus valores singulares $\sigma$ no son otra cosa que la raíz de $A^t A$ y $A^t A = I$, toda componente SVD $\Sigma$ de una matriz ortogonal se colapsa en esencia a la pura Matriz Identidad.
+
+### Ejercicio 4 - Cuadrados Mínimos y Aproximaciones
+- **Transparencia Hiperespacial Ortogonal:** Cuando se trabaja con un conjunto regido expletamente por Bases Ortonormales en $\mathbb{R}^n$, plantear la minimización explícita sobre un sub-hiperplano se destila en proyectar canónicamente cada componente de modo independiente. Como la matriz gramiana $A^t A$ es de per se la identidad, todo el colosal artilugio del modelo matricial MCO se simplifica al mero filtrado algorítmico de productos internos.
+- **Teorema de Pitágoras Multidimensional en Residuos:** Constatamos que la norma de un vector residual originado al truncarse la proyección ortogonal, como aquel error $e = (b - p) = \sum_{k=n+1}^{m} x_k q_k$ es un cálculo exacto. El residuo general de la aproximación es puramente la suma pitagórica del módulo individual esgrimido por las componentes estáticas que quedaron ajenas al plano $A$.
+
+### Ejercicio 5 - Desigualdad de Cauchy-Schwartz
+- **Deducción a partir de Geometría Residual:** Constatamos cómo la inquebrantable desigualdad lineal euclidiana emerge directamente del hecho físico de que los errores de proyección de Mínimos Cuadrados arrastran por definición una norma estrictamente positiva ($||e||^2 \ge 0$). Al aislar las magnitudes producto de dichas ecuaciones residuales y conjugarlas, el teorema sale a flote espontáneamente.
+- **Universalidad de Vectores Complejos:** El código en iteración aleatoria y masiva confirmó que la matriz Hermitiana transpuesta conjugada ($x^*$) absorbe idénticamente el mismo marco teórico que el dot-product simple en $\mathbb{R}^n$, probando que Cauchy-Schwartz es una ley del Álgebra Lineal que trasciende sin perturbarse hacia todo el abanico del espectro complejo ($\mathbb{C}^n$).
+
 ## Examen 24 de feb de 2025
 
 ### Ejercicio 2 - Semejanza y SVD
