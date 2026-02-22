@@ -10,6 +10,8 @@ A través de las validaciones teórico-prácticas elaboradas en nuestra metodolo
 
 - **Convergencia Práctica del Método de la Potencia:** Demostramos mediante álgebra cómo iterar estocásticamente $x^{(k+1)} = \frac{Bx^{(k)}}{||Bx^{(k)}||}$ alinea rápidamente el vector a la componente principal dominante purgando a las demás bases por diferencias en el ratio de sus autovalores $\left(\frac{\lambda_2}{\lambda_1}\right)^k \to 0$. Esto nos permitió desarrollar una rutina de aproximación de rango 1 que iguala analíticamente en su resultado a las librerías industriales complejas.
 
+- **Invarianza Direccional bajo Normalización Iterativa:** Se comprobó analíticamente por inducción y se verificó empíricamente en Python que la re-normalización continua al aplicar el Método de la Potencia no distorsiona el sentido del vector iterativo. Computar escalares divisores paso a paso únicamente ajusta la magnitud subyacente manteniendo la iteración estable, pero el resultado sigue colapsando irremediablemente hacia la misma dirección espacial dictada por el marco teórico rígido de calcular directamente $\frac{B^k x^{(0)}}{||B^k x^{(0)}||}$.
+
 ### Ejercicio 2 - Diagonalización
 
 - **Independencia en Espectros Discretos:** Corroboramos en papel y máquina cómo una matriz con valores intrínsecos no repetidos despliega ineludiblemente un abanico hiper-dimensional completo de autovectores que componen una base lineal sin vacíos formales dentro de $\mathbb{R}^n$. Toda matriz estocástica generada artificialmente con auto-valores dispares presentará por ley matemática rango pleno en su subespacio.
