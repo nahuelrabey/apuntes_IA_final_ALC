@@ -1,8 +1,18 @@
 # Solución del Ejercicio 3
 
-Dada la matriz del sistema:
+> **Ejercicio 3**
+>
+> Dada la matriz:
+>
+> $$A = \begin{pmatrix} 1 & c & 0 \\ 0 & 1 & c \\ 0 & c & 1 \end{pmatrix}$$
+>
+> 1. Determinar para qué valores de $c$ convergen los métodos de Jacobi y Gauss-Seidel.
+> 2. Comparar la velocidad de convergencia de ambos métodos.
+> 3. Plantear las iteraciones correspondientes para cada método.
 
-$$A = \begin{pmatrix} 1 & c & 0 \\ 0 & 1 & c \\ 0 & c & 1 \end{pmatrix}$$
+---
+
+Dada la matriz del sistema:
 
 Podemos descomponer la matriz en su diagonal ($D$), su parte estrictamente inferior ($L$) y su parte estrictamente superior ($U$), de tal forma que $A = D + L + U$:
 

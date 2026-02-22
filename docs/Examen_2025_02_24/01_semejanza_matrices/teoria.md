@@ -1,8 +1,22 @@
 # Solución del Ejercicio 1
 
-**Definición previa:** Se dice que $A \in \mathbb{K}^{n \times n}$ es semejante a $B \in \mathbb{K}^{n \times n}$ si existe una matriz invertible $S \in \mathbb{K}^{n \times n}$ tal que:
-
-$$S A S^{-1} = B$$
+> **Ejercicio 1**
+>
+> Se dice que $A \in \mathbb{K}^{n \times n}$ es semejante a $B \in \mathbb{K}^{n \times n}$ si existe una matriz invertible $S \in \mathbb{K}^{n \times n}$ tal que:
+>
+> $$SA(S^{-1}) = B$$
+>
+> 1. Demostrar que la relación de semejanza es una relación de equivalencia.
+>
+> 2. Demostrar que si $A$ es semejante a $B$, entonces:
+>
+>    $$\text{Tr}(A) = \text{Tr}(B)$$
+>
+>    **Sugerencia:** Utilizar la propiedad $\text{Tr}(EC) = \text{Tr}(CE)$ para matrices $C$ y $E$.
+>
+> 3. Probar que si $A$ es diagonalizable (es decir, $A$ es semejante a una matriz diagonal $D$) y los valores propios de $A$ son 0 y 1, entonces:
+>
+>    $$A^2 = A$$
 
 ---
 

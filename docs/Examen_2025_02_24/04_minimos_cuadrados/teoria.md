@@ -1,8 +1,18 @@
 # Solución del Ejercicio 4
 
-Dada la función no lineal:
+> **Ejercicio 4**
+>
+> Dada la función:
+>
+> $$z = a y^b e^{cx+2}$$
+>
+> 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
+> 2. Proponer puntos de datos para que la solución sea única.
+> 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
 
-$$z = a \cdot y^b \cdot e^{cx + 2}$$
+---
+
+Dada la función no lineal:
 
 ## 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a, b$ y $c$.
 
