@@ -9,7 +9,9 @@
 > c) Calcular la matriz $\Sigma$ de la factorización SVD de $A$. Justificar.
 >
 > d) Calcular los autovalores de la siguiente matriz:
+>
 > $$B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}$$
+>
 > *Sugerencia: usar los items anteriores.*
 
 ---
@@ -28,6 +30,11 @@ $$A^2 = I$$
 
 Buscamos aplicar el operador determinante a ambos lados de la ecuación, recordando la propiedad multiplicativa del determinante $|A \cdot B| = |A| \cdot |B|$:
 
+??? info "Demostración Teórica: La Regla Multiplicativa del Determinante"
+    ¿De dónde surge que la multiplicidad algorítmica subyacente de la función módulo respeta en total lealtad al producto de los agrupamientos? Su rigor matemático nace de las Matrices Elementales. Toda matriz regular inversible es descomponible en un tren finito de elementales ($A = E_1\dots E_k$), los cuales individualmente traccionan al determinante separándolo en pedazos lógicos.
+    
+    📌 *Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué $\det(AB) = \det(A)\det(B)$ (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: [Demostración: Regla Multiplicativa del Determinante](../../demostraciones/03_determinante_producto.md).*
+
 $$|A^2| = |I|$$
 
 $$|A|^2 = 1$$
@@ -39,6 +46,11 @@ $$|A| = \pm 1$$
 Por lo tanto, **el determinante de la matriz estructurada $A$ puede valer $1$ o $-1$**. 
 
 Acerca de si la matriz es diagonalizable, la respuesta viene dada inmediatamente por el **Teorema Espectral**. Dicho colosal teorema dictamina que "Toda matriz real y simétrica es diagonalizable ortogonalmente dentro de los números reales". Como nuestra matriz satisface fehacientemente la condición de ser real y simétrica ($A = A^t$), **es innegablemente diagonalizable**.
+
+??? info "Demostración Teórica: Teorema Espectral"
+    ¿De dónde surgen algebraicamente las garantías insalvables de que ninguna matriz simétrica escapa jamás al terreno imaginario de Raíces Complejas, y que sus correspondientes bases multidimensionales describen ángulos perpetuos y exactos de 90° entre sí? Todo se reduce a manipulaciones hermíticas de la pre-multiplicación y del conjugado transpuesto.
+    
+    📌 *Revisar riguroso desarrollo paso a paso del porqué $\lambda = \overline{\lambda}$ junto con el porqué de la ortogonalidad $v_i \cdot v_j = 0$ sumado a su estrés computacional randomizado por Python, aquí: [Demostración: Teorema Espectral](../../demostraciones/04_teorema_espectral.md).*
 
 ---
 
@@ -104,7 +116,9 @@ Todos los valores rectro-singulares son igual a la unidad. Al disponerse jerárq
 
 ## Solución Inciso D
 > d) Calcular los autovalores de la siguiente matriz:
+>
 > $$B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}$$
+>
 > *Sugerencia: usar los items anteriores.*
 
 
@@ -123,6 +137,7 @@ Por consiguiente, la matriz $B$ asienta empíricamente en el grupo de matrices d
 Haciendo uso analítico implacable de la **Traza de la Matriz** ($Tr(B)$, sumatoria lineal de los índices puros diagonales), sabemos que por el Teorema de la Traza ésta no muta jamás bajo cambios de base y es perennemente idéntica a la sumatoria de sus autovalores matemáticos abstractos.
 
 Calculando la diagonal de $B$:
+
 $$Tr(B) = 0.5 + 0.5 + 0.98 + 0.02 = 2$$
 
 Frente a esto, postulamos nuestro conjunto de auto-valores en incógnitas: Sea $k$ la cantidad de autovalores de monto $1$, y $m$ la cantidad de autovalores de monto $-1$. Como $\dim(B) = 4$, tenemos 4 autovalores totales y armamos el sistema 2x2:
@@ -130,7 +145,9 @@ Frente a esto, postulamos nuestro conjunto de auto-valores en incógnitas: Sea $
 $$ \begin{cases} k + m = 4 \quad \text{(Espectro total)} \\ k(1) + m(-1) = 2 \quad \text{(Suma traza-autovalores)} \end{cases}$$
 
 Acumulando ambas igualdades ($2k = 6$), extirpamos lógicamente a los constituyentes:
+
 $$k = 3$$
+
 $$m = 1$$
 
 Por ende, deducimos implacablemente sin factorizar grado 4, que **los cuatro autovalores exactos de la matriz B son: $\{1, 1, 1, -1\}$**.

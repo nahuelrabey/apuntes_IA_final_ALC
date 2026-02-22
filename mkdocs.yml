@@ -66,3 +66,5 @@ nav:
   - Demostraciones:
       - 01. Método de la Potencia: demostraciones/01_metodo_potencia.md
       - 02. Independencia de Autovectores: demostraciones/02_autovalores_distintos.md
+      - 03. Regla del Determinante: demostraciones/03_determinante_producto.md
+      - 04. Teorema Espectral: demostraciones/04_teorema_espectral.md
