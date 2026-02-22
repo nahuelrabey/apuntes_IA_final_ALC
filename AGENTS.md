@@ -10,3 +10,6 @@ Use "uv" for python commands
 
 ### Listas Desordenadas (Unordered Lists)
 - Para que las viñetas y listas se rendericen de forma apropiada en MkDocs sin fusionarse con párrafos adjuntos, **siempre deja un salto de línea (espacio) antes de comenzar cualquier lista `(- )`**. Adicionalmente, inserta **un salto de línea en blanco entre cada uno de los ítems de la lista**.
+
+### Observaciones y Notas (Admonitions)
+- Toda observación complementaria, nota teórica o profundización que se desee incluir en los apuntes, debe estar contenida **SIEMPRE dentro de un bloque desplegable (collapsible)** para no saturar visualmente el flujo principal de lectura. En MkDocs, esto se construye obligatoriamente empezando el bloque con `??? info "Título de la Observación"` seguido de un salto de línea y el contenido indentado con 4 espacios ininterrumpidamente. No utilices los alert blocks expandidos (`!!!`) para estos casos.

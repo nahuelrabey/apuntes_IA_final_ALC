@@ -34,6 +34,17 @@ Sabemos por definición de la SVD truncada que como la matriz original $A$ es de
 
 $$A = \sum_{i=1}^{k} \sigma_i u_i v_i^t = \sigma_1 u_1 v_1^t + \sigma_2 u_2 v_2^t$$
 
+??? info "Profundización: Descomposición en Sumatoria de Matrices de Rango 1"
+    Para cualquier matriz general $M \in \mathbb{R}^{m \times n}$ con rango $r$, la Descomposición en Valores Singulares $M = U \Sigma V^t$ puede ser reescrita lógicamente usando multiplicación por bloques como una sumatoria exacta de $r$ matrices individuales, cada una de rango estrictamente 1:
+    
+    $$M = \sum_{i=1}^{r} \sigma_i u_i v_i^t$$
+    
+    Teniendo en cuenta que $u_i$ y $v_i$ son vectores columna, cada término individual $u_i v_i^t$ (el **producto exterior** u *outer product* entre el $i$-ésimo vector singular izquierdo y su equivalente derecho interpuesto) arroja una matriz bidimensional completa de $m \times n$, pero de riguroso **rango 1** (al ser la multiplicación cruzada de meras vectores columnas lineales, todas las columnas de la matriz resultante terminan siendo múltiplos de una única columna $u_i$).
+    
+    Al escalarla individualmente por su respectivo valor singular $\sigma_i$ (que actúa como el "peso" escalado o la magnificación de esa componente a nivel espectral), la suma de estas "capas" de rango 1 superpuestas reconstruye milimétricamente la integralidad de $M$, ponderando y priorizando los elementos de mayor dominancia (las direcciones singulares principales).
+    
+    📌 *Para verificar visualmente la demostración matemática en pizarra impartida desde cero, podés mirar la [Clase 29 (Singular Value Decomposition) dictada por Gilbert Strang para MIT 18.06 OpenCourseWare](https://www.youtube.com/watch?v=mBcLRGuAFUk).*
+
 Dado que se nos informa que $\tilde{A} = \sigma_1 u_1 v_1^t$ es la aproximación de mayor rango, podemos definir el error vectorial de efectuar dicha predicción como $e = A x - \tilde{A} x$.
 
 Reemplazando los términos, el residuo es exactamente la componente descartada de la matriz SVD:
@@ -45,6 +56,15 @@ Nos piden probar que la norma de este error se encuentra acotada por $\sigma_2$.
 $$||e||_2 = ||\sigma_2 u_2 v_2^t x||_2$$
 
 Como un escalar positivo puede extraerse de la norma:
+
+??? info "Observación Teórica: ¿Por qué $\sigma_2$ es un escalar puramente positivo?"
+    Por definición intrínseca de la descomposición SVD, todos los valores singulares escalares $\sigma_i$ que componen a $\Sigma$ son siempre números reales **no negativos ($\sigma_i \geq 0$)**. Matemáticamente, esto deviene de que los valores $\sigma$ se calculan extrayendo la raíz cuadrada de los autovalores algebraicos de la matriz gramiana $A^tA$.
+    
+    Toda matriz pre-multiplicada por su transpuesta ($A^tA$) genera automáticamente una matriz simétrica semi-definida positiva. Las matrices de este tipo subyacen inevitablemente a un espectro limitante de autovalores reales y positivos ($\lambda_i \geq 0$), imposibilitando en la abstracción la existencia de raíces imaginarias o valores singulares que fuesen negativos.
+    
+    Adicionalmente, como el enunciado aclara que los valores singulares no admiten repetición ($\sigma_i \neq \sigma_j$) y provienen del habitual ordenamiento secular de magnitud descendente $\sigma_1 > \sigma_2 > 0$, concluimos fehacientemente que **$\sigma_2 > 0$**. 
+    
+    Al refrendar que es un escalar puramente positivo para todo escenario, nuestra expresión queda habilitada lícitamente para desacoplar a $\sigma_2$ por fuera de la función valor absoluto de la norma métrica subyacente de la que era parte impunemente: $|\sigma_2| = \sigma_2$ y $||\sigma_2 u|| = \sigma_2 ||u||$.
 
 $$||e||_2 = \sigma_2 ||u_2 (v_2^t x)||_2$$
 
