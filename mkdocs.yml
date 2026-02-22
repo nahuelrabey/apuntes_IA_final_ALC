@@ -63,3 +63,5 @@ nav:
       - 02. Descomposición SVD: Examen_2025_02_24/02_descomposicion_svd/teoria.md
       - 03. Métodos Iterativos: Examen_2025_02_24/03_metodos_iterativos/teoria.md
       - 04. Mínimos Cuadrados: Examen_2025_02_24/04_minimos_cuadrados/teoria.md
+  - Demostraciones:
+      - 01. Método de la Potencia: demostraciones/01_metodo_potencia.md
