@@ -1,0 +1,868 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Nahuel">
+      
+      
+      
+      
+        <link rel="next" href="Examen_2025_02_24/01_semejanza_matrices/teoria/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Finales Álgebra Lineal Computacional</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#meta-documento-framework-y-metodologia-de-resolucion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Finales Álgebra Lineal Computacional" class="md-header__button md-logo" aria-label="Finales Álgebra Lineal Computacional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Finales Álgebra Lineal Computacional
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introducción
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="Examen_2025_02_24/01_semejanza_matrices/teoria/" class="md-tabs__link">
+          
+  
+  
+  Examen 24 de feb de 2025
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Finales Álgebra Lineal Computacional" class="md-nav__button md-logo" aria-label="Finales Álgebra Lineal Computacional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Finales Álgebra Lineal Computacional
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-del-flujo-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗 Arquitectura del Flujo de Trabajo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗 Arquitectura del Flujo de Trabajo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fase-pura-razonamiento-teorico-el-que-y-el-por-que" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fase Pura / Razonamiento Teórico (El "Qué" y el "Por Qué")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fase-de-traduccion-el-puente-logico-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fase de Traducción (El Puente Lógico-Computacional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-fase-pragmatica-verificacion-empirica-el-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fase Pragmática / Verificación Empírica (El "Sandbox")
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacion-de-conclusiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Documentación de Conclusiones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Documentación de Conclusiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lecciones-y-conclusiones-del-ejercicio-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lecciones y Conclusiones del Ejercicio 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecciones-y-conclusiones-del-ejercicio-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lecciones y Conclusiones del Ejercicio 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecciones-y-conclusiones-del-ejercicio-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lecciones y Conclusiones del Ejercicio 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examen 24 de feb de 2025
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examen 24 de feb de 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Examen_2025_02_24/01_semejanza_matrices/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Semejanza de Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Examen_2025_02_24/02_descomposicion_svd/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Descomposición SVD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Examen_2025_02_24/03_metodos_iterativos/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Métodos Iterativos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Examen_2025_02_24/04_minimos_cuadrados/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Mínimos Cuadrados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura-del-flujo-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗 Arquitectura del Flujo de Trabajo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗 Arquitectura del Flujo de Trabajo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fase-pura-razonamiento-teorico-el-que-y-el-por-que" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fase Pura / Razonamiento Teórico (El "Qué" y el "Por Qué")
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fase-de-traduccion-el-puente-logico-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fase de Traducción (El Puente Lógico-Computacional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-fase-pragmatica-verificacion-empirica-el-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Fase Pragmática / Verificación Empírica (El "Sandbox")
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentacion-de-conclusiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Documentación de Conclusiones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Documentación de Conclusiones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lecciones-y-conclusiones-del-ejercicio-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lecciones y Conclusiones del Ejercicio 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecciones-y-conclusiones-del-ejercicio-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lecciones y Conclusiones del Ejercicio 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lecciones-y-conclusiones-del-ejercicio-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lecciones y Conclusiones del Ejercicio 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="meta-documento-framework-y-metodologia-de-resolucion">Meta Documento: Framework y Metodología de Resolución</h1>
+<p>Este documento busca funcionar como un "blueprint" o plantilla metodológica. A partir del ejercicio de álgebra lineal resuelto (propiedades de la semejanza de matrices), hemos abstraído una arquitectura operativa pensada para abordar futuras tareas similares que involucren una resolución matemática seguida de una verificación y validación con programación.</p>
+<hr />
+<h2 id="arquitectura-del-flujo-de-trabajo">🏗 Arquitectura del Flujo de Trabajo</h2>
+<p>El flujo de trabajo unificado se compone de tres pilares, ejecutados habitualmente en esta misma cronología:</p>
+<h3 id="1-fase-pura-razonamiento-teorico-el-que-y-el-por-que">1. Fase Pura / Razonamiento Teórico (El "Qué" y el "Por Qué")</h3>
+<p>Antes de cualquier línea de código, el problema es comprendido y deconstruido:
+- <strong>Identificación de Definiciones:</strong> Entender semánticamente qué significan las fórmulas. Ejemplo: "<em><span class="arithmatex">\(S A S^{-1} = B\)</span> representa el cambio de base, lo que implica que <span class="arithmatex">\(A\)</span> y <span class="arithmatex">\(B\)</span> manejan la misma transformación original.</em>"
+- <strong>Descomposición Táctica:</strong> Separar los problemas en componentes digeribles. "Comprobar equivalencia" no es un único bloque, sino un checklist de (Reflexividad, Simetría, Transitividad).
+- <strong>Desarrollo Analítico:</strong> Plasmar el formalismo matemático de modo detallado, donde cada paso es lógicamente deducible desde el anterior (usando las hipótesis para destrabar el desarrollo de la tesis).</p>
+<h3 id="2-fase-de-traduccion-el-puente-logico-computacional">2. Fase de Traducción (El Puente Lógico-Computacional)</h3>
+<p>Un teorema puede ser hermético y ajeno al código, por lo que demanda una "traducción":
+- <strong>Abstracción a Modelos Estocásticos:</strong> Dado que no podemos corroborar el infinito, probamos con aleatoriedad ("Randomization Testing"). Es decir, si el teorema es universal, se debe sostener al alimentar las fórmulas con matrices (arreglos n-dimensionales) llenos del espectro continuo flotante (e.g., generadas con elementos desde <code>NumPy</code>). 
+- <strong>Adaptación de Restricciones:</strong> Traducir consideraciones teóricas ("<span class="arithmatex">\(S\)</span> debe ser invertible") a instrucciones para la máquina (e.g. validaciones contra el determinante distinto de cero en un ciclo <code>While</code> generador).</p>
+<h3 id="3-fase-pragmatica-verificacion-empirica-el-sandbox">3. Fase Pragmática / Verificación Empírica (El "Sandbox")</h3>
+<p>Se codifica el programa verificador que pondrá a prueba el desarrollo analítico:
+- <strong>Ejecución y Comprobación Booleana (Validaciones en Punto Flotante):</strong> En computación científica, las afirmaciones como "A la matriz original" o "Ambas Trazas miden igual" raramente deben validarse con <code>==</code> (por problemas de redondeo/convergencia de hardware en el tipo float). Se usan metodologías como <code>np.isclose()</code> o <code>np.allclose()</code> tolerando pequeños márgenes estadísticos de error computacional (<span class="arithmatex">\(\approx 1e^{-8}\)</span>).
+- <strong>Depuración Bidireccional:</strong> Si el Test empírico falla, esto dispara alarmas. Nos obliga a revisar o el código de comprobación (si hay problemas de implementación), o bien encontrar falacias ocultas dentro de nuestra rigurosa prueba teórica en la Fase 1.</p>
+<hr />
+<h2 id="documentacion-de-conclusiones">📌 Documentación de Conclusiones</h2>
+<p>Este híbrido de demostración analítica-matemática seguida de una prueba automatizada en un vector de cálculo eficiente (como Python) resulta el <strong>paradigma en el estado del arte de la investigación y aprendizaje</strong>.
+Genera lo que en lógica se llama <em>Confianza Incondicional</em>: Si existe certeza semántica en papel, y el procesador no halla contradicciones luego de ser testeado con caos numérico aleatorio, la tarea fue resuelta con el máximo rigor posible.</p>
+<h3 id="lecciones-y-conclusiones-del-ejercicio-2">Lecciones y Conclusiones del Ejercicio 2</h3>
+<ul>
+<li><strong>Uso de Invarianzas y Transformaciones Ortogonales:</strong> En matemáticas (como ocurre con la SVD), aplicar operaciones "isométricas" o transformaciones ortogonales (como fue multiplicar por una matriz de permutación aleatoria computacionalmente, <span class="arithmatex">\(P\)</span>) resulta invariante para las magnitudes nucleares (como el espectro singular). </li>
+<li><strong>La Utilidad de la Permutación Aleatoria Computada:</strong> A la hora de verificar propiedades sobre operadores donde "El orden de las filas no altera el resultado estructural", utilizar una matriz de permutación estocástica (<code>P = I[np.random.permutation(n), :]</code>) sobre el código es un factor de prueba estupendo. Si la propiedad estadística persiste (ejemplo, la invariabilidad de <code>np.linalg.svd</code>) probamos empíricamente la independencia matemática del operador evaluado y confirmamos el modelo numérico.</li>
+<li><strong>Estabilidad de las Normas (Norma-2):</strong> El script nos demostró cómo este tipo de transformaciones no introducen ruido algorítmico al "estiramiento" máximo de la matriz (la Norma 2) ni a su número de condición. Computarizar <span class="arithmatex">\(\|PA\|_2\)</span> arrojó consistentemente el mismo resultado de norma debido a que los ortogonales preservan las longitudes vectoriales subyacentes, validando lo deducido con lápiz y papel.</li>
+</ul>
+<h3 id="lecciones-y-conclusiones-del-ejercicio-3">Lecciones y Conclusiones del Ejercicio 3</h3>
+<ul>
+<li><strong>Del Radio Espectral al Código Empírico:</strong> Observamos cómo la teoría matricial predice exáctamente el comportamiento iterativo del <code>while-loop</code>. A diferencia del algebra matricial analítica, el cálculo numérico involucra medir tiempos (tasas) de procesamiento. Si el análisis formal sostiene que la tasa de convergencia asintótica de una técnica es el doble de la que presenta otra (<span class="arithmatex">\(\rho(T_{GS}) = \rho(T_J)^2\)</span>), computarizar un simple contador de los pasos que toma domar un residuo a una tolerancia límite dada (como <span class="arithmatex">\(1e^{-10}\)</span>) nos ofrecerá una corroboración tajante donde comprobaremos cómo, en efecto, el loop computará la mitad de las iteraciones.</li>
+<li><strong>Micro-optimizaciones Matemáticas en el Bloque RAM:</strong> La forma iterativa de Gauss-Seidel demuestra conceptualmente un principio de las ciencias computacionales aplicado tempranamente a los algoritmos continuos. La "actualización inmediata" o <em>in-place updating</em> (donde <span class="arithmatex">\(x_2^{(k+1)}\)</span> se reutiliza inmediatamente sin demorarnos a la iteración <span class="arithmatex">\((k+1)\)</span> en el bloque en memoria) ahorra recursos del caché y virtualmente duplica la velocidad del procesamiento comparado con Jacobi, que exige retener en memoria secundaria una foto en frío del vector íntegro <span class="arithmatex">\(X^{(k)}\)</span> del pasado.</li>
+</ul>
+<h3 id="lecciones-y-conclusiones-del-ejercicio-4">Lecciones y Conclusiones del Ejercicio 4</h3>
+<ul>
+<li><strong>Transformación de Hipóstasis Exponenciales:</strong> Estudiamos cómo la vasta mayoría de las regresiones empíricas no-lineales en la naturaleza se reducen, algorítmicamente, a simples regresiones lineales ordinarias que las computadoras (como <code>numpy.linalg</code>) pueden resolver al instante si aplicamos isomorfismos biyectivos. Bajar el exponente <span class="arithmatex">\(z = a \cdot y^b\)</span> vía logaritmos naturales independiza por la fuerza una función intratable y nos la otorga en bandeja de plata como modelo paramétrico <span class="arithmatex">\(\beta_0 + \beta_1 X\)</span> compatible con la rígida Ecuación Normal de M.C.O.</li>
+<li><strong>Validación del Determinante Experimental:</strong> En la programación probabilística de datos es usual arrojarle a la máquina miles de registros esperando que encuentre promedios ponderados. Este ejercicio resalta el valor semántico de la Independencia Lineal como pilar subyacente de la Computabilidad. Diseñar un array de control minúsculo adrede (de apenas 3 puntos de prueba) y observar que es materialmente el número mínimo insalvable para que el algoritmo arroje un <code>LinAlgError</code> si no reparamos en la dependencia, permite trazar una raya visible entre un algoritmo "que funciona de casualidad" y un entendimiento total de las fronteras matemáticas de las librerías estadísticas subyacentes.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

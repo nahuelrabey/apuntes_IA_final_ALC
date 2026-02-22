@@ -45,11 +45,13 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
   - Introducción: index.md
+  - Lecciones Aprendidas: lecciones_aprendidas.md
+  - Examen 21 de jul de 2025:
+      - 01. Descomposición SVD: Examen_2025_07_21/01_svd/teoria.md
   - Examen 24 de feb de 2025:
       - 01. Semejanza de Matrices: Examen_2025_02_24/01_semejanza_matrices/teoria.md
       - 02. Descomposición SVD: Examen_2025_02_24/02_descomposicion_svd/teoria.md
