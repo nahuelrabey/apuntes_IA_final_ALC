@@ -137,6 +137,17 @@ Los autovectores de $B$ son precisamente las columnas de la matriz $V$, denotado
 
 En base a esto, y conociendo que los valores singulares de SVD exigen que $\sigma_i \neq \sigma_j$ y vienen típicamente ordenados descendiendo $\sigma_1 > \sigma_2 > 0$, deducimos que $\lambda_1 > \lambda_2 \geq 0$.
 
+??? info "Observación Teórica: ¿El orden estricto $\sigma_1 > \sigma_2 > 0$ es una convención algorítmica?"
+    Sí, la suposición de que los valores $\sigma$ yacen ordenados algebraicamente de mayor a menor magnitud ($\sigma_1 \ge \sigma_2 \ge \dots$) es la **convención universal estándar** en todas las bibliotecas de cómputo informático (numpy, scipy) y en la formulación primigenia de la Descomposición SVD.
+    
+    La SVD está diseñada axiomáticamente para reordenar las proyecciones de modo que el primer valor $\sigma_1$ sea siempre el componente supremo, englobando la dirección de máxima varianza (o energía matricial principal).
+    
+    En el contexto estricto de nuestro ejercicio, el enunciado nos decreta preventivamente que **$\sigma_i \neq \sigma_j$ si $i \neq j$**. Esta condición suplementaria impuesta por el autor anula la posibilidad de que surja multiplicidad en los valores (el caso degenerado donde $\sigma_1 = \sigma_2$). 
+    
+    Por consiguiente, la fusión natural de la **convención descendente genérica de la SVD** $(\sigma_1 \ge \sigma_2 \ge \dots \ge 0)$ intersectada con la **restricción estricta de desigualdad del examen** $(\sigma_1 \neq \sigma_2)$, nos conduce fehacientemente y sin fisuras analíticas a que la sucesión es estrictamente decreciente: **$\sigma_1 > \sigma_2 > 0$**.
+    
+    📌 *Para verificar la convención doctrinal y matemática detrás del ordenamiento matricial descendente de la SVD, podés consultar la [Wikipedia: Singular Value Decomposition (Statement of the theorem)](https://en.wikipedia.org/wiki/Singular_value_decomposition).*
+
 El algoritmo planteado evalúa un simple bucle $k \in 1, \dots, N$ sobre la operación iterada:
 
 $$x^{(k)} = \frac{B x^{(k-1)}}{||B x^{(k-1)}||} = \frac{B^k x^{(0)}}{||B^k x^{(0)}||}$$
@@ -208,7 +219,22 @@ Al aproximarse velozmente todo el segundo término aditivo al valor cero, obtene
 
 $$B^k x^{(0)} \approx \left( \lambda_1^k \cdot c_1 \right) v_1$$
 
-Evidentemente si nuestro vector estocástico nació sin componente principal ($c_1 = 0$, ortogonalidad perfecta elegida para nuestra semilla inicial), el proceso fallará al converger a $v_2$. Tal salvedad, en algoritmos estocásticos que operan en floats (cuyos conjuntos de medida afirman que extraer el exacto plano euclidiano en flotantes ortogonales tiene teóricamente "probabilidad cero"), carece de sustento para descalificar la iteración.
+Evidentemente si nuestro vector estocástico nació sin componente principal ($c_1 = 0$, ortogonalidad perfecta elegida para nuestra semilla inicial), el proceso fallará al converger a $v_2$.
+
+??? info "Observación Teórica: ¿Qué ocurre matemáticamente si $c_1 = 0$? ¿El vector se vuelve nulo?"
+    Al notar que $\left( \frac{\lambda_2}{\lambda_1} \right)^k \to 0$, es tentador intuir que si $c_1 = 0$ todo el conjunto colapsará hacia el vector $(0,0)$. No obstante, la factorización matemática extrayendo un factor común de $\lambda_1^k$ se diseña y aporta valor únicamente para analizar el límite cuando ambas componentes coexisten ($c_1 \neq 0$).
+    
+    Si verdaderamente tuviésemos asilamiento puro de $c_1 = 0$, debemos analizar la sumatoria original intacta:
+    
+    $$B^k x^{(0)} = 0 \cdot \lambda_1^k v_1 + c_2 \lambda_2^k v_2 = c_2 \lambda_2^k v_2$$
+    
+    Dado que en el Método de la Potencia el paso es normalizar forzosamente $x^{(k)} = \frac{B^k x^{(0)}}{||B^k x^{(0)}||}$, no importa cuán microscópico se torne el escalar $\lambda_2^k \to 0$ con el avance del tiempo, al estar en el numerador y denominador sometido bajo norma **éste se cancela intrínsecamente**:
+    
+    $$x^{(k)} = \frac{c_2 \lambda_2^k v_2}{||c_2 \lambda_2^k v_2||} = \frac{c_2 \lambda_2^k}{|c_2| \lambda_2^k} \cdot \frac{v_2}{||v_2||} = \text{sgn}(c_2) v_2$$
+    
+    Por consiguiente, el algoritmo **jamás tenderá al origen $(0,0)$**; la normalización iterativa actúa como un antídoto perpetuo que estirará de vuelta a cualquier remanente hacia el círculo unitario (norma 1), quedando estacionado inamoviblemente en $\pm v_2$.
+
+Tal salvedad, en algoritmos estocásticos que operan en floats (cuyos conjuntos de medida afirman que extraer el exacto plano euclidiano ortogonal de $v_1$ al azar tiene teóricamente "probabilidad cero"), carece de sustento para descalificar la iteración, ya que cualquier ruido de precisión ínfimo garantiza que nazca un $c_1 \neq 0$ que indefectiblemente terminará dominando el límite asintótico.
 
 Como para rematar cada ciclo el vector se normaliza contra sí mismo $x = \frac{x}{||x||}$, todo componente escalar global $\lambda$ decae por divisiones intrínsecas, dejando con exclusividad un vector de tamaño 1 alineado a la dirección principal:
 

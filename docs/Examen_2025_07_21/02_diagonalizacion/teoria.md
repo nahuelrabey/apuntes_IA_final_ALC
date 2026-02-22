@@ -16,6 +16,11 @@ El teorema fundamental sobre autovectores establece que "autovectores correspond
 
 Dado que por hipótesis se nos confirma que la matriz $A$ posee $n$ autovalores estrictamente **distintos entre sí** ($\lambda_i \neq \lambda_j$ para todo $i \neq j$), este lema nos garantiza de forma deductiva que el conjunto de sus correspondientes autovectores $\{v_1, \dots, v_n\}$ constituye un conjunto de exactamente $n$ vectores **linealmente independientes**.
 
+??? info "Demostración Teórica: Independencia Lineal por Autovalores Distintos"
+    El porqué un "abanico" de autovalores distintos garantiza de forma obligatoria y deductiva que sus autovectores asociados no pueden colapsar formando dependencias espaciales, se demuestra axiomáticamente mediante el Principio de Inducción Fuerte Matemática.
+    
+    📌 *Para consultar paso a paso la justificación analítica y matemática detrás de este Lema de Independencia (junto con su validador masivo estocástico en Python), puedes remitirte a: [Demostración: Independencia Lineal de Autovectores](../../demostraciones/02_autovalores_distintos.md).*
+
 Sabemos que cualquier conjunto de $n$ vectores linealmente independientes dentro de un espacio vectorial euclídeo de dimensión $n$ (como es en este caso $\mathbb{R}^n$) obligatoriamente genera dicho espacio (sirve como sistema generador) y, por consiguiente, forma inherentemente una **Base**. Queda justificado analíticamente.
 
 ---

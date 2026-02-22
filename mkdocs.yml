@@ -65,3 +65,4 @@ nav:
       - 04. Mínimos Cuadrados: Examen_2025_02_24/04_minimos_cuadrados/teoria.md
   - Demostraciones:
       - 01. Método de la Potencia: demostraciones/01_metodo_potencia.md
+      - 02. Independencia de Autovectores: demostraciones/02_autovalores_distintos.md

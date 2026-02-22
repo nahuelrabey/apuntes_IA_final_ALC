@@ -71,3 +71,13 @@ Por el inquebrantable Principio de Inducción Matemática, el argumento queda cl
 ## Verificación Empírica Computacional
 
 La certeza deductiva fue sometida a estrés estocástico por medio del verificador automático estructurado en Python (`01_metodo_potencia.py`), el cual expone vectores al azar bajo ambos esquemas para validar este colapso en el silicio.
+
+---
+
+## Referencias para Validación
+
+Para profundizar y contar con respaldo académico de los conceptos utilizados en esta demostración (como el Teorema Espectral y el Método de la Potencia Clásico), se recomienda consultar:
+
+* [Wikipedia: Power iteration (Método de la Potencia)](https://en.wikipedia.org/wiki/Power_iteration): Descripción enciclopédica del algoritmo, su ritmo de convergencia y demostración analítica general.
+* [MIT 18.06 OpenCourseWare - Clase 22 (Diagonalization and Powers of A) - Prof. Gilbert Strang](https://www.youtube.com/watch?v=13r9QY6cmjc): Demostración audiovisual magistral de cómo una matriz elevada a la potencia $k$ proyecta repetidamente sobre la base de sus autovectores ponderada exponencialmente por sus autovalores.
+* [MIT 18.06 OpenCourseWare - Clase 29 (Singular Value Decomposition) - Prof. Gilbert Strang](https://www.youtube.com/watch?v=mBcLRGuAFUk): Justificación esencial del armado y propiedades espectrales de matrices semidefinidas (como $B = A^tA$).
