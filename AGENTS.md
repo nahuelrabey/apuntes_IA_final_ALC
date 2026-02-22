@@ -6,5 +6,7 @@ Use "uv" for python commands
 ### Estructura de Archivos "teoria"
 - Al crear o modificar un archivo `teoria.md` (o similar que explique la resolución teórica de un ejercicio), **asegúrate siempre de incluir el enunciado completo del problema al principio del documento**, antes de comenzar con el desarrollo de la solución.
 
+- Deben haber por lo menos dos encabezados: "Interpretación del Enunciado" y "Solución del Ejercicio" (este puede hacerse en varios incisos).
+
 ### Listas Desordenadas (Unordered Lists)
 - Para que las viñetas y listas se rendericen de forma apropiada en MkDocs sin fusionarse con párrafos adjuntos, **siempre deja un salto de línea (espacio) antes de comenzar cualquier lista `(- )`**. Adicionalmente, inserta **un salto de línea en blanco entre cada uno de los ítems de la lista**.
