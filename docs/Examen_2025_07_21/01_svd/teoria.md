@@ -65,6 +65,8 @@ Como un escalar positivo puede extraerse de la norma:
     Adicionalmente, como el enunciado aclara que los valores singulares no admiten repetición ($\sigma_i \neq \sigma_j$) y provienen del habitual ordenamiento secular de magnitud descendente $\sigma_1 > \sigma_2 > 0$, concluimos fehacientemente que **$\sigma_2 > 0$**. 
     
     Al refrendar que es un escalar puramente positivo para todo escenario, nuestra expresión queda habilitada lícitamente para desacoplar a $\sigma_2$ por fuera de la función valor absoluto de la norma métrica subyacente de la que era parte impunemente: $|\sigma_2| = \sigma_2$ y $||\sigma_2 u|| = \sigma_2 ||u||$.
+    
+    📌 *Para consultar la probanza algebraica oficial de estas propiedades imperativas, podés remitirte a la [Clase 27 (Positive Definite Matrices and Minima) dictada por Gilbert Strang para MIT 18.06 OpenCourseWare](https://www.youtube.com/watch?v=kXJP-tPrtB8).*
 
 $$||e||_2 = \sigma_2 ||u_2 (v_2^t x)||_2$$
 
