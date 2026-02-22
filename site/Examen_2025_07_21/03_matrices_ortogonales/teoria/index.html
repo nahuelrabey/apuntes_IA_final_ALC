@@ -1,0 +1,1581 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Nahuel">
+      
+      
+      
+        <link rel="prev" href="../../02_diagonalizacion/teoria/">
+      
+      
+        <link rel="next" href="../../04_cuadrados_minimos/teoria/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>03. Matrices Ortogonales - Finales Álgebra Lineal Computacional</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#solucion-del-ejercicio-3-examen-21-de-julio-de-2025-matrices-singulares-y-espectros" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Finales Álgebra Lineal Computacional" class="md-header__button md-logo" aria-label="Finales Álgebra Lineal Computacional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Finales Álgebra Lineal Computacional
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03. Matrices Ortogonales
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introducción
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../lecciones_aprendidas/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lecciones Aprendidas
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01_svd/teoria/" class="md-tabs__link">
+          
+  
+  
+  Examen 21 de jul de 2025
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Examen_2025_02_24/01_semejanza_matrices/teoria/" class="md-tabs__link">
+          
+  
+  
+  Examen 24 de feb de 2025
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Examen_2025_08_07/01_proyector/teoria/" class="md-tabs__link">
+          
+  
+  
+  Examen 07 de ago de 2025
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../demostraciones/01_metodo_potencia/" class="md-tabs__link">
+          
+  
+  
+  Demostraciones
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Finales Álgebra Lineal Computacional" class="md-nav__button md-logo" aria-label="Finales Álgebra Lineal Computacional" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Finales Álgebra Lineal Computacional
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lecciones_aprendidas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecciones Aprendidas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examen 21 de jul de 2025
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examen 21 de jul de 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_svd/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Descomposición SVD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_diagonalizacion/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Diagonalización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Matrices Ortogonales
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Matrices Ortogonales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso A
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso B
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-computacional-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificación Computacional en Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_cuadrados_minimos/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Cuadrados Mínimos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_cauchy_schwartz/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Cauchy-Schwartz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examen 24 de feb de 2025
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examen 24 de feb de 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_02_24/01_semejanza_matrices/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Semejanza de Matrices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_02_24/02_descomposicion_svd/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Descomposición SVD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_02_24/03_metodos_iterativos/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Métodos Iterativos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_02_24/04_minimos_cuadrados/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Mínimos Cuadrados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examen 07 de ago de 2025
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examen 07 de ago de 2025
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_08_07/01_proyector/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Proyectores y Subespacios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_08_07/02_markov/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Cadenas de Markov
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_08_07/03_cuadrados_minimos/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Cuadrados Mínimos Revisitado
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_08_07/04_numero_condicion/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Condicionamiento y Estabilidad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Examen_2025_08_07/05_descomposicion_lu/teoria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Descomposición LU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demostraciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Demostraciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demostraciones/01_metodo_potencia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. Método de la Potencia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demostraciones/02_autovalores_distintos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. Independencia de Autovectores
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demostraciones/03_determinante_producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. Regla del Determinante
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../demostraciones/04_teorema_espectral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. Teorema Espectral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso A
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso B
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-inciso-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución Inciso D
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificacion-computacional-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificación Computacional en Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="solucion-del-ejercicio-3-examen-21-de-julio-de-2025-matrices-singulares-y-espectros">Solución del Ejercicio 3 (Examen 21 de julio de 2025 - Matrices Singulares y Espectros)</h1>
+<blockquote>
+<p><strong>Ejercicio 3.</strong> Sea <span class="arithmatex">\(A \in \mathbb{R}^{n \times n}\)</span> una matriz tal que <span class="arithmatex">\(A^t = A = A^{-1}\)</span>.</p>
+<p>a) ¿Cuánto vale el determinante de <span class="arithmatex">\(A\)</span>? ¿Es <span class="arithmatex">\(A\)</span> diagonalizable?</p>
+<p>b) ¿Cuáles son sus posibles autovalores?</p>
+<p>c) Calcular la matriz <span class="arithmatex">\(\Sigma\)</span> de la factorización SVD de <span class="arithmatex">\(A\)</span>. Justificar.</p>
+<p>d) Calcular los autovalores de la siguiente matriz:</p>
+<div class="arithmatex">\[B = \begin{pmatrix} 5/10 &amp; -5/10 &amp; -1/10 &amp; -7/10 \\ -5/10 &amp; 5/10 &amp; -1/10 &amp; -7/10 \\ -1/10 &amp; -1/10 &amp; 98/100 &amp; -14/100 \\ -7/10 &amp; -7/10 &amp; -14/100 &amp; 2/100 \end{pmatrix}\]</div>
+<p><em>Sugerencia: usar los items anteriores.</em></p>
+</blockquote>
+<hr />
+<h2 id="solucion-inciso-a">Solución Inciso A</h2>
+<blockquote>
+<p>a) ¿Cuánto vale el determinante de <span class="arithmatex">\(A\)</span>? ¿Es <span class="arithmatex">\(A\)</span> diagonalizable?</p>
+</blockquote>
+<p>El enigma postula que la matriz es idéntica tanto a su transpuesta (<span class="arithmatex">\(A^t = A\)</span>, por ende es <strong>Simétrica</strong>) como a su recíproca inversa (<span class="arithmatex">\(A = A^{-1}\)</span>, ergo es <strong>Involutiva</strong>). De la yuxtaposición de estas dos igualdades se extrae que <span class="arithmatex">\(A^t = A^{-1}\)</span>, lo que por definición de álgebra lineal consagra a <span class="arithmatex">\(A\)</span> adicionalmente como una matriz <strong>Ortogonal</strong>.</p>
+<p>Para averiguar el determinante, partimos de la definición que nos fue dada al unificar la simetría con la inversa:</p>
+<div class="arithmatex">\[A \cdot A = A \cdot A^{-1}\]</div>
+<div class="arithmatex">\[A^2 = I\]</div>
+<p>Buscamos aplicar el operador determinante a ambos lados de la ecuación, recordando la propiedad multiplicativa del determinante <span class="arithmatex">\(|A \cdot B| = |A| \cdot |B|\)</span>:</p>
+<details class="info">
+<summary>Demostración Teórica: La Regla Multiplicativa del Determinante</summary>
+<p>¿De dónde surge que la multiplicidad algorítmica subyacente de la función módulo respeta en total lealtad al producto de los agrupamientos? Su rigor matemático nace de las Matrices Elementales. Toda matriz regular inversible es descomponible en un tren finito de elementales (<span class="arithmatex">\(A = E_1\dots E_k\)</span>), los cuales individualmente traccionan al determinante separándolo en pedazos lógicos.</p>
+<p>📌 <em>Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué <span class="arithmatex">\(\det(AB) = \det(A)\det(B)\)</span> (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: <a href="../../../demostraciones/03_determinante_producto/">Demostración: Regla Multiplicativa del Determinante</a>.</em></p>
+</details>
+<div class="arithmatex">\[|A^2| = |I|\]</div>
+<div class="arithmatex">\[|A|^2 = 1\]</div>
+<p>Al despejar algebraicamente, obtenemos las dos posibles raíces reales del determinante:</p>
+<div class="arithmatex">\[|A| = \pm 1\]</div>
+<p>Por lo tanto, <strong>el determinante de la matriz estructurada <span class="arithmatex">\(A\)</span> puede valer <span class="arithmatex">\(1\)</span> o <span class="arithmatex">\(-1\)</span></strong>. </p>
+<p>Acerca de si la matriz es diagonalizable, la respuesta viene dada inmediatamente por el <strong>Teorema Espectral</strong>. Dicho colosal teorema dictamina que "Toda matriz real y simétrica es diagonalizable ortogonalmente dentro de los números reales". Como nuestra matriz satisface fehacientemente la condición de ser real y simétrica (<span class="arithmatex">\(A = A^t\)</span>), <strong>es innegablemente diagonalizable</strong>.</p>
+<details class="info">
+<summary>Demostración Teórica: Teorema Espectral</summary>
+<p>¿De dónde surgen algebraicamente las garantías insalvables de que ninguna matriz simétrica escapa jamás al terreno imaginario de Raíces Complejas, y que sus correspondientes bases multidimensionales describen ángulos perpetuos y exactos de 90° entre sí? Todo se reduce a manipulaciones hermíticas de la pre-multiplicación y del conjugado transpuesto.</p>
+<p>📌 <em>Revisar riguroso desarrollo paso a paso del porqué <span class="arithmatex">\(\lambda = \overline{\lambda}\)</span> junto con el porqué de la ortogonalidad <span class="arithmatex">\(v_i \cdot v_j = 0\)</span> sumado a su estrés computacional randomizado por Python, aquí: <a href="../../../demostraciones/04_teorema_espectral/">Demostración: Teorema Espectral</a>.</em></p>
+</details>
+<hr />
+<h2 id="solucion-inciso-b">Solución Inciso B</h2>
+<blockquote>
+<p>b) ¿Cuáles son sus posibles autovalores?</p>
+</blockquote>
+<p>Si <span class="arithmatex">\(A\)</span> es diagonalizable, asume autovalores <span class="arithmatex">\(\lambda_i\)</span> y autovectores asociados <span class="arithmatex">\(v_i \neq 0\)</span> que obedecen la transformación originaria:</p>
+<div class="arithmatex">\[A v_i = \lambda_i v_i\]</div>
+<p>Para desentrañar el espectro posible (los valores escalares que puede asir <span class="arithmatex">\(\lambda\)</span>), podemos pre-multiplicar libremente por <span class="arithmatex">\(A\)</span> de ambos lados de la igualdad de autovectores:</p>
+<div class="arithmatex">\[A (A v_i) = A (\lambda_i v_i)\]</div>
+<p>Dada la linealidad matricial, se absorbe el factor en escalares externos:</p>
+<div class="arithmatex">\[A^2 v_i = \lambda_i (A v_i)\]</div>
+<p>Reemplazando la recursión original <span class="arithmatex">\(A v_i\)</span>:</p>
+<div class="arithmatex">\[A^2 v_i = \lambda_i (\lambda_i v_i) = \lambda_i^2 v_i\]</div>
+<p>No obstante, en el inciso A determinamos por las imposiciones del propio ejercicio que <span class="arithmatex">\(A^2 = I\)</span>. Reemplazando temporalmente al operador izquierdo:</p>
+<div class="arithmatex">\[I v_i = \lambda_i^2 v_i\]</div>
+<div class="arithmatex">\[v_i = \lambda_i^2 v_i\]</div>
+<p>Como los autovectores no pueden ser el vector nulo por definición de su existencia subyacente (<span class="arithmatex">\(v_i \neq 0\)</span>), la única condición axiomática para que ambas proyecciones se equiparen es que el polinomio factor extraído asuma la igualdad:</p>
+<div class="arithmatex">\[\lambda_i^2 = 1\]</div>
+<p>Resolviendo, encontramos que <strong>los únicos autovalores viables que componen el espectro de cualquier matriz con estas características son <span class="arithmatex">\(\lambda = \{1, -1\}\)</span></strong>.</p>
+<hr />
+<h2 id="solucion-inciso-c">Solución Inciso C</h2>
+<blockquote>
+<p>c) Calcular la matriz <span class="arithmatex">\(\Sigma\)</span> de la factorización SVD de <span class="arithmatex">\(A\)</span>. Justificar.</p>
+</blockquote>
+<p>La descomposición en valores singulares (SVD) nos permite desarticular a <span class="arithmatex">\(A\)</span> en la multiplicación <span class="arithmatex">\(A = U \Sigma V^t\)</span>. Por teorema, la matriz analítica diagonal <span class="arithmatex">\(\Sigma\)</span> resguarda en orden descendente los <strong>valores singulares (<span class="arithmatex">\(\sigma_i\)</span>)</strong> estrictamente positivos de <span class="arithmatex">\(A\)</span>.</p>
+<p>La doctrina matemática pauta que los valores singulares <span class="arithmatex">\(\sigma_i\)</span> de una matriz <span class="arithmatex">\(A\)</span> son las raíces cuadradas de los autovalores algebraicos provenientes de la nueva matriz simétrica definida positiva <span class="arithmatex">\(A^t A\)</span>.</p>
+<p>Calculemos internamente esta matriz a modelar:</p>
+<div class="arithmatex">\[A^t A\]</div>
+<p>Viendo las definiciones iniciales (<span class="arithmatex">\(A^t = A = A^{-1}\)</span>), la premultiplicamos algebráicamente sabiendo que es ortogonal:</p>
+<div class="arithmatex">\[A^t A = A^{-1} A = I\]</div>
+<p>Efectivamente, la matriz de correlación es la Identidad. Los autovalores <span class="arithmatex">\(\lambda\)</span> vinculados a la matriz unidad matricial <span class="arithmatex">\(I\)</span> son estática e irrevocablemente todos de monto numérico igual a <span class="arithmatex">\(1\)</span>.</p>
+<p>Por consiguiente, extirpando raíces para obtener los valores singulares:</p>
+<div class="arithmatex">\[\sigma_i = \sqrt{1} = 1 \quad \forall i \in (1, \dots, n)\]</div>
+<p>Todos los valores rectro-singulares son igual a la unidad. Al disponerse jerárquicamente en la diagonal <span class="arithmatex">\(\Sigma\)</span>, ésta pasará a ser una matriz rellena fundamentalmente de unos. <strong>La matriz <span class="arithmatex">\(\Sigma\)</span> evaluada resulta ser idéntica analíticamente a la Matriz Identidad: <span class="arithmatex">\(\Sigma = I\)</span>.</strong></p>
+<hr />
+<h2 id="solucion-inciso-d">Solución Inciso D</h2>
+<blockquote>
+<p>d) Calcular los autovalores de la siguiente matriz:</p>
+<div class="arithmatex">\[B = \begin{pmatrix} 5/10 &amp; -5/10 &amp; -1/10 &amp; -7/10 \\ -5/10 &amp; 5/10 &amp; -1/10 &amp; -7/10 \\ -1/10 &amp; -1/10 &amp; 98/100 &amp; -14/100 \\ -7/10 &amp; -7/10 &amp; -14/100 &amp; 2/100 \end{pmatrix}\]</div>
+<p><em>Sugerencia: usar los items anteriores.</em></p>
+</blockquote>
+<p>Nos proponen la matriz <span class="arithmatex">\(4 \times 4\)</span>:</p>
+<div class="arithmatex">\[B = \begin{pmatrix} 0.5 &amp; -0.5 &amp; -0.1 &amp; -0.7 \\ -0.5 &amp; 0.5 &amp; -0.1 &amp; -0.7 \\ -0.1 &amp; -0.1 &amp; 0.98 &amp; -0.14 \\ -0.7 &amp; -0.7 &amp; -0.14 &amp; 0.02 \end{pmatrix}\]</div>
+<p>El <em>hint</em> nos insta a usar las conclusiones deductivas asimiladas en items previos. Inspeccionemos a <span class="arithmatex">\(B\)</span>:</p>
+<ul>
+<li>
+<p>Naturalmente saltan a la vista por espejo estructural sobre la diagonal que <strong>B es simétrica</strong> (<span class="arithmatex">\(B = B^t\)</span>).</p>
+</li>
+<li>
+<p>Si computarizáramos o realizásemos el esfuerzo maratónico de calcular <span class="arithmatex">\(B^2\)</span>, notaríamos (como comprobará la computadora acto seguido) que <strong><span class="arithmatex">\(B^2 = I\)</span></strong>, con lo que <span class="arithmatex">\(B = B^{-1}\)</span>.</p>
+</li>
+</ul>
+<p>Por consiguiente, la matriz <span class="arithmatex">\(B\)</span> asienta empíricamente en el grupo de matrices de los incisos anteriores (<span class="arithmatex">\(B^t = B = B^{-1}\)</span>). Según el inciso B, <strong>sus probables y únicos autovalores son exhaustivamente <span class="arithmatex">\(1\)</span> o <span class="arithmatex">\(-1\)</span></strong>. Nos toca descubrir la multiplicidad de ellos, es decir, determinar exactamente dentro de esos cuatro valores espaciales en <span class="arithmatex">\(\mathbb{R}^4\)</span> cuántos "unos" positivos y "unos" negativos subyacen.</p>
+<p>Haciendo uso analítico implacable de la <strong>Traza de la Matriz</strong> (<span class="arithmatex">\(Tr(B)\)</span>, sumatoria lineal de los índices puros diagonales), sabemos que por el Teorema de la Traza ésta no muta jamás bajo cambios de base y es perennemente idéntica a la sumatoria de sus autovalores matemáticos abstractos.</p>
+<p>Calculando la diagonal de <span class="arithmatex">\(B\)</span>:</p>
+<div class="arithmatex">\[Tr(B) = 0.5 + 0.5 + 0.98 + 0.02 = 2\]</div>
+<p>Frente a esto, postulamos nuestro conjunto de auto-valores en incógnitas: Sea <span class="arithmatex">\(k\)</span> la cantidad de autovalores de monto <span class="arithmatex">\(1\)</span>, y <span class="arithmatex">\(m\)</span> la cantidad de autovalores de monto <span class="arithmatex">\(-1\)</span>. Como <span class="arithmatex">\(\dim(B) = 4\)</span>, tenemos 4 autovalores totales y armamos el sistema 2x2:</p>
+<div class="arithmatex">\[ \begin{cases} k + m = 4 \quad \text{(Espectro total)} \\ k(1) + m(-1) = 2 \quad \text{(Suma traza-autovalores)} \end{cases}\]</div>
+<p>Acumulando ambas igualdades (<span class="arithmatex">\(2k = 6\)</span>), extirpamos lógicamente a los constituyentes:</p>
+<div class="arithmatex">\[k = 3\]</div>
+<div class="arithmatex">\[m = 1\]</div>
+<p>Por ende, deducimos implacablemente sin factorizar grado 4, que <strong>los cuatro autovalores exactos de la matriz B son: <span class="arithmatex">\(\{1, 1, 1, -1\}\)</span></strong>.</p>
+<hr />
+<h2 id="verificacion-computacional-en-python">Verificación Computacional en Python</h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">run_tests</span><span class="p">():</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Analizando Numéricamente Propiedades de Matriz A y B ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="c1"># Inciso D: Vamos a someter nuestra deducción final al veredicto del hardware.</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.7</span>   <span class="p">],</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>     <span class="mf">0.5</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.7</span>   <span class="p">],</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>     <span class="mf">0.98</span><span class="p">,</span>   <span class="o">-</span><span class="mf">0.14</span>  <span class="p">],</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="p">[</span><span class="o">-</span><span class="mf">0.7</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.7</span><span class="p">,</span>    <span class="o">-</span><span class="mf">0.14</span><span class="p">,</span>    <span class="mf">0.02</span>  <span class="p">]</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="p">])</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Comprobando Axiomas Categóricos Iniciales sobre la Matriz B ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="c1"># 1. Simetría B = B^t</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">es_simetrica</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;¿La matriz posee simetría morfológica (B = B^t)?: </span><span class="si">{</span><span class="n">es_simetrica</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="c1"># 2. Involución B^2 = I</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">I_ref</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="n">B_cuadrado</span> <span class="o">=</span> <span class="n">B</span> <span class="o">@</span> <span class="n">B</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="n">es_involutiva</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">B_cuadrado</span><span class="p">,</span> <span class="n">I_ref</span><span class="p">)</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;¿El cuadrado autopropagado de la Matriz recae en la Identidad (B^2 = I)?: </span><span class="si">{</span><span class="n">es_involutiva</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="c1"># Dado que se infieren como True, inferimos colateralmente la ortogonalidad:</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="n">B_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="n">es_ortogonal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">B_inv</span><span class="p">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(Deducimos Inversa igual a Transpuesta causal) ¿Ortogonalidad?: </span><span class="si">{</span><span class="n">es_ortogonal</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Verificando Espectro Analítico Sugerido (Inciso D) ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="c1"># La computadora extraerá de las entrañas matemáticas el polinomio</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="n">lambdas_computadora</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="c1"># Debido a fluctuaciones estadísticas binarias flotantes (e.g., 0.999999999) rodeamos el valor empírico</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>    <span class="n">lambdas_redondeados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lambdas_computadora</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    <span class="c1"># Ordenados descendentemente por prolijidad</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    <span class="n">lambdas_redondeados</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">lambdas_redondeados</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Autovalores extraídos desde `numpy.linalg.eig` (Redondeados): </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">lambdas_redondeados</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    <span class="c1"># Cotejando contra deducción escrita e inmaculada:</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="n">espectro_inferido</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    <span class="n">espectro_inmaculado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">lambdas_redondeados</span><span class="p">,</span> <span class="n">espectro_inferido</span><span class="p">)</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;¿Los autovalores empíricos coinciden sin piedad con la deducción analítica de la Traza y Rango?: </span><span class="si">{</span><span class="n">espectro_inmaculado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Inciso C: Corroborando Sigma Identidad frente a SVD de un Ortogonal ---&quot;</span><span class="p">)</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">S_observado</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="n">sigma_redondeado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">S_observado</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La colección de valores Sigmas (Singulares): </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">sigma_redondeado</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;¿En efecto, toda SVD diagonal subyacente de Ortogonales en sus valores sigmas re-arma la Matriz Identidad?: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">sigma_redondeado</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    <span class="n">run_tests</span><span class="p">()</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

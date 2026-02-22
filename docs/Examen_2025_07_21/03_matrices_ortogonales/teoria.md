@@ -17,6 +17,7 @@
 ---
 
 ## Solución Inciso A
+
 > a) ¿Cuánto vale el determinante de $A$? ¿Es $A$ diagonalizable?
 
 
@@ -55,6 +56,7 @@ Acerca de si la matriz es diagonalizable, la respuesta viene dada inmediatamente
 ---
 
 ## Solución Inciso B
+
 > b) ¿Cuáles son sus posibles autovalores?
 
 
@@ -89,6 +91,7 @@ Resolviendo, encontramos que **los únicos autovalores viables que componen el e
 ---
 
 ## Solución Inciso C
+
 > c) Calcular la matriz $\Sigma$ de la factorización SVD de $A$. Justificar.
 
 
@@ -115,6 +118,7 @@ Todos los valores rectro-singulares son igual a la unidad. Al disponerse jerárq
 ---
 
 ## Solución Inciso D
+
 > d) Calcular los autovalores de la siguiente matriz:
 >
 > $$B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}$$

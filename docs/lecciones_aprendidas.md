@@ -65,3 +65,28 @@ A través de las validaciones teórico-prácticas elaboradas en nuestra metodolo
 - **Transformación de Hipóstasis Exponenciales:** Estudiamos cómo la vasta mayoría de las regresiones empíricas no-lineales en la naturaleza se reducen, algorítmicamente, a simples regresiones lineales ordinarias que las computadoras (como `numpy.linalg`) pueden resolver al instante si aplicamos isomorfismos biyectivos. Bajar el exponente $z = a \cdot y^b$ vía logaritmos naturales independiza por la fuerza una función intratable y nos la otorga en bandeja de plata como modelo paramétrico $\beta_0 + \beta_1 X$ compatible con la rígida Ecuación Normal de M.C.O.
 
 - **Validación del Determinante Experimental:** En la programación probabilística de datos es usual arrojarle a la máquina miles de registros esperando que encuentre promedios ponderados. Este ejercicio resalta el valor semántico de la Independencia Lineal como pilar subyacente de la Computabilidad. Diseñar un array de control minúsculo adrede (de apenas 3 puntos de prueba) y observar que es materialmente el número mínimo insalvable para que el algoritmo arroje un `LinAlgError` si no reparamos en la dependencia, permite trazar una raya visible entre un algoritmo "que funciona de casualidad" y un entendimiento total de las fronteras matemáticas de las librerías estadísticas subyacentes.
+
+## Examen 07 de ago de 2025
+
+### Ejercicio 1 - Proyectores Oblicuos vs Ortogonales
+
+- **Geometría de la Intersección Nula:** Validamos computacionalmente que construir un proyector genérico $P$ impone armar su base aglomerando $Im(P) \oplus Nu(P)$. El cálculo del determinante de esta matriz base ensamblada es la prueba irrefutable de que dicha suma directa conforma a todo $\mathbb{R}^n$, un paso ineludible para garantizar la viabilidad del proyector.
+- **Asimetría de la Oblicuidad:** Contrastamos en código que si bien $P^2 = P$ dictamina la existencia fundamental del proyector abstracto, la falta de simetría estructural $P \neq P^T$ es el detonante métrico exclusivo que lo empuja a ser oblicuo en vez de ortogonal puro, sesgando asimétricamente los vectores de entrada al colapsarlos.
+
+### Ejercicio 2 - Cadenas Cíclicas de Markov
+
+- **Frontera Determinística del Círculo Unidad:** Corroboramos en papel y Python que las sub-matrices estocásticas cuyas rutas arman "ciclos herméticos" no-absorbentes inyectan ineludiblemente raíces $k$-ésimas complejas al espectro propio de la matriz global. Esto demuestra formalmente que las cadenas de Markov con estados rotacionales periódicos alojan infinitos autovalores de módulo $| \lambda | = 1$, evitando el decaimiento asintótico en esas sub-secciones.
+- **Absorción y Estado Estacionario Unificado:** Experimentamos con un modelo fuertemente conexo final, verificando probabilísticamente que sin importar el vector de estado entrante $v_0$ o su ruido inicial aleatorio, la única clase recurrente y aperiódica traga absolutamente la masa completa del sistema hacia un inquebrantable autovector $\lambda = 1$, confirmando el Teorema Fundamental asintótico de las Matrices Estocásticas.
+
+### Ejercicio 3 - Abstracción de la Pseudoinversa
+
+- **Estabilidad frente a las Ecuaciones Normales:** Verificamos al contrastar fórmulas y simulaciones que la Pseudoinversa de Moore-Penrose $A^\dagger$ no es simplemente una triquiñuela notacional para ocultar la espantosa matriz Gramiana $(A^T A)^{-1} A^T$, sino el verdadero salvavidas algorítmico subyacente de `lstsq`, ya que a través de factorizaciones iteradas en la máquina logra saltearse el catastrófico acto de potenciar al cuadrado el de por sí frágil número de condición de $A$.
+
+### Ejercicio 4 - Sensibilidad Paramétrica y Jacobi
+
+- **Amplificación de Escala no-Lineal:** Calculamos manualmente cotas de perturbación generalizadas que evidenciaron de forma indiscutible cómo incorporar variables hiperbólicas (ej: $k^2$) en elementos críticos de un operador colapsa el condicionamiento general a valores gigantescos $\mathcal{O}(k^2)$, destrozando de origen cualquier confiabilidad numérica.
+- **Milagro del Precondicionador Constante:** Sorprendimos al condicionamiento aplicando un mitigador de Jacobi matriz-diagonal elemental, cuya única ronda lateral inyectada transmutó un sistema que tendía a estallar con $k \to \infty$ en uno inofensivo con cota $\approx 6.85$ eternamente rígido e impasible. Esto confirma el enorme poder industrial del precondicionamiento previo a la iteración en gran escala algorítmica.
+
+### Ejercicio 5 - LU y la Fragilidad de Gauss
+
+- **El Concepto de Multiplicador Intacto:** Descubrimos conceptualizando la función algorítmica `LU` y los pasos manuales cómo el corazón matricial colapsa instantáneamente en un *ZeroDivisionError* fatal si cualquier $A^{(k)}_{k k}$ se asoma al nivel nulo exacto en medio del viaje al fondo. El pivoteo (permutación) no es mero orden visual en una computadora, sino el pilar matemático que dictamina si $A$ admite la factorización LU pura, o requiere imperiosamente reensamblarse como una exótica $PA=LU$.

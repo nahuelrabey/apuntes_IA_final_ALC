@@ -35,6 +35,7 @@ A la hora de redactar el cuerpo matemático de `teoria.md` o cualquier otro arch
   - Las variables matemáticas y derivaciones formales se deben explayar de modo deductivo (paso a paso), sin obviar el "puente lógico" entre axiomas. 
   - Las ecuaciones de peso deben separarse en bloque (usando `$$...$$` con una **línea vacía adicional** por encima y por debajo para curar fallos del ruteo en `MkDocs` y `MathJax`).
   - **Listas y viñetas**: Asegúrate siempre de dejar un salto de línea en blanco antes y entre medio de los ítems de cualquier enumerado para evitar condensación del hipertexto al compilar.
+  - **Diagramas**: Las representaciones visuales, como grafos de transición, deben hacerse utilizando sintaxis de **Mermaid** (` ```mermaid ... ``` `).
 
 - **Manejo de Notas Adicionales y Complejidad Oculta**:
   - El razonamiento base debe fluir limpio. Cualquier justificación profunda, análisis del porqué de una técnica matemática subyacente o extensión histórica deberá quedar "escondida" en un bloque sintáctico colapsable usando **admonitions interactivos** de MkDocs: `??? info "Observación Teórica: [Título]"`.

@@ -63,6 +63,12 @@ nav:
       - 02. Descomposición SVD: Examen_2025_02_24/02_descomposicion_svd/teoria.md
       - 03. Métodos Iterativos: Examen_2025_02_24/03_metodos_iterativos/teoria.md
       - 04. Mínimos Cuadrados: Examen_2025_02_24/04_minimos_cuadrados/teoria.md
+  - Examen 07 de ago de 2025:
+      - 01. Proyectores y Subespacios: Examen_2025_08_07/01_proyector/teoria.md
+      - 02. Cadenas de Markov: Examen_2025_08_07/02_markov/teoria.md
+      - 03. Cuadrados Mínimos Revisitado: Examen_2025_08_07/03_cuadrados_minimos/teoria.md
+      - 04. Condicionamiento y Estabilidad: Examen_2025_08_07/04_numero_condicion/teoria.md
+      - 05. Descomposición LU: Examen_2025_08_07/05_descomposicion_lu/teoria.md
   - Demostraciones:
       - 01. Método de la Potencia: demostraciones/01_metodo_potencia.md
       - 02. Independencia de Autovectores: demostraciones/02_autovalores_distintos.md
