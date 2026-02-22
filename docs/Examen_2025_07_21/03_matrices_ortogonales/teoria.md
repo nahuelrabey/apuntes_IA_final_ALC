@@ -15,6 +15,8 @@
 ---
 
 ## Solución Inciso A
+> a) ¿Cuánto vale el determinante de $A$? ¿Es $A$ diagonalizable?
+
 
 El enigma postula que la matriz es idéntica tanto a su transpuesta ($A^t = A$, por ende es **Simétrica**) como a su recíproca inversa ($A = A^{-1}$, ergo es **Involutiva**). De la yuxtaposición de estas dos igualdades se extrae que $A^t = A^{-1}$, lo que por definición de álgebra lineal consagra a $A$ adicionalmente como una matriz **Ortogonal**.
 
@@ -41,6 +43,8 @@ Acerca de si la matriz es diagonalizable, la respuesta viene dada inmediatamente
 ---
 
 ## Solución Inciso B
+> b) ¿Cuáles son sus posibles autovalores?
+
 
 Si $A$ es diagonalizable, asume autovalores $\lambda_i$ y autovectores asociados $v_i \neq 0$ que obedecen la transformación originaria:
 
@@ -73,6 +77,8 @@ Resolviendo, encontramos que **los únicos autovalores viables que componen el e
 ---
 
 ## Solución Inciso C
+> c) Calcular la matriz $\Sigma$ de la factorización SVD de $A$. Justificar.
+
 
 La descomposición en valores singulares (SVD) nos permite desarticular a $A$ en la multiplicación $A = U \Sigma V^t$. Por teorema, la matriz analítica diagonal $\Sigma$ resguarda en orden descendente los **valores singulares ($\sigma_i$)** estrictamente positivos de $A$.
 
@@ -97,6 +103,10 @@ Todos los valores rectro-singulares son igual a la unidad. Al disponerse jerárq
 ---
 
 ## Solución Inciso D
+> d) Calcular los autovalores de la siguiente matriz:
+> $$B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}$$
+> *Sugerencia: usar los items anteriores.*
+
 
 Nos proponen la matriz $4 \times 4$:
 

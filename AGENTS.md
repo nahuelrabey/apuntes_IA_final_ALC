@@ -8,6 +8,8 @@ Use "uv" for python commands
 
 - Deben haber por lo menos dos encabezados: "Interpretación del Enunciado" y "Solución del Ejercicio" (este puede hacerse en varios incisos).
 
+- **Incisos de ejercicios:** Si la resolución de un problema está dividida estructuralmente en varios incisos (por ejemplo: "a)", "1.", etc.), **asegúrate de re-copiar textualmente el enunciado específico de ese sub-inciso bajo el subtítulo H2 correspondiente**, en formato blockquote (`> ...`). De este modo, el lector no necesitará retroceder ni hacer scroll-up continuo para refrescar qué pedía el apartado que se está resolviendo.
+
 ### Listas Desordenadas (Unordered Lists)
 - Para que las viñetas y listas se rendericen de forma apropiada en MkDocs sin fusionarse con párrafos adjuntos, **siempre deja un salto de línea (espacio) antes de comenzar cualquier lista `(- )`**. Adicionalmente, inserta **un salto de línea en blanco entre cada uno de los ítems de la lista**.
 
