@@ -1,0 +1,40 @@
+--- INICIANDO VALIDACION ---
+
+[!] VIOLACIONES EN: docs\Examen_2025_02_24\02_descomposicion_svd\teoria.md
+  - Linea 30: Falta salto de línea antes del ítem de lista ('- $\lambda_2 = 4 \im...')
+  - Linea 31: Falta salto de línea antes del ítem de lista ('- $\lambda_3 = 1 \im...')
+  - Linea 40: Falta salto de línea antes del ítem de lista ('- Para $\lambda_2 = ...')
+  - Linea 41: Falta salto de línea antes del ítem de lista ('- Para $\lambda_3 = ...')
+  - Linea 50: Falta salto de línea antes del ítem de lista ('- $u_2 = \frac{1}{2}...')
+  - Linea 51: Falta salto de línea antes del ítem de lista ('- $u_3 = \frac{1}{1}...')
+  - Linea 102: Falta salto de línea antes del ítem de lista ('- El número de condi...')
+
+[!] VIOLACIONES EN: docs\Examen_2025_02_24\03_metodos_iterativos\teoria.md
+  - Linea 20: Falta salto de línea antes del ítem de lista ('- $L = \begin{pmatri...')
+  - Linea 21: Falta salto de línea antes del ítem de lista ('- $U = \begin{pmatri...')
+  - Linea 82: Falta salto de línea antes del ítem de lista ('- Para Gauss-Seidel:...')
+  - Linea 92: Falta salto de línea después de bloque $$
+  - Linea 98: Falta salto de línea antes de bloque $$
+
+[!] VIOLACIONES EN: docs\Examen_2025_02_24\04_minimos_cuadrados\teoria.md
+  - Linea 34: Falta salto de línea antes del ítem de lista ('- $A = \ln(a)$ *(nue...')
+  - Linea 35: Falta salto de línea antes del ítem de lista ('- El parámetro $b$ q...')
+  - Linea 36: Falta salto de línea antes del ítem de lista ('- El parámetro $c$ q...')
+  - Linea 37: Falta salto de línea antes del ítem de lista ('- La variable asocia...')
+  - Linea 38: Falta salto de línea antes del ítem de lista ('- La variable asocia...')
+  - Linea 42: Falta salto de línea después de bloque $$
+  - Linea 61: Falta salto de línea antes de bloque $$
+  - Linea 80: Falta salto de línea antes del ítem de lista ('- La variable $y_i$ ...')
+  - Linea 86: Falta salto de línea antes del ítem de lista ('- $P_2 = (x_2=0,\, y...')
+  - Linea 87: Falta salto de línea antes del ítem de lista ('- $P_3 = (x_3=-1,\, ...')
+  - Linea 107: Falta salto de línea antes del ítem de lista ('- Para que la matriz...')
+
+[!] VIOLACIONES EN: docs\Examen_2025_07_21\01_svd\teoria.md
+  - Linea 8: Falta salto de línea antes del ítem de lista ('> - Para $k \in 1, \...')
+  - Linea 21: Falta salto de línea antes del ítem de lista ('- $V$ es una matriz ...')
+  - Linea 22: Falta salto de línea antes del ítem de lista ('- $\Sigma$ es una ma...')
+  - Linea 23: Falta salto de línea antes del ítem de lista ('- La expresión $\til...')
+
+[!] VIOLACIONES EN: docs\Examen_2025_07_21\03_matrices_ortogonales\teoria.md
+  - Linea 106: Falta salto de línea antes del ítem de lista ('- Naturalmente salta...')
+  - Linea 107: Falta salto de línea antes del ítem de lista ('- Si computarizáramo...')

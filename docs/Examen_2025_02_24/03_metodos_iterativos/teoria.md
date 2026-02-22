@@ -17,7 +17,9 @@ Dada la matriz del sistema:
 Podemos descomponer la matriz en su diagonal ($D$), su parte estrictamente inferior ($L$) y su parte estrictamente superior ($U$), de tal forma que $A = D + L + U$:
 
 - $D = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} = I$
+
 - $L = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & c & 0 \end{pmatrix}$
+
 - $U = \begin{pmatrix} 0 & c & 0 \\ 0 & 0 & c \\ 0 & 0 & 0 \end{pmatrix}$
 
 ---
@@ -79,6 +81,7 @@ La tasa asintótica de convergencia se define computacionalmente como $R(T) = -\
 A mayor tasa de convergencia teórica ($R$), se requieren en la práctica menos iteraciones para converger con la computadora.
 
 - Para Jacobi: $R(T_J) = -\ln(|c|)$
+
 - Para Gauss-Seidel: $R(T_{GS}) = -\ln(c^2) = -2\ln(|c|) = 2 R(T_J)$
 
 La relación concluyente es que la tasa de convergencia de Gauss-Seidel es exactamente el doble. Por lo tanto, el método de **Gauss-Seidel converge el doble de rápido** que el método de Jacobi. Esperamos que Gauss-Seidel demore analíticamente la mitad de iteraciones computacionales en confluir para cualquier valor de $|c| < 1$.

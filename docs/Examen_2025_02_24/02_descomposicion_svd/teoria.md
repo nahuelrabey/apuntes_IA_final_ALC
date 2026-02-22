@@ -27,7 +27,9 @@ $$A^T A = \begin{pmatrix} 0 & 2 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix} \b
 Dado que $A^T A$ es una matriz diagonal, sus autovalores son directamente los elementos de su diagonal:
 
 - $\lambda_1 = 9 \implies \sigma_1 = 3$
+
 - $\lambda_2 = 4 \implies \sigma_2 = 2$
+
 - $\lambda_3 = 1 \implies \sigma_3 = 1$
 
 Por ende, nuestra matriz de valores singulares ordenados en forma decreciente es:
@@ -37,7 +39,9 @@ $$\Sigma = \begin{pmatrix} 3 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
 Ahora, hallamos los autovectores ortonormales de $A^T A$ asociados a estos autovalores para construir $V$:
 
 - Para $\lambda_1 = 9$, el vector propio asociado a la tercera columna resulta ser $v_1 = (0, 0, 1)^T$.
+
 - Para $\lambda_2 = 4$, el vector propio asociado a la primera columna resulta ser $v_2 = (1, 0, 0)^T$.
+
 - Para $\lambda_3 = 1$, el vector propio asociado a la segunda columna resulta ser $v_3 = (0, 1, 0)^T$.
 
 Concatenando dichos autovectores formamos $V$, y por lo tanto $V^T$:
@@ -47,7 +51,9 @@ $$V = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix} \implies
 Para hallar $U = (\vec{u}_1, \vec{u}_2, \vec{u}_3)$, utilizamos la relación $u_i = \frac{1}{\sigma_i} A v_i$:
 
 - $u_1 = \frac{1}{3} \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix} \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \frac{1}{3} \begin{pmatrix} 0 \\ 0 \\ -3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ -1 \end{pmatrix}$
+
 - $u_2 = \frac{1}{2} \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \frac{1}{2} \begin{pmatrix} 0 \\ 2 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$
+
 - $u_3 = \frac{1}{1} \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} -1 \\ 0 \\ 0 \end{pmatrix}$
 
 Reemplazando en $U$:
@@ -99,6 +105,7 @@ Por consiguiente, los valores singulares producidos por $P^T A^T A P$ serán los
 Sabemos por sus propiedades fundamentales que:
 
 - La norma-2 de una matriz es igual a su mayor valor singular: $\|M\|_2 = \sigma_{\max}$
+
 - El número de condición en base 2 equivale a la proporción de elongamiento límite: $\kappa_2(M) = \frac{\sigma_{\max}}{\sigma_{\min}}$
 
 Al haber probado instantes atrás que multiplicar por una permutación no afecta los valores singulares en absoluto, usamos el espectro ya calculado $\sigma \in \{3, 2, 1\}$:

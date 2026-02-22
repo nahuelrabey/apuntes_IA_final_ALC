@@ -5,13 +5,28 @@
 > a) Si $x \in \mathbb{R}^2$ es un vector perteneciente al círculo unitario, mostrar que el error cometido al calcular $Ax$ como $\tilde{A}x$ está acotado por $\sigma_2$.
 > 
 > b) Sea $B = A^tA$ y $x \in \mathbb{R}^2$ elegido al azar. Mostrar que el siguiente algoritmo converge al vector $v_1$ cuando $N \to \infty$:
+>
 > - Para $k \in 1, \dots, N$:
+>
 >   - $x = Bx$
+>
 >   - $x = x / ||x||$
 >
 > c) Escriba una rutina que calcule la mejor aproximación de rango 1 de una matriz real de $n \times 2$ en el sentido de la norma 2. Toda función que involucre operaciones más complejas que el producto matricial debe ser definida explícitamente.
 
 ---
+
+## Interpretación del enunciado
+
+Dado que la matriz $A$ es de dimensiones $n \times 2$, su descomposición SVD $A = U \Sigma V^t$ nos indica rigurosamente, por propiedades algebraicas de dimensión, que:
+
+- $U$ es una matriz ortogonal de $n \times n$, por ende sus vectores columna la componen como $U = [u_1, u_2, \dots, u_n]$.
+
+- $V$ es una matriz ortogonal de $2 \times 2$, ergo se compone acotadamente como $V = [v_1, v_2]$.
+
+- $\Sigma$ es una matriz de $n \times 2$ (mismas dimensiones que $A$) que alberga a los valores singulares $\sigma_i$ estrictamente a lo largo de su "diagonal principal" (donde el índice de fila coincide con el de columna, $\Sigma_{ii}$). **En consecuencia, todos los demás elementos que no pertenecen a esta diagonal son estrictamente nulos ($\Sigma_{ij} = 0$ para todo $i \neq j$)**. Esta es una propiedad basal inquebrantable de la SVD. A la hora de iterar, notamos que todas las filas contenidas entre $n=3$ hasta la última ($n$) serán filas llenas enteramente de ceros.
+
+- La expresión $\tilde{A} = \sigma_1 u_1 v_1^t$ se denomina **aproximación de rango 1**. El **Teorema de Eckart-Young-Mirsky** ([fuente matemática](https://es.wikipedia.org/wiki/Teorema_de_Eckart-Young-Mirsky)) en álgebra lineal demuestra infaliblemente que al truncar la SVD reteniendo únicamente el o los mayores valores singulares, se obtiene la matriz "más cercana" posible a la original minimizando el margen de error, en el sentido de la Norma Rectangular Espectral (Norma-2) y de Frobenius. Por ende, la conjunción de los mayores vectores singulares $\sigma_1 u_1 v_1^t$ conforma la proyección hiper-dimensional estricta de mayor asertividad para explicar la matriz general reduciéndola a un solo espectro principal (un solo vector-base).
 
 ## Solución Inciso A
 

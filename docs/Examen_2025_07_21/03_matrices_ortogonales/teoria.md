@@ -103,7 +103,9 @@ Nos proponen la matriz $4 \times 4$:
 $$B = \begin{pmatrix} 0.5 & -0.5 & -0.1 & -0.7 \\ -0.5 & 0.5 & -0.1 & -0.7 \\ -0.1 & -0.1 & 0.98 & -0.14 \\ -0.7 & -0.7 & -0.14 & 0.02 \end{pmatrix}$$
 
 El *hint* nos insta a usar las conclusiones deductivas asimiladas en items previos. Inspeccionemos a $B$:
+
 - Naturalmente saltan a la vista por espejo estructural sobre la diagonal que **B es simétrica** ($B = B^t$).
+
 - Si computarizáramos o realizásemos el esfuerzo maratónico de calcular $B^2$, notaríamos (como comprobará la computadora acto seguido) que **$B^2 = I$**, con lo que $B = B^{-1}$.
 
 Por consiguiente, la matriz $B$ asienta empíricamente en el grupo de matrices de los incisos anteriores ($B^t = B = B^{-1}$). Según el inciso B, **sus probables y únicos autovalores son exhaustivamente $1$ o $-1$**. Nos toca descubrir la multiplicidad de ellos, es decir, determinar exactamente dentro de esos cuatro valores espaciales en $\mathbb{R}^4$ cuántos "unos" positivos y "unos" negativos subyacen.

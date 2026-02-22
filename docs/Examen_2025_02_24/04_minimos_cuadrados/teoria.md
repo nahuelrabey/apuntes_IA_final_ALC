@@ -31,10 +31,15 @@ $$\ln(z) - 2 = \ln(a) + b \ln(y) + c x$$
 A partir de esta estructura lineal en sus parámetros, efectuamos los siguientes cambios de variable para llevarlo a un modelo lineal estándar de la forma $Z_i = \beta_0 + \beta_1 Y_i + \beta_2 X_i$:
 
 - $Z = \ln(z) - 2$ *(variable dependiente transformada)*
+
 - $A = \ln(a)$ *(nuevo parámetro ordenado al origen, luego $a = e^A$)*
+
 - El parámetro $b$ queda libre.
+
 - El parámetro $c$ queda libre.
+
 - La variable asociada a $b$ es $\ln(y)$
+
 - La variable asociada a $c$ es $x$
 
 Para un conjunto de $m$ puntos experimentales $(x_i, y_i, z_i)$, definimos el sistema de ecuaciones sobre-determinado en forma matricial $M \vec{\theta} = \vec{Z}$ como:
@@ -77,13 +82,16 @@ Como $M$ tiene 3 columnas, necesitamos que el $\text{Rango}(M) = 3$. Geométrica
 En el contexto físico del problema, esto implica que:
 
 - Los puntos de los datos $(x_i, y_i)$ no deben formar una combinación lineal perfecta. No vale que para todas las mediciones sea siempre $x_i = k \cdot \ln(y_i) + C$ (es decir, no pueden ser colineales en el plano de las características transformadas).
+
 - La variable $y_i$ **debe ser estrictamente positiva ($y_i > 0$)** para todo $i$, dado que el dominio natural del $\ln(y_i)$ no admite valores negativos ni ceros.
 
 **Propuesta de puntos experimentalmente válidos y robustos:**
 (Para garantizar que no sean colineales ni constantes, basta con alterar alternativamente las magnitudes en los ejes):
 
 - $P_1 = (x_1=1,\, y_1=1,\, z_1)$
+
 - $P_2 = (x_2=0,\, y_2=e,\, z_2)$
+
 - $P_3 = (x_3=-1,\, y_3=1,\, z_3)$
 
 Evaluemos cómo queda nuestra matriz de muestras con estos puntos de prueba para confirmar su independencia:
@@ -104,6 +112,7 @@ El sistema general de mínimos cuadrados tiene como incógnita el vector $\vec{\
 Por el Teorema de Rouché-Frobenius y el Rango fundamental del álgebra matricial:
 
 - Si aportamos $m < 3$ puntos, el sistema quedará sub-determinado (tendrá infinitas soluciones lógicas porque habrán variables libres, el rango máximo será menor a 3 penalizando a $M^T M$).
+
 - Para que la matriz de diseño $M \in \mathbb{R}^{m \times 3}$ logre poseer un Rango por Columnas exactamente igual a 3 (condición forzosa e innegociable para que la inversa de $M^T M$ exista), necesitamos aportar un mínimo estricto de **$m = 3$ puntos**.
 
 **Conclusión:** Se necesitan **como mínimo 3 puntos empíricos** (siempre y cuando estos no formen un subespacio degenerado de dimensiones menores, según lo exigido en el inciso 2).
