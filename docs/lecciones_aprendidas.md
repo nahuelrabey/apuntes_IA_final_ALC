@@ -5,36 +5,61 @@ A través de las validaciones teórico-prácticas elaboradas en nuestra metodolo
 ## Examen 21 de jul de 2025
 
 ### Ejercicio 1 - SVD
+
 - **Acotación de Errores con Valores Singulares:** Demostramos teóricamente y empíricamente cómo las aproximaciones de rango inferior truncando la SVD acotan su error máximo en norma Euclídea por el valor del siguiente valor singular omitido ($\sigma_2$). Esto reafirma la contundente utilidad de SVD en compresión matemática de datos con pérdidas rígidamente controladas.
+
 - **Convergencia Práctica del Método de la Potencia:** Demostramos mediante álgebra cómo iterar estocásticamente $x^{(k+1)} = \frac{Bx^{(k)}}{||Bx^{(k)}||}$ alinea rápidamente el vector a la componente principal dominante purgando a las demás bases por diferencias en el ratio de sus autovalores $\left(\frac{\lambda_2}{\lambda_1}\right)^k \to 0$. Esto nos permitió desarrollar una rutina de aproximación de rango 1 que iguala analíticamente en su resultado a las librerías industriales complejas.
 
 ### Ejercicio 2 - Diagonalización
+
 - **Independencia en Espectros Discretos:** Corroboramos en papel y máquina cómo una matriz con valores intrínsecos no repetidos despliega ineludiblemente un abanico hiper-dimensional completo de autovectores que componen una base lineal sin vacíos formales dentro de $\mathbb{R}^n$. Toda matriz estocástica generada artificialmente con auto-valores dispares presentará por ley matemática rango pleno en su subespacio.
+
 - **Isomorfismo de la Matriz Semejante C:** Entender la ecuación universal $AC = CS$ elimina en su completitud el "misterio" de la diagonalización abstracta. Al desgranar paso por paso que la multiplicación por bloques y extraer las variables demostramos cómo esta transformación de autovectores unificada como matriz sencilla enmascara el escalado puro espectral dentro de la base general del sistema.
 
 ### Ejercicio 3 - Matrices Ortogonales y Simétricas
+
 - **Teorema de la Traza en Espectros de Matrices Involutivas:** Ante una matriz de dimensión superior, si el marco teórico asegura (debido a su involución $A^2 = I$) que el espectro está condenado a valer $1$ o $-1$, la multiplicidad espectral decanta algebraicamente en un sistema de ecuaciones simplificado aplicando la traza. En el código dedujimos, y Python constató, cómo $Tr(B) = 2$ es una impronta en la materia que denota implacablemente que $k \cdot 1 + m \cdot (-1) = 2$.
+
 - **Transparencia Espectral frente a Factorización SVD:** Asimilamos conceptualmente que las matrices unitarias / ortogonales puras como $A$ carecen de re-escalado intrínseco. Como en su factorización sus valores singulares $\sigma$ no son otra cosa que la raíz de $A^t A$ y $A^t A = I$, toda componente SVD $\Sigma$ de una matriz ortogonal se colapsa en esencia a la pura Matriz Identidad.
 
 ### Ejercicio 4 - Cuadrados Mínimos y Aproximaciones
+
 - **Transparencia Hiperespacial Ortogonal:** Cuando se trabaja con un conjunto regido expletamente por Bases Ortonormales en $\mathbb{R}^n$, plantear la minimización explícita sobre un sub-hiperplano se destila en proyectar canónicamente cada componente de modo independiente. Como la matriz gramiana $A^t A$ es de per se la identidad, todo el colosal artilugio del modelo matricial MCO se simplifica al mero filtrado algorítmico de productos internos.
+
 - **Teorema de Pitágoras Multidimensional en Residuos:** Constatamos que la norma de un vector residual originado al truncarse la proyección ortogonal, como aquel error $e = (b - p) = \sum_{k=n+1}^{m} x_k q_k$ es un cálculo exacto. El residuo general de la aproximación es puramente la suma pitagórica del módulo individual esgrimido por las componentes estáticas que quedaron ajenas al plano $A$.
 
 ### Ejercicio 5 - Desigualdad de Cauchy-Schwartz
+
 - **Deducción a partir de Geometría Residual:** Constatamos cómo la inquebrantable desigualdad lineal euclidiana emerge directamente del hecho físico de que los errores de proyección de Mínimos Cuadrados arrastran por definición una norma estrictamente positiva ($||e||^2 \ge 0$). Al aislar las magnitudes producto de dichas ecuaciones residuales y conjugarlas, el teorema sale a flote espontáneamente.
+
 - **Universalidad de Vectores Complejos:** El código en iteración aleatoria y masiva confirmó que la matriz Hermitiana transpuesta conjugada ($x^*$) absorbe idénticamente el mismo marco teórico que el dot-product simple en $\mathbb{R}^n$, probando que Cauchy-Schwartz es una ley del Álgebra Lineal que trasciende sin perturbarse hacia todo el abanico del espectro complejo ($\mathbb{C}^n$).
 
 ## Examen 24 de feb de 2025
 
+### Ejercicio 1 - Semejanza de Matrices
+
+- **Conservación Nuclear bajo Cambio de Base:** Demostramos computacionalmente que la relación de semejanza es de equivalencia, operando en Python y verificando que deshacer la transformación ($S^{-1} B S$) re-ensambla milimétricamente nuestra matriz $A$, comprobando que si $A \sim B$ ambas enmascaran el mismo sistema subyacente observado desde perspectivas oblicuas diferentes.
+
+- **Invarianza de la Traza y Operaciones Cíclicas:** Validamos probando estadísticamente en el código frente a matrices aleatorias densas que, por consecuencia directa de la regla rastro-cíclica ($Tr(EC) = Tr(CE)$), deformar un sistema lineal de ecuaciones por pre-y-post multiplicación con una matriz base $S$ no deforma jamás la suma geométrica de sus espectros primarios (su traza diagonal se preserva en $B$).
+
+- **Idempotencia Proyectiva Plena ($A^2 = A$):** Corroboramos en papel y computadora un axioma de la geometría lineal: si todos los infinitos valores del espectro propio para dimensiones $\mathbb{R}^n$ se reducen dogmáticamente a los booleanos puros $\{0, 1\}$, entonces no existe re-escalado dinámico que el operador introduzca en la topología asintota. El espacio degenera en una Matriz Idempotente que funciona como pura Proyección Estática inamovible.
+
 ### Ejercicio 2 - Semejanza y SVD
+
 - **Uso de Invarianzas y Transformaciones Ortogonales:** En matemáticas (como ocurre con la SVD), aplicar operaciones "isométricas" o transformaciones ortogonales (como fue multiplicar por una matriz de permutación aleatoria computacionalmente, $P$) resulta invariante para las magnitudes nucleares (como el espectro singular). 
+
 - **La Utilidad de la Permutación Aleatoria Computada:** A la hora de verificar propiedades sobre operadores donde "El orden de las filas no altera el resultado estructural", utilizar una matriz de permutación estocástica (`P = I[np.random.permutation(n), :]`) sobre el código es un factor de prueba estupendo. Si la propiedad estadística persiste (ejemplo, la invariabilidad de `np.linalg.svd`) probamos empíricamente la independencia matemática del operador evaluado y confirmamos el modelo numérico.
+
 - **Estabilidad de las Normas (Norma-2):** El script nos demostró cómo este tipo de transformaciones no introducen ruido algorítmico al "estiramiento" máximo de la matriz (la Norma 2) ni a su número de condición. Computarizar $\|PA\|_2$ arrojó consistentemente el mismo resultado de norma debido a que los ortogonales preservan las longitudes vectoriales subyacentes, validando lo deducido con lápiz y papel.
 
 ### Ejercicio 3 - Métodos Iterativos
+
 - **Del Radio Espectral al Código Empírico:** Observamos cómo la teoría matricial predice exáctamente el comportamiento iterativo del `while-loop`. A diferencia del algebra matricial analítica, el cálculo numérico involucra medir tiempos (tasas) de procesamiento. Si el análisis formal sostiene que la tasa de convergencia asintótica de una técnica es el doble de la que presenta otra ($\rho(T_{GS}) = \rho(T_J)^2$), computarizar un simple contador de los pasos que toma domar un residuo a una tolerancia límite dada (como $1e^{-10}$) nos ofrecerá una corroboración tajante donde comprobaremos cómo, en efecto, el loop computará la mitad de las iteraciones.
+
 - **Micro-optimizaciones Matemáticas en el Bloque RAM:** La forma iterativa de Gauss-Seidel demuestra conceptualmente un principio de las ciencias computacionales aplicado tempranamente a los algoritmos continuos. La "actualización inmediata" o *in-place updating* (donde $x_2^{(k+1)}$ se reutiliza inmediatamente sin demorarnos a la iteración $(k+1)$ en el bloque en memoria) ahorra recursos del caché y virtualmente duplica la velocidad del procesamiento comparado con Jacobi, que exige retener en memoria secundaria una foto en frío del vector íntegro $X^{(k)}$ del pasado.
 
 ### Ejercicio 4 - Mínimos Cuadrados
+
 - **Transformación de Hipóstasis Exponenciales:** Estudiamos cómo la vasta mayoría de las regresiones empíricas no-lineales en la naturaleza se reducen, algorítmicamente, a simples regresiones lineales ordinarias que las computadoras (como `numpy.linalg`) pueden resolver al instante si aplicamos isomorfismos biyectivos. Bajar el exponente $z = a \cdot y^b$ vía logaritmos naturales independiza por la fuerza una función intratable y nos la otorga en bandeja de plata como modelo paramétrico $\beta_0 + \beta_1 X$ compatible con la rígida Ecuación Normal de M.C.O.
+
 - **Validación del Determinante Experimental:** En la programación probabilística de datos es usual arrojarle a la máquina miles de registros esperando que encuentre promedios ponderados. Este ejercicio resalta el valor semántico de la Independencia Lineal como pilar subyacente de la Computabilidad. Diseñar un array de control minúsculo adrede (de apenas 3 puntos de prueba) y observar que es materialmente el número mínimo insalvable para que el algoritmo arroje un `LinAlgError` si no reparamos en la dependencia, permite trazar una raya visible entre un algoritmo "que funciona de casualidad" y un entendimiento total de las fronteras matemáticas de las librerías estadísticas subyacentes.
