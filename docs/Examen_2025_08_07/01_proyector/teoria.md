@@ -25,7 +25,7 @@ De las columnas pivotales (primera y tercera), deducimos una base $B_{Im}$ para 
 ??? info "Observación Teórica: Independencia Lineal"
     Esto lo podemos hacer porque la primer y tercer columnas de la escalonada contienen a los pivotes (escalones principales no nulos), lo que garantiza algebraicamente que las columnas originales interrelacionadas en la matriz $A$ inicial son Linealmente Independientes (LI). 
     
-    **(La demostración analítica de este teorema se encuentra documentada en [Independencia Lineal de las Columnas Pivotales](../../demostraciones/05_independencia_pivotes.md)).**
+    **(La demostración analítica de este teorema se encuentra documentada en [Independencia Lineal de las Columnas Pivotales](../../demostraciones/independencia_pivotes.md)).**
 
 $$
 B_{Im} = \left\{ \begin{pmatrix} -1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ -1 \\ 0 \\ 1 \end{pmatrix} \right\}

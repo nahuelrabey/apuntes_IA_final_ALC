@@ -166,7 +166,7 @@ $$x^{(k)} = \frac{B x^{(k-1)}}{||B x^{(k-1)}||} = \frac{B^k x^{(0)}}{||B^k x^{(0
     
     Efectuando este patrón colapsable iterativamente $k$ veces (todos los divisores escalares de los pasos intermedios nacen y mueren mutuamente cancelados por linealidad), arribamos a la inmaculada conclusión de que sin importar cuándo o cuántas veces re-normalicemos el vector a magnitud 1 durante el bucle de For, la dirección espacial que apunta $x^{(k)}$ proviene indefectiblemente de elevar empíricamente a $B$ a la potencia $k$ desde el inicio ($B^k x^{(0)}$) y dividir todo ese armatoste final por su propia norma universal ($||B^k x^{(0)}||$) recién al terminar.
     
-    📌 *Para consultar la demostración inductiva detallada y su verificación empírica en Python, podés remitirte al [Método de la Potencia](../../demostraciones/01_metodo_potencia.md).*
+    📌 *Para consultar la demostración inductiva detallada y su verificación empírica en Python, podés remitirte al [Método de la Potencia](../../demostraciones/metodo_potencia.md).*
 
 Se nos explica que $x \in \mathbb{R}^2$ es elegido al azar, por lo que podemos representarlo en función de la base ortonormal completa del plano compuesto por $v_1$ y $v_2$:
 

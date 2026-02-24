@@ -82,5 +82,5 @@ Para constrastar este pilar matricial base y repasar el uso implacable de Matric
 La certeza dogmática de este corolario frente a los complejos productos matriciales de fila vs. columna, se verifica estocásticamente armando un verificador automático en Python (`03_determinante_producto.py`), exponiendo multiplicidad de rangos numéricos al azar para ver si el módulo tolera o fracasa su equivalencia.
 
 ```python
---8<-- "demostraciones/03_determinante_producto.py"
+--8<-- "demostraciones/determinante_producto.py"
 ```

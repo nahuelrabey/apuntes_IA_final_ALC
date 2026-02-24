@@ -108,5 +108,20 @@ Q.E.D.
 La veracidad de este postulado inductivo abstracto fue sometida a estrés sistémico por medio del validador aleatorio programado en Python, corroborando por flotantes y en repetidos ciclos la premisa sin contradicciones.
 
 ```python
---8<-- "demostraciones/02_autovalores_distintos.py"
+--8<-- "demostraciones/autovalores_distintos.py"
 ```
+
+---
+
+## Fuentes y Material Audiovisual de Apoyo
+
+Para comprender mejor los pasos algebraicos explicados en la demostración por inducción de este documento, a continuación se listan varios recursos externos que recorren y validan la misma secuencia lógica:
+
+### 🇪🇸 En Español
+
+- **[Álgebra Lineal - Autovectores. Propiedades de independencia lineal](https://www.youtube.com/watch?v=KmjpJtXbk90)** (Prof. Jesús Soto, UCAM): El video aborda la prueba de una manera sumamente clara y pausada. Muestra precisamente la misma construcción de la ecuación original $\text{Eq. 1}$, la aplicación de la matriz $A$, y la multiplicación por el $n$-ésimo autovalor para forzar la eliminación en la resta.
+- **[Autovalores y Diagonalización - Multiplicidad de autovectores](https://www.youtube.com/watch?v=JalJlpAYZvw)** (OpenFING): Clase de facultad universitaria donde se demuestra rigurosamente el teorema iterando el mismo concepto matemático de asumir un subconjunto de multiplicidad $k$ L.I. y verificar el eslabón $k+1$.
+
+### 🇺🇸 En Inglés
+
+- **[Linear Independence of Eigenvectors (Proof by Induction)](https://www.youtube.com/watch?v=Fljli8GcfEs)** (Dr. Peyam): Excelente y pedagógica explicación que arma el Caso Base ($k=1$) logrando que $c_1 = 0$, para luego saltar a lo que denomina "una inducción muy hermosa" documentando exactamente el mismo razonamiento y notación algebraica planteado en este apunte.

@@ -34,7 +34,7 @@ Buscamos aplicar el operador determinante a ambos lados de la ecuación, recorda
 ??? info "Demostración Teórica: La Regla Multiplicativa del Determinante"
     ¿De dónde surge que la multiplicidad algorítmica subyacente de la función módulo respeta en total lealtad al producto de los agrupamientos? Su rigor matemático nace de las Matrices Elementales. Toda matriz regular inversible es descomponible en un tren finito de elementales ($A = E_1\dots E_k$), los cuales individualmente traccionan al determinante separándolo en pedazos lógicos.
     
-    📌 *Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué $\det(AB) = \det(A)\det(B)$ (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: [Demostración: Regla Multiplicativa del Determinante](../../demostraciones/03_determinante_producto.md).*
+    📌 *Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué $\det(AB) = \det(A)\det(B)$ (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: [Demostración: Regla Multiplicativa del Determinante](../../demostraciones/determinante_producto.md).*
 
 $$|A^2| = |I|$$
 
@@ -51,7 +51,7 @@ Acerca de si la matriz es diagonalizable, la respuesta viene dada inmediatamente
 ??? info "Demostración Teórica: Teorema Espectral"
     ¿De dónde surgen algebraicamente las garantías insalvables de que ninguna matriz simétrica escapa jamás al terreno imaginario de Raíces Complejas, y que sus correspondientes bases multidimensionales describen ángulos perpetuos y exactos de 90° entre sí? Todo se reduce a manipulaciones hermíticas de la pre-multiplicación y del conjugado transpuesto.
     
-    📌 *Revisar riguroso desarrollo paso a paso del porqué $\lambda = \overline{\lambda}$ junto con el porqué de la ortogonalidad $v_i \cdot v_j = 0$ sumado a su estrés computacional randomizado por Python, aquí: [Demostración: Teorema Espectral](../../demostraciones/04_teorema_espectral.md).*
+    📌 *Revisar riguroso desarrollo paso a paso del porqué $\lambda = \overline{\lambda}$ junto con el porqué de la ortogonalidad $v_i \cdot v_j = 0$ sumado a su estrés computacional randomizado por Python, aquí: [Demostración: Teorema Espectral](../../demostraciones/teorema_espectral.md).*
 
 ---
 

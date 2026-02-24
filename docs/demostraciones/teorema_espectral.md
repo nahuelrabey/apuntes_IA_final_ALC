@@ -107,5 +107,5 @@ Dado el colosal impacto que imparte el Teorema Espectral en Álgebra, sugerimos 
 La inmaculada certidumbre de esta doctrina se somete a testeo algorítmico (incorporando una tolerancia muy sana de floats de hasta $1e^{-10}$ debida a cálculos densos superpuestos de punto flotante al descomponer autovectores mediante iteración QR en NumPy) en el validador contiguo que bombardea matrices simétricas aleatorias.
 
 ```python
---8<-- "demostraciones/04_teorema_espectral.py"
+--8<-- "demostraciones/teorema_espectral.py"
 ```

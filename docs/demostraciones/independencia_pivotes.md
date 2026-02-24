@@ -42,4 +42,4 @@ Por definición, esto demuestra rigurosamente que las columnas $A_p$ originales 
 
 ---
 
---8<-- "docs/demostraciones/05_independencia_pivotes.py"
+--8<-- "docs/demostraciones/independencia_pivotes.py"

@@ -73,8 +73,9 @@ nav:
       - 04. Condicionamiento y Estabilidad: Examen_2025_08_07/04_numero_condicion/teoria.md
       - 05. Descomposición LU: Examen_2025_08_07/05_descomposicion_lu/teoria.md
   - Demostraciones:
-      - 01. Método de la Potencia: demostraciones/01_metodo_potencia.md
-      - 02. Independencia de Autovectores: demostraciones/02_autovalores_distintos.md
-      - 03. Regla del Determinante: demostraciones/03_determinante_producto.md
-      - 04. Teorema Espectral: demostraciones/04_teorema_espectral.md
-      - 05. Independencia Columnas Pivotales: demostraciones/05_independencia_pivotes.md
+      - Método de la Potencia: demostraciones/metodo_potencia.md
+      - Independencia de Autovectores: demostraciones/autovalores_distintos.md
+      - Regla del Determinante: demostraciones/determinante_producto.md
+      - Vector Nulo Autovector: demostraciones/vector_nulo_autovector.md
+      - Teorema Espectral: demostraciones/teorema_espectral.md
+      - Independencia Columnas Pivotales: demostraciones/independencia_pivotes.md
