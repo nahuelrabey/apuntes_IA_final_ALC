@@ -29,3 +29,6 @@ En este archivo se registran de manera **literal** los prompts y requerimientos 
 
 ### Prompt 7
 > "Noto que hay una numeración en @[docs/demostraciones]. No es necesaria. Retira la numeración de todas las demostraciones, y revisa que las referencias a estos archivos no estén rotos."
+
+### Prompt 8
+> "Me gustaría que lleves algún registro de los códigos en python que vas usando. Crea una carpeta "scripts" dónde se guarden. Tienen que estar bien documentados, para un futuro "reusarlos"."
