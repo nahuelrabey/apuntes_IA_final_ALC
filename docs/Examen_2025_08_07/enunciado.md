@@ -39,9 +39,11 @@
 
 > **Ejercicio 4.** Sea $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ k^2 & 0 & k^2 \end{pmatrix}$, para $k \in \mathbb{N}, k > 1$.
 > 
-> a) Probar que $Cond_\infty(A) \ge k^2$ y que $Cond_2(A) \ge ck^2$ para alguna constante $c$.
-> b) Explicar qué consecuencias tendría un valor de $k$ alto a la hora de resolver un sistema de la forma $Ax = b$. ¿Depende esto de $b$?
-> c) Un mecanismo para mejorar la calidad de las soluciones obtenidas al resolver un sistema es multiplicarlo por un *precondicionador*: se toma una matriz $C$ y se resuelve el sistema $(CA)x = Cb$. Por supuesto, no es obvio cómo elegir $C$ en cada caso. Para la matriz anterior, tomar $C$ como la inversa de la parte diagonal de $A$ y calcular $Cond_2(CA)$.
+> **a)** Probar que $Cond_\infty(A) \ge k^2$ y que $Cond_2(A) \ge ck^2$ para alguna constante $c$.
+>
+> **b)** Explicar qué consecuencias tendría un valor de $k$ alto a la hora de resolver un sistema de la forma $Ax = b$. ¿Depende esto de $b$?
+>
+> **c)** Un mecanismo para mejorar la calidad de las soluciones obtenidas al resolver un sistema es multiplicarlo por un *precondicionador*: se toma una matriz $C$ y se resuelve el sistema $(CA)x = Cb$. Por supuesto, no es obvio cómo elegir $C$ en cada caso. Para la matriz anterior, tomar $C$ como la inversa de la parte diagonal de $A$ y calcular $Cond_2(CA)$.
 
 
 ---
@@ -50,8 +52,9 @@
 
 > **Ejercicio 5.** Sea $A = \begin{pmatrix} 1 & 1 & -1 & 1 \\ 1 & 0 & 1 & -1 \\ -1 & -1 & 0 & 1 \\ 0 & 1 & -2 & 2 \end{pmatrix}$.
 > 
-> a) Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
-> b) Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
+> **a)** Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
+>
+> **b)** Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
 
 
 ---

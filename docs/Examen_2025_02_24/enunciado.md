@@ -16,13 +16,13 @@
 >
 > 2. Demostrar que si $A$ es semejante a $B$, entonces:
 >
->    $$\text{Tr}(A) = \text{Tr}(B)$$
+> $$\text{Tr}(A) = \text{Tr}(B)$$
 >
->    **Sugerencia:** Utilizar la propiedad $\text{Tr}(EC) = \text{Tr}(CE)$ para matrices $C$ y $E$.
+> **Sugerencia:** Utilizar la propiedad $\text{Tr}(EC) = \text{Tr}(CE)$ para matrices $C$ y $E$.
 >
 > 3. Probar que si $A$ es diagonalizable (es decir, $A$ es semejante a una matriz diagonal $D$) y los valores propios de $A$ son 0 y 1, entonces:
 >
->    $$A^2 = A$$
+> $$A^2 = A$$
 
 
 ---
@@ -33,7 +33,7 @@
 >
 > 1. Calcular la descomposición en valores singulares (SVD) de la matriz:
 >
->    $$A = \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix}$$
+> $$A = \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix}$$
 >
 > 2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$, donde $P$ es una matriz de permutación. Además, calcular $||PA||_2$ y $\kappa_2(PA)$.
 
