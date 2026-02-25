@@ -32,3 +32,9 @@ En este archivo se registran de manera **literal** los prompts y requerimientos 
 
 ### Prompt 8
 > "Me gustaría que lleves algún registro de los códigos en python que vas usando. Crea una carpeta "scripts" dónde se guarden. Tienen que estar bien documentados, para un futuro "reusarlos"."
+
+### Prompt 9
+> "Para @[docs/demostraciones/autovalores_distintos.md]quiero que encuentres alguna demostración que pueda leer, ya sea en un libro o en un artículo de internet."
+
+### Prompt 10
+> "Me gusta más esta demostración. Reemplazala por la que está en @[docs/demostraciones/autovalores_distintos.md]"
