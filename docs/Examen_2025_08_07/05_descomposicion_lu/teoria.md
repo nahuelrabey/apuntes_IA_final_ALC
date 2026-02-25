@@ -2,8 +2,9 @@
 
 > **Ejercicio 5.** Sea $A = \begin{pmatrix} 1 & 1 & -1 & 1 \\ 1 & 0 & 1 & -1 \\ -1 & -1 & 0 & 1 \\ 0 & 1 & -2 & 2 \end{pmatrix}$.
 > 
-> a) Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
-> b) Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
+> **a)** Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
+>
+> **b)** Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
 
 ## Interpretación del Enunciado
 

@@ -1,6 +1,12 @@
 # Ejercicio 1: Proyectores y Subespacios
 
 > **Ejercicio 1.** Sea $A = \begin{pmatrix} -1 & 1 & 0 & 1 \\ 1 & -1 & -1 & -2 \\ 1 & -1 & 0 & -1 \\ 1 & -1 & 1 & 0 \end{pmatrix}$ y $f: \mathbb{R}^4 \to \mathbb{R}^4$ definida por $f(x) = Ax$.
+>
+> **a)** Definir un proyector $p:\mathbb{R}^4 \to \mathbb{R}^4$ tal que $Im(p) = Im(f)$ y $Nu(p) = Nu(f)$.
+>
+> **b)** Decidir si $p$ es un proyector ortogonal. ¿Es $p$ idéntico a $f$?
+>
+> **c)** Hallar una base $B$ tal que la matriz de $p$ en $B$ sea diagonal.
 
 ## Interpretación del Enunciado
 

@@ -75,3 +75,6 @@ En este archivo se registran de manera **literal** los prompts y requerimientos 
 
 ### Prompt 22
 > "[Imágenes del Ejercicio 4] Cuadrados Mínimos empírico desde código SVD."
+
+### Prompt 23
+> "[Imagen de Ejercicio 1 sobre Proyectores, 4x4] Chequea este enunciado del examen de 7 de agosto 2024. No está completo al inicio del documento teorico."
