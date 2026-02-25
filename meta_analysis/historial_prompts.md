@@ -42,3 +42,21 @@ En este archivo se registran de manera **literal** los prompts y requerimientos 
 ### Prompt 11
 > "@[c:\Users\nahue\Desktop\Finales_ALC_IA\docs\Examen_2025_07_21\02_diagonalizacion\teoria.md:L38] Quiero que escribas un archivo con la siguiente demostración
 > ¿Una matriz cuyas columnas sean vectores l.i siempre es inversible?"
+
+### Prompt 12
+> "@[c:\Users\nahue\Desktop\Finales_ALC_IA\docs\Examen_2025_07_21\02_diagonalizacion\teoria.md:L58] ¿Porqué vale esto?"
+
+### Prompt 13
+> "@[c:\Users\nahue\Desktop\Finales_ALC_IA\docs\demostraciones\columnas_li_inversibles.md:L27] Muy rebuscado esto, no se entiende."
+
+### Prompt 14
+> "Para @[docs/demostraciones/columnas_li_inversibles.md]agrega una referencia a un libro o sitio web que contenga una demostración del mismo teorema"
+
+### Prompt 15
+> "[Imagen adjunta mostrando equivalencia IMT entre n pivots, RREF y matriz identidad] Can you prove this?"
+
+### Prompt 16
+> "[Imagen adjunta de párrafo en inglés] I don't get this phrase: 'fewer than n pivots are contained in the first n-columns'"
+
+### Prompt 17
+> "Ok, creo que no entiendo qué significa "pivote""

@@ -24,9 +24,9 @@ En el universo del álgebra lineal, la definición universal estipula férreamen
 
 $$x_1 a_1 + x_2 a_2 + \dots + x_n a_n = \mathbf{0} \quad \implies \quad x_1 = x_2 = \dots = x_n = 0$$
 
-Al repasar las propiedades de contracción del producto punto entre Matrices y Vectores, sabemos empíricamente que multiplicar la gran matriz $A$ contra un gran vector columna incógnita $\mathbf{x} \in \mathbb{R}^n$ es algorítmicamente idéntico a generar la previa combinación lineal paramétrica de las columnas aisladas de A, escaladas justamente por los componentes numéricos del vector $\mathbf{x}$.
+Por definición básica del producto de una Matriz por un Vector, sabemos que **multiplicar una matriz $A$ por un vector $\mathbf{x}$ es exactamente lo mismo que armar una combinación lineal usando las columnas de $A$**, donde los escalares multiplicadores son justamente los elementos individuales de ese vector $\mathbf{x}$.
 
-En su traducción directa a lenguaje de sistemas lineales homogéneos:
+Llevando este concepto a nuestro caso particular de estar igualado al vector nulo, la ecuación del sistema homogéneo ($A \mathbf{x} = \mathbf{0}$) queda planteada como:
 
 $$(Eq. 1) \quad A \cdot \mathbf{x} = \mathbf{0}$$
 
@@ -84,3 +84,11 @@ Para la consolidación y anclaje mnemotécnico al respecto de este fenómeno, re
 ### 📖 Libros de Texto y Artículos
  
 - **Libro: Álgebra Lineal y sus Aplicaciones (David C. Lay)**. *Capítulo 2.3: Caracterizaciones de matrices invertibles*. El autor fundamenta allí el renombrado y pilar **Teorema de la Matriz Inversible** (IMT). Dicho compendio abarca un listado inquebrantable de $12$ afirmaciones homólogas estocásticas, donde demuestra que los equivalentes $A$ es *invertible* (Afirmación A) están atados per sécular a que *La ecuación $Ax=0$ sólo admite la solución trivial* (C), y a su vez *Las columnas de $A$ operan como un conjunto L.I.* (E). Si una resiste el fallo, resiste sistemáticamente todas al ser homomórficamente análogas.
+
+### 🌐 Sitios Web Universitarios
+
+- **[Interactive Linear Algebra (Georgia Tech)](https://textbooks.math.gatech.edu/ila/invertible-matrix-thm.html)**: Libro de texto interactivo abierto creado por la universidad Georgia Tech. En la subsección *3.6 - The Invertible Matrix Theorem*, prueba de manera concisa y análoga a nuestro apunte cómo el hecho de que el núcleo sea $0$ (o lo que es lo mismo, independencia lineal) fuerza a que el rango de la matriz sea pleno y, por ende, goce de la propiedad de ser invertida por existir una correspondencia uno a uno (biyectiva).
+
+### 🇺🇸 Videos en Inglés
+
+- **[The Invertible Matrix Theorem (Dr. Trefor Bazett)](https://www.youtube.com/watch?v=kYJj06Gz0Cg)**: El Dr. Bazett explica pedagógica y geométricamente la lista gigantesca de condiciones que colisionan y significan exactamente lo mismo al momento de hablar de matrices invertibles, partiendo justamente desde el requerimiento de conformar Independencia Lineal y el Nulaje trivial del kernel.

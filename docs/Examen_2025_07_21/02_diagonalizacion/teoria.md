@@ -57,6 +57,15 @@ A continuación debemos probar la aseveración analítica de igualdad. Evaluemos
 
 $$AC = A \begin{pmatrix} | & & | \\ v_1 & \dots & v_n \\ | & & | \end{pmatrix} = \begin{pmatrix} | & & | \\ Av_1 & \dots & Av_n \\ | & & | \end{pmatrix}$$
 
+??? abstract "Fundamento Algebraico: Multiplicación Matricial (Por Columnas)"
+    Esta igualdad geométrica es fundamental y se desprende directamente de la **definición canónica del producto de matrices**.
+    
+    Cuando multiplicamos una gran matriz $A$ de dimensiones $n \times n$ contra otra matriz $C$ de $n \times p$, podemos desintegrar conceptualmente a $C$ partiéndola en sus columnas vectoriales discretas ($[v_1, v_2, \dots, v_p]$). 
+    
+    Al ejecutar el producto total $AC$, el algoritmo matricial dicta que la matriz entera $A$ debe operar y transformarse de manera independiente y paralela contra cada una de las columnas apiladas de $C$. 
+    
+    A consecuencia de esto, la *primera columna* de la gran matriz resultante será indudablemente el vector emanado de aplicar la matriz a la primera columna ($Av_1$). La *segunda columna* de la nueva matriz será la aplicación a la segunda ($Av_2$), y así sucesivamente para todas.
+
 Por la naturaleza teórica de un autovector asosciado a su respectivo autovalor, sustituimos que la transformación sobre ella resulta en un reescalado homótetico por el propio autovalor $Av_i = \lambda_i v_i$:
 
 $$AC = \begin{pmatrix} | & & | \\ \lambda_1 v_1 & \dots & \lambda_n v_n \\ | & & | \end{pmatrix}$$
