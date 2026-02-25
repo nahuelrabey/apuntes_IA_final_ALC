@@ -55,29 +55,33 @@ extra_javascript:
 nav:
   - Introducción: index.md
   - Lecciones Aprendidas: lecciones_aprendidas.md
-  - Examen 18 de feb de 2026:
-      - Enunciado del Examen: Examen_2026_02_18/enunciado.md
-      - 01. Método SOR: Examen_2026_02_18/01_metodo_sor/teoria.md
-      - 02. Condicionamiento: Examen_2026_02_18/02_condicionamiento/teoria.md
-      - 03. Cadenas de Markov: Examen_2026_02_18/03_cadenas_markov/teoria.md
-      - 04. Cuadrados Mínimos con SVD: Examen_2026_02_18/04_cuadrados_minimos_svd/teoria.md
-  - Examen 21 de jul de 2025:
-      - 01. Descomposición SVD: Examen_2025_07_21/01_svd/teoria.md
-      - 02. Diagonalización: Examen_2025_07_21/02_diagonalizacion/teoria.md
-      - 03. Matrices Ortogonales: Examen_2025_07_21/03_matrices_ortogonales/teoria.md
-      - 04. Cuadrados Mínimos: Examen_2025_07_21/04_cuadrados_minimos/teoria.md
-      - 05. Cauchy-Schwartz: Examen_2025_07_21/05_cauchy_schwartz/teoria.md
-  - Examen 24 de feb de 2025:
-      - 01. Semejanza de Matrices: Examen_2025_02_24/01_semejanza_matrices/teoria.md
-      - 02. Descomposición SVD: Examen_2025_02_24/02_descomposicion_svd/teoria.md
-      - 03. Métodos Iterativos: Examen_2025_02_24/03_metodos_iterativos/teoria.md
-      - 04. Mínimos Cuadrados: Examen_2025_02_24/04_minimos_cuadrados/teoria.md
-  - Examen 07 de ago de 2025:
-      - 01. Proyectores y Subespacios: Examen_2025_08_07/01_proyector/teoria.md
-      - 02. Cadenas de Markov: Examen_2025_08_07/02_markov/teoria.md
-      - 03. Cuadrados Mínimos Revisitado: Examen_2025_08_07/03_cuadrados_minimos/teoria.md
-      - 04. Condicionamiento y Estabilidad: Examen_2025_08_07/04_numero_condicion/teoria.md
-      - 05. Descomposición LU: Examen_2025_08_07/05_descomposicion_lu/teoria.md
+  - Finales:
+      - Examen 18 de feb de 2026:
+          - Enunciado: Examen_2026_02_18/enunciado.md
+          - 01. Método SOR: Examen_2026_02_18/01_metodo_sor/teoria.md
+          - 02. Condicionamiento: Examen_2026_02_18/02_condicionamiento/teoria.md
+          - 03. Cadenas de Markov: Examen_2026_02_18/03_cadenas_markov/teoria.md
+          - 04. Cuadrados Mínimos con SVD: Examen_2026_02_18/04_cuadrados_minimos_svd/teoria.md
+      - Examen 21 de jul de 2025:
+          - Enunciado: Examen_2025_07_21/enunciado.md
+          - 01. Descomposición SVD: Examen_2025_07_21/01_svd/teoria.md
+          - 02. Diagonalización: Examen_2025_07_21/02_diagonalizacion/teoria.md
+          - 03. Matrices Ortogonales: Examen_2025_07_21/03_matrices_ortogonales/teoria.md
+          - 04. Cuadrados Mínimos: Examen_2025_07_21/04_cuadrados_minimos/teoria.md
+          - 05. Cauchy-Schwartz: Examen_2025_07_21/05_cauchy_schwartz/teoria.md
+      - Examen 24 de feb de 2025:
+          - Enunciado: Examen_2025_02_24/enunciado.md
+          - 01. Semejanza de Matrices: Examen_2025_02_24/01_semejanza_matrices/teoria.md
+          - 02. Descomposición SVD: Examen_2025_02_24/02_descomposicion_svd/teoria.md
+          - 03. Métodos Iterativos: Examen_2025_02_24/03_metodos_iterativos/teoria.md
+          - 04. Mínimos Cuadrados: Examen_2025_02_24/04_minimos_cuadrados/teoria.md
+      - Examen 07 de ago de 2025:
+          - Enunciado: Examen_2025_08_07/enunciado.md
+          - 01. Proyectores y Subespacios: Examen_2025_08_07/01_proyector/teoria.md
+          - 02. Cadenas de Markov: Examen_2025_08_07/02_markov/teoria.md
+          - 03. Cuadrados Mínimos Revisitado: Examen_2025_08_07/03_cuadrados_minimos/teoria.md
+          - 04. Condicionamiento y Estabilidad: Examen_2025_08_07/04_numero_condicion/teoria.md
+          - 05. Descomposición LU: Examen_2025_08_07/05_descomposicion_lu/teoria.md
   - Demostraciones:
       - Método de la Potencia: demostraciones/metodo_potencia.md
       - Independencia de Autovectores: demostraciones/autovalores_distintos.md
