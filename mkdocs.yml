@@ -79,3 +79,4 @@ nav:
       - Vector Nulo Autovector: demostraciones/vector_nulo_autovector.md
       - Teorema Espectral: demostraciones/teorema_espectral.md
       - Independencia Columnas Pivotales: demostraciones/independencia_pivotes.md
+      - Independencia Lineal e Invertibilidad: demostraciones/columnas_li_inversibles.md

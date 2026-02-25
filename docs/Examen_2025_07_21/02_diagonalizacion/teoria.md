@@ -37,6 +37,11 @@ $$C = \begin{pmatrix} | & | & & | \\ v_1 & v_2 & \dots & v_n \\ | & | & & | \end
 
 Como sus columnas son vectores estrictamente **linealmente independientes**, su determinante no será nulo y obligatoriamente existirá su inversa (la matriz $C$ es inversible / no singular). 
 
+??? info "Demostración Teórica: Columnas L.I. e Invertibilidad"
+    ¿Una matriz cuyas columnas sean vectores linealmente independientes siempre es inversible? Sí, la correspondencia analítica es absoluta en todo el hiperplano real. 
+    
+    📌 *Para consultar el porqué de esta afirmación estructural, el desarrollo del Teorema de la Matriz Inversible (IMT) y su respectiva contraverificación estadística por fuerza bruta en Python, puedes remitirte a: [Demostración: Independencia Lineal e Invertibilidad](../../demostraciones/columnas_li_inversibles.md).* 
+
 ??? info "Observación Teórica: ¿Los autovectores siempre son ortogonales entre sí?"
     **No, rotundamente no.** El Lema demostrado en el inciso anterior únicamente nos proveyó las garantías algebraicas de que los autovectores son **Linealmente Independientes** por provenir de raíces características (autovalores) distintas. 
     
