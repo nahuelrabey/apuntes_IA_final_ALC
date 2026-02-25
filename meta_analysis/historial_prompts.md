@@ -60,3 +60,18 @@ En este archivo se registran de manera **literal** los prompts y requerimientos 
 
 ### Prompt 17
 > "Ok, creo que no entiendo qué significa "pivote""
+
+### Prompt 18
+> "[Imagen de la cabecera: Álgebra Lineal Computacional, Examen final - 18 de febrero de 2026] Voy a agregar este examen"
+
+### Prompt 19
+> "[Imagen del Ejercicio 1] Este es el primer ejercicio del examen, quiero que lo resuelvas siguiendo @[.agents/workflows/resolucion_matematica.md]"
+
+### Prompt 20
+> "[Imagen del Ejercicio 2] Este es el ejercicio 2"
+
+### Prompt 21
+> "[Imágenes del Ejercicio 3] Este es el ejercicio 3"
+
+### Prompt 22
+> "[Imágenes del Ejercicio 4] Cuadrados Mínimos empírico desde código SVD."
