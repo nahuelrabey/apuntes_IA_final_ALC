@@ -5,6 +5,7 @@
 > **a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular:
 >
 > $$ \frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|} $$
+>
 > **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por 
 >
 >$$a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n$$

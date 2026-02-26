@@ -11,6 +11,7 @@ A = L + D + U
 $$
 
 Donde:
+
 - $D$: Matriz diagonal ($a_{ii}$).
 - $L$: Matriz triangular inferior estricta ($a_{ij}$ con $i > j$).
 - $U$: Matriz triangular superior estricta ($a_{ij}$ con $i < j$).
@@ -79,6 +80,31 @@ $$
     - **Condición Necesaria**: El método converge solo si $\omega \in (0, 2)$. Ver [demostración del determinante](../Examen_2026_02_18/01_metodo_sor/teoria.md#inciso-b-determinante-de-iteracion-y-condicion-de-rango-cota).
     - **Matrices SPD**: Si $A$ es Simétrica Definida Positiva, SOR converge para cualquier $\omega \in (0, 2)$.
     - **Diagonal Dominante**: GS y Jacobi convergen si $A$ es estrictamente dominante por filas.
+
+---
+
+## Referencias
+
+### Libros
+
+| Método | Referencia | Capítulo / Sección |
+|---|---|---|
+| Jacobi, GS, SOR | Golub, G. H., & Van Loan, C. F. — *Matrix Computations* (4ª ed., 2013). Johns Hopkins University Press. | Cap. 11: *Iterative Methods for Linear Systems* |
+| Jacobi, GS | Burden, R. L., & Faires, J. D. — *Numerical Analysis* (10ª ed., 2016). Cengage Learning. | §7.3: *The Jacobi and Gauss-Siedel Iterative Techniques* |
+| SOR | Young, D. M. — *Iterative Solution of Large Linear Systems* (1971). Academic Press. | Cap. 3–4 *(obra fundacional del método SOR)* |
+| Jacobi, GS, SOR | Trefethen, L. N., & Bau, D. — *Numerical Linear Algebra* (1997). SIAM. | Lecture 40: *Iterative Methods* |
+| Jacobi, GS, SOR | Quarteroni, A., Sacco, R., & Saleri, F. — *Numerical Mathematics* (2ª ed., 2007). Springer. | §4.2–§4.4 |
+
+### Recursos Web
+
+| Recurso | URL | Descripción |
+|---|---|---|
+| Wikipedia — Jacobi method | [https://en.wikipedia.org/wiki/Jacobi_method](https://en.wikipedia.org/wiki/Jacobi_method) | Derivación, pseudocódigo y condiciones de convergencia |
+| Wikipedia — Gauss–Seidel method | [https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method](https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method) | Comparación con Jacobi, forma matricial |
+| Wikipedia — Successive over-relaxation | [https://en.wikipedia.org/wiki/Successive_over-relaxation](https://en.wikipedia.org/wiki/Successive_over-relaxation) | Teorema de Kahan, $\omega$ óptimo para matrices SPD |
+| MIT OpenCourseWare 18.335 | [https://ocw.mit.edu/courses/18-335j-introduction-to-numerical-methods-spring-2019/](https://ocw.mit.edu/courses/18-335j-introduction-to-numerical-methods-spring-2019/) | Apuntes y problem sets sobre métodos iterativos |
+| Scipy — `scipy.sparse.linalg` | [https://docs.scipy.org/doc/scipy/reference/sparse.linalg.html](https://docs.scipy.org/doc/scipy/reference/sparse.linalg.html) | Implementaciones de referencia (CG, GMRES, etc.) |
+| Gilbert Strang — MIT 18.06 (YouTube) | [https://www.youtube.com/watch?v=0bO4n6PuDSc](https://www.youtube.com/watch?v=0bO4n6PuDSc) | Clase sobre matrices iterativas y convergencia |
 
 ---
 

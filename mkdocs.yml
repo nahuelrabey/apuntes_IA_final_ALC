@@ -87,7 +87,7 @@ nav:
       - Determinante de Producto: demostraciones/determinante_producto.md
       - Teorema Espectral: demostraciones/teorema_espectral.md
       - Autovalores Distintos: demostraciones/autovalores_distintos.md
-      - Det. Triangular SOR: demostraciones/det_triangular_superior_sor.md
+      - Det. Triangular Inferior (D + ωL): demostraciones/det_triangular_inferior_sor.md
       - Módulo de Potencia: demostraciones/potencia_modulo.md
       - Convergencia y Radio Espectral: demostraciones/convergencia_radio_espectral.md
       - Método de la Potencia: demostraciones/metodo_potencia.md

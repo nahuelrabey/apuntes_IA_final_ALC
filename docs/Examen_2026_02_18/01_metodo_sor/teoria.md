@@ -96,9 +96,7 @@ $$\det\big((1-\omega)D - \omega U\big) = \prod_{i=1}^{n} (1-\omega)a_{ii} = (1-\
 
 ??? info "Demostración formal de esta propiedad"
 
-    > 📎 Demostración formal: [General](../../demostraciones/det_escalar_matriz.md)
-
-    > 📎 Demostración formal: [Específica SOR](../../demostraciones/det_triangular_superior_sor.md)
+    > 📎 Demostración formal: [¿Por qué det(D + ωL) = det(D)?](../../demostraciones/det_triangular_inferior_sor.md)
 
 Sustituyendo en la expresión inicial:
 
