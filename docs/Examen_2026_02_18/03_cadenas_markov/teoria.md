@@ -18,9 +18,9 @@
 
 ## Interpretación del Enunciado
 
-Estamos ante un examen de modelado demográfico de una Red Trófica que decanta en un sistema compartimentado: **Cadenas de Markov Absorbentes y Regulares**.
-En la fase Teórica (**Inciso A**), nos exige ratificar analíticamente las reglas del comportamiento límite cuando las potencias matriciales tienden a infinito en presencia de combinaciones lineales autovectoriales. 
-En la fase Práctica (**Inciso B**), construiremos la matriz estocástica $4 \times 4$. Los flujos muestran que el Bloque (B, S) forma una sub-cadena regular hermética aislada, mientras que el Bloque (E, R) contiene movimientos directos desde el Río a un hábitat trampa "absorbente" (Estepa=1.0).
+El ejercicio analiza el comportamiento asintótico de las **Cadenas de Markov**. 
+En la parte teórica, se estudian las condiciones para la existencia de un estado límite y el cálculo de dicho límite en función de los estados de equilibrio iniciales.
+En la parte práctica, se modela la dinámica poblacional de animales entre cuatro hábitats mediante una matriz de transición estocástica, analizando sus autovalores, autoespacios y la evolución a largo plazo.
 
 ---
 
@@ -28,90 +28,62 @@ En la fase Práctica (**Inciso B**), construiremos la matriz estocástica $4 \ti
 
 ### Inciso A: Estados de Equilibrio y Límites Asintóticos
 
-#### Demostración A-1: Existencia de Estado Límite (Ausencia de Oscilación)
+#### Demostración A-1: Existencia de Estado Límite
 
 > **a-i)** Probar que si $P$ es diagonalizable y $-1$ no es autovalor, entonces existe el estado límite para todo estado inicial.
 
-Por axiomas lógicos de la Teoría de Perron-Frobenius aplicada a Matrices Estocásticas (Markov), sabemos fehacientemente que el radio espectral de cualquier red probabilística carente de absorción neta está estrictamente acotado: **absolutamente todos sus autovalores están confinados dentro del disco unitario**, es decir, $|\lambda_i| \leq 1$.
+Por las propiedades de las matrices de Markov, el radio espectral de $P$ es $\rho(P) = 1$. Esto implica que para todo autovalor $\lambda_i$, se cumple $|\lambda_i| \le 1$.
 
-Si la matriz $P$ goza de la propiedad de ser **diagonalizable**, le asiste el mérito de poseer una base rotunda e infalible conformada por sus $n$ autovectores lícitos independientes ($v_1, \dots, v_n$). Cualquier vector demográfico arbitrario arrojado inicial al sistema ($v_0$) podrá mapearse nativamente como un combinado aditivo de ellos:
-
+Al ser $P$ diagonalizable, existe una base de autovectores $\{v_1, \dots, v_n\}$. Cualquier estado inicial $v_0$ se puede expresar como:
 $$
 v_0 = c_1 v_1 + c_2 v_2 + \dots + c_n v_n
 $$
 
-A este inicio lo sometemos al suplicio iterativo de la Cadena de Markov, bombeando $k$ generaciones hacia el infinito $P^k v_0$:
-
+La evolución del sistema tras $k$ pasos es $v_k = P^k v_0$:
 $$
-P^k v_0 = c_1 (\lambda_1)^k v_1 + c_2 (\lambda_2)^k v_2 + \dots + c_n (\lambda_n)^k v_n
+v_k = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2 + \dots + c_n \lambda_n^k v_n
 $$
 
-Dividimos las tribus de los autovalores presentes dentro del disco unitario en tres castas:
+Analizamos el comportamiento de $\lambda_i^k$ cuando $k \to \infty$:
+1. Si $|\lambda_i| < 1$, entonces $\lambda_i^k \to 0$.
+2. Si $\lambda_i = 1$, entonces $\lambda_i^k = 1$ para todo $k$.
+3. Si $\lambda_i = -1$, el término $(-1)^k$ oscilaría. Sin embargo, por hipótesis, $-1$ no es autovalor de $P$.
 
-1. **La Casta de Colapso ($|\lambda_i| < 1$)**: Estos autovalores traccionan contracciones, y al ser elevados al límite infinito $\lim_{k\to\infty} \lambda_i^k = 0$. Todos esos términos se extinguen al originar el Estado Estacionario.
-2. **La Casta Unívoca Fija ($\lambda_j = 1$)**: Los autovalores idénticos de equilibrio inmutable. $\lim_{k\to\infty} 1^k = 1$. Sus autovectores perviven como el lecho rocoso del estado asintótico límite (componente firme de equilibrio).
-3. **La Casta Problemática Parietal ($\lambda_m = -1$)**: El gran mal de las Cadenas Oscilantes Periódicas (ej: semáforos o ping pong puro), donde $\lim_{k\to\infty} (-1)^k \to \{1, -1, 1, -1\}$. Acá el límite alternaría violentamente de por vida sin cuajar.
+Dado que no hay autovalores de módulo 1 distintos de 1 (y $-1$ está excluido), todos los términos con $|\lambda_i| < 1$ desaparecen en el límite, y los términos con $\lambda_i = 1$ permanecen constantes. Por lo tanto, el límite existe para cualquier $v_0$.
 
-Pero, el enunciado exilia dictatorialmente la existencia de la Tercera Casta asegurando como verdad máxima de hipótesis que **"-1 NO es autovalor"**. 
-Despojado de oscilaciones pares-impares, y con los menores colapsados, la asíntota iterativa sobre $v_0$ purga todos sus escombros reteniendo únicamente a los herederos inmutables de $\lambda=1$. Por ende, **el Estado Límite converge irrefutablemente y existe siempre para todo estado inicial $v_0$**. 
-
-#### Demostración A-2: Mapeo Algebraico del Límite Mezclado
+#### Demostración A-2: Cálculo del Límite
 
 > **a-ii)** Sean $\alpha, \beta, \gamma \in \mathbb{R}$ y $v_0 = \alpha w_1 + \beta w_2 + \gamma u$ donde $w_1$ y $w_2$ son estados de equilibrio de $P$ y $u$ es un autovector con $|\lambda| < 1$. Calcular el límite de $v_k$.
 
-Aplicamos el motor deductivo que acabamos de cincelar analíticamente. El enunciado obsequió las raíces genéticas de cada vector base:
-- $w_1$ y $w_2$ ostentan ser "estados de equilibrio puros". En el folclore de Markov, un vector es equilibrio si la matriz lo transita impávido dejándolo calcado ($P w_i = 1 \cdot w_i$). Ergo, su autovalor tatuado es **$\lambda = 1$**.
-- $u$ es un descastado sub-estacionario con autovalor flagelado **$|\lambda| < 1$**.
+Sabemos que:
+- $w_1, w_2$ son estados de equilibrio $\implies P w_1 = w_1$ y $P w_2 = w_2$ (autovalor $\lambda = 1$).
+- $u$ es autovector con autovalor $\lambda$ tal que $|\lambda| < 1$.
 
-Desatamos el límite sucesivo aplicando el operador matriz multiplicativo lineal $P^k$ sobre todo el conjunto $v_0$:
-
+Aplicamos $P^k$ a $v_0$:
 $$
-\lim_{k \to \infty} P^k v_0 = \lim_{k \to \infty} P^k (\alpha w_1 + \beta w_2 + \gamma u)
-$$
-$$
-\lim_{k \to \infty} v_k = \lim_{k \to \infty} \Big[ \alpha (\lambda_{w1})^k w_1 + \beta (\lambda_{w2})^k w_2 + \gamma (\lambda_u)^k u \Big]
+v_k = P^k (\alpha w_1 + \beta w_2 + \gamma u) = \alpha P^k w_1 + \beta P^k w_2 + \gamma P^k u
 $$
 $$
-\lim_{k \to \infty} v_k = \alpha (1)^k \cdot w_1 \quad + \quad \beta (1)^k \cdot w_2 \quad + \quad \gamma (\lambda)^k \cdot u
+v_k = \alpha (1)^k w_1 + \beta (1)^k w_2 + \gamma \lambda^k u
 $$
 
-Ejercemos el peso inexorable del tiempo generacional infinito:
+Tomando el límite $k \to \infty$:
 $$
-\lim_{k \to \infty} v_k = \alpha \cdot w_1 \quad + \quad \beta \cdot w_2 \quad + \quad \gamma \cdot (0) \cdot u
+\lim_{k \to \infty} v_k = \alpha w_1 + \beta w_2 + \gamma (0) u = \alpha w_1 + \beta w_2
 $$
-$$
-\lim_{k \to \infty} v_k = \alpha w_1 + \beta w_2
-$$
-
-El estado límite decanta y reposa imperturbable como una combinación lineal pura de los estados estacionarios aportados inicialmente.
 
 ---
 
-### Inciso B: Modelado de Dinámica Poblacional Markoviana
+### Inciso B: Dinámica Poblacional
 
-#### Construcción de Matriz y Autoespacios
+#### Matriz de Transición y Autoespacios
 
-> **b-i)** Escribir matriz transición P... calcular autovalores y autoespacios de equilibrio y de $\lambda=0$. ¿Dimensiones? ¿Diagonalizable?
+Definimos los hábitats en el orden: Bosque (B), Selva (S), Estepa (E), Río (R). A partir de las reglas dadas, construimos la matriz $P$:
 
-La lectura del enunciado desglosa la siguiente arquitectura topográfica natural:
-```mermaid
-stateDiagram-v2
-    direction LR
-    B: Bosque
-    S: Selva
-    E: Estepa (Trampa)
-    R: Río
-
-    B --> B: 0.5
-    B --> S: 0.5
-    S --> S: 0.5
-    S --> B: 0.5
-    E --> E: 1.0 (Absorbente)
-    R --> R: 0.7
-    R --> E: 0.3
-```
-
-El orden matricial estricto pautado en columna (origen) es $B, S, E, R$. Vertiendo las probabilidades de transición en destino (filas):
+- B: 0.5 a B, 0.5 a S.
+- S: 0.5 a S, 0.5 a B.
+- E: 1.0 a E (estado absorbente).
+- R: 0.7 a R, 0.3 a E.
 
 $$
 P = \begin{pmatrix} 
@@ -122,62 +94,39 @@ P = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-El arreglo nos devuelve una **Matriz Triangular Inferior en Bloques**. Extraemos majestuosamente el espectro de autovalores evaluando las sub-diagonales de los bloques:
-- **Bloque Izquierdo** (B-S) $\begin{pmatrix} 0.5 & 0.5 \\ 0.5 & 0.5 \end{pmatrix}$: Siendo hermético y simétrico bi-direccional posee autovalores $1$ y $0$.
-- **Bloque Derecho** (E-R) $\begin{pmatrix} 1 & 0.3 \\ 0 & 0.7 \end{pmatrix}$: Triangular puro; sus autovalores moran grabados en su lomo diagonal: $1$ y $0.7$.
+Los autovalores se obtienen de los bloques diagonales:
+- Del bloque $\begin{pmatrix} 0.5 & 0.5 \\ 0.5 & 0.5 \end{pmatrix}$: $\lambda = 1, 0$.
+- Del bloque $\begin{pmatrix} 1 & 0.3 \\ 0 & 0.7 \end{pmatrix}$: $\lambda = 1, 0.7$.
 
-El **Espectro Radial** de la Matriz P es: $\lambda = \{1, 1, 0, 0.7\}$.
+Espectro de $P$: $\lambda \in \{1, 1, 0, 0.7\}$.
 
-**Encontrando Vector de Equilibrio ($\lambda = 1$):**
-Resolviendo el sub-sistema homogéneo castigado $(P - 1I)v = 0$:
+**Autoespacio $E_{\lambda=1}$ (equilibrio):**
+Resolvemos $(P-I)v = 0$:
+$\begin{pmatrix} -0.5 & 0.5 & 0 & 0 \\ 0.5 & -0.5 & 0 & 0 \\ 0 & 0 & 0 & 0.3 \\ 0 & 0 & 0 & -0.3 \end{pmatrix} \begin{pmatrix} b \\ s \\ e \\ r \end{pmatrix} = 0 \implies b=s, r=0, e \text{ libre}.$
+Base: $\{(1, 1, 0, 0)^T, (0, 0, 1, 0)^T\}$. Dimensión 2.
 
-$$
-\begin{pmatrix} 
--0.5 & 0.5 & 0 & 0 \\
-0.5 & -0.5 & 0 & 0 \\
-0 & 0 & 0 & 0.3 \\
-0 & 0 & 0 & -0.3 
-\end{pmatrix}
-\begin{pmatrix} b \\ s \\ e \\ r \end{pmatrix} = 
-\begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}
-$$
-De las dos primeras deducimos infaliblemente que $\implies b = s$.
-De las últimas extraemos fútilmente que $0.3r=0 \implies r = 0$.
-La variable esteparia ($e$) campea libre.
-Por lo tanto el núcleo originario despliega y escupe la base dual:
-**Autoespacio $E_{\lambda=1} = \operatorname{gen}\{(1, 1, 0, 0)^T, (0, 0, 1, 0)^T\}$. Dimensión = 2.**
+**Autoespacio $E_{\lambda=0}$:**
+Resolvemos $Pv = 0$:
+$b=-s, e=0, r=0$.
+Base: $\{(1, -1, 0, 0)^T\}$. Dimensión 1.
 
-**Encontrando Vector del Núcleo Vital ($\lambda = 0$):**
-Resolviendo $(P - 0I)v = 0 \implies Pv = 0$:
-La variable $r = 0$, $e = 0$, mientras que $0.5b + 0.5s = 0 \implies s = -b$.
-**Autoespacio $E_{\lambda=0} = \operatorname{gen}\{(1, -1, 0, 0)^T\}$. Dimensión = 1.**
+**Diagonalizabilidad:**
+$\lambda=1$ tiene multiplicidad algebraica 2 y geométrica 2. Los otros autovalores son simples. La suma de dimensiones de los autoespacios es 4, igual al orden de la matriz. $P$ es diagonalizable.
 
-**¿Posee la matriz el don de la Diagonalizabilidad?**
-Posee cuatro asientos espectrales en su estirpe. Sus autovalores acusan multiplicidad algebraica $\lambda_1 (alg: 2)$, $\lambda_0 (alg: 1)$, $\lambda_{0.7} (alg: 1)$. 
-Al hurgar en sus tripas geométricas confirmamos empíricamente que $\lambda_1$ proveyó $\dim = 2$ eslabones. Los demás dictan el mínimo existencial $\dim = 1$.
-$\dim(E_1) + \dim(E_0) + \dim(E_{0.7}) = 2 + 1 + 1 = 4$.
-Al gestar una base completa integral de $4$ columnas robustas autovectoriales lícitas, **concluimos fehacientemente que la matriz P SÍ ESTÁ ABALADA PARA SER DIAGONALIZABLE**.
+#### Evolución a Largo Plazo
 
----
+Estado inicial: $v_0 = (300, 100, 200, 0)^T$.
 
-#### Proyección Temporal Demográfica asintótica
+1. El subsistema B-S es cerrado y regular. La población total de 400 se distribuirá uniformemente por simetría: $b_\infty = 200, s_\infty = 200$.
+2. El Río empieza con 0 animales, por lo que no aporta flujo a la Estepa. La Estepa es absorbente y mantiene sus 200 iniciales: $e_\infty = 200, r_\infty = 0$.
 
-> **b-ii)** Inicialmente, población: 300 Bosque, 100 Selva, 200 Estepa y 0 Río. Calcular evolución a largo plazo.
-
-Frente el vector estacional genésico $v_0 = (300, 100, 200, 0)^T$, predeciremos su destino final dictado por $\lim_{k\to\infty} P^k v_0$.
-
-En lugar de empedrar dolorosas combinaciones lineales formales basales, al haber destripado la anatomía de los bloques con antelación, el cálculo emerge intuitivo como luz solar:
-1. El Sistema $A$ **(Bosque-Selva)** porta en sus adentros iniciales un monto masivo de individuos $300 + 100 = 400$. Dado que las probabilidades de permuta y anclaje estipuladas son perfectamente equiprobables ($0.5$ cada lado) y la frontera está amurallada sin escombros de salida ni entrada a otros hábitats, el límite infinito homogeneizará la biomasa distribuyéndola al $50\%$ clavado. $\implies \text{Bosque} = 200$, $\text{Selva} = 200$.
-
-2. El Sistema $B$ **(Estepa-Río)** arranca infértil en la cúpula acuática fluvial ($\text{Río} = 0$). Como el Río es el único surtidor proyector capaz de escupir animales hacia la Estepa progresivamente por probabilidad cruzada; al carecer de caudal original ($0$ unidades traccionan $0$ pases), el río pervive vacío crónicamente. La Estepa absorbió de genésis a $200$ especímenes, y al ser Hábitat Trampa (Permanece $1.0$), retiene la sumatoria petrificada sin expirar exiliados. $\implies \text{Estepa} = 200$, $\text{Río} = 0$.
-
-**Dictamen asintótico definitivo**: En el balance demográfico secular de largo plazo, el ensamble biológico de la región perimetral se cristalizará milimétricamente inmutable en el vector estacionario general $\mathbf{v_\infty = (200, 200, 200, 0)^T}$. 
+El estado límite es $v_\infty = (200, 200, 200, 0)^T$.
 
 ---
 
 ## Verificación Empírica Computacional (NumPy)
 
-Convocaremos la maquinaria computacional matricial `NumPy` como tribunal decisivo, instanciando la Cadena Estocástica $P$, diseccionando con escrúpulo matemático robótico sus propios autoespacios (contrastando nuestras afirmaciones topológicas) y forzando simulaciones exponencias $P^{100} v_0$ hacia la quietud eterna de la convergencia markoviana:
+Se utiliza `NumPy` para instanciar la matriz $P$, calcular sus autovalores y simular la evolución del sistema a largo plazo.
 
 ```python
 --8<-- "Examen_2026_02_18/03_cadenas_markov/verificacion.py"

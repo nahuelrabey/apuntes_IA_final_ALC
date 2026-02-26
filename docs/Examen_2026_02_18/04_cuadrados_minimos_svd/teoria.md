@@ -10,41 +10,37 @@
 > 
 > **b)** Implementar una función que, utilizando la descomposición del ítem anterior, calcule el vector de coeficientes $\mathbf{\alpha}$ y el correspondiente Error Cuadrático. No se permite el uso del comando algorítmico global `numpy.linalg.lstsq`. Solo se toleran operaciones atómicas (array, dot, diag, .T, @).
 
-## Interpretación del Enunciado (El Alma del Least Squares)
+## Interpretación del Enunciado
 
-Este ejercicio abandona la topología pura y adentra los pies de lleno en la lutería matemática computacional: **¿Cómo programaríamos internamente nosotros lo que hacen los paquetes estadísticos al predecir curvas?**
+El ejercicio trata sobre la aproximación de datos mediante **Cuadrados Mínimos** utilizando la Descomposición en Valores Singulares (SVD).
 
-1. **La Matriz de Diseño (Regresores)**: Mapear el vector de entradas $x$ frente a las funciones candidatas para originar la "Matriz de Características" o *Design Matrix* ($A$).
-2. **Sustitución de Inversas Falsas**: El sistema formal asintótico es sobre-determinado (hay más datos $n$ que pesos de regresión $m$). Ergo, $A\alpha = y$ no posee solución exacta en el mundo natural. Requiere que minizemos su distancia. Para esto matemáticamente forjamos las "Ecuaciones Normales" $\to A^T A \alpha = A^T y$. Su solución exige multiplicar por $(A^T A)^{-1}$, lo que se conoce universalmente como matriz Pseudoinversa $A^+$.
-3. **El Inyector SVD Mágico**: En lugar de hacer multiplicaciones engorrosas y ruidosas en flotantes como $(A^TA)^{-1}A^T$, las computadoras reales descomponen a $A$ por SVD ($\to U \Sigma V^T$). Por virtudes algebraicas, la pseudoinversa de Moore-Penrose se recicla exquisita y robustamente invirtiendo solo a las piezas no nulas de la cadena y retrostajando a $U$ y $V$: 
-   $$ A^+ = V \cdot \Sigma^{-1} \cdot U^T $$
-   (Donde $\Sigma^{-1}$ es trivial de obtener, es simplemente una matriz diagonal repleta de los cocientes $1 / s_i$).
+1. **Matriz de Diseño**: Se construye la matriz $A$ evaluando las funciones base $f_i$ en los puntos $x_j$.
+2. **Sistema Sobre-determinado**: Dado que usualmente el número de datos $n$ es mayor al de funciones $m$, el sistema $A\alpha = y$ no tiene solución exacta. Se busca minimizar el error cuadrático $\|A\alpha - y\|^2$.
+3. **Uso de SVD**: La solución de cuadrados mínimos se puede obtener mediante la pseudoinversa de Moore-Penrose $A^+$, calculada a partir de la SVD ($A = U \Sigma V^T$):
+   $$ A^+ = V \Sigma^+ U^T $$
+   donde $\Sigma^+$ contiene los recíprocos de los valores singulares no nulos.
 
-Entonces, el gran vector de coeficientes se logra multiplicando al vector solitario $y$ con las piezas SVD atadas:
-$$ \alpha = V \cdot \text{diag}\left(\frac{1}{s}\right) \cdot U^T \cdot y $$
-
-Pasaremos a desgranar directamente el bloque de código que satisface las restricciones tiránicas estipuladas por el examen, recondicionando todo mediante herramientas rasas `NumPy`.
+El vector de coeficientes óptimo es:
+$$ \alpha = A^+ y = V \text{diag}\left(\frac{1}{s_i}\right) U^T y $$
 
 ---
 
-## Solución Pragmática (Implementación Python)
+## Solución Técnica (Implementación Python)
 
-Dado que no se permite `lstsq`, nos encargaremos de modelar atómicamente la seccionadora SVD. Construyéndola estrictamente como piden:
+Dado que no se permite `lstsq`, se implementa el cálculo de la matriz $A$ y la resolución del sistema utilizando únicamente operaciones de `NumPy`.
 
 ```python
 --8<-- "Examen_2026_02_18/04_cuadrados_minimos_svd/verificacion.py"
 ```
 
-### Anatomía del Error Cuadrático (EC)
+### Cálculo del Error Cuadrático (EC)
 
-Habiendo empaquetado los coeficientes "mágicos" ($\alpha$) provenientes de exprimir a la matriz rala descompuesta y ensamblada de su inversa ($V \Sigma^{-1} U^T$), la consigna impone proveer el control de daños, dictando al mundo real cuál es el desajuste total originado del modelo inventado en contraste con la realidad natural cruda.
+Una vez hallados los coeficientes $\alpha$, el error cuadrático se calcula evaluando la diferencia entre las predicciones del modelo y los valores observados:
 
-Matemáticamente, evaluamos al modelo con nuestros pesos hallados alimentándole las bases operativas de muestra:
-$$ \text{Predicciones}(\hat{y}) = A \cdot \alpha $$
+$$ \hat{y} = A \cdot \alpha $$
 
-Computamos la brecha diferencial entre predicción vs observación innegable $y$:
-$$ \text{Residuos} = \hat{y} - y = (A \cdot \alpha) - y $$
+$$ \text{Residuos} = \hat{y} - y $$
 
-Como la estadística penaliza a las brechas simétricamente sin importar signos para magnificar fallas grotescas, enjaulamos los residuos perimetrales al cuadrado:
 $$ EC(\alpha) = \|\text{Residuos}\|_2^2 = (A \cdot \alpha - y)^T (A \cdot \alpha - y) $$
-*(En la programación esto decanta simple y elegante en una acumulación sumatoria mediante producto escalar de sí mismo o elevando al cuadrado sus componentes vectoriales, arrojando un escalar liso y puro)*.
+
+Este valor permite cuantificar la bondad del ajuste del modelo a los datos experimentales.

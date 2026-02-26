@@ -33,7 +33,7 @@ A la hora de redactar el cuerpo matemático de `teoria.md` o cualquier otro arch
 
 - **Desarrollo Matemático**:
   - Las variables matemáticas y derivaciones formales se deben explayar de modo deductivo (paso a paso), sin obviar el "puente lógico" entre axiomas. 
-  - Las ecuaciones de peso deben separarse en bloque (usando `$$...$$` con una **línea vacía adicional** por encima y por debajo para curar fallos del ruteo en `MkDocs` y `MathJax`).
+  - Las ecuaciones de peso deben separarse en bloque (usando `$$...$$` con una **línea vacía adicional** obligatoria por encima, por debajo y entre bloques consecutivos para asegurar el correcto renderizado en `MkDocs` y `MathJax`).
   - **Listas y viñetas**: Asegúrate siempre de dejar un salto de línea en blanco antes y entre medio de los ítems de cualquier enumerado para evitar condensación del hipertexto al compilar.
   - **Diagramas**: Las representaciones visuales, como grafos de transición, deben hacerse utilizando sintaxis de **Mermaid** (` ```mermaid ... ``` `).
 
@@ -46,6 +46,9 @@ La afirmación teórica final sólo adquiere validez incuestionable en este proy
 
 - **Abstracción al Caos (Randomization Testing)**:
   - Todo teorema matricial abstracto deberá someterse a rigor utilizando simulaciones estocásticas de matrices masivas en `NumPy` (`np.random.randn`, construcciones desde SVD). El orden de las filas no debe perturbar propiedades núcleo; inyéctale permutaciones al azar para asilar algoritmos de posibles matrices simétricas engañosas conformadas artificialmente.
+
+- **Verificación Simbólica (SymPy)**:
+  - Siempre que sea posible y el problema involucre derivaciones algebraicas, polinomios o matrices pequeñas con valores exactos (ej. fracciones), se deberá prioridad la **verificación simbólica con `SymPy`**. Esto permite confirmar que el polinomio característico, los autovalores o las identidades algebraicas coinciden con el desarrollo manual sin ruidos de punto flotante.
 
 - **Comprobación Booleana por Flotantes**:
   - En hardware e informática científica real, problemas de desbordamiento, truncamiento y redondeo de punto flotante desautorizan las validaciones rígidas por doble igual (`==`).
