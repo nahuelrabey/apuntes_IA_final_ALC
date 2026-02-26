@@ -91,6 +91,7 @@ nav:
       - Convergencia y Radio Espectral: demostraciones/convergencia_radio_espectral.md
       - Método de la Potencia: demostraciones/metodo_potencia.md
       - Ecuación Característica SOR: demostraciones/ecuacion_caracteristica_sor_ejemplo.md
+      - Módulo en Raíces Complejas: demostraciones/modulo_autovalores_complejos.md
       - Det. Escalar Matriz (det kA): demostraciones/det_escalar_matriz.md
       - Vector Nulo Autovector: demostraciones/vector_nulo_autovector.md
       - Independencia Columnas Pivotales: demostraciones/independencia_pivotes.md

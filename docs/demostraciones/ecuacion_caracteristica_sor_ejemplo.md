@@ -44,7 +44,7 @@ $$ \lambda^2 - \frac{4+3}{8}\lambda + \frac{4}{16} = 0 $$
 
 $$ \lambda^2 - \frac{7}{8}\lambda + \frac{1}{4} = 0 $$
 
-Esta es la **Ecuación Característica** presentada en el archivo de teoría.
+Esta es la **Ecuación Característica** presentada en el archivo de teoría. Como las raíces son complejas conjugadas, su módulo es directamente $\sqrt{1/4} = 0.5$ (ver [demostración detallada](modulo_autovalores_complejos.md)).
 
 ---
 

@@ -151,7 +151,7 @@ $B(1/2) = (D + 0.5L)^{-1} (0.5D - 0.5U)$
 3.  $B(1/2) = \begin{pmatrix} 1/2 & -1/4 \\ 1/4 & 3/8 \end{pmatrix}$
 
 Ecuación característica: $\lambda^2 - \frac{7}{8}\lambda + \frac{1}{4} = 0$. (Ver [derivación paso a paso](../../demostraciones/ecuacion_caracteristica_sor_ejemplo.md)).
-El módulo de los autovalores es $|\lambda| = \sqrt{1/4} = 0.5 < 1$.
+El módulo de los autovalores es $|\lambda| = \sqrt{1/4} = 0.5 < 1$. (Ver [por qué el módulo es $\sqrt{c}$](../../demostraciones/modulo_autovalores_complejos.md)).
 **Resultado**: El método **converge**.
 
 #### Caso 2: $\omega = 3/2$
