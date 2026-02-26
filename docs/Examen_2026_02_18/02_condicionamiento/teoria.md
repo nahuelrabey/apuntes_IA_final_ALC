@@ -36,6 +36,16 @@ En la segunda parte, se analiza la matriz de Kronecker $A_n$, cuya estructura de
 > **a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular: $\frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}$
 
 Sea $B$ una matriz singular. Existe un vector $x \neq 0$ tal que $Bx = 0$.
+
+??? info "Observación Teórica: ¿Por qué existe un $x \neq 0$ tal que $Bx = 0$?"
+    Esta propiedad define a las **matrices singulares** y es válida para todas ellas por definición. Si una matriz $B \in \mathbb{R}^{n \times n}$ es singular:
+    
+    1. **Determinante Nulo**: $\det(B) = 0$.
+    2. **Dependencia Lineal**: Sus columnas son linealmente dependientes. Esto significa que existe una combinación lineal de sus columnas $\{b_1, \dots, b_n\}$ con coeficientes no todos nulos ($x_i$) que da como resultado el vector cero: $\sum x_i b_i = 0$.
+    3. **Núcleo No Trivial**: Por la definición de producto matriz-vector, $\sum x_i b_i$ es idéntico a $Bx$. Por lo tanto, existe un vector $x = (x_1, \dots, x_n)^T \neq \mathbf{0}$ tal que $Bx = \mathbf{0}$.
+    
+    Geométricamente, una matriz singular "colapsa" al menos una dimensión del espacio, enviando todos los puntos de esa dirección al origen ($\mathbf{0}$).
+
 Podemos escribir $Ax$ como:
 
 $$
@@ -79,12 +89,15 @@ Queda demostrada la propiedad para cualquier norma inducida.
 ### Inciso B: Condicionamiento de la Matriz $A_n$
 
 La matriz $A_n \in \mathbb{R}^{n \times n}$ se define como:
+
 $$a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}$$
 
 Esta matriz puede expresarse como:
+
 $$
 A_n = \frac{1}{n} E + \frac{1}{n^2} I_n
 $$
+
 donde $E$ es la matriz de unos y $I_n$ la identidad.
 
 #### B-1. Cota inferior para $\text{cond}_\infty(A_n)$
@@ -95,12 +108,15 @@ Calculamos la norma infinito de $A_n$:
 $$ \|A_n\|_\infty = \max_i \sum_j |a_{ij}| = (n-1)\frac{1}{n} + \left(\frac{1}{n} + \frac{1}{n^2}\right) = 1 + \frac{1}{n^2} $$
 
 Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$:
+
 $$ A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2} $$
 
 Sustituimos en la fórmula:
+
 $$ \frac{1}{\text{cond}_\infty(A_n)} \leq \frac{1/n^2}{1 + 1/n^2} = \frac{1}{n^2 + 1} $$
 
 Invirtiendo la inecuación:
+
 $$ \text{cond}_\infty(A_n) \geq n^2 + 1 $$
 
 Por lo tanto, $\text{cond}_\infty(A_n)$ crece por lo menos como $n^2$.
@@ -112,17 +128,23 @@ Por lo tanto, $\text{cond}_\infty(A_n)$ crece por lo menos como $n^2$.
 Para una matriz simétrica, $\text{cond}_2(A_n) = \frac{|\lambda_{\max}|}{|\lambda_{\min}|}$. Determinamos los autovalores de $A_n$:
 
 1. Si $v = \mathbf{1} = (1, \dots, 1)^T$:
+
    $$ A_n \mathbf{1} = \frac{1}{n^2} \mathbf{1} + \frac{1}{n} (n \mathbf{1}) = \left( \frac{1}{n^2} + 1 \right) \mathbf{1} $$
+
    $\implies \lambda_1 = 1 + \frac{1}{n^2}$.
 
 2. Si $v \perp \mathbf{1}$ (hay $n-1$ tales vectores):
+
    $$ A_n v = \frac{1}{n^2} v + \frac{1}{n} (0) = \frac{1}{n^2} v $$
+
    $\implies \lambda_i = \frac{1}{n^2}$ para $i = 2, \dots, n$.
 
 El número de condición es:
+
 $$ \text{cond}_2(A_n) = \frac{1 + 1/n^2}{1/n^2} = n^2 + 1 $$
 
 Al tender $n$ a infinito:
+
 $$ \lim_{n \to \infty} \text{cond}_2(A_n) = \lim_{n \to \infty} (n^2 + 1) = \infty $$
 
 El sistema se vuelve mal condicionado al aumentar $n$.
