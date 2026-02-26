@@ -10,7 +10,9 @@
 
 ## Interpretación del Enunciado
 
-El ejercicio analiza el **Método de Sobrerrelajación Sucesiva (SOR)**, una variante de *Gauss-Seidel*. El parámetro $\omega$ (omega) funciona como un factor de ajuste: 
+El ejercicio analiza el **Método de Sobrerrelajación Sucesiva (SOR)**, una variante de *Gauss-Seidel*. Para una base teórica completa de estos métodos y su derivación matricial (Jacobi, Gauss-Seidel y SOR), consulte la [demostración general](../../demostraciones/metodos_iterativos.md).
+
+El parámetro $\omega$ (omega) funciona como un factor de ajuste: 
 
 - Si $\omega = 1$, el método es equivalente a *Gauss-Seidel*.
 - Si $\omega > 1$, se aplica sobrerrelajación (para acelerar la convergencia).

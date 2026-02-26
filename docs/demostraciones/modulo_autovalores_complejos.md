@@ -62,8 +62,9 @@ Por lo tanto, el radio espectral es $\rho(B) = 0.5$, lo cual garantiza la conver
 
 Para profundizar en las relaciones entre raíces y coeficientes (Fórmulas de Vieta) y las propiedades de autovalores complejos:
 
-*   **Libro**: *Linear Algebra and Its Applications* (Gilbert Strang). Ver capítulos sobre autovalores y números complejos.
-*   **Libro**: *Numerical Mathematics* (Quarteroni, Sacco, Saleri). Sección sobre métodos iterativos lineales y análisis del parámetro SOR.
+*   **Libro**: *Linear Algebra and Its Applications* (David C. Lay). **Capítulo 5, Sección 5.5: "Complex Eigenvalues"**. En esta sección se aborda explícitamente cómo la matriz de transformación actúa sobre vectores propios complejos y se formaliza la relación entre el determinante y el módulo al cuadrado de los autovalores ($|\lambda| = \sqrt{\det(A)} = \sqrt{a^2+b^2}$).
+*   **Libro**: *Introduction to Linear Algebra* (Gilbert Strang). **Capítulo 9: "Complex Vectors and Matrices"** (en ediciones anteriores puede figurar en la sección de Autovalores como "Complex Matrices"). Analiza detalladamente la aparición de autovalores conjugados en matrices reales.
+*   **Libro**: *Numerical Mathematics* (Quarteroni, Sacco, Saleri). **Capítulo 4, Sección 4.3**: "Iterative Methods for solving Linear Systems". Incluye el análisis del parámetro de relajación $\omega$ del método SOR y su teorema de convergencia ligado al radio espectral.
 *   **Wiki**: [Vieta's formulas](https://en.wikipedia.org/wiki/Vieta%27s_formulas) - Propiedades generales de las raíces de polinomios.
 
 ---

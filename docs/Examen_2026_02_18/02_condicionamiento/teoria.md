@@ -5,7 +5,6 @@
 > **a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular:
 >
 > $$ \frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|} $$
-> 
 > **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por 
 >
 >$$a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n$$
@@ -16,6 +15,13 @@
 > - **ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
 
 ## Interpretación del Enunciado
+
+??? info "Observación Teórica: Norma Matricial Inducida"
+    Una **norma matricial inducida** (u operatoria) es aquella que se deriva directamente de una norma vectorial $\|\cdot\|$ preexistente. Se define como el máximo factor de amplificación que la matriz $A$ puede aplicar a cualquier vector $x$ no nulo:
+    
+    $$ \|A\| = \max_{x \neq 0} \frac{\|Ax\|}{\|x\|} = \max_{\|x\|=1} \|Ax\| $$
+    
+    Estas normas son fundamentales en el análisis de error porque garantizan por definición la propiedad de **consistencia**: $\|Ax\| \leq \|A\| \cdot \|x\|$. Ejemplos clásicos son la norma 1 (máxima suma por columnas), la norma $\infty$ (máxima suma por filas) y la norma 2 (el autovalor máximo de $A^T A$).
 
 El ejercicio analiza el condicionamiento de una matriz y su relación con la distancia a la singularidad. En la primera parte, se demuestra que el recíproco del número de condición de una matriz inversible $A$ representa una cota inferior para la distancia relativa de $A$ a cualquier matriz singular $B$.
 

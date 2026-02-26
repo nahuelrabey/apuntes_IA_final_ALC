@@ -83,6 +83,7 @@ nav:
           - 04. Condicionamiento y Estabilidad: Examen_2025_08_07/04_numero_condicion/teoria.md
           - 05. Descomposición LU: Examen_2025_08_07/05_descomposicion_lu/teoria.md
   - Demostraciones:
+      - Métodos Iterativos (Jacobi, GS, SOR): demostraciones/metodos_iterativos.md
       - Determinante de Producto: demostraciones/determinante_producto.md
       - Teorema Espectral: demostraciones/teorema_espectral.md
       - Autovalores Distintos: demostraciones/autovalores_distintos.md
