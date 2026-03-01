@@ -35,11 +35,13 @@ En la parte práctica, se modela la dinámica poblacional de animales entre cuat
 Por las propiedades de las matrices de Markov, el radio espectral de $P$ es $\rho(P) = 1$ (ver [demostración rigurosa](../../demostraciones/radio_espectral_markov.md)). Esto implica que para todo autovalor $\lambda_i$, se cumple $|\lambda_i| \le 1$.
 
 Al ser $P$ diagonalizable, existe una base de autovectores $\{v_1, \dots, v_n\}$. Cualquier estado inicial $v_0$ se puede expresar como:
+
 $$
 v_0 = c_1 v_1 + c_2 v_2 + \dots + c_n v_n
 $$
 
 La evolución del sistema tras $k$ pasos es $v_k = P^k v_0$:
+
 $$
 v_k = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2 + \dots + c_n \lambda_n^k v_n
 $$
@@ -60,14 +62,17 @@ Sabemos que:
 - $u$ es autovector con autovalor $\lambda$ tal que $|\lambda| < 1$.
 
 Aplicamos $P^k$ a $v_0$:
+
 $$
 v_k = P^k (\alpha w_1 + \beta w_2 + \gamma u) = \alpha P^k w_1 + \beta P^k w_2 + \gamma P^k u
 $$
+
 $$
 v_k = \alpha (1)^k w_1 + \beta (1)^k w_2 + \gamma \lambda^k u
 $$
 
 Tomando el límite $k \to \infty$:
+
 $$
 \lim_{k \to \infty} v_k = \alpha w_1 + \beta w_2 + \gamma (0) u = \alpha w_1 + \beta w_2
 $$

@@ -26,7 +26,7 @@ Dado que la matriz $A$ es de dimensiones $n \times 2$, su descomposición SVD $A
 
 - $\Sigma$ es una matriz de $n \times 2$ (mismas dimensiones que $A$) que alberga a los valores singulares $\sigma_i$ estrictamente a lo largo de su "diagonal principal" (donde el índice de fila coincide con el de columna, $\Sigma_{ii}$). **En consecuencia, todos los demás elementos que no pertenecen a esta diagonal son estrictamente nulos ($\Sigma_{ij} = 0$ para todo $i \neq j$)**. Esta es una propiedad basal inquebrantable de la SVD. A la hora de iterar, notamos que todas las filas contenidas entre $n=3$ hasta la última ($n$) serán filas llenas enteramente de ceros.
 
-- La expresión $\tilde{A} = \sigma_1 u_1 v_1^t$ se denomina **aproximación de rango 1**. El **Teorema de Eckart-Young-Mirsky** ([fuente matemática](https://es.wikipedia.org/wiki/Teorema_de_Eckart-Young-Mirsky)) en álgebra lineal demuestra infaliblemente que al truncar la SVD reteniendo únicamente el o los mayores valores singulares, se obtiene la matriz "más cercana" posible a la original minimizando el margen de error, en el sentido de la Norma Rectangular Espectral (Norma-2) y de Frobenius. Por ende, la conjunción de los mayores vectores singulares $\sigma_1 u_1 v_1^t$ conforma la proyección hiper-dimensional estricta de mayor asertividad para explicar la matriz general reduciéndola a un solo espectro principal (un solo vector-base).
+- La expresión $\tilde{A} = \sigma_1 u_1 v_1^t$ se denomina **aproximación de rango 1**. El **Teorema de Eckart-Young-Mirsky** en álgebra lineal demuestra infaliblemente que al truncar la SVD reteniendo únicamente el o los mayores valores singulares, se obtiene la matriz "más cercana" posible a la original minimizando el margen de error, en el sentido de la Norma Rectangular Espectral (Norma-2) y de Frobenius. Por ende, la conjunción de los mayores vectores singulares $\sigma_1 u_1 v_1^t$ conforma la proyección hiper-dimensional estricta de mayor asertividad para explicar la matriz general reduciéndola a un solo espectro principal (un solo vector-base).
 
 ## Solución Inciso A
 > a) Si $x \in \mathbb{R}^2$ es un vector perteneciente al círculo unitario, mostrar que el error cometido al calcular $Ax$ como $\tilde{A}x$ está acotado por $\sigma_2$.
@@ -44,8 +44,6 @@ $$A = \sum_{i=1}^{k} \sigma_i u_i v_i^t = \sigma_1 u_1 v_1^t + \sigma_2 u_2 v_2^
     Teniendo en cuenta que $u_i$ y $v_i$ son vectores columna, cada término individual $u_i v_i^t$ (el **producto exterior** u *outer product* entre el $i$-ésimo vector singular izquierdo y su equivalente derecho interpuesto) arroja una matriz bidimensional completa de $m \times n$, pero de riguroso **rango 1** (al ser la multiplicación cruzada de meras vectores columnas lineales, todas las columnas de la matriz resultante terminan siendo múltiplos de una única columna $u_i$).
     
     Al escalarla individualmente por su respectivo valor singular $\sigma_i$ (que actúa como el "peso" escalado o la magnificación de esa componente a nivel espectral), la suma de estas "capas" de rango 1 superpuestas reconstruye milimétricamente la integralidad de $M$, ponderando y priorizando los elementos de mayor dominancia (las direcciones singulares principales).
-    
-    📌 *Para verificar visualmente la demostración matemática en pizarra impartida desde cero, podés mirar la [Clase 29 (Singular Value Decomposition) dictada por Gilbert Strang para MIT 18.06 OpenCourseWare](https://www.youtube.com/watch?v=mBcLRGuAFUk).*
 
 Dado que se nos informa que $\tilde{A} = \sigma_1 u_1 v_1^t$ es la aproximación de mayor rango, podemos definir el error vectorial de efectuar dicha predicción como $e = A x - \tilde{A} x$.
 
@@ -67,8 +65,6 @@ Como un escalar positivo puede extraerse de la norma:
     Adicionalmente, como el enunciado aclara que los valores singulares no admiten repetición ($\sigma_i \neq \sigma_j$) y provienen del habitual ordenamiento secular de magnitud descendente $\sigma_1 > \sigma_2 > 0$, concluimos fehacientemente que **$\sigma_2 > 0$**. 
     
     Al refrendar que es un escalar puramente positivo para todo escenario, nuestra expresión queda habilitada lícitamente para desacoplar a $\sigma_2$ por fuera de la función valor absoluto de la norma métrica subyacente de la que era parte impunemente: $|\sigma_2| = \sigma_2$ y $||\sigma_2 u|| = \sigma_2 ||u||$.
-    
-    📌 *Para consultar la probanza algebraica oficial de estas propiedades imperativas, podés remitirte a la [Clase 27 (Positive Definite Matrices and Minima) dictada por Gilbert Strang para MIT 18.06 OpenCourseWare](https://www.youtube.com/watch?v=vF7eyJ2g3kU).*
 
 $$||e||_2 = \sigma_2 ||u_2 (v_2^t x)||_2$$
 
@@ -132,8 +128,6 @@ Los autovectores de $B$ son precisamente las columnas de la matriz $V$, denotado
     Esta gloriosa disposición coincide simétricamente con la definición canónica universal de la **Diagonalización de Matrices por Autovalores** ($M = P D P^{-1}$), donde el teorema espectral dicta irrefutablemente que $D$ (nuestra $\Lambda$) es la matriz diagonal que aloja de forma descendente los **autovalores**, y $P$ (nuestra $V$) es la matriz de paso cuyas columnas albergan los **autovectores** ortonormalizados linealmente independientes correspondientes a cada escalón de $\Lambda$.
     
     Por alineación axiomática directa, las columnas de $V$ ($v_1, v_2$) son sin lugar a dudas los autovectores de la matriz simétrica $B$.
-    
-    📌 *Para verificar visualmente la demostración completa del Teorema Espectral y el mecanismo de diagonalización $\Lambda$, te sugiero consultar la [Clase 22 (Diagonalization and Powers of A) dictada por Gilbert Strang para MIT 18.06 OpenCourseWare](https://www.youtube.com/watch?v=13r9QY6cmjc).*
 
 En base a esto, y conociendo que los valores singulares de SVD exigen que $\sigma_i \neq \sigma_j$ y vienen típicamente ordenados descendiendo $\sigma_1 > \sigma_2 > 0$, deducimos que $\lambda_1 > \lambda_2 \geq 0$.
 
@@ -145,8 +139,6 @@ En base a esto, y conociendo que los valores singulares de SVD exigen que $\sigm
     En el contexto estricto de nuestro ejercicio, el enunciado nos decreta preventivamente que **$\sigma_i \neq \sigma_j$ si $i \neq j$**. Esta condición suplementaria impuesta por el autor anula la posibilidad de que surja multiplicidad en los valores (el caso degenerado donde $\sigma_1 = \sigma_2$). 
     
     Por consiguiente, la fusión natural de la **convención descendente genérica de la SVD** $(\sigma_1 \ge \sigma_2 \ge \dots \ge 0)$ intersectada con la **restricción estricta de desigualdad del examen** $(\sigma_1 \neq \sigma_2)$, nos conduce fehacientemente y sin fisuras analíticas a que la sucesión es estrictamente decreciente: **$\sigma_1 > \sigma_2 > 0$**.
-    
-    📌 *Para verificar la convención doctrinal y matemática detrás del ordenamiento matricial descendente de la SVD, podés consultar la [Wikipedia: Singular Value Decomposition (Statement of the theorem)](https://en.wikipedia.org/wiki/Singular_value_decomposition).*
 
 El algoritmo planteado evalúa un simple bucle $k \in 1, \dots, N$ sobre la operación iterada:
 
@@ -203,8 +195,6 @@ $$B^k x^{(0)} = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2$$
     Sustituyendo la conducta matricial proyectada en las componentes individuales para desacoplarnos matemáticamente del producto matricial y transformarlo en escalares algebraicos:
     
     $$B^k x^{(0)} = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2$$
-    
-    📌 *El basamento doctrinario supremo para asimilar cómo una matriz iterativa se deconstruye y expande sus propios autovalores en el tiempo es ilustrado majestuosamente en la [Clase 22 (Diagonalization and Powers of A) - MIT 18.06 Linear Algebra, Fall 2005 por Gilbert Strang](https://www.youtube.com/watch?v=13r9QY6cmjc).*
 
 
 Factorizando para independizarnos del exponente del autovalor dominante:

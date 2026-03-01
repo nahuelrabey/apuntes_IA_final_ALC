@@ -4,6 +4,21 @@
 
 ---
 
+## Contenido Teórico Obligatorio
+
+El presente examen evalúa la comprensión y aplicación práctica de los siguientes teoremas y métodos, cuyas demostraciones formales pueden ser consultadas en la base de conocimiento:
+
+*   **Descomposición en Valores Singulares (SVD)**: Aproximaciones de rango 1 y método de iteración matricial para singularidad principal.
+    *   [Demostración: Método de la Potencia (Punto b)](../demostraciones/metodo_potencia.md)
+*   **Diagonalización**: Bases de autovectores y descomposición $AC = CS$.
+    *   [Demostración: Autovalores Distintos implican Autovectores L.I.](../demostraciones/autovalores_distintos.md)
+*   **Matrices Ortogonales y Simétricas**: Determinantes de reflexión/rotación y Teorema Espectral real.
+    *   [Demostración: Teorema Espectral Real](../demostraciones/teorema_espectral.md)
+*   **Cuadrados Mínimos**: Bases ortonormales, matrices $Q$ e Inversas Generalizadas (Pseudoinversas $A^\dagger$).
+*   **Espacios con Producto Interno**: Acotación de proyecciones a través de ángulos vectoriales.
+
+---
+
 ## 01 Svd
 
 > **Ejercicio 1.** Sea $A$ una matriz con coeficientes reales de $n \times 2$. Sean $U$, $\Sigma$ y $V$ las matrices que dan su descomposición SVD, con $u_i$ la columna $i$-ésima de $U$, $\Sigma_{ii} = \sigma_i$ (con $\sigma_i \neq \sigma_j$ si $i \neq j$), y $v_i$ la columna $i$-ésima de $V$. Sea $\tilde{A} = \sigma_1 u_1 v_1^t$ una aproximación de rango 1 de $A$.

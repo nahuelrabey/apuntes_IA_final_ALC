@@ -4,6 +4,19 @@
 
 ---
 
+## Contenido Teórico Obligatorio
+
+El presente examen evalúa la comprensión y aplicación práctica de los siguientes teoremas y métodos, cuyas demostraciones formales pueden ser consultadas en la base de conocimiento:
+
+*   **Semejanza de Matrices y Traza**: Relación de equivalencia y preservación de autovalores.
+    *   [Demostración: Producto de Determinantes y Trazas](../demostraciones/determinante_producto.md)
+*   **Descomposición en Valores Singulares (SVD)**: Factorización de matrices no cuadradas y matrices de permutación.
+*   **Métodos Iterativos (Jacobi y Gauss-Seidel)**: Condiciones de convergencia para matrices funcionalmente dependientes.
+    *   [Demostración: Convergencia de Radio Espectral](../demostraciones/convergencia_radio_espectral.md)
+*   **Mínimos Cuadrados**: Sistemas sobre-determinados y proyecciones ortogonales.
+
+---
+
 ## 01 Semejanza Matrices
 
 > **Ejercicio 1**

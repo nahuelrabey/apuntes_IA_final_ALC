@@ -50,8 +50,6 @@ Como sus columnas son vectores estrictamente **linealmente independientes**, su 
     Sin embargo, **la ortogonalidad (que formen ángulos perfectos de 90° o que su producto interno $v_i \cdot v_j = 0$) es una propiedad de élite reservada de manera exclusiva y rigurosa para las Matrices Simétricas Reales** (por aplicación del célebre *Teorema Espectral*). 
     
     Para una matriz cuadrada $A$ general asimétrica, sus autovectores construirán firmemente una base para $\mathbb{R}^n$, pero en la inmensa mayoría de los casos será una **base oblicua** (independientes pero **no ortogonales**).
-    
-    📌 *Para constatar la rigurosidad conceptual de esta distinción vital (que la ortogonalidad se forja como propiedad exclusiva del Teorema Espectral ante matrices simétricas reales), consúltese la [Clase 25 (Symmetric Matrices and Positive Definiteness) - Prof. Gilbert Strang (MIT 18.06 OpenCourseWare)](https://www.youtube.com/watch?v=13r9QY6cmjc&list=PLE7DDD91010BC51F8&index=26) o la [Wikipedia: Spectral Theorem (Symmetric matrices)](https://en.wikipedia.org/wiki/Spectral_theorem).*
 
 A continuación debemos probar la aseveración analítica de igualdad. Evaluemos el producto en el miembro izquierdo $AC$:
 

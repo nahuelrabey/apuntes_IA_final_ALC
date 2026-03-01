@@ -4,6 +4,20 @@
 
 ---
 
+## Contenido Teórico Obligatorio
+
+El presente examen evalúa la comprensión y aplicación práctica de los siguientes teoremas y métodos, cuyas demostraciones formales pueden ser consultadas en la base de conocimiento:
+
+*   **Proyectores y Subespacios**: Proyectores ortogonales, nulidad e imagen de transformaciones lineales.
+*   **Cadenas de Markov**: Estados de equilibrio y autovalores cíclicos unitarios.
+    *   [Demostración: Radio Espectral en Markov (ρ=1)](../demostraciones/radio_espectral_markov.md)
+*   **Cuadrados Mínimos Revisitado**: Equivalencia de minimización matricial mediante descomposiciones algebraicas y pseudoinversa.
+*   **Condicionamiento Matricial**: Sensibilidad numérica y estrategias de precondicionamiento diagonal.
+    *   [Demostración: Submultiplicatividad de Norma Inducida](../demostraciones/submultiplicatividad_norma_inducida.md)
+*   **Descomposición LU**: Factorización gausiana, matrices de permutación e implementación algorítmica estricta sin pivoteo.
+
+---
+
 ## 01 Proyector
 
 > **Ejercicio 1.** Sea $A = \begin{pmatrix} -1 & 1 & 0 & 1 \\ 1 & -1 & -1 & -2 \\ 1 & -1 & 0 & -1 \\ 1 & -1 & 1 & 0 \end{pmatrix}$ y $f: \mathbb{R}^4 \to \mathbb{R}^4$ definida por $f(x) = Ax$.

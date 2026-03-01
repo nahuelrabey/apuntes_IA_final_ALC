@@ -4,6 +4,21 @@
 
 ---
 
+## Contenido Teórico Obligatorio
+
+El presente examen evalúa la comprensión y aplicación práctica de los siguientes teoremas y métodos, cuyas demostraciones formales pueden ser consultadas en la base de conocimiento:
+
+*   **Método Iterativo SOR**: Ecuación característica iterativa e invertibilidad de matrices triangulares.
+    *   [Demostración: Determinante Triangular Inferior $(D+\omega L)$](../demostraciones/det_triangular_inferior_sor.md)
+    *   [Demostración: Ecuación Característica SOR](../demostraciones/ecuacion_caracteristica_sor_ejemplo.md)
+*   **Condicionamiento Matricial**: Perturbación de matrices singulares y acotamiento del número de condición.
+    *   [Demostración: Submultiplicatividad de Norma Inducida](../demostraciones/submultiplicatividad_norma_inducida.md)
+*   **Cadenas de Markov**: Regularidad estocástica, estados límites y magnitud de autovalores.
+    *   [Demostración: Radio Espectral en Markov (ρ=1)](../demostraciones/radio_espectral_markov.md)
+*   **Mínimos Cuadrados con SVD**: Resolución algorítmica de sistemas sobre-determinados mediante factorizaciones espectrales ortogonales.
+
+---
+
 ## 01 Metodo Sor
 
 > **Ejercicio 1.** Dada $A \in \mathbb{R}^{n \times n}$ con $a_{ii} \neq 0$, $1 \leq i \leq n$. $A = L + D + U$.
