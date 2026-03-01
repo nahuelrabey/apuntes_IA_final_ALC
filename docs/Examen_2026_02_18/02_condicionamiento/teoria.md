@@ -28,7 +28,6 @@ $$
 \|A\| = \max_{x \neq 0} \frac{\|Ax\|}{\|x\|} = \max_{\|x\|=1} \|Ax\|
 $$
 
-
     Estas normas son fundamentales en el análisis de error porque garantizan por definición la propiedad de **consistencia**: $\|Ax\| \leq \|A\| \cdot \|x\|$. Ejemplos clásicos son la norma 1 (máxima suma por columnas), la norma $\infty$ (máxima suma por filas) y la norma 2 (el autovalor máximo de $A^T A$).
 
 El ejercicio analiza el condicionamiento de una matriz y su relación con la distancia a la singularidad. En la primera parte, se demuestra que el recíproco del número de condición de una matriz inversible $A$ representa una cota inferior para la distancia relativa de $A$ a cualquier matriz singular $B$.

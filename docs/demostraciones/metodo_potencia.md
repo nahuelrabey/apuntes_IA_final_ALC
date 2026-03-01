@@ -61,6 +61,7 @@ $$
 Recordemos conceptualmente que la norma del denominador en el paso anterior, es decir $c = ||B^{k-1} x^{(0)}||$, es por axioma de espacios geométricos un estricto escalar (número real absoluto estrictamente mayor a 0 si $x^{(0)}$ no está arruinado nulificándose).
 
 Por las propiedades de linealidad escalable irrefutable que gobiernan a las matrices y las normas topológicas, sabemos que para cualquier paramento escalar $c > 0$ y un vector físico libre $v$, pueden "salir fuera" comportándose así:
+
 - $B\left(\frac{1}{c}v\right) = \frac{1}{c} Bv$
 - $\left\| \frac{1}{c} v \right\| = \left|\frac{1}{c}\right| \|v\| = \frac{1}{c} \|v\|$
 

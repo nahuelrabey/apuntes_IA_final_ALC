@@ -86,6 +86,7 @@ Queda entonces probado que el espectro de cualquier cadena de Markov con ciclos 
 
 Armamos la matriz estocástica por columnas $P$ a base de que todas las aristas que parten de un nodo dividen sus probabilidades equitativamente.
 Notamos las transiciones de salida para cada nodo $j$:
+
 - De $1 \to \{2, 4\}$ (2 salidas $\implies p=0.5$ c/u)
 - De $2 \to \{3, 4\}$ (2 salidas $\implies p=0.5$ c/u)
 - De $3 \to \{3, 5\}$ (2 salidas $\implies p=0.5$ c/u)
@@ -110,6 +111,7 @@ Un estado de equilibrio $v_{eq}$ satisface $P v_{eq} = v_{eq}$, es decir, es un 
 Observando el grafo y la matriz, los estados **1, 2 y 4 son transitorios**. Tarde o temprano la cadena de azar escapa y cae hacia la componente inferior conformada por **3 y 5**.
 
 Un subgrafo $\{3, 5\}$ forma una **clase recurrente cerrada**, la cual interactúa absorbiendo toda la probabilidad con estas probabilidades reducidas:
+
 - 3 va a 3 (0.5), y va a 5 (0.5)
 - 5 va a 3 (1.0), y va a 5 (0)
 

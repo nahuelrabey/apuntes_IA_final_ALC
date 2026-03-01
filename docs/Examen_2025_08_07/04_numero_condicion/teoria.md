@@ -27,6 +27,7 @@ Con d(A) = \|A\| \cdot \|A^{-1}\|
 $$
 
 Recordemos que la norma matricial infinito ($\|A\|_\infty$) es la máxima suma absoluta de los constituyentes de cada fila:
+
 - $\|A\|_\infty = \max \{ 1+1+1, \: 1+1+0, \: |k^2|+0+|k^2| \}$
 - $\|A\|_\infty = \max \{ 3, \: 2, \: 2k^2 \}$
 

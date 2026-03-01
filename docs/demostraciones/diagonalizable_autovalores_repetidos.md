@@ -21,6 +21,7 @@ $$
 ### Cálculo de Autovalores y Autoespacios
 
 Calculamos el espectro de $P$. Como la matriz está estructurada en bloques principales, podemos aislar los autovalores de la diagonal:
+
 - Del escalar superior: $\lambda_1 = 1$
 - Del bloque inferior $\begin{pmatrix} 0.5 & 0.5 \\ 0.5 & 0.5 \end{pmatrix}$: $\lambda_2 = 1$ y $\lambda_3 = 0$.
 

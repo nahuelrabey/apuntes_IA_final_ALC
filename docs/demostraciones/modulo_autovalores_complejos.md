@@ -61,7 +61,6 @@ $$
 \Delta = \left(-\frac{7}{8}\right)^2 - 4 \cdot \frac{1}{4} = \frac{49}{64} - 1 = -\frac{15}{64} < 0
 $$
 
-
     Confirmamos que las raíces son complejas conjugadas.
 
 2.  **Cálculo del módulo**:

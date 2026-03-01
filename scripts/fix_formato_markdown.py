@@ -115,6 +115,45 @@ def fix_math_blocks(content):
     return content.strip() + '\n'
 
 
+def fix_list_blocks(content):
+    """
+    Corrige el formato de bloques de lista en contenido Markdown.
+
+    Regla aplicada (según estructuracion_markdown.md):
+    - El primer ítem de un bloque de lista (- o 1.) debe estar precedido
+      por al menos una línea vacía. Si está dentro de un blockquote (>),
+      el separador vacío es ">" solo.
+    """
+    lines = content.split('\n')
+    result = []
+    in_list = False
+
+    for i, line in enumerate(lines):
+        is_list_item = bool(re.match(r'^>*\s*(?:-|\d+\.)\s+', line))
+
+        if is_list_item and not in_list:
+            in_list = True
+            if i > 0:
+                prev_line = lines[i - 1]
+                is_blank = (prev_line.strip(' >\t\r') == '')
+                if not is_blank:
+                    # Detectar prefijo blockquote de la línea actual
+                    bq_match = re.match(r'^((?:>\s*)*>)', line)
+                    if bq_match:
+                        result.append(bq_match.group(1))
+                    else:
+                        result.append('')
+        elif not is_list_item:
+            if line.strip(' >\t\r') == '':
+                in_list = False
+            elif not re.match(r'^>*\s+', line) and in_list:
+                in_list = False
+
+        result.append(line)
+
+    return '\n'.join(result)
+
+
 def process_file(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -124,6 +163,7 @@ def process_file(filepath):
         return False
 
     new_content = fix_math_blocks(original_content)
+    new_content = fix_list_blocks(new_content)
 
     if new_content != original_content:
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -144,7 +184,7 @@ def main():
             modificados += 1
             print(f"-> Corregido: {md_file}")
 
-    print(f"\nProceso completado. Se normalizaron bloques matemáticos en {modificados} archivos.")
+    print(f"\nProceso completado. Se normalizaron {modificados} archivos.")
 
 
 if __name__ == '__main__':

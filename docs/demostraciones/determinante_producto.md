@@ -70,6 +70,7 @@ $$
 ### Conclusión
 
 Demostramos empírica y contundentemente cómo:
+
 1. Si un operador es singular y aplasta su rango a cero absoluto, la absorción propaga el nulo certificando el postulado lógicamente.
 2. Como cualquier armatoste inversible no-singular se puede deconstruir atómicamente al formato puro y maleable de Matrices Elementales...
 3. Y estas elementales portan la ley primigenia de escalar con multiplicidad separada.

@@ -37,7 +37,7 @@ Para garantizar que estas normas se cumplan de manera sistemática y que el rend
 
 ```bash
 # 1. Ejecutar el auto-fixer para reparar/aislar bloques matemáticos adheridos
-python scripts/fix_math_blocks.py
+python scripts/fix_formato_markdown.py
 
 # 2. Correr el linter verificador para certificar listas y reglas de formato subyacentes
 python scripts/verificador_formato_markdown.py

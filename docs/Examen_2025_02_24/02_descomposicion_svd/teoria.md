@@ -13,6 +13,7 @@
 ---
 
 ## 1. Calcular la descomposición en valores singulares (SVD) de la matriz $A$
+>
 > 1. Calcular la descomposición en valores singulares (SVD) de la matriz:
 >
 > $$
@@ -87,6 +88,7 @@ $$
 ---
 
 ## 2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$
+>
 > 2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$, donde $P$ es una matriz de permutación. Además, calcular $||PA||_2$ y $\kappa_2(PA)$.
 
 Una matriz de permutación $P$ es siempre una matriz ortogonal; es decir, altera el orden de filas o columnas, pero respeta la isometría:

@@ -25,6 +25,7 @@ A^{(1)} = \begin{pmatrix} 1 & 1 & -1 & 1 \\ 1 & 0 & 1 & -1 \\ -1 & -1 & 0 & 1 \\
 $$
 
 **Paso 1: Pivote $u_{11} = 1$ no es nulo.** Las operaciones de fila apuntadas para anular elementos bajo la columna 1 son:
+
 - Fila 2: $F_2 \gets F_2 - (1/1) F_1 \implies L_{21} = 1 \implies A_{2,:} = (0, -1, 2, -2)$
 - Fila 3: $F_3 \gets F_3 - (-1/1) F_1 \implies L_{31} = -1 \implies A_{3,:} = (0, 0, -1, 2)$
 - Fila 4: $F_4 \gets F_4 - (0/1) F_1 \implies L_{41} = 0 \implies A_{4,:} = (0, 1, -2, 2)$
@@ -36,6 +37,7 @@ A^{(2)} = \begin{pmatrix} 1 & 1 & -1 & 1 \\ 0 & -1 & 2 & -2 \\ 0 & 0 & -1 & 2 \\
 $$
 
 **Paso 2: Pivote $u_{22} = -1$ no es nulo.** Las operaciones elementales bajo él proceden:
+
 - Fila 3: $F_3 \gets F_3 - (0/-1) F_2 \implies L_{32} = 0 \implies A_{3,:} = (0, 0, -1, 2)$
 - Fila 4: $F_4 \gets F_4 - (1/-1) F_2 \implies L_{42} = -1 \implies A_{4,:} = F_4 + F_2 = (0, 0, 0, 0)$
 
@@ -46,6 +48,7 @@ A^{(3)} = \begin{pmatrix} 1 & 1 & -1 & 1 \\ 0 & -1 & 2 & -2 \\ 0 & 0 & -1 & 2 \\
 $$
 
 **Paso 3: Pivote $u_{33} = -1$ no es nulo.** Procedemos contra el nivel final por consistencia algorítmica:
+
 - Fila 4: $F_4 \gets F_4 - (0/-1) F_3 \implies L_{43} = 0 \implies A_{4,:} = (0, 0, 0, 0)$
 El último término es siempre $u_{44} = A^{(4)}_{44} = 0$.
 

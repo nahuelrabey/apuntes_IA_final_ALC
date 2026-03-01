@@ -17,6 +17,7 @@
 Dada la función no lineal:
 
 ## 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a, b$ y $c$.
+>
 > 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
 
 Para aplicar el método de Mínimos Cuadrados Lineales Clásicos, primero debemos transformar (linealizar) el modelo geométrico/exponencial aplicando logaritmo natural ($\ln$) a ambos lados de la ecuación:
@@ -85,6 +86,7 @@ Resolviendo este sistema lineal $(3 \times 3)$ se obtienen los estimadores param
 ---
 
 ## 2. Proponer puntos de datos para que la solution sea única.
+>
 > 2. Proponer puntos de datos para que la solución sea única.
 
 Para que las ecuaciones de mínimos cuadrados posean una **solución única**, la matriz normal cuadrada $(M^T M)$ debe ser estrictamente invertible. Esto ocurre si y solo si la matriz de diseño $M$ posee **rango completo por columnas**.
@@ -120,6 +122,7 @@ Por tanto, el determinante de la matriz normal $\det(M^T M) = \det(M)^2 = 4 \neq
 ---
 
 ## 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
+>
 > 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
 
 El sistema general de mínimos cuadrados tiene como incógnita el vector $\vec{\theta} = [A, b, c]^T$, el cual contiene **3 parámetros** a estimar libremente.

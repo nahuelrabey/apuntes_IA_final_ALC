@@ -27,6 +27,7 @@ Podemos descomponer la matriz en su diagonal ($D$), su parte estrictamente infer
 ---
 
 ## 1. Valores de $c$ para los cuales convergen Jacobi y Gauss-Seidel
+>
 > 1. Determinar para qué valores de $c$ convergen los métodos de Jacobi y Gauss-Seidel.
 
 Ambos métodos iterativos convergen para cualquier valor inicial si y solo si el **radio espectral** de sus matrices de iteración (denotado $\rho$, que es el máximo valor absoluto de sus autovalores) es estrictamente menor a 1 ($\rho < 1$).
@@ -90,6 +91,7 @@ Ambos métodos convergen en el mismo intervalo: $c \in (-1, 1)$.
 ---
 
 ## 2. Comparar la velocidad de convergencia
+>
 > 2. Comparar la velocidad de convergencia de ambos métodos.
 
 La tasa asintótica de convergencia se define computacionalmente como $R(T) = -\ln(\rho(T))$.
@@ -105,6 +107,7 @@ La relación concluyente es que la tasa de convergencia de Gauss-Seidel es exact
 ---
 
 ## 3. Plantear las iteraciones correspondientes para cada método
+>
 > 3. Plantear las iteraciones correspondientes para cada método.
 
 Para el sistema general $A \vec{x} = \vec{b}$, es decir:

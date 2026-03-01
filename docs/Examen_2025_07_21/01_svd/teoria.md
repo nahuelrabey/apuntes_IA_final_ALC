@@ -44,7 +44,6 @@ $$
 M = \sum_{i=1}^{r} \sigma_i u_i v_i^t
 $$
 
-
     Teniendo en cuenta que $u_i$ y $v_i$ son vectores columna, cada término individual $u_i v_i^t$ (el **producto exterior** u *outer product* entre el $i$-ésimo vector singular izquierdo y su equivalente derecho interpuesto) arroja una matriz bidimensional completa de $m \times n$, pero de riguroso **rango 1** (al ser la multiplicación cruzada de meras vectores columnas lineales, todas las columnas de la matriz resultante terminan siendo múltiplos de una única columna $u_i$).
 
     Al escalarla individualmente por su respectivo valor singular $\sigma_i$ (que actúa como el "peso" escalado o la magnificación de esa componente a nivel espectral), la suma de estas "capas" de rango 1 superpuestas reconstruye milimétricamente la integralidad de $M$, ponderando y priorizando los elementos de mayor dominancia (las direcciones singulares principales).
@@ -148,13 +147,11 @@ $$
 B = V \Lambda V^t
 $$
 
-
     Por definición de la SVD, sabemos que $V$ conforma una matriz **ortogonal** perfecta. Las matrices ortogonales gozan de la propiedad inversa elemental en la que $V^t = V^{-1}$. Sustituyendo esto en la ecuación:
 
 $$
 B = V \Lambda V^{-1}
 $$
-
 
     Esta gloriosa disposición coincide simétricamente con la definición canónica universal de la **Diagonalización de Matrices por Autovalores** ($M = P D P^{-1}$), donde el teorema espectral dicta irrefutablemente que $D$ (nuestra $\Lambda$) es la matriz diagonal que aloja de forma descendente los **autovalores**, y $P$ (nuestra $V$) es la matriz de paso cuyas columnas albergan los **autovectores** ortonormalizados linealmente independientes correspondientes a cada escalón de $\Lambda$.
 
@@ -190,7 +187,6 @@ $$
 $$
 x^{(2)} = \frac{\frac{1}{||B x^{(0)}||} \cdot B^2 x^{(0)}}{\frac{1}{||B x^{(0)}||} \cdot ||B^2 x^{(0)}||} = \frac{B^2 x^{(0)}}{||B^2 x^{(0)}||}
 $$
-
 
     Efectuando este patrón colapsable iterativamente $k$ veces (todos los divisores escalares de los pasos intermedios nacen y mueren mutuamente cancelados por linealidad), arribamos a la inmaculada conclusión de que sin importar cuándo o cuántas veces re-normalicemos el vector a magnitud 1 durante el bucle de For, la dirección espacial que apunta $x^{(k)}$ proviene indefectiblemente de elevar empíricamente a $B$ a la potencia $k$ desde el inicio ($B^k x^{(0)}$) y dividir todo ese armatoste final por su propia norma universal ($||B^k x^{(0)}||$) recién al terminar.
 
@@ -230,13 +226,11 @@ $$
 B^k x^{(0)} = B^k (c_1 v_1 + c_2 v_2)
 $$
 
-
     Propagando la transformación de la matriz por distributiva matricial pura:
 
 $$
 B^k x^{(0)} = c_1 (B^k v_1) + c_2 (B^k v_2)
 $$
-
 
     Sustituyendo la conducta matricial proyectada en las componentes individuales para desacoplarnos matemáticamente del producto matricial y transformarlo en escalares algebraicos:
 
@@ -273,13 +267,11 @@ $$
 B^k x^{(0)} = 0 \cdot \lambda_1^k v_1 + c_2 \lambda_2^k v_2 = c_2 \lambda_2^k v_2
 $$
 
-
     Dado que en el Método de la Potencia el paso es normalizar forzosamente $x^{(k)} = \frac{B^k x^{(0)}}{||B^k x^{(0)}||}$, no importa cuán microscópico se torne el escalar $\lambda_2^k \to 0$ con el avance del tiempo, al estar en el numerador y denominador sometido bajo norma **éste se cancela intrínsecamente**:
 
 $$
 x^{(k)} = \frac{c_2 \lambda_2^k v_2}{||c_2 \lambda_2^k v_2||} = \frac{c_2 \lambda_2^k}{|c_2| \lambda_2^k} \cdot \frac{v_2}{||v_2||} = \text{sgn}(c_2) v_2
 $$
-
 
     Por consiguiente, el algoritmo **jamás tenderá al origen $(0,0)$**; la normalización iterativa actúa como un antídoto perpetuo que estirará de vuelta a cualquier remanente hacia el círculo unitario (norma 1), quedando estacionado inamoviblemente en $\pm v_2$.
 

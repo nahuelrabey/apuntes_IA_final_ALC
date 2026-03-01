@@ -77,6 +77,7 @@ $$
 $$
 
 ??? info "Propiedades de Convergencia"
+
     - **Condición Necesaria**: El método converge solo si $\omega \in (0, 2)$. Ver [demostración del determinante](../Examen_2026_02_18/01_metodo_sor/teoria.md#inciso-b-determinante-de-iteracion-y-condicion-de-rango-cota).
     - **Matrices SPD**: Si $A$ es Simétrica Definida Positiva, SOR converge para cualquier $\omega \in (0, 2)$.
     - **Diagonal Dominante**: GS y Jacobi convergen si $A$ es estrictamente dominante por filas.

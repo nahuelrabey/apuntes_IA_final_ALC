@@ -41,7 +41,6 @@ El presente examen evalúa la comprensión y aplicación práctica de los siguie
 > \frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}
 > $$
 >
->
 > **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
 >
 > $$

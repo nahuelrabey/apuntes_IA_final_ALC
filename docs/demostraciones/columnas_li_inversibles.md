@@ -71,6 +71,7 @@ El dictamen expone en base a esto que el alcance perimetral de las combinaciones
 ### Conclusión Axiomática
 
 Demostramos empíricamente cómo al concatenar lógicamente las ramificaciones abstractas de las columnas:
+
 1. Al albergar exclusivamente vectores independientes, su núcleo colapsó en $\mathbf{0}$ garantizando la **Inyectividad** pura matricial.
 2. Esta nulidad dictaminó, vía Teorema del Rango, un Rank $n$ de cobertura completa que certificaba que las columnas eran una base real, validando la **Sobreyectividad** paralela.
 
