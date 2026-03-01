@@ -30,3 +30,18 @@ Este flujo de trabajo define las reglas estrictas de redacción y formato que la
 - El razonamiento principal debe fluir de forma limpia y directa.
 - Cualquier justificación profunda, análisis del porqué de una técnica matemática subyacente, demostraciones periféricas o historia, deberá quedar "escondida" en un bloque sintáctico colapsable usando los **admonitions interactivos** de MkDocs.
 - Sintaxis obligatoria del bloque colapsable: `??? info "Título Breve"` (o `??? question`, `??? warning` según corresponda).
+
+## 4. Validación Automatizada Estricta
+
+Para garantizar que estas normas se cumplan de manera sistemática y que el renderizado no se contamine con aglomeraciones de texto, se deben ejecutar obligatoriamente **dos scripts de verificación y corrección tras cada sesión de redacción o modificación de los archivos Markdown**.
+
+```bash
+# 1. Ejecutar el auto-fixer para reparar/aislar bloques matemáticos adheridos
+python scripts/fix_math_blocks.py
+
+# 2. Correr el linter verificador para certificar listas y reglas de formato subyacentes
+python scripts/verificador_formato_markdown.py
+```
+
+- **Este paso doble es obligatorio.** El corrector intentará despegar los bloques de ecuaciones que posean sintaxis aglomerada. 
+- Luego, el *linter* reportará las advertencias residuales en consola indicando la línea del conflicto. La IA debe iterar y solucionar la falta de espaciado señalada antes de poder dar la tarea por absolutamente concluida.

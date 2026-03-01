@@ -101,3 +101,5 @@ nav:
       - Independencia Lineal e Invertibilidad: demostraciones/columnas_li_inversibles.md
       - RREF y Matriz Inversa: demostraciones/rref_identidad_inversa.md
       - Submultiplicatividad de Norma Inducida: demostraciones/submultiplicatividad_norma_inducida.md
+      - Diagonalizable con Autovalores Repetidos: demostraciones/diagonalizable_autovalores_repetidos.md
+      - Criterio de Diagonalizabilidad: demostraciones/criterio_diagonalizabilidad.md
