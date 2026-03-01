@@ -90,6 +90,7 @@ nav:
       - Det. Triangular Inferior (D + ωL): demostraciones/det_triangular_inferior_sor.md
       - Módulo de Potencia: demostraciones/potencia_modulo.md
       - Convergencia y Radio Espectral: demostraciones/convergencia_radio_espectral.md
+      - Radio Espectral de Markov (ρ=1): demostraciones/radio_espectral_markov.md
       - Rol del Término Independiente c: demostraciones/termino_independiente_convergencia.md
       - Método de la Potencia: demostraciones/metodo_potencia.md
       - Ecuación Característica SOR: demostraciones/ecuacion_caracteristica_sor_ejemplo.md

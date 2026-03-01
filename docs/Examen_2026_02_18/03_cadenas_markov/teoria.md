@@ -32,7 +32,7 @@ En la parte práctica, se modela la dinámica poblacional de animales entre cuat
 
 > **a-i)** Probar que si $P$ es diagonalizable y $-1$ no es autovalor, entonces existe el estado límite para todo estado inicial.
 
-Por las propiedades de las matrices de Markov, el radio espectral de $P$ es $\rho(P) = 1$. Esto implica que para todo autovalor $\lambda_i$, se cumple $|\lambda_i| \le 1$.
+Por las propiedades de las matrices de Markov, el radio espectral de $P$ es $\rho(P) = 1$ (ver [demostración rigurosa](../../demostraciones/radio_espectral_markov.md)). Esto implica que para todo autovalor $\lambda_i$, se cumple $|\lambda_i| \le 1$.
 
 Al ser $P$ diagonalizable, existe una base de autovectores $\{v_1, \dots, v_n\}$. Cualquier estado inicial $v_0$ se puede expresar como:
 $$
