@@ -14,7 +14,8 @@ Ejemplo: `docs/Examen_2026_02_18`
 ## 2. Índice del Examen (El Enunciado)
 En la raíz de la carpeta del examen, DEBE existir **siempre** un archivo llamado `enunciado.md`. 
 - Este archivo actuará como presentación e índice del final.
-- Contendrá el texto general, las imágenes globales o simplemente el título del examen si aún no hay contenido asimilado.
+- Contendrá el texto general inicial o las imágenes globales del examen.
+- **Contenido Teórico Obligatorio**: Además del enunciado bruto, este archivo debe listar de forma explícita los **temas generales**, así como los **teoremas y proposiciones teóricas** clave que resultaron necesarios para resolver los ejercicios propuestos en el examen (funcionando como un mapa conceptual de la evaluación). **Atención vital: Cada teorema o proposición enumerada aquí debe contar con su correspondiente archivo de demostración en la carpeta `docs/demostraciones/`, y su mención en el enunciado debe actuar como un hipervínculo directo hacia dicha demostración.**
 - En el archivo `mkdocs.yml`, este archivo `enunciado.md` debe ser obligatoriamente el primer ítem anidado bajo la entrada del examen, y debe llevar la etiqueta "Enunciado".
 
 ## 3. Carpetas Individuales por Ejercicio
