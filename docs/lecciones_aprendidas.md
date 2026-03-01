@@ -48,7 +48,7 @@ A través de las validaciones teórico-prácticas elaboradas en nuestra metodolo
 
 ### Ejercicio 2 - Semejanza y SVD
 
-- **Uso de Invarianzas y Transformaciones Ortogonales:** En matemáticas (como ocurre con la SVD), aplicar operaciones "isométricas" o transformaciones ortogonales (como fue multiplicar por una matriz de permutación aleatoria computacionalmente, $P$) resulta invariante para las magnitudes nucleares (como el espectro singular). 
+- **Uso de Invarianzas y Transformaciones Ortogonales:** En matemáticas (como ocurre con la SVD), aplicar operaciones "isométricas" o transformaciones ortogonales (como fue multiplicar por una matriz de permutación aleatoria computacionalmente, $P$) resulta invariante para las magnitudes nucleares (como el espectro singular).
 
 - **La Utilidad de la Permutación Aleatoria Computada:** A la hora de verificar propiedades sobre operadores donde "El orden de las filas no altera el resultado estructural", utilizar una matriz de permutación estocástica (`P = I[np.random.permutation(n), :]`) sobre el código es un factor de prueba estupendo. Si la propiedad estadística persiste (ejemplo, la invariabilidad de `np.linalg.svd`) probamos empíricamente la independencia matemática del operador evaluado y confirmamos el modelo numérico.
 

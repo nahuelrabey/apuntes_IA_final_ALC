@@ -20,35 +20,64 @@ Procederemos a dividir la prueba matemática formal en dos tajeos distintos pero
 Supongamos transitoriamente que en una matriz simétrica real $A$ "nacen" soluciones que arrojan un autovalor complejo genérico $\lambda = \alpha + \beta i$. Si esto sucediese, por ley algebraica intrínseca su respectivo autovector alojará componentes complejas, llamémoslo $v \in \mathbb{C}^n$.
 
 Planteamos la ecuación definitoria originaria del mundo complejo:
-$$(Eq. 1) \quad A v = \lambda v$$
+
+$$
+(Eq. 1) \quad A v = \lambda v
+$$
 
 Aplicaremos un truco axiomático del álgebra C*-Hermitiana: Tomar el conjugado complejo formal sobre ambos flancos de la igualdad (denotado por la barra $\overline{x}$).
 Dado que los coeficientes de $A$ provienen del silicio puro de los Números Reales, el conjugado de un real nos devuelve exactamente el mismo número real ($\overline{A} = A$). Por consiguiente, el conjugado penetra únicamente al autovector y al autovalor:
-$$(Eq. 2) \quad A \overline{v} = \overline{\lambda} \overline{v}$$
+
+$$
+(Eq. 2) \quad A \overline{v} = \overline{\lambda} \overline{v}
+$$
 
 Teniendo en mesa este dual conjugado, procedemos a realizar la **Prueba del Doble Producto Interno** o pre-multiplicación transpuesta. Pre-multipliquemos a $(Eq. 1)$ transversalmente por el vector conjugado transpuesto $\overline{v}^t$:
-$$\overline{v}^t (A v) = \overline{v}^t (\lambda v) = \lambda (\overline{v}^t v)$$
+
+$$
+\overline{v}^t (A v) = \overline{v}^t (\lambda v) = \lambda (\overline{v}^t v)
+$$
 
 Hagamos la imagen en espejo y ahora tomemos nuestra sub-Ecuación transpuesta $(Eq. 2)$, apliquemos el traspuesto distributivo general a toda la expresión y luego post-multipliquemos por $v$:
-$$(A \overline{v})^t = (\overline{\lambda} \overline{v})^t$$
-$$\overline{v}^t A^t = \overline{\lambda} \overline{v}^t$$
-$$\overline{v}^t A^t v = (\overline{\lambda} \overline{v}^t) v = \overline{\lambda} (\overline{v}^t v)$$
+
+$$
+(A \overline{v})^t = (\overline{\lambda} \overline{v})^t
+$$
+
+$$
+\overline{v}^t A^t = \overline{\lambda} \overline{v}^t
+$$
+
+$$
+\overline{v}^t A^t v = (\overline{\lambda} \overline{v}^t) v = \overline{\lambda} (\overline{v}^t v)
+$$
 
 ¡Aquí acontece el milagro simétrico! Como la Hipótesis regente del teorema juró que $A$ es Simétrica ($A^t = A$), el término izquierdo de la segunda manipulación es idénticamente el mismo bloque estructural que el término izquierdo de la primera iteración: $\overline{v}^t A^t v = \overline{v}^t A v$.
 Si los lados izquierdos computan la misma entidad atómica, sus lados derechos deben igualarse incondicionalmente:
 
-$$\lambda (\overline{v}^t v) = \overline{\lambda} (\overline{v}^t v)$$
+$$
+\lambda (\overline{v}^t v) = \overline{\lambda} (\overline{v}^t v)
+$$
 
 Aislémoslos analíticamente restando:
-$$(\lambda - \overline{\lambda}) (\overline{v}^t v) = 0$$
+
+$$
+(\lambda - \overline{\lambda}) (\overline{v}^t v) = 0
+$$
 
 Detengámonos en el factor constante $(\overline{v}^t v)$. Si multiplicamos un vector complejo conjugado por sí mismo, la matemática topológica estricta dicta que estamos calculando la suma de los valores absolutos al cuadrado de todas sus componentes ($\sum |v_k|^2$). Como el autovector nunca puede valer estrictamente 0 (regla madre matricial), esta suma es rígidamente estricta a un real positivo puro: $\overline{v}^t v > 0$.
 
 Por ende, el factor vectorial subyacente nunca claudica a cero. La ÚNICA salida lógica para cumplir la balanza es que el paréntesis de autovalores colapse a 0:
-$$\lambda - \overline{\lambda} = 0$$
-$$\lambda = \overline{\lambda}$$
 
-Para que un número complejo resulte de igual valor y signo que su propio clon conjugado imaginario $(\alpha + \beta i = \alpha - \beta i)$, **es deductivamente obligatorio y evidente que su parte imaginaria debe ser idénticamente cero (\beta = 0)**. 
+$$
+\lambda - \overline{\lambda} = 0
+$$
+
+$$
+\lambda = \overline{\lambda}
+$$
+
+Para que un número complejo resulte de igual valor y signo que su propio clon conjugado imaginario $(\alpha + \beta i = \alpha - \beta i)$, **es deductivamente obligatorio y evidente que su parte imaginaria debe ser idénticamente cero (\beta = 0)**.
 Ergo, **$\lambda$ es un Número Real al 100%.** Queda demostrada la primera pata del Teorema.
 
 ### Parte II: Ortogonalidad Estricta de Autovectores
@@ -56,34 +85,59 @@ Ergo, **$\lambda$ es un Número Real al 100%.** Queda demostrada la primera pata
 Superada la validación de raíces puramente reales, sumerjámonos en el espacio para examinar qué lazos invisibles atan a autovectores ($v_1, v_2$) inyectados desde dos autovalores radicalmente dispares ($\lambda_1 \neq \lambda_2$).
 
 Arrancamos con sus verdades aisladas:
-$$A v_1 = \lambda_1 v_1$$
-$$A v_2 = \lambda_2 v_2$$
 
-Apelaremos a una técnica asimilable a la de la primera parte: el testeo cruzado. 
+$$
+A v_1 = \lambda_1 v_1
+$$
+
+$$
+A v_2 = \lambda_2 v_2
+$$
+
+Apelaremos a una técnica asimilable a la de la primera parte: el testeo cruzado.
 A la primera fórmula, la pre-multiplicaremos dot-cruzado en producto interno por el segundo autovector transpuesto ($v_2^t$):
-$$v_2^t A v_1 = v_2^t (\lambda_1 v_1) = \lambda_1 (v_2^t v_1)$$
+
+$$
+v_2^t A v_1 = v_2^t (\lambda_1 v_1) = \lambda_1 (v_2^t v_1)
+$$
 
 Por otro lado, aplicaremos la transposición matricial distributiva completa de ambos flancos sobre la segunda verdad definitoria, y luego la post-multiplicaremos libremente por el vector anexo $v_1$:
-$$(A v_2)^t = (\lambda_2 v_2)^t$$
-$$v_2^t A^t = \lambda_2 v_2^t$$
-$$v_2^t A^t v_1 = (\lambda_2 v_2^t) v_1 = \lambda_2 (v_2^t v_1)$$
+
+$$
+(A v_2)^t = (\lambda_2 v_2)^t
+$$
+
+$$
+v_2^t A^t = \lambda_2 v_2^t
+$$
+
+$$
+v_2^t A^t v_1 = (\lambda_2 v_2^t) v_1 = \lambda_2 (v_2^t v_1)
+$$
 
 Otra vez invocamos el as bajo la manga del enigmático autor: **La matriz es rigurosamente simétrica** ($A^t = A$). Aplicando esta sustitución milagrosa al lado izquierdo de nuestro último experimento, notamos que ambas expresiones en sus hemisferios izquierdos son clones formales paralelos ($v_2^t A v_1 = v_2^t A v_1$).
 
 Procedemos a igualar sin reparos la derecha de ambas balanzas:
 
-$$\lambda_1 (v_2^t v_1) = \lambda_2 (v_2^t v_1)$$
+$$
+\lambda_1 (v_2^t v_1) = \lambda_2 (v_2^t v_1)
+$$
 
 Despejando analíticamente su diferencial a un flanco:
-$$(\lambda_1 - \lambda_2) (v_2^t v_1) = 0$$
+
+$$
+(\lambda_1 - \lambda_2) (v_2^t v_1) = 0
+$$
 
 Al analizar esta disyuntiva, el postulado del teorema exige escrutinio sobre autovectores enclaustrados en **autovalores distintos**. Como es fáctico en todos estos espacios que $\lambda_1 \neq \lambda_2$, salta contundentemente a la vista que el delta multiplicativo jamás será cero ($(\lambda_1 - \lambda_2) \neq 0$).
 
 Para satisfacer la inquebrantable anulación demandada por la ecuación subyacente en el lado derecho, la lógica computacional castiga dictaminando que **el otro multiplicador atómico tiene que ser rigurosamente portador del nulo**:
 
-$$v_2^t v_1 = 0$$
+$$
+v_2^t v_1 = 0
+$$
 
-¿Qué implica estructural y geométricamente en el campo Euclidiano $\mathbb{R}^n$ que el *producto punto escalar* (o inner-product) arrojado entre dos vectores dictamine como resultado un rotundo $0$? 
+¿Qué implica estructural y geométricamente en el campo Euclidiano $\mathbb{R}^n$ que el *producto punto escalar* (o inner-product) arrojado entre dos vectores dictamine como resultado un rotundo $0$?
 Implica analíticamente, de forma perfecta y sublime, que las direcciones vectoriales que describen a ambos autovectores habitan formando **un ángulo tridimensional perfecto de 90° grados**.
 
 Los autovectores de matrices simétricas están constreñidos a ser **Perfectamente Ortogonales $\dots$ Q.E.D.**

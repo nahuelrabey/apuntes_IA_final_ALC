@@ -5,7 +5,7 @@
 
 ## Interpretación del Enunciado
 
-La confusión metodológica frecuente es asumir que la implicación "Autovalores distintos $\implies$ Diagonalizable" funciona de forma bidireccional. 
+La confusión metodológica frecuente es asumir que la implicación "Autovalores distintos $\implies$ Diagonalizable" funciona de forma bidireccional.
 Para desmentirlo matemáticamente, es suficiente con encontrar una matriz $P$ que posea autovalores repetidos (raíces múltiples en su polinomio característico), pero que a la vez disponga de una base completa de autovectores (sus dimensiones de autoespacios coinciden con sus multiplicidades algebraicas).
 
 ## Solución del Ejercicio
@@ -34,7 +34,9 @@ $$
 
 Cualquier vector del nulo toma la forma $(v_1, v_2, v_2)^T$. Esto nos permite parametrizar y obtener dos autovectores generadores linealmente independientes para $E_{\lambda=1}$:
 
-$$w_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \quad \text{y} \quad w_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$$
+$$
+w_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \quad \text{y} \quad w_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+$$
 
 Como la dimensión del autoespacio (multiplicidad geométrica) para $\lambda=1$ es 2 (idéntica a su multiplicidad algebraica), y $\lambda=0$ provee su propio autovector base, la matriz goza de un set de 3 autovectores L.I. (rango completo en $\mathbb{R}^3$).
 La **matriz es diagonalizable** iterativamente y permite una descomposición en bloques $P = VDV^{-1}$, invalidando que las raíces múltiples le prohíban la diagonalización.

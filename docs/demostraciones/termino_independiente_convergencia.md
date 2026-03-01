@@ -3,7 +3,9 @@
 > **Proposición.**
 > Sea el método iterativo $x^{k+1} = B\, x^k + c$. Si el método converge, el punto fijo $x^*$ satisface:
 >
-> $$ x^* = (I - B)^{-1} c $$
+> $$
+> x^* = (I - B)^{-1} c
+> $$
 >
 > La condición de convergencia ($\rho(B) < 1$) es independiente de $c$.
 
@@ -11,7 +13,9 @@
 
 Al analizar el inciso **b)** del método SOR se tiene la iteración:
 
-$$x^{k+1} = B(\omega)\, x^k + c, \qquad c = (D + \omega L)^{-1}\,\omega b$$
+$$
+x^{k+1} = B(\omega)\, x^k + c, \qquad c = (D + \omega L)^{-1}\,\omega b
+$$
 
 Una pregunta natural es: ¿por qué la condición $\omega \in (0,2)$ no involucra a $c$? La demostración muestra que el término independiente determina *hacia dónde* converge el método, pero no *si* converge.
 
@@ -23,11 +27,15 @@ Una pregunta natural es: ¿por qué la condición $\omega \in (0,2)$ no involucr
 
 Si el método converge, existe $x^*$ tal que la sucesión se estabiliza. Tomando el límite cuando $k \to \infty$ en la recursión:
 
-$$x^* = B\, x^* + c$$
+$$
+x^* = B\, x^* + c
+$$
 
 Despejando $x^*$:
 
-$$(I - B)\, x^* = c \implies x^* = (I - B)^{-1} c$$
+$$
+(I - B)\, x^* = c \implies x^* = (I - B)^{-1} c
+$$
 
 Nótese que esta relación coincide exactamente con la solución del sistema $Ax = b$, lo cual garantiza que el método iterativo converge a la solución correcta (cuando converge).
 
@@ -35,17 +43,23 @@ Nótese que esta relación coincide exactamente con la solución del sistema $Ax
 
 Definimos el error en el paso $k$ como $e^k = x^k - x^*$. Usando la recursión y la ecuación del punto fijo:
 
-$$e^{k+1} = x^{k+1} - x^* = \underbrace{(B x^k + c)}_{x^{k+1}} - \underbrace{(B x^* + c)}_{x^*} = B\, e^k$$
+$$
+e^{k+1} = x^{k+1} - x^* = \underbrace{(B x^k + c)}_{x^{k+1}} - \underbrace{(B x^* + c)}_{x^*} = B\, e^k
+$$
 
 El término $c$ **se cancela exactamente**. Aplicando esta relación de forma sucesiva:
 
-$$e^k = B^k\, e^0$$
+$$
+e^k = B^k\, e^0
+$$
 
 ### 3. Condición de Convergencia
 
 El error tiende a cero para cualquier condición inicial $e^0$ si y solo si $B^k \to \mathbf{0}$, lo cual ocurre si y solo si (ver [convergencia y radio espectral](./convergencia_radio_espectral.md)):
 
-$$\rho(B) < 1$$
+$$
+\rho(B) < 1
+$$
 
 Esta condición depende **únicamente de $B$**, no de $c$.
 

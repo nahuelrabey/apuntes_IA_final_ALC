@@ -4,7 +4,9 @@
 >
 > Dada la función:
 >
-> $$z = a y^b e^{cx+2}$$
+> $$
+> z = a y^b e^{cx+2}
+> $$
 >
 > 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
 > 2. Proponer puntos de datos para que la solución sea única.
@@ -17,18 +19,23 @@ Dada la función no lineal:
 ## 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a, b$ y $c$.
 > 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
 
-
 Para aplicar el método de Mínimos Cuadrados Lineales Clásicos, primero debemos transformar (linealizar) el modelo geométrico/exponencial aplicando logaritmo natural ($\ln$) a ambos lados de la ecuación:
 
-$$\ln(z) = \ln(a \cdot y^b \cdot e^{cx + 2})$$
+$$
+\ln(z) = \ln(a \cdot y^b \cdot e^{cx + 2})
+$$
 
 Por las propiedades de los logaritmos (el logaritmo de un producto es la suma de los logaritmos, y el exponente baja multiplicando), la expresión queda:
 
-$$\ln(z) = \ln(a) + b \ln(y) + (cx + 2)$$
+$$
+\ln(z) = \ln(a) + b \ln(y) + (cx + 2)
+$$
 
 Reagrupando los términos para independizar las incógnitas de las constantes conocidas:
 
-$$\ln(z) - 2 = \ln(a) + b \ln(y) + c x$$
+$$
+\ln(z) - 2 = \ln(a) + b \ln(y) + c x
+$$
 
 A partir de esta estructura lineal en sus parámetros, efectuamos los siguientes cambios de variable para llevarlo a un modelo lineal estándar de la forma $Z_i = \beta_0 + \beta_1 Y_i + \beta_2 X_i$:
 
@@ -47,7 +54,7 @@ A partir de esta estructura lineal en sus parámetros, efectuamos los siguientes
 Para un conjunto de $m$ puntos experimentales $(x_i, y_i, z_i)$, definimos el sistema de ecuaciones sobre-determinado en forma matricial $M \vec{\theta} = \vec{Z}$ como:
 
 $$
-\begin{pmatrix} 
+\begin{pmatrix}
 1 & \ln(y_1) & x_1 \\
 1 & \ln(y_2) & x_2 \\
 \vdots & \vdots & \vdots \\
@@ -69,7 +76,9 @@ $$
 
 **Las ecuaciones normales de Mínimos Cuadrados** se construyen multiplicando por izquierda la transpuesta de la matriz de diseño $M$:
 
-$$(M^T M) \vec{\theta} = M^T \vec{Z}$$
+$$
+(M^T M) \vec{\theta} = M^T \vec{Z}
+$$
 
 Resolviendo este sistema lineal $(3 \times 3)$ se obtienen los estimadores paramétricos óptimos $\hat{A}$, $\hat{b}$ y $\hat{c}$. Posteriormente se recupera $\hat{a} = e^{\hat{A}}$.
 
@@ -77,7 +86,6 @@ Resolviendo este sistema lineal $(3 \times 3)$ se obtienen los estimadores param
 
 ## 2. Proponer puntos de datos para que la solution sea única.
 > 2. Proponer puntos de datos para que la solución sea única.
-
 
 Para que las ecuaciones de mínimos cuadrados posean una **solución única**, la matriz normal cuadrada $(M^T M)$ debe ser estrictamente invertible. Esto ocurre si y solo si la matriz de diseño $M$ posee **rango completo por columnas**.
 
@@ -100,7 +108,9 @@ En el contexto físico del problema, esto implica que:
 
 Evaluemos cómo queda nuestra matriz de muestras con estos puntos de prueba para confirmar su independencia:
 
-$$M_{\text{propuesta}} = \begin{pmatrix} 1 & \ln(1) & 1 \\ 1 & \ln(e) & 0 \\ 1 & \ln(1) & -1 \end{pmatrix} = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix}$$
+$$
+M_{\text{propuesta}} = \begin{pmatrix} 1 & \ln(1) & 1 \\ 1 & \ln(e) & 0 \\ 1 & \ln(1) & -1 \end{pmatrix} = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix}
+$$
 
 El determinante de esta matriz $3 \times 3$ no es cero (en efecto, vale $-2$):
 $\det(M_{\text{propuesta}}) = 1 \cdot (-1 - 0) - 0 \cdot (-1 -0) + 1 \cdot (0 - 1) = -1 - 1 = -2$.
@@ -111,7 +121,6 @@ Por tanto, el determinante de la matriz normal $\det(M^T M) = \det(M)^2 = 4 \neq
 
 ## 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
 > 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
-
 
 El sistema general de mínimos cuadrados tiene como incógnita el vector $\vec{\theta} = [A, b, c]^T$, el cual contiene **3 parámetros** a estimar libremente.
 

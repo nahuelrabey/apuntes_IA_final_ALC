@@ -9,25 +9,37 @@ El algoritmo de eliminación de Gauss-Jordan transforma una matriz $A$ en su for
 ### Demostración
 La transformación de $A$ a $R$ puede expresarse como la multiplicación por la izquierda de una matriz invertible $E$ (el producto de todas las matrices elementales de las operaciones de fila):
 
-$$ E A = R $$
+$$
+E A = R
+$$
 
 Supongamos que tomamos un subconjunto de columnas pivotales de $R$, que denotamos como la submatriz $R_p$, y las correspondientes columnas de $A$, que denotamos como $A_p$. La relación se mantiene:
 
-$$ E A_p = R_p $$
+$$
+E A_p = R_p
+$$
 
 Ahora, planteamos la ecuación de combinación lineal igualada a cero para probar la independencia lineal de las columnas originales $A_p$. Sea $x$ un vector de coeficientes:
 
-$$ A_p x = \vec{0} $$
+$$
+A_p x = \vec{0}
+$$
 
 Multiplicando ambos lados a la izquierda por la matriz invertible $E$:
 
-$$ E (A_p x) = E \vec{0} $$
+$$
+E (A_p x) = E \vec{0}
+$$
 
-$$ (E A_p) x = \vec{0} $$
+$$
+(E A_p) x = \vec{0}
+$$
 
 Dado que $E A_p = R_p$:
 
-$$ R_p x = \vec{0} $$
+$$
+R_p x = \vec{0}
+$$
 
 Por definición del escalonado reducido, las columnas pivotales $R_p$ son columnas de la matriz identidad (poseen un único $1$ en la posición del pivote y $0$ en el resto). Por lo tanto, las columnas de $R_p$ son, por inspección directa, **linealmente independientes**.
 Si las columnas de $R_p$ son linealmente independientes, la única solución al sistema homogéneo $R_p x = \vec{0}$ es la solución trivial $x = \vec{0}$.

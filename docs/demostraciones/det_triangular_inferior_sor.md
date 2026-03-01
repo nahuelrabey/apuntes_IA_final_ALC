@@ -43,17 +43,17 @@ $$
 ??? info "Justificación: expansión de Leibniz en matrices triangulares"
     El determinante se define por la fórmula de Leibniz:
 
-    $$
+$$
     \det(T) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} T_{i,\sigma(i)}
-    $$
+$$
 
     Para una matriz triangular inferior, $T_{ij} = 0$ siempre que $j > i$. El único término no nulo en la suma corresponde a la permutación identidad $\sigma = \text{id}$, ya que cualquier otra permutación $\sigma$ contiene al menos un índice $\sigma(i) > i$ para algún $i$, forzando un factor cero en el producto.
 
     Por lo tanto:
 
-    $$
+$$
     \det(T) = \text{sgn}(\text{id}) \prod_{i=1}^{n} T_{ii} = \prod_{i=1}^{n} T_{ii}
-    $$
+$$
 
 ### Paso 3: Aplicación a $D + \omega L$
 

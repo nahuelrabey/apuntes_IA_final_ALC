@@ -12,13 +12,13 @@
 > - Entre el Bosque (B) y la Selva (S), cada año hay una probabilidad de 0.5 de permanecer en el mismo hábitat y 0.5 de moverse al otro.
 > - Si un animal se encuentra en la Estepa (E), al año siguiente permanecerá allí.
 > - En el Río (R), cada año un animal permanece en R con probabilidad 0.7, o se traslada a la Estepa (E) con probabilidad 0.3.
-> 
+>
 > - **i)** Escribir la matriz de transición P correspondiente (orden de hábitats: B, S, E, R), calcular sus autovalores y el autoespacio de vectores de equilibrio y los asociados a $\lambda = 0$. ¿Qué dimensión tiene cada uno de estos autoespacios? ¿Es diagonalizable la matriz P? Justificar.
 > - **ii)** Inicialmente, la población de animales es la siguiente: 300 en el Bosque, 100 en la Selva, 200 en la Estepa y 0 en el Río. Calcular cómo evolucionará la población a largo plazo.
 
 ## Interpretación del Enunciado
 
-El ejercicio analiza el comportamiento asintótico de las **Cadenas de Markov**. 
+El ejercicio analiza el comportamiento asintótico de las **Cadenas de Markov**.
 En la parte teórica, se estudian las condiciones para la existencia de un estado límite y el cálculo de dicho límite en función de los estados de equilibrio iniciales.
 En la parte práctica, se modela la dinámica poblacional de animales entre cuatro hábitats mediante una matriz de transición estocástica, analizando sus autovalores, autoespacios y la evolución a largo plazo.
 
@@ -42,9 +42,9 @@ Por **hipótesis**, la matriz $P$ es diagonalizable.
     *¿Qué garantiza que una matriz sea diagonalizable?* Una condición suficiente es que sus autovalores sean distintos entre sí. Para el desarrollo formal de esta propiedad, véase [Demostración: Autovalores Distintos implican L.I.](../../demostraciones/autovalores_distintos.md).
 
 ??? warning "Trampa Común: ¿Diagonalizable implica autovalores únicos?"
-    Una confusión metodológica frecuente es asumir que si $P$ es diagonalizable, entonces todos sus autovalores deben ser distintos, y por ende el estado estacionario con $\lambda = 1$ sería único. **Esto es falso**. 
-    La implicación matemática es estrictamente unidireccional: **Autovalores distintos $\implies$ Diagonalizable.** 
-    
+    Una confusión metodológica frecuente es asumir que si $P$ es diagonalizable, entonces todos sus autovalores deben ser distintos, y por ende el estado estacionario con $\lambda = 1$ sería único. **Esto es falso**.
+    La implicación matemática es estrictamente unidireccional: **Autovalores distintos $\implies$ Diagonalizable.**
+
     Una matriz puede ser diagonalizable con autovalores repetidos (como ocurre en este mismo ejercicio en el inciso B, donde $\lambda=1$ tiene multiplicidad algebraica 2). Si $\lambda=1$ se repite (ej. múltiples estados absorbentes), el estado estacionario límite no tiende a un único autovector $v_{\text{max}}$, sino a una **combinación lineal** de la base del autoespacio $E_{\lambda=1}$ (los estados de equilibrio $w_1, \dots, w_k$), y sus ponderaciones dependerán del vector de condición inicial $v^{(0)}$.
 
     Para ver una demostración formal matricial y computacional de esto, véase [Demostración: Diagonalizable con Autovalores Repetidos](../../demostraciones/diagonalizable_autovalores_repetidos.md).
@@ -74,10 +74,10 @@ Dado que no hay autovalores de módulo 1 distintos de 1 (y $-1$ está excluido),
 > **a-ii)** Sean $\alpha, \beta, \gamma \in \mathbb{R}$ y $v^{(0)} = \alpha w_1 + \beta w_2 + \gamma u$ donde $w_1$ y $w_2$ son estados de equilibrio de $P$ y $u$ es un autovector con $|\lambda| < 1$. Calcular el límite de $v^{(k)}$.
 
 ??? info "Múltiples Estados de Equilibrio"
-    El enunciado nos indica explícitamente que existen **dos** estados de equilibrio distintos, $w_1$ y $w_2$. 
-    ¿Qué significa esto algebraicamente? Significa que ambos satisfacen la ecuación $P w_i = 1 \cdot w_i$, es decir, ambos pertenecen al autoespacio asociado al autovalor $\lambda = 1$. 
+    El enunciado nos indica explícitamente que existen **dos** estados de equilibrio distintos, $w_1$ y $w_2$.
+    ¿Qué significa esto algebraicamente? Significa que ambos satisfacen la ecuación $P w_i = 1 \cdot w_i$, es decir, ambos pertenecen al autoespacio asociado al autovalor $\lambda = 1$.
     Para que existan dos autovectores linealmente independientes asociados a $\lambda = 1$, la dimensión de $E_{\lambda=1}$ (multiplicidad geométrica) debe ser al menos 2, lo que implica que el autovalor $\lambda = 1$ no es único (su multiplicidad algebraica es $\ge 2$).
-    
+
     ¿Qué significa esto desde el punto de vista de la cadena de Markov? Ocurre cuando la cadena es **reducible** y presenta múltiples "componentes conexas aisladas" o "estados absorbentes" (como veremos luego en el inciso B con la matriz $4 \times 4$).
 
 Sabemos que:
@@ -110,7 +110,7 @@ $$
 > - Entre el Bosque (B) y la Selva (S), cada año hay una probabilidad de 0.5 de permanecer en el mismo hábitat y 0.5 de moverse al otro.
 > - Si un animal se encuentra en la Estepa (E), al año siguiente permanecerá allí.
 > - En el Río (R), cada año un animal permanece en R con probabilidad 0.7, o se traslada a la Estepa (E) con probabilidad 0.3.
-> 
+>
 > - **i)** Escribir la matriz de transición P correspondiente (orden de hábitats: B, S, E, R), calcular sus autovalores y el autoespacio de vectores de equilibrio y los asociados a $\lambda = 0$. ¿Qué dimensión tiene cada uno de estos autoespacios? ¿Es diagonalizable la matriz P? Justificar.
 > - **ii)** Inicialmente, la población de animales es la siguiente: 300 en el Bosque, 100 en la Selva, 200 en la Estepa y 0 en el Río. Calcular cómo evolucionará la población a largo plazo.
 
@@ -124,11 +124,11 @@ Definimos los hábitats en el orden: Bosque (B), Selva (S), Estepa (E), Río (R)
 - R: 0.7 a R, 0.3 a E.
 
 $$
-P = \begin{pmatrix} 
+P = \begin{pmatrix}
 0.5 & 0.5 & 0 & 0 \\
 0.5 & 0.5 & 0 & 0 \\
 0 & 0 & 1 & 0.3 \\
-0 & 0 & 0 & 0.7 
+0 & 0 & 0 & 0.7
 \end{pmatrix}
 $$
 
@@ -139,12 +139,12 @@ Los autovalores se obtienen de los bloques diagonales:
 
 ??? info "Propiedad Algebraica de Matrices por Bloques"
     Este "truco" proviene de una propiedad fundamental del Álgebra Lineal. Si una matriz $P$ puede particionarse en bloques tal que los sub-bloques fuera de la diagonal principal son nulos (formando una matriz **bloque-diagonal** o incluso bloque-triangular), el determinante de la matriz global es el producto de los determinantes de sus bloques en diagonal.
-    
+
     Por lo tanto, al plantear la ecuación del polinomio característico $p_P(\lambda) = \det(P - \lambda I)$:
-    
-    $$
+
+$$
     \det \begin{pmatrix} A - \lambda I_A & \mathbf{0} \\ \mathbf{0} & B - \lambda I_B \end{pmatrix} = \det(A - \lambda I_A) \cdot \det(B - \lambda I_B) = 0
-    $$
+$$
 
     Esto demuestra algebraicamente que el polinomio característico global de $P$ se factoriza exactamente como el producto de los polinomios de sus submatrices. En consecuencia, las raíces totales del sistema son simplemente la unión de los autovalores individuales de cada bloque, evadiendo calcular y factorear un polinomio de grado 4 a fuerza bruta.
 
@@ -166,11 +166,11 @@ Base: $\{(1, -1, 0, 0)^T\}$. Dimensión 1.
 
 ??? info "Multiplicidad Algebraica vs Geométrica"
     Estas dimensiones determinan si existe una base completa para diagonalizar una matriz:
-    
+
     - **Multiplicidad Algebraica (M.A.):** Es la cantidad de veces que se repite un determinado autovalor (raíz) dentro del polinomio característico de la matriz. En nuestro caso, $\lambda=1$ es una raíz doble, por lo que su $M.A.=2$.
     - **Multiplicidad Geométrica (M.G.):** Es la dimensión "real" del autoespacio (el número máximo de autovectores L.I.) asociado a dicho autovalor. Se calcula como $\dim(E_\lambda) = n - \text{rg}(P-\lambda I)$.
-    
-    Por teorema, siempre se cumple que **$1 \le M.G. \le M.A.$** 
+
+    Por teorema, siempre se cumple que **$1 \le M.G. \le M.A.$**
     Para que una matriz sea **diagonalizable**, la multiplicidad geométrica de **todos** sus autovalores debe coincidir exactamente con su multiplicidad algebraica ($M.G. = M.A.$).
 
 **Diagonalizabilidad:**
@@ -196,4 +196,3 @@ Se utiliza `NumPy` para instanciar la matriz $P$, calcular sus autovalores y sim
 ```python
 --8<-- "Examen_2026_02_18/03_cadenas_markov/verificacion.py"
 ```
-

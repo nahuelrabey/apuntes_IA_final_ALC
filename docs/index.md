@@ -20,7 +20,7 @@ Antes de cualquier línea de código, el problema es comprendido y deconstruido:
 ### 2. Fase de Traducción (El Puente Lógico-Computacional)
 Un teorema puede ser hermético y ajeno al código, por lo que demanda una "traducción":
 
-- **Abstracción a Modelos Estocásticos:** Dado que no podemos corroborar el infinito, probamos con aleatoriedad ("Randomization Testing"). Es decir, si el teorema es universal, se debe sostener al alimentar las fórmulas con matrices (arreglos n-dimensionales) llenos del espectro continuo flotante (e.g., generadas con elementos desde `NumPy`). 
+- **Abstracción a Modelos Estocásticos:** Dado que no podemos corroborar el infinito, probamos con aleatoriedad ("Randomization Testing"). Es decir, si el teorema es universal, se debe sostener al alimentar las fórmulas con matrices (arreglos n-dimensionales) llenos del espectro continuo flotante (e.g., generadas con elementos desde `NumPy`).
 
 - **Adaptación de Restricciones:** Traducir consideraciones teóricas ("$S$ debe ser invertible") a instrucciones para la máquina (e.g. validaciones contra el determinante distinto de cero en un ciclo `While` generador).
 
@@ -37,4 +37,3 @@ Se codifica el programa verificador que pondrá a prueba el desarrollo analític
 
 Este híbrido de demostración analítica-matemática seguida de una prueba automatizada en un vector de cálculo eficiente (como Python) resulta el **paradigma en el estado del arte de la investigación y aprendizaje**.
 Genera lo que en lógica se llama *Confianza Incondicional*: Si existe certeza semántica en papel, y el procesador no halla contradicciones luego de ser testeado con caos numérico aleatorio, la tarea fue resuelta con el máximo rigor posible.
-

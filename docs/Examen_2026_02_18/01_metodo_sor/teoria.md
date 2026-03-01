@@ -1,18 +1,18 @@
 # Ejercicio 1: Relajación de Métodos Iterativos (SOR)
 
 > **Ejercicio 1.** Dada $A \in \mathbb{R}^{n \times n}$ con $a_{ii} \neq 0$, $1 \leq i \leq n$. $A = L + D + U$.
-> 
+>
 > **a)** Demostrar que el sistema $Ax = b$ es equivalente al sistema $(D + \omega L)x = ((1 - \omega)D - \omega U)x + \omega b$, cualquiera sea $\omega \neq 0$.
-> 
+>
 > **b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con $B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)$. Probar que $\det(B(\omega)) = (1 - \omega)^n$ y concluir que si el método converge $\implies \omega \in (0, 2)$.
-> 
+>
 > **c)** Sea $A = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}$. Analizar que sucede con el método definido en b) para los casos $\omega = \frac{1}{2}$ y $\omega = \frac{3}{2}$.
 
 ## Interpretación del Enunciado
 
 El ejercicio analiza el **Método de Sobrerrelajación Sucesiva (SOR)**, una variante de *Gauss-Seidel*. Para una base teórica completa de estos métodos y su derivación matricial (Jacobi, Gauss-Seidel y SOR), consulte la [demostración general](../../demostraciones/metodos_iterativos.md).
 
-El parámetro $\omega$ (omega) funciona como un factor de ajuste: 
+El parámetro $\omega$ (omega) funciona como un factor de ajuste:
 
 - Si $\omega = 1$, el método es equivalente a *Gauss-Seidel*.
 - Si $\omega > 1$, se aplica sobrerrelajación (para acelerar la convergencia).
@@ -72,9 +72,11 @@ Queda demostrada la equivalencia.
 
 ### Inciso B: Determinante de Iteración y Condición de Rango Cota
 
-> **b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con 
+> **b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con
 >
-> $$B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)$$
+> $$
+> B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)
+> $$
 >
 > Probar que $\det(B(\omega)) = (1 - \omega)^n$ y concluir que si el método converge $\implies \omega \in (0, 2)$.
 
@@ -88,11 +90,15 @@ Analizamos cada factor:
 
 1. El bloque $(D + \omega L)$ es una **matriz triangular inferior**. Su determinante es el producto de su diagonal, que coincide con la diagonal $D$ de $A$:
 
-$$\det(D + \omega L) = \det(D) = \prod_{i=1}^{n} a_{ii}$$
+$$
+\det(D + \omega L) = \det(D) = \prod_{i=1}^{n} a_{ii}
+$$
 
 2. El bloque $((1-\omega)D - \omega U)$ es una **matriz triangular superior**, con diagonal $(1-\omega)a_{ii}$. Su determinante es:
 
-$$\det\big((1-\omega)D - \omega U\big) = \prod_{i=1}^{n} (1-\omega)a_{ii} = (1-\omega)^n \det(D)$$
+$$
+\det\big((1-\omega)D - \omega U\big) = \prod_{i=1}^{n} (1-\omega)a_{ii} = (1-\omega)^n \det(D)
+$$
 
 ??? info "Demostración formal de esta propiedad"
 

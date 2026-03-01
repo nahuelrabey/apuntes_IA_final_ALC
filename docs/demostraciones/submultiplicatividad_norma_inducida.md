@@ -4,11 +4,16 @@
 
 > Sea $\|\cdot\|$ una norma matricial **inducida** por una norma vectorial $\|\cdot\|_v$. Entonces para toda matriz $M \in \mathbb{R}^{n \times n}$ y todo vector $v \in \mathbb{R}^n$:
 >
-> $$\|Mv\|_v \leq \|M\| \cdot \|v\|_v$$
+> $$
+> \|Mv\|_v \leq \|M\| \cdot \|v\|_v
+> $$
+>
 
 Este resultado (llamado **consistencia** o **submultiplicatividad** entre matriz y vector) es lo que justifica el paso:
 
-$$\|A^{-1}(A - B)x\| \leq \|A^{-1}\| \cdot \|(A - B)x\|$$
+$$
+\|A^{-1}(A - B)x\| \leq \|A^{-1}\| \cdot \|(A - B)x\|
+$$
 
 utilizado en la demostración del inciso A del ejercicio de condicionamiento. No se trata de la desigualdad de Cauchy-Schwarz (que relaciona productos internos entre vectores), sino de una consecuencia directa de la **definición** de norma inducida.
 
@@ -18,22 +23,30 @@ utilizado en la demostración del inciso A del ejercicio de condicionamiento. No
 
 La norma matricial inducida por una norma vectorial $\|\cdot\|$ se define como:
 
-$$\|M\| = \max_{w \neq 0} \frac{\|Mw\|}{\|w\|}$$
+$$
+\|M\| = \max_{w \neq 0} \frac{\|Mw\|}{\|w\|}
+$$
 
 Esta definición implica que para **cualquier** vector $w \neq 0$:
 
-$$\frac{\|Mw\|}{\|w\|} \leq \max_{u \neq 0} \frac{\|Mu\|}{\|u\|} = \|M\|$$
+$$
+\frac{\|Mw\|}{\|w\|} \leq \max_{u \neq 0} \frac{\|Mu\|}{\|u\|} = \|M\|
+$$
 
 Multiplicando ambos miembros por $\|w\| > 0$:
 
-$$\|Mw\| \leq \|M\| \cdot \|w\|$$
+$$
+\|Mw\| \leq \|M\| \cdot \|w\|
+$$
 
 El caso $w = 0$ es trivial: $\|M \cdot 0\| = 0 \leq \|M\| \cdot 0$. $\blacksquare$
 
 ??? info "Observación Teórica: ¿Por qué esto NO es Cauchy-Schwarz?"
     La desigualdad de Cauchy-Schwarz establece que para dos vectores $u, v$:
 
-    $$|\langle u, v \rangle| \leq \|u\| \cdot \|v\|$$
+$$
+|\langle u, v \rangle| \leq \|u\| \cdot \|v\|
+$$
 
     y su generalización para matrices dice que $|\langle Au, v \rangle| \leq \|A\| \cdot \|u\| \cdot \|v\|$.
 
@@ -52,7 +65,9 @@ El caso $w = 0$ es trivial: $\|M \cdot 0\| = 0 \leq \|M\| \cdot 0$. $\blacksquar
 
 En la demostración del inciso A, tenemos $M = A^{-1}$ y $w = (A-B)x$. Dado que $\|\cdot\|$ es una norma inducida, el teorema se aplica directamente:
 
-$$\|A^{-1}(A-B)x\| \leq \|A^{-1}\| \cdot \|(A-B)x\|$$
+$$
+\|A^{-1}(A-B)x\| \leq \|A^{-1}\| \cdot \|(A-B)x\|
+$$
 
 El segundo paso, $\|(A-B)x\| \leq \|A-B\| \cdot \|x\|$, usa exactamente el mismo teorema con $M = A - B$ y $w = x$.
 

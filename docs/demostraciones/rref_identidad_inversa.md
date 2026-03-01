@@ -49,7 +49,7 @@ Esta estructura naciente y unívoca es la encarnación visual de la **Matriz Ide
 
 ### Parte B: Si la RREF es la Identidad $\implies$ Tiene $n$ pivotes
 
-El camino analítico de retorno nos devuelve lo mismo de manera trivial. 
+El camino analítico de retorno nos devuelve lo mismo de manera trivial.
 Si alguien te lanza la matriz $A$ y al reducirla terminás estacionando visualmente en una matriz Identidad ($I_n$), esta última expone claramente un valor `1` liderando cada una de las columnas (ejerciendo como sus $n$ respectivos pivotes inamovibles).
 
 Sabiendo que las operaciones elementales de fila en el álgebra preservan históricamente tanto la cantidad vital como la posición esquelética de los pivotes, ratificamos obligatoriamente que la matriz original $A$ que parió a esta Identidad espiada debía esconder y detentar internamente un total de $n$ pivotes en su mapa.
@@ -62,7 +62,9 @@ La última oración del teorema en cuestión (*"This happens exactly when the pr
 
 Cuando se nos instruye buscar una inversa, nos obligan a armar una súper-matriz espejada sumando la Identidad artificialmente del lado derecho:
 
-$$[~A \quad \mid \quad I_n~]$$
+$$
+[~A \quad \mid \quad I_n~]
+$$
 
 La mecánica obliga a machacar la mitad izquierda con operaciones elementales por fila hasta transformarla milagrosamente en un bloque ralo $I_n$. Finalmente, se nos asegura ciegas que lo que sobreviva mutilado del lado derecho representará ineludiblemente la matriz inversa, logrando el eslabón: $[I_n \mid A^{-1}]$.
 
@@ -72,19 +74,25 @@ Todo movimiento de ficha que hagas sobre los renglones (multiplicar por constant
 
 Por lo tanto, al ensañarte hasta llevar a la matriz $A$ al piso escalonado de la Identidad ($I_n$), lo que algebraicamente acaeció entretelones  fue una multiplicatoria en cadena progresiva:
 
-$$(\dots E_3 \cdot E_2 \cdot E_1) \cdot A = I_n$$
+$$
+(\dots E_3 \cdot E_2 \cdot E_1) \cdot A = I_n
+$$
 
 Empaquemos imaginariamente a toda esa lluvia densa de operaciones en un único bloque estelar matriz bautizado "C":
 
-$$C \cdot A = I_n$$
+$$
+C \cdot A = I_n
+$$
 
 ¡Un santiamén! Una matriz ($C$) que atacando por flanco derecho a $A$ rinde devolviendo una unitaria Identidad es la acepción más pura y dura del Álgebra Vectorial para dictaminar la identidad de una **Matriz Inversa**.
 
 Es decir que el compendio envasado de operaciones elementales empleadas conformaba exactamente la receta para $A^{-1}$. Y como a la mitad de la derecha de nuestra hoja de calco le adosamos inicialmente $I_n$ y le inyectamos a fuego el mismo paquete homólogo $C$, esta padeció la transfiguración final:
 
-$$C \cdot I_n = C = A^{-1}$$
+$$
+C \cdot I_n = C = A^{-1}
+$$
 
-Acabamos de confirmar que, incuestionablemente, **todo este truco algorítmico depende la vida en que la matriz matriz $A$ original tenga el esqueleto de $n$ pivotes suficientes que propicien mutarla a una $I_n$.** 
+Acabamos de confirmar que, incuestionablemente, **todo este truco algorítmico depende la vida en que la matriz matriz $A$ original tenga el esqueleto de $n$ pivotes suficientes que propicien mutarla a una $I_n$.**
 
 En cuanto un renglón se nos extingue a cero (falta de pivotes), el eslabón colapsa, no hay Identidad posible, la caja algorítmica se rompe y procedemos a rotular a esa matriz como irremediablemente Incompleta (o fallida de **no ser inversible**).
 
@@ -92,9 +100,9 @@ En cuanto un renglón se nos extingue a cero (falta de pivotes), el eslabón col
     Durante la aplicación de este algoritmo de cálculo, nosotros arrancamos fusionando visualmente la matriz $A$ (tamaño $n \times n$) que pretendemos invertir a la izquierda, pegada a la matriz $I_n$ (tamaño $n \times n$) a la derecha. Obtenemos una nueva "súper-matriz" ampliada ($[A \mid I_n]$) que ahora goza del doble de largo: consta de **$n$ filas** pero **$2n$ columnas**.
 
     Durante el algoritmo de triangulación, nuestra meta ciega es generar un pivote "1" en cada una de las primeras $n$ columnas para poder despejar una Identidad en la mitad izquierda.
-    
-    Si en algún momento el proceso arroja un renglón nulo (o sea, las filas chocan por depender linealmente entre sí), ese pivote que debió nacer en el sector de la matriz original $A$ se perderá y "resbalará" hacia la derecha (hacia el sector aportado por $I_n$). 
-    
-    La frase matemática es estricta: *"Menos de $n$ pivotes están contenidos en las primeras $n$ columnas (la parte no extendida de la matriz)"*. Esto es exactamente así porque al perder un escalón a la izquierda por dependencia lineal, nuestro algoritmo **sólo logró ubicar menos de $n$ pivotes útiles del lado correspondiente a $A$**. 
-    
+
+    Si en algún momento el proceso arroja un renglón nulo (o sea, las filas chocan por depender linealmente entre sí), ese pivote que debió nacer en el sector de la matriz original $A$ se perderá y "resbalará" hacia la derecha (hacia el sector aportado por $I_n$).
+
+    La frase matemática es estricta: *"Menos de $n$ pivotes están contenidos en las primeras $n$ columnas (la parte no extendida de la matriz)"*. Esto es exactamente así porque al perder un escalón a la izquierda por dependencia lineal, nuestro algoritmo **sólo logró ubicar menos de $n$ pivotes útiles del lado correspondiente a $A$**.
+
     Como no se lograron agrupar los estelares $n$ pivotes sobre las primeras $n$ columnas, el bloque izquierdo ($A$) no llegó a volverse la Identidad, probando concluyentemente que el rango de $A$ es incompleto ("tiene variables libres") y confirmando que $A$ no posee Inversa.
