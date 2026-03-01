@@ -59,7 +59,7 @@ $$
 x = A^{-1}(A - B)x
 $$
 
-Aplicando normas:
+Aplicando normas (usando la [submultiplicatividad de normas inducidas](../../demostraciones/submultiplicatividad_norma_inducida.md), i.e. $\|Mv\| \leq \|M\| \cdot \|v\|$, dos veces):
 
 $$
 \|x\| = \|A^{-1}(A - B)x\| \leq \|A^{-1}\| \|(A - B)x\| \leq \|A^{-1}\| \|A - B\| \|x\|
@@ -105,20 +105,29 @@ donde $E$ es la matriz de unos y $I_n$ la identidad.
 
 > **i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para una función $g(n) \sim n^2$.
 
-Calculamos la norma infinito de $A_n$:
-$$ \|A_n\|_\infty = \max_i \sum_j |a_{ij}| = (n-1)\frac{1}{n} + \left(\frac{1}{n} + \frac{1}{n^2}\right) = 1 + \frac{1}{n^2} $$
+Calculamos la norma infinito de $A_n$. Cada fila tiene $n$ entradas: $(n-1)$ entradas fuera de la diagonal con valor $\frac{1}{n}$, y una entrada diagonal con valor $\frac{1}{n} + \frac{1}{n^2}$. La suma por fila es:
+
+$$
+\|A_n\|_\infty = \max_i \sum_j |a_{ij}| = (n-1)\frac{1}{n} + \left(\frac{1}{n} + \frac{1}{n^2}\right) = 1 + \frac{1}{n^2}
+$$
 
 Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$:
 
-$$ A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2} $$
+$$
+A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2}
+$$
 
 Sustituimos en la fórmula:
 
-$$ \frac{1}{\text{cond}_\infty(A_n)} \leq \frac{1/n^2}{1 + 1/n^2} = \frac{1}{n^2 + 1} $$
+$$
+\frac{1}{\text{cond}_\infty(A_n)} \leq \frac{1/n^2}{1 + 1/n^2} = \frac{1}{n^2 + 1}
+$$
 
 Invirtiendo la inecuación:
 
-$$ \text{cond}_\infty(A_n) \geq n^2 + 1 $$
+$$
+\text{cond}_\infty(A_n) \geq n^2 + 1
+$$
 
 Por lo tanto, $\text{cond}_\infty(A_n)$ crece por lo menos como $n^2$.
 
@@ -130,32 +139,40 @@ Para una matriz simétrica, $\text{cond}_2(A_n) = \frac{|\lambda_{\max}|}{|\lamb
 
 1. Si $v = \mathbf{1} = (1, \dots, 1)^T$:
 
-   $$ A_n \mathbf{1} = \frac{1}{n^2} \mathbf{1} + \frac{1}{n} (n \mathbf{1}) = \left( \frac{1}{n^2} + 1 \right) \mathbf{1} $$
+    $$
+    A_n \mathbf{1} = \frac{1}{n^2} \mathbf{1} + \frac{1}{n} (n \mathbf{1}) = \left( \frac{1}{n^2} + 1 \right) \mathbf{1}
+    $$
 
-   $\implies \lambda_1 = 1 + \frac{1}{n^2}$.
+    $\implies \lambda_1 = 1 + \frac{1}{n^2}$.
 
-2. Si $v \perp \mathbf{1}$ (hay $n-1$ tales vectores):
+2. Si $v \perp \mathbf{1}$ (hay $n-1$ tales vectores). Como $Ev = 0$ por ortogonalidad:
 
-   $$ A_n v = \frac{1}{n^2} v + \frac{1}{n} (0) = \frac{1}{n^2} v $$
+    $$
+    A_n v = \frac{1}{n^2} v + \frac{1}{n} \cdot 0 = \frac{1}{n^2} v
+    $$
 
-   $\implies \lambda_i = \frac{1}{n^2}$ para $i = 2, \dots, n$.
+    $\implies \lambda_i = \frac{1}{n^2}$ para $i = 2, \dots, n$.
 
 El número de condición es:
 
-$$ \text{cond}_2(A_n) = \frac{1 + 1/n^2}{1/n^2} = n^2 + 1 $$
+$$
+\text{cond}_2(A_n) = \frac{1 + 1/n^2}{1/n^2} = n^2 + 1
+$$
 
 Al tender $n$ a infinito:
 
-$$ \lim_{n \to \infty} \text{cond}_2(A_n) = \lim_{n \to \infty} (n^2 + 1) = \infty $$
+$$
+\lim_{n \to \infty} \text{cond}_2(A_n) = \lim_{n \to \infty} (n^2 + 1) = \infty
+$$
 
 El sistema se vuelve mal condicionado al aumentar $n$.
 
 ---
 
-## Verificación Empírica Computacional (Radio Asintótico en Normas)
+## Verificación Computacional
 
-Emplearemos una verificación NumPy agresiva iterando e incrementando la dimensionalidad perimetral $N$ con la intención de someter matrices en base algorítmica y presenciar visual e implacablemente la explosivo exponencial de $n \to \infty$ sobre su condicionamiento 2, contrastando las cuotas subyacentes predichas de la matriz Kronecker singular.
+El script siguiente verifica numéricamente los resultados del inciso B para valores crecientes de $n$, confirmando que $\text{cond}_\infty(A_n) \geq n^2 + 1$ y que $\text{cond}_2(A_n) = n^2 + 1$:
 
 ```python
---8<-- "Examen_2026_02_18/02_condicionamiento/verificacion.py"
+--8<-- "docs/Examen_2026_02_18/02_condicionamiento/verificacion.py"
 ```

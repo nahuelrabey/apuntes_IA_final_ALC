@@ -98,3 +98,4 @@ nav:
       - Independencia Columnas Pivotales: demostraciones/independencia_pivotes.md
       - Independencia Lineal e Invertibilidad: demostraciones/columnas_li_inversibles.md
       - RREF y Matriz Inversa: demostraciones/rref_identidad_inversa.md
+      - Submultiplicatividad de Norma Inducida: demostraciones/submultiplicatividad_norma_inducida.md
