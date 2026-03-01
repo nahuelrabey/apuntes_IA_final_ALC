@@ -106,7 +106,7 @@ $$
 
 #### Condición Necesaria de Convergencia
 
-Para que el método converja, el **Radio Espectral** debe ser menor a 1 ($\rho(B) < 1$). Consulte la [demostración formal](../../demostraciones/convergencia_radio_espectral.md) de esta condición.
+Para que el método converja, el **Radio Espectral** debe ser menor a 1 ($\rho(B) < 1$). Consulte la [demostración formal](../../demostraciones/convergencia_radio_espectral.md) de esta condición, que incluye además el rol del término independiente $c$ y por qué no afecta la convergencia.
 
 $$
 \text{Si converge} \implies \rho(B(\omega)) = \max_{i} |\lambda_i| < 1
@@ -132,6 +132,9 @@ Queda demostrada la condición necesaria.
 
 ??? info "Observación: Condición Necesaria vs Suficiente"
     Que $\omega \in (0, 2)$ es una condición **necesaria**, no suficiente. No garantiza convergencia, pero es un requisito previo.
+
+??? question "¿Qué pasa con el término independiente $c$?"
+    📎 Ver demostración completa: [Rol del término independiente $c$ en métodos iterativos](../../demostraciones/termino_independiente_convergencia.md)
 
 ---
 

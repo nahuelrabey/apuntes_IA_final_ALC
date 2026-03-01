@@ -88,6 +88,14 @@ Queda demostrada la propiedad para cualquier norma inducida.
 ---
 
 ### Inciso B: Condicionamiento de la Matriz $A_n$
+> **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por 
+>
+>$$a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n$$
+>
+>donde $\delta_{ij}$ denota el delta de Kronecker.
+> 
+> - **i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para alguna función $g(n) \sim n^2$.
+> - **ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
 
 La matriz $A_n \in \mathbb{R}^{n \times n}$ se define como:
 
@@ -112,6 +120,11 @@ $$
 $$
 
 Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$:
+
+??? info "Observación Teórica: ¿Por qué $B = \frac{1}{n}E$ es singular?"
+    $E$ es la matriz de todos unos: cada entrada vale $1$. Por lo tanto $B = \frac{1}{n}E$ tiene **todas sus filas idénticas** (cada fila es el vector $\frac{1}{n}(1, 1, \ldots, 1)$). Filas iguales son linealmente dependientes, luego $\text{rank}(B) = 1 < n$ y $\det(B) = 0$.
+
+    Equivalentemente, cualquier vector $v$ ortogonal a $(1,\ldots,1)^T$ satisface $Ev = 0$, y por tanto $Bv = 0$: el núcleo de $B$ tiene dimensión $n-1$, confirmando que $B$ no es inversible.
 
 $$
 A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2}
