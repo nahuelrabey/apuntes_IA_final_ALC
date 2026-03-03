@@ -56,6 +56,12 @@ nav:
   - Introducción: index.md
   - Lecciones Aprendidas: lecciones_aprendidas.md
   - Finales:
+      - Examen 25 de feb de 2026:
+          - Enunciado: Examen_2026_02_25/enunciado.md
+          - 01. Cadenas de Markov: Examen_2026_02_25/01_cadenas_markov/teoria.md
+          - 02. Factorización QR y SVD: Examen_2026_02_25/02_qr_svd/teoria.md
+          - 03. Cuadrados Mínimos: Examen_2026_02_25/03_cuadrados_minimos/teoria.md
+          - 04. Factorización LU: Examen_2026_02_25/04_factorizacion_lu/teoria.md
       - Examen 18 de feb de 2026:
           - Enunciado: Examen_2026_02_18/enunciado.md
           - 01. Método SOR: Examen_2026_02_18/01_metodo_sor/teoria.md

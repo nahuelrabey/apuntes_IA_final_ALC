@@ -64,10 +64,23 @@ $$
 Analizamos el comportamiento de $\lambda_i^k$ cuando $k \to \infty$:
 
 1. Si $|\lambda_i| < 1$, entonces $\lambda_i^k \to 0$.
-2. Si $\lambda_i = 1$, entonces $\lambda_i^k = 1$ para todo $k$.
-3. Si $\lambda_i = -1$, el término $(-1)^k$ oscilaría. Sin embargo, por hipótesis, $-1$ no es autovalor de $P$.
 
-Dado que no hay autovalores de módulo 1 distintos de 1 (y $-1$ está excluido), todos los términos con $|\lambda_i| < 1$ desaparecen en el límite, y los términos con $\lambda_i = 1$ permanecen constantes. Por lo tanto, el límite existe para cualquier $v^{(0)}$.
+2. Si $\lambda_i = 1$, entonces $\lambda_i^k = 1$ para todo $k$.
+
+3. Si $|\lambda_i| = 1$ y $\lambda_i \ne 1$, el término $\lambda_i^k$ oscila en el círculo unitario sin converger. Esto incluye el caso real $\lambda_i = -1$ (excluido por hipótesis) y cualquier autovalor complejo $\lambda_i = e^{i\theta}$ con $\theta \ne 0$ (no cubierto por la hipótesis).
+
+??? info "Validez para autovalores complejos"
+    El caso 1 es válido tanto para autovalores reales como complejos. Si $\lambda_i = r e^{i\theta} \in \mathbb{C}$ con $r = |\lambda_i| < 1$, entonces:
+
+$$
+    |\lambda_i^k| = |\lambda_i|^k = r^k \xrightarrow{k \to \infty} 0
+$$
+
+    independientemente del argumento $\theta$. Por lo tanto $\lambda_i^k \to 0$ en $\mathbb{C}$.
+
+    El caso 3 también admite autovalores complejos: cualquier $\lambda$ con $|\lambda| = 1$ y $\lambda \ne 1$ (por ejemplo $e^{2\pi i/3}$ en una cadena de período 3) produce una sucesión $\lambda^k$ que recorre el círculo unitario sin converger. La hipótesis de que $-1$ no es autovalor cubre el único caso real problemático; en el contexto de este ejercicio (donde $P \in \mathbb{R}^{n\times n}$ y se pide probar la existencia del límite bajo esa hipótesis), es suficiente ser precisos con la condición real pedida.
+
+Para que el límite exista, se requiere que **no haya ningún autovalor con $|\lambda_i| = 1$ distinto de $1$**: ni reales ni complejos. La hipótesis del enunciado garantiza la ausencia del caso real $\lambda_i = -1$. Si además no existen autovalores complejos de módulo 1 (lo cual ocurre en el inciso B y en cualquier cadena aperiodica), todos los términos con $|\lambda_i| < 1$ desaparecen en el límite y los términos con $\lambda_i = 1$ permanecen constantes. Por lo tanto, el límite existe para cualquier $v^{(0)}$.
 
 #### Demostración A-2: Cálculo del Límite
 
