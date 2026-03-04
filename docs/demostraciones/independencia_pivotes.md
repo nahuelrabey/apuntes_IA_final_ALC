@@ -55,4 +55,3 @@ Esto demuestra exhaustivamente que las columnas $A_p$ originales son **Linealmen
 ---
 
 --8<-- "docs/demostraciones/independencia_pivotes.py"
-

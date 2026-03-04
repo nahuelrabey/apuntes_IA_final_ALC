@@ -30,7 +30,7 @@ Para una matriz cuadrada de $n \times n$, poseer $n$ pivotes significa que cada 
 
 ### Parte A: Si tiene $n$ pivotes $\implies$ Su RREF es la Identidad
 
-Dada una matriz $n \times n$ con $n$ pivotes, sabemos que existe un pivote por fila y uno por columna. Tras aplicar la eliminación, la matriz está en forma escalonada. 
+Dada una matriz $n \times n$ con $n$ pivotes, sabemos que existe un pivote por fila y uno por columna. Tras aplicar la eliminación, la matriz está en forma escalonada.
 
 Recordemos las condiciones para llegar a la Forma Escalonada **Reducida** por Filas (RREF):
 
@@ -84,7 +84,7 @@ $$
 C \cdot I_n = C = A^{-1}
 $$
 
-El fundamento formal del procedimiento expone que **el algoritmo depende del hecho fundamental de que $A$ es reductible en forma $I_n$. (Por ende, tiene $n$ pivotes).** 
+El fundamento formal del procedimiento expone que **el algoritmo depende del hecho fundamental de que $A$ es reductible en forma $I_n$. (Por ende, tiene $n$ pivotes).**
 
 Si durante la eliminación se obtiene un renglón nulo que dictamina la falta de un pivote, el paso a $I_n$ es algorítmicamente imposible de cumplir y la matriz correspondiente original no posee inversa estructural.
 

@@ -19,36 +19,20 @@ $$
 \|M\|_2 = \max_{x \neq 0} \frac{\|Mx\|_2}{\|x\|_2} = \max_{\|x\|_2 = 1} \|Mx\|_2
 $$
 
-### Paso 1: Cambio de base con la SVD
+### Paso 1: Reducción a $\Sigma$ usando la SVD
 
 Sea $M = U \Sigma V^T$ la descomposición SVD de $M$, donde $U$ y $V$ son matrices ortogonales ($U^T U = I$, $V^T V = I$), y $\Sigma = \text{diag}(\sigma_1, \ldots, \sigma_r, 0, \ldots, 0)$.
 
-Realizamos un cambio de variable $y = V^T x$. Como $V$ es ortogonal, la aplicación $x \mapsto V^T x$ preserva la norma euclídea:
+Como $U$ y $V^T$ son ambas ortogonales, preservan la norma euclídea: $\|Qz\|_2 = \|z\|_2$ para toda $Q$ ortogonal. Así, para cualquier $x$ con $\|x\|_2 = 1$:
 
 $$
-\|y\|_2 = \|V^T x\|_2 = \|x\|_2
+\|Mx\|_2 = \|U \Sigma V^T x\|_2 = \|\Sigma V^T x\|_2
 $$
 
-La restricción $\|x\|_2 = 1$ equivale entonces a $\|y\|_2 = 1$, y el recorrido de $x$ sobre la esfera unitaria equivale al recorrido de $y$ sobre esa misma esfera (por ser $V^T$ una biyección isométrica).
-
-### Paso 2: Simplificación de la expresión
-
-Reescribimos el numerador usando $x = Vy$ y $M = U\Sigma V^T$:
+Además, $V^T$ mapea la esfera unitaria sobre sí misma (es una biyección isométrica), por lo que al maximizar sobre $\|x\|_2 = 1$ es equivalente a maximizar sobre $\|V^T x\|_2 = 1$. El problema se reduce entonces a:
 
 $$
-\|Mx\|_2 = \|U \Sigma V^T (Vy)\|_2 = \|U \Sigma y\|_2
-$$
-
-Dado que $U$ también es ortogonal, no modifica la norma euclídea:
-
-$$
-\|U \Sigma y\|_2 = \|\Sigma y\|_2
-$$
-
-Por lo tanto, el problema de maximización se reduce a:
-
-$$
-\|M\|_2 = \max_{\|y\|_2 = 1} \|\Sigma y\|_2
+\|M\|_2 = \max_{\|x\|_2 = 1} \|\Sigma V^T x\|_2 = \max_{\|w\|_2 = 1} \|\Sigma w\|_2
 $$
 
 ### Paso 3: Cota superior mediante los valores singulares
@@ -95,9 +79,9 @@ $$
 ??? info "Consecuencia: Número de Condición en Base 2"
     Una vez establecido que $\|M\|_2 = \sigma_{\max}$, la misma lógica aplicada a $M^{-1}$ (cuya SVD invierte y ordena los valores singulares) da $\|M^{-1}\|_2 = 1/\sigma_{\min}$. El número de condición resulta entonces:
 
-$$
+    $$
     \kappa_2(M) = \|M\|_2 \cdot \|M^{-1}\|_2 = \frac{\sigma_{\max}}{\sigma_{\min}}
-$$
+    $$
 
     Este cociente mide el ratio entre la máxima y mínima elongación que $M$ aplica a vectores unitarios.
 
