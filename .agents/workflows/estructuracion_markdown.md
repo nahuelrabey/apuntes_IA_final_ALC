@@ -20,6 +20,8 @@ Este flujo de trabajo define las reglas estrictas de redacción y formato que la
 - **Deducción Paso a Paso**: Las variables matemáticas y derivaciones formales se deben explayar de modo deductivo, sin obviar el "puente lógico" entre axiomas.
 - **Bloques de Ecuaciones (`$$...$$`)**: 
   Las ecuaciones de peso deben separarse en bloque. **Es obligatorio** dejar una línea vacía por encima, por debajo y entre bloques de ecuaciones consecutivos para asegurar el correcto renderizado en MkDocs/MathJax.
+- **Identación de Bloques LaTeX dentro de Admonitions**:
+  Si un bloque `$$...$$` aparece dentro de un admonition (`???`, `!!! info`, etc.), debe estar identado con 4 espacios, al igual que el resto del contenido del admonition. Esto incluye tanto los delimitadores `$$` como el contenido interno del bloque.
 - **Listas y Viñetas**:
   Asegúrate siempre de dejar un salto de línea en blanco antes y entre medio de los ítems de cualquier enumerado para evitar condensación del hipertexto al compilar.
 - **Diagramas (Mermaid)**:

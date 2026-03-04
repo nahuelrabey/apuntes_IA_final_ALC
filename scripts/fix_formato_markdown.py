@@ -19,17 +19,27 @@ def fix_math_blocks(content):
         code_blocks.append(match.group(0))
         return f"__CODE_BLOCK_{len(code_blocks) - 1}__"
 
+    # Identificar y extraer bloques de código (fenced e inline) para evitar procesar su contenido.
+    # Esto es necesario porque si hay delimitadores matemáticos ($$) dentro de un bloque de código,
+    # NO queremos alterarlos ni agregarles líneas en blanco. Se reemplazan temporalmente por un placeholder.
+
+    # 1) Bloques de código multilínea ("fenced code blocks"):
+    # r'```.*?```': Busca tres backticks (```), seguidos de cualquier texto (.*?) de forma no codiciosa (non-greedy, '?'),
+    # hasta encontrar los próximos tres backticks. El flag re.DOTALL permite que el punto ('.') incluya saltos de línea (\n).
     content = re.sub(r'```.*?```', code_replacer, content, flags=re.DOTALL)
+
+    # 2) Código en línea ("inline code"):
+    # r'`[^`]*`': Busca un backtick simple (`), seguido de cualquier cantidad de caracteres que
+    # NO sean backticks ([^`]*), y finalmente el backtick de cierre (`).
     content = re.sub(r'`[^`]*`', code_replacer, content)
 
     # 2. Procesamiento línea por línea
     lines = content.split('\n')
     result = []
 
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-
+    for line in lines:
+        # Contar cantidad de espacios en blanco al inicio de la línea
+        indent_count = len(line) - len(line.lstrip(' '))  # 4 espacios = 1 tab
         # Detectar el prefijo de blockquote (ej: "> " o "")
         bq_match = re.match(r'^((?:>\s*)*>)(\s*)(.*)', line)
         if bq_match:
@@ -42,7 +52,6 @@ def fix_math_blocks(content):
         # ¿Esta línea contiene $$?
         if '$$' not in rest:
             result.append(line)
-            i += 1
             continue
 
         # Separar la línea por $$
@@ -56,15 +65,15 @@ def fix_math_blocks(content):
             text = seg.strip()
             if text:
                 if bq_prefix:
-                    expanded.append(f"{bq_prefix} {text}")
+                    expanded.append(f"{' ' * indent_count}{bq_prefix} {text}")
                 else:
                     expanded.append(text)
             # Agregar $$ después de cada segmento excepto el último
             if j < len(segments) - 1:
                 if bq_prefix:
-                    expanded.append(f"{bq_prefix} $$")
+                    expanded.append(f"{' ' * indent_count}{bq_prefix} $$")
                 else:
-                    expanded.append("$$")
+                    expanded.append(f"{' ' * indent_count}$$")
 
         # Ahora insertamos separadores vacíos donde haga falta
         for item in expanded:
@@ -95,8 +104,6 @@ def fix_math_blocks(content):
                         result.append('')
             else:
                 result.append(item)
-
-        i += 1
 
     content = '\n'.join(result)
 

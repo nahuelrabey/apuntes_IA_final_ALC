@@ -20,6 +20,16 @@ Se nos da una matriz $A \in \mathbb{R}^{4 \times 4}$ que define una transformaci
 
 Para construir dicho proyector $p$, necesitamos conocer explícitamente bases para la imagen ($Im(f)$) y el núcleo ($Nu(f)$) de nuestra transformación lineal.
 
+??? info "¿Qué es un Proyector? (Definición Conceptual)"
+    En álgebra lineal, un **proyector** es una transformación lineal $p: V \to V$ que es **idempotente**, lo que significa que aplicar la transformación dos veces es lo mismo que aplicarla una sola vez: $p \circ p = p$ (o en términos de matrices, $P^2 = P$).
+
+    Conceptualmente, un proyector "descompone" el espacio en dos partes:
+
+    -   **La Imagen ($Im(p)$)**: Es el subespacio "hacia donde" proyectamos. Si un vector ya está aquí, el proyector lo deja idéntico.
+    -   **El Núcleo ($Nu(p)$)**: Es el subespacio "a lo largo del cual" proyectamos. Todo lo que esté aquí se colapsa al vector nulo.
+
+    Cualquier vector del espacio se puede escribir como una suma de un vector en la imagen y uno en el núcleo. El proyector simplemente "se queda" con la parte que pertenece a la imagen y "descarta" la parte del núcleo.
+
 Comenzamos escalonando la matriz $A$ para hallar su forma reducida por filas y determinar los pivotes:
 
 $$
@@ -52,7 +62,23 @@ $$
 B_{Nu} = \left\{ \begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \end{pmatrix} \right\}
 $$
 
-Para que la transformación $p$ sea un proyector definido de esta forma, y dado que queremos proyectar sobre $Im(f)$ a lo largo de $Nu(f)$, debe cumplirse que $\mathbb{R}^4 = Im(f) \oplus Nu(f)$ (suma directa). Verificamos que la unión de las bases forma un conjunto linealmente independiente evaluando el determinante de la matriz ensamblada $B = [B_{Im} \mid B_{Nu}]$:
+Para que la transformación $p$ sea un proyector definido de esta forma, y dado que queremos proyectar sobre $Im(f)$ a lo largo de $Nu(f)$, debe cumplirse que $\mathbb{R}^4 = Im(f) \oplus Nu(f)$ (suma directa).
+
+??? info "¿Por qué se requiere la Suma Directa ($\oplus$)??"
+    Para que este proyector $p$ sea una función bien definida para **cualquier** vector $x$, necesitamos poder descomponerlo de forma **única** como:
+
+    $$
+    x = \underbrace{s}_{s \in Im(f)} + \underbrace{n}_{n \in Nu(f)}
+    $$
+
+    Donde la acción del proyector es simplemente filtrar la componente de la imagen: $p(x) = s$.
+
+    Para que esa descomposición exista y sea unívoca para todo el espacio, se deben cumplir dos pilares algebraicos:
+
+    1.  **Cobertura Total**: $Im(f) + Nu(f) = \mathbb{R}^4$ (la suma de los subespacios genera todo el espacio).
+    2.  **Intersección Trivial**: $Im(f) \cap Nu(f) = \{0\}$ (no hay solapamiento de información entre ellos).
+
+    La unión de estas condiciones define la **Suma Directa**. Evaluamos la independencia lineal de la unión de las bases mediante el determinante de la matriz ensamblada $B = [B_{Im} \mid B_{Nu}]$ para certificar esto:
 
 $$
 \det(B) = \det \begin{pmatrix} -1 & 0 & 1 & 1 \\ 1 & -1 & 1 & 0 \\ 1 & 0 & 0 & -1 \\ 1 & 1 & 0 & 1 \end{pmatrix} = 3 \neq 0
