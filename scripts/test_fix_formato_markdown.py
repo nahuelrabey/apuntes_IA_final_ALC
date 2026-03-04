@@ -23,6 +23,103 @@ class TestMathBlocksFixer(unittest.TestCase):
         expected = "Texto\n\n$$\nx = 2\n$$\n\nmas texto.\n"
         self.assertEqual(fix_math_blocks(input_text), expected)
 
+    def test_admonition_indented_block(self):
+        """Bloque $$ tabulado (4 espacios) dentro de un ??? admonition, pegado
+        al párrafo previo y al siguiente sin líneas en blanco."""
+        input_text = (
+            '??? info "Título"\n'
+            '    Párrafo previo dentro del admonition:\n'
+            '    $$\n'
+            '    x = 1\n'
+            '    $$\n'
+            '    Párrafo siguiente dentro del admonition.'
+        )
+        expected = (
+            '??? info "Título"\n'
+            '    Párrafo previo dentro del admonition:\n'
+            '\n'
+            '    $$\n'
+            '    x = 1\n'
+            '    $$\n'
+            '\n'
+            '    Párrafo siguiente dentro del admonition.\n'
+        )
+        self.assertEqual(fix_math_blocks(input_text), expected)
+
+    def test_admonition_missing_blank_before_only(self):
+        """Bloque $$ tabulado dentro de un ??? admonition donde sólo falta
+        la línea en blanco antes del bloque (la de después ya existe)."""
+        input_text = (
+            '??? info "Consecuencia"\n'
+            '    Párrafo previo:\n'
+            '    $$\n'
+            '    x = 1\n'
+            '    $$\n'
+            '\n'
+            '    Párrafo siguiente.'
+        )
+        expected = (
+            '??? info "Consecuencia"\n'
+            '    Párrafo previo:\n'
+            '\n'
+            '    $$\n'
+            '    x = 1\n'
+            '    $$\n'
+            '\n'
+            '    Párrafo siguiente.\n'
+        )
+        self.assertEqual(fix_math_blocks(input_text), expected)
+
+    def test_admonition_missing_blank_after_only(self):
+        """Bloque $$ tabulado dentro de un ??? admonition donde sólo falta
+        la línea en blanco después del cierre $$ (la de antes ya existe)."""
+        input_text = (
+            '??? info "Consecuencia"\n'
+            '    Párrafo previo:\n'
+            '\n'
+            '    $$\n'
+            '    x = 1\n'
+            '    $$\n'
+            '    Párrafo siguiente.'
+        )
+        expected = (
+            '??? info "Consecuencia"\n'
+            '    Párrafo previo:\n'
+            '\n'
+            '    $$\n'
+            '    x = 1\n'
+            '    $$\n'
+            '\n'
+            '    Párrafo siguiente.\n'
+        )
+        self.assertEqual(fix_math_blocks(input_text), expected)
+
+    def test_admonition_unindented_delimiters(self):
+        """Marcadores $$ a columna 0 (sin indentar) dentro de un admonition:
+        el fixer debe agregar los 4 espacios de prefijo a ambos delimitadores
+        y las líneas en blanco faltantes."""
+        input_text = (
+            '??? info "Consecuencia"\n'
+            '    Párrafo previo:\n'
+            '\n'
+            '$$\n'
+            '    x = 1\n'
+            '$$\n'
+            '\n'
+            '    Párrafo siguiente.'
+        )
+        expected = (
+            '??? info "Consecuencia"\n'
+            '    Párrafo previo:\n'
+            '\n'
+            '    $$\n'
+            '    x = 1\n'
+            '    $$\n'
+            '\n'
+            '    Párrafo siguiente.\n'
+        )
+        self.assertEqual(fix_math_blocks(input_text), expected)
+
 
 class TestListBlocksFixer(unittest.TestCase):
     def test_list_missing_blank_line(self):
