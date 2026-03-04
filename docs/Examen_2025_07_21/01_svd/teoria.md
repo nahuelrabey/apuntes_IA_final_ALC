@@ -40,9 +40,9 @@ $$
 ??? info "Profundización: Descomposición en Sumatoria de Matrices de Rango 1"
     Para cualquier matriz general $M \in \mathbb{R}^{m \times n}$ con rango $r$, la Descomposición en Valores Singulares $M = U \Sigma V^t$ puede ser reescrita lógicamente usando multiplicación por bloques como una sumatoria exacta de $r$ matrices individuales, cada una de rango estrictamente 1:
 
-$$
+    $$
     M = \sum_{i=1}^{r} \sigma_i u_i v_i^t
-$$
+    $$
 
     Dado que $u_i$ y $v_i$ son vectores columna, cada término $u_i v_i^t$ (el **producto exterior** entre el $i$-ésimo vector singular izquierdo y el derecho) produce una matriz de $m \times n$ de **rango 1**, ya que todas sus columnas son múltiplos de $u_i$.
 
@@ -73,9 +73,9 @@ Como un escalar positivo puede extraerse de la norma:
 
     Por ser $\sigma_2$ un escalar positivo, puede extraerse de la norma: $|\sigma_2| = \sigma_2$ y $||\sigma_2 u|| = \sigma_2 ||u||$.
 
-$$
+    $$
     ||e||_2 = \sigma_2 ||u_2 (v_2^t x)||_2
-$$
+    $$
 
 El término entre paréntesis $(v_2^t x)$ resulta en un número escalar del producto interno vectorial. Lo podemos extraer en valor absoluto:
 
@@ -141,15 +141,15 @@ Los autovectores de $B$ son precisamente las columnas de la matriz $V$, denotado
 ??? info "Observación Teórica: ¿Por qué los autovectores de $B$ son las columnas de $V$?"
     De la ecuación anterior, $B = V (\Sigma^t \Sigma) V^t$. Definiendo $\Lambda = \Sigma^t \Sigma$:
 
-$$
+    $$
     B = V \Lambda V^t
-$$
+    $$
 
     Por definición de la SVD, $V$ es una matriz **ortogonal**, lo que implica $V^t = V^{-1}$. Sustituyendo:
 
-$$
+    $$
     B = V \Lambda V^{-1}
-$$
+    $$
 
     Esta expresión coincide con la definición de la **diagonalización** ($M = P D P^{-1}$), donde $D$ (equivalente a $\Lambda$) contiene los **autovalores** y $P$ (equivalente a $V$) es la matriz cuyas columnas son los **autovectores** correspondientes.
 
@@ -180,7 +180,7 @@ $$
 
     Como $c = ||B x^{(0)}||$ es un escalar real positivo, por linealidad se tiene $B(c v) = c B v$ y $||c v|| = c ||v||$, por lo que **el escalar del paso anterior se cancela en el cociente**:
 
-$$
+    $$
 x^{(2)} = \frac{\frac{1}{||B x^{(0)}||} \cdot B^2 x^{(0)}}{\frac{1}{||B x^{(0)}||} \cdot ||B^2 x^{(0)}||} = \frac{B^2 x^{(0)}}{||B^2 x^{(0)}||}
 $$
 
@@ -216,21 +216,21 @@ $$
 
     Sustituyendo en esta expresión nuestro vector original partido en componentes del plano:
 
-$$
+    $$
     B^k x^{(0)} = B^k (c_1 v_1 + c_2 v_2)
-$$
+    $$
 
     Distribuyendo por linealidad:
 
-$$
+    $$
     B^k x^{(0)} = c_1 (B^k v_1) + c_2 (B^k v_2)
-$$
+    $$
 
     Sustituyendo la conducta matricial proyectada en las componentes individuales para desacoplarnos matemáticamente del producto matricial y transformarlo en escalares algebraicos:
 
-$$
+    $$
     B^k x^{(0)} = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2
-$$
+    $$
 
 Factorizando $\lambda_1^k$:
 
@@ -255,15 +255,15 @@ Si $c_1 = 0$ (el vector inicial es ortogonal a $v_1$), el proceso converge a $v_
 ??? info "Observación Teórica: ¿Qué ocurre matemáticamente si $c_1 = 0$? ¿El vector se vuelve nulo?"
     La factorización por $\lambda_1^k$ es válida solo cuando $c_1 \neq 0$. Si $c_1 = 0$, se debe analizar la suma original directamente:
 
-$$
+    $$
     B^k x^{(0)} = 0 \cdot \lambda_1^k v_1 + c_2 \lambda_2^k v_2 = c_2 \lambda_2^k v_2
-$$
+    $$
 
     Dado que en el Método de la Potencia el paso es normalizar forzosamente $x^{(k)} = \frac{B^k x^{(0)}}{||B^k x^{(0)}||}$, no importa cuán microscópico se torne el escalar $\lambda_2^k \to 0$ con el avance del tiempo, al estar en el numerador y denominador sometido bajo norma **éste se cancela intrínsecamente**:
 
-$$
+    $$
     x^{(k)} = \frac{c_2 \lambda_2^k v_2}{||c_2 \lambda_2^k v_2||} = \frac{c_2 \lambda_2^k}{|c_2| \lambda_2^k} \cdot \frac{v_2}{||v_2||} = \text{sgn}(c_2) v_2
-$$
+    $$
 
     Por lo tanto, el algoritmo no tiende al origen $(0,0)$: la normalización en cada iteración preserva la norma unitaria, y el vector converge a $\pm v_2$.
 

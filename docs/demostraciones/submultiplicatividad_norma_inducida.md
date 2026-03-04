@@ -44,7 +44,7 @@ El caso $w = 0$ es trivial: $\|M \cdot 0\| = 0 \leq \|M\| \cdot 0$. $\blacksquar
 ??? info "Observación Teórica: ¿Por qué esto NO es Cauchy-Schwarz?"
     La desigualdad de Cauchy-Schwarz establece que para dos vectores $u, v$:
 
-$$
+    $$
 |\langle u, v \rangle| \leq \|u\| \cdot \|v\|
 $$
 

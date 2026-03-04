@@ -76,9 +76,9 @@ $$
 ??? question "¿Por qué invertir el orden de los valores singulares?"
     Si $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_n > 0$, entonces tomando recíprocos se invierte el orden de las desigualdades:
 
-$$
+    $$
     \frac{1}{\sigma_1} \leq \frac{1}{\sigma_2} \leq \cdots \leq \frac{1}{\sigma_n}
-$$
+    $$
 
     por lo que $\max_i \tfrac{1}{\sigma_i} = \tfrac{1}{\sigma_n} = \tfrac{1}{\sigma_{\min}}$.
 

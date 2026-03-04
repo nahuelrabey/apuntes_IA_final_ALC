@@ -72,9 +72,9 @@ Analizamos el comportamiento de $\lambda_i^k$ cuando $k \to \infty$:
 ??? info "Validez para autovalores complejos"
     El caso 1 es válido tanto para autovalores reales como complejos. Si $\lambda_i = r e^{i\theta} \in \mathbb{C}$ con $r = |\lambda_i| < 1$, entonces:
 
-$$
+    $$
     |\lambda_i^k| = |\lambda_i|^k = r^k \xrightarrow{k \to \infty} 0
-$$
+    $$
 
     independientemente del argumento $\theta$. Por lo tanto $\lambda_i^k \to 0$ en $\mathbb{C}$.
 
@@ -155,9 +155,9 @@ Los autovalores se obtienen de los bloques diagonales:
 
     Por lo tanto, al plantear la ecuación del polinomio característico $p_P(\lambda) = \det(P - \lambda I)$:
 
-$$
+    $$
     \det \begin{pmatrix} A - \lambda I_A & \mathbf{0} \\ \mathbf{0} & B - \lambda I_B \end{pmatrix} = \det(A - \lambda I_A) \cdot \det(B - \lambda I_B) = 0
-$$
+    $$
 
     Esto demuestra algebraicamente que el polinomio característico global de $P$ se factoriza exactamente como el producto de los polinomios de sus submatrices. En consecuencia, las raíces totales del sistema son simplemente la unión de los autovalores individuales de cada bloque, evadiendo calcular y factorear un polinomio de grado 4 a fuerza bruta.
 

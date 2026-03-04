@@ -79,9 +79,9 @@ $$
 ??? info "Consecuencia: Número de Condición en Base 2"
     Una vez establecido que $\|M\|_2 = \sigma_{\max}$, la misma lógica aplicada a $M^{-1}$ (cuya SVD invierte y ordena los valores singulares) da $\|M^{-1}\|_2 = 1/\sigma_{\min}$. El número de condición resulta entonces:
 
-$$
+    $$
     \kappa_2(M) = \|M\|_2 \cdot \|M^{-1}\|_2 = \frac{\sigma_{\max}}{\sigma_{\min}}
-$$
+    $$
 
     Este cociente mide el ratio entre la máxima y mínima elongación que $M$ aplica a vectores unitarios.
 

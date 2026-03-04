@@ -105,7 +105,7 @@ def check_markdown_files(directory):
                 print(f"  - {err}")
 
     if not errors_found:
-        print("✓ No se encontraron errores de formato (Listas y Bloques $$) en los archivos Markdown.")
+        print("[OK] No se encontraron errores de formato (Listas y Bloques $$) en los archivos Markdown.")
 
 if __name__ == '__main__':
     print(f"Ejecutando linter estricto de sintáxis Markdown en ./docs ...")

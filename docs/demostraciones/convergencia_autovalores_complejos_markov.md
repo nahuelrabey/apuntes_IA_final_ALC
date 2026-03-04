@@ -82,9 +82,9 @@ $$
 ??? info "Periodicidad: casos concretos en cadenas de Markov"
     Las cadenas de Markov **periódicas** de período $p$ presentan exactamente este fenómeno. Sus autovalores de módulo 1 son las $p$-ésimas raíces de la unidad:
 
-$$
+    $$
     \lambda_k = e^{2\pi i k / p}, \quad k = 0, 1, \dots, p-1
-$$
+    $$
 
     - **Período 2**: $\lambda \in \{1, -1\}$. El caso $\lambda = -1$ es el único real; su potencia $(-1)^k$ alterna entre $+1$ y $-1$.
     - **Período 3**: $\lambda \in \{1, e^{2\pi i/3}, e^{4\pi i/3}\}$. Los dos últimos son complejos conjugados no reales.

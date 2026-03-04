@@ -43,7 +43,7 @@ De las columnas pivotales (primera y tercera), deducimos una base $B_{Im}$ para 
 
     **(La demostración analítica de este teorema se encuentra documentada en [Independencia Lineal de las Columnas Pivotales](../../demostraciones/independencia_pivotes.md)).**
 
-$$
+    $$
 B_{Im} = \left\{ \begin{pmatrix} -1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ -1 \\ 0 \\ 1 \end{pmatrix} \right\}
 $$
 
@@ -80,7 +80,7 @@ Para que la transformación $p$ sea un proyector definido de esta forma, y dado 
 
     La unión de estas condiciones define la **Suma Directa**. Evaluamos la independencia lineal de la unión de las bases mediante el determinante de la matriz ensamblada $B = [B_{Im} \mid B_{Nu}]$ para certificar esto:
 
-$$
+    $$
 \det(B) = \det \begin{pmatrix} -1 & 0 & 1 & 1 \\ 1 & -1 & 1 & 0 \\ 1 & 0 & 0 & -1 \\ 1 & 1 & 0 & 1 \end{pmatrix} = 3 \neq 0
 $$
 

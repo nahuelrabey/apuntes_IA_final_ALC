@@ -37,9 +37,29 @@ def fix_math_blocks(content):
     lines = content.split('\n')
     result = []
 
+    # 2. Procesamiento línea por línea
+    lines = content.split('\n')
+    result = []
+    context_indent = 0
+
     for line in lines:
-        # Contar cantidad de espacios en blanco al inicio de la línea
-        indent_count = len(line) - len(line.lstrip(' '))  # 4 espacios = 1 tab
+        # Calcular indentación real de la línea
+        stripped_line = line.lstrip(' ')
+        indent_count = len(line) - len(stripped_line)
+
+        # Actualizar contexto de indentación:
+        # 1. Si es un inicio de admonition MkDocs, forzamos 4 espacios de contexto
+        if stripped_line.startswith(('???', '!!!')):
+            context_indent = 4
+        # 2. Si es una línea con texto que no es un bloque de ecuación ($$)
+        elif stripped_line and not stripped_line.startswith('$$'):
+            # Si tiene indentación, esa es nuestra nueva indentación de contexto
+            if indent_count > 0:
+                context_indent = indent_count
+            # Si no tiene indentación, salimos de cualquier bloque indentado previo
+            else:
+                context_indent = 0
+
         # Detectar el prefijo de blockquote (ej: "> " o "")
         bq_match = re.match(r'^((?:>\s*)*>)(\s*)(.*)', line)
         if bq_match:
@@ -54,6 +74,14 @@ def fix_math_blocks(content):
             result.append(line)
             continue
 
+        # Si estamos dentro de un contexto indentado (ej: admonition)
+        # y el $$ está en la columna 0, usamos la indentación del contexto.
+        effective_indent = max(indent_count, context_indent)
+        indent_str = ' ' * effective_indent
+        
+        # Prefijo para "líneas vacías" (solo el blockquote si existe)
+        empty_line_prefix = f"{indent_str}{bq_prefix}".rstrip()
+
         # Separar la línea por $$
         segments = rest.split('$$')
 
@@ -65,15 +93,15 @@ def fix_math_blocks(content):
             text = seg.strip()
             if text:
                 if bq_prefix:
-                    expanded.append(f"{' ' * indent_count}{bq_prefix} {text}")
+                    expanded.append(f"{indent_str}{bq_prefix} {text}")
                 else:
-                    expanded.append(text)
+                    expanded.append(f"{indent_str}{text}")
             # Agregar $$ después de cada segmento excepto el último
             if j < len(segments) - 1:
                 if bq_prefix:
-                    expanded.append(f"{' ' * indent_count}{bq_prefix} $$")
+                    expanded.append(f"{indent_str}{bq_prefix} $$")
                 else:
-                    expanded.append(f"{' ' * indent_count}$$")
+                    expanded.append(f"{indent_str}$$")
 
         # Ahora insertamos separadores vacíos donde haga falta
         for item in expanded:
@@ -87,21 +115,14 @@ def fix_math_blocks(content):
 
                 if is_opening:
                     # Necesitamos una línea vacía antes
-                    if result and result[-1].lstrip('> \t') != '':
-                        # Insertar línea vacía (respetando blockquote)
-                        if bq_prefix:
-                            result.append(bq_prefix)
-                        else:
-                            result.append('')
+                    # Solo la agregamos si la última línea en result no es ya una línea "vacía"
+                    if result and result[-1].strip(' >\t\r') != '':
+                        result.append(empty_line_prefix)
                 result.append(item)
 
                 if not is_opening:
                     # Es cierre: necesitamos una línea vacía después
-                    # La añadimos ahora; si la siguiente línea es texto, quedará bien
-                    if bq_prefix:
-                        result.append(bq_prefix)
-                    else:
-                        result.append('')
+                    result.append(empty_line_prefix)
             else:
                 result.append(item)
 

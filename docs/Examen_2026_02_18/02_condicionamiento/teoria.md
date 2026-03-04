@@ -24,7 +24,7 @@
 ??? info "Observación Teórica: Norma Matricial Inducida"
     Una **norma matricial inducida** (u operatoria) es aquella que se deriva directamente de una norma vectorial $\|\cdot\|$ preexistente. Se define como el máximo factor de amplificación que la matriz $A$ puede aplicar a cualquier vector $x$ no nulo:
 
-$$
+    $$
 \|A\| = \max_{x \neq 0} \frac{\|Ax\|}{\|x\|} = \max_{\|x\|=1} \|Ax\|
 $$
 
@@ -136,7 +136,7 @@ Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$
 
     Equivalentemente, cualquier vector $v$ ortogonal a $(1,\ldots,1)^T$ satisface $Ev = 0$, y por tanto $Bv = 0$: el núcleo de $B$ tiene dimensión $n-1$, confirmando que $B$ no es inversible.
 
-$$
+    $$
 A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2}
 $$
 
@@ -164,7 +164,7 @@ Para una matriz simétrica, $\text{cond}_2(A_n) = \frac{|\lambda_{\max}|}{|\lamb
 
 $$
     A_n \mathbf{1} = \frac{1}{n^2} \mathbf{1} + \frac{1}{n} (n \mathbf{1}) = \left( \frac{1}{n^2} + 1 \right) \mathbf{1}
-$$
+    $$
 
     $\implies \lambda_1 = 1 + \frac{1}{n^2}$.
 
@@ -172,7 +172,7 @@ $$
 
 $$
     A_n v = \frac{1}{n^2} v + \frac{1}{n} \cdot 0 = \frac{1}{n^2} v
-$$
+    $$
 
     $\implies \lambda_i = \frac{1}{n^2}$ para $i = 2, \dots, n$.
 

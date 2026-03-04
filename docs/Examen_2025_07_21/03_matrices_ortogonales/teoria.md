@@ -41,7 +41,7 @@ Buscamos aplicar el operador determinante a ambos lados de la ecuación, recorda
 
     📌 *Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué $\det(AB) = \det(A)\det(B)$ (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: [Demostración: Regla Multiplicativa del Determinante](../../demostraciones/determinante_producto.md).*
 
-$$
+    $$
 |A^2| = |I|
 $$
 

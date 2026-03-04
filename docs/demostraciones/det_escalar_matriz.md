@@ -60,7 +60,7 @@ Q.E.D.
 ??? info "Demostración alternativa: Fórmula de Leibniz"
     La **fórmula de Leibniz** define el determinante como:
 
-$$
+    $$
 \det(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)}
 $$
 
@@ -68,7 +68,7 @@ $$
 
     Al sustituir $kA$ en lugar de $A$, cada entrada $a_{i,\sigma(i)}$ pasa a ser $k\,a_{i,\sigma(i)}$. Como el producto $\prod_{i=1}^{n}$ contiene exactamente $n$ factores, el escalar $k$ aparece $n$ veces:
 
-$$
+    $$
 \det(kA) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} k\,a_{i,\sigma(i)} = k^n \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)} = k^n \cdot \det(A)
 $$
 
