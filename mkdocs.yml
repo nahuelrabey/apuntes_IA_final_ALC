@@ -112,3 +112,4 @@ nav:
       - Norma-2 igual al Mayor Valor Singular: demostraciones/norma2_igual_sigma_max.md
       - Número de Condición y SVD: demostraciones/numero_condicion_svd.md
       - Convergencia Autovalores Complejos (Markov): demostraciones/convergencia_autovalores_complejos_markov.md
+      - Simetría y Ortogonalidad de Proyectores: demostraciones/proyector_simetria_ortogonalidad.md

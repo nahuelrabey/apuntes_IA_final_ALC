@@ -14,21 +14,7 @@ El problema evalúa las propiedades espectrales subyacentes de las matrices esto
 
 A continuación, visualizamos el flujo de estados descrito en el inciso (b):
 
-```mermaid
-graph LR
-    1((1)) --> 2((2))
-    1((1)) --> 4((4))
-
-    2((2)) --> 3((3))
-    2((2)) --> 4((4))
-
-    3((3)) --> 3((3))
-    3((3)) --> 5((5))
-
-    4((4)) --> 5((5))
-
-    5((5)) --> 3((3))
-```
+![](./image.png)
 
 ---
 
@@ -46,7 +32,9 @@ C = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-Y nuestra matriz global $P$ toma la forma:
+Se describe un subconjunto de $k$ estados dentro de un sistema más grande de $n$ estados totales ($k \le n$). Mientras que $n$ representa la dimensión global del proceso de Markov, el fenómeno cíclico ocurre solo en un subconjunto específico. 
+
+Al ordenar el espacio de estados para que estos $k$ nodos encabecen la matriz, la matriz global $P \in \mathbb{R}^{n \times n}$ adquiere una estructura de bloques donde la submatriz de permutación cíclica $C_{k \times k}$ rige las transiciones internas de dicho subconjunto:
 
 $$
 P = \begin{pmatrix}
@@ -57,8 +45,12 @@ $$
 
 Los autovalores de una matriz triangular/bloque-triangular son la unión de los autovalores de sus bloques diagonales. De este modo, los autovalores de la submatriz cíclica $C$ son también autovalores de $P$.
 
-Nos preguntamos, ¿cuáles son los autovalores de una permutación puramente cíclica de longitud $k$?
-Por su geometría rotacional, al aplicarle el proceso $k$ veces volvimos al estado original. Esto significa algebraicamente que $C^k = I$ (la matriz identidad $k \times k$).
+Los autovalores de una permutación puramente cíclica de longitud $k$ se determinan a partir de su estructura. Se denomina **cíclica** por tres factores principales:
+- **Estructural**: Cada estado transiciona de forma determinística al siguiente ($i_1 \to i_2 \to \dots \to i_k \to i_1$).
+- **Geométrico**: Los estados forman un bucle cerrado o polígono regular de $k$ nodos.
+- **Algebraico**: Aplicar el proceso $k$ veces recupera la identidad, es decir, $C^k = I$. Esto sucede porque cada aplicación de $C$ realiza un desplazamiento cíclico de los estados; tras $k$ desplazamientos, cada estado vuelve a su posición original (matemáticamente, $C^k e_j = e_j$ para toda base canónica $e_j$).
+
+Esta última propiedad es fundamental, ya que implica que:
 
 Aplicando propiedades de autovalores, si $v$ es autovector de $C$ con autovalor $\lambda$, entonces:
 
@@ -78,7 +70,7 @@ $$
 |\lambda_m| = |e^{i\frac{2\pi m}{k}}| = 1
 $$
 
-Queda entonces probado que el espectro de cualquier cadena de Markov con ciclos determinísticos siempre aloja autovalores diferentes de 1 que residen justo en la frontera del disco unidad complejo.
+Queda comprobado que el espectro de cualquier cadena de Markov con ciclos determinísticos contiene autovalores distintos de 1 que pertenecen a la frontera del disco unidad complejo.
 
 ---
 
@@ -106,18 +98,18 @@ P = \begin{pmatrix}
 $$
 
 **Estado de equilibrio y unicidad:**
-Un estado de equilibrio $v_{eq}$ satisface $P v_{eq} = v_{eq}$, es decir, es un autovector asociado a $\lambda=1$. Por definición matricial será único si el autovalor $\lambda=1$ tiene multiplicidad algebraica 1, lo cual ocurre generalmente en componentes fuertemente conexas que absorban la cadena.
+Un estado de equilibrio $v^{(\infty)}$ satisface $P v^{(\infty)} = v^{(\infty)}$, es decir, es un autovector asociado a $\lambda=1$. Por definición matricial será único si el autovalor $\lambda=1$ tiene multiplicidad algebraica 1, lo cual ocurre generalmente en componentes fuertemente conexas que absorban la cadena.
 
-Observando el grafo y la matriz, los estados **1, 2 y 4 son transitorios**. Tarde o temprano la cadena de azar escapa y cae hacia la componente inferior conformada por **3 y 5**.
+A partir del grafo y la matriz, se observa que los estados **1, 2 y 4 son transitorios**. La cadena transiciona hacia la componente conformada por **3 y 5**.
 
-Un subgrafo $\{3, 5\}$ forma una **clase recurrente cerrada**, la cual interactúa absorbiendo toda la probabilidad con estas probabilidades reducidas:
+Un subgrafo $\{3, 5\}$ forma una **clase recurrente cerrada**. En la teoría de Markov, una clase recurrente es un conjunto de estados donde todos se comunican entre sí y del cual es imposible salir (no existen transiciones hacia estados externos). Como consecuencia, la cadena actúa como un "fondo" que absorbe toda la probabilidad con estas probabilidades reducidas:
 
 - 3 va a 3 (0.5), y va a 5 (0.5)
 - 5 va a 3 (1.0), y va a 5 (0)
 
-Al existir una única clase absorbente o fondo recurrente, existe un **único estado de equilibrio** final (el autovalor $\lambda=1$ tendrá multiplicidad 1). Todos los estados transitorios tenderán hacia una masa de cero en el equilibrio infinito.
+Dado que existe una **única clase recurrente** (formada por los estados 3 y 5), toda la probabilidad del sistema terminará concentrada en ella, lo que garantiza la existencia de un **único estado de equilibrio**. Además, la **aperiodicidad** (asegurada por el lazo de autotransición en el nodo 3) permite que el sistema converja asintóticamente sin oscilar.
 
-Para hallarlo, resolvemos $(P - I) v_{eq} = 0$:
+Para hallarlo, resolvemos $(P - I) v^{(\infty)} = 0$:
 
 $$
 \begin{cases}
@@ -138,11 +130,11 @@ $$
 Entonces el estado estacionario de equilibrio es, independientemente de la distribución temporal:
 
 $$
-v_{eq} = \begin{pmatrix} 0 & 0 & 2/3 & 0 & 1/3 \end{pmatrix}^T = \begin{pmatrix} 0 \\ 0 \\ 0.6667 \\ 0 \\ 0.3333 \end{pmatrix}
+v^{(\infty)} = \begin{pmatrix} 0 & 0 & 2/3 & 0 & 1/3 \end{pmatrix}^T = \begin{pmatrix} 0 \\ 0 \\ 0.6667 \\ 0 \\ 0.3333 \end{pmatrix}
 $$
 
 **¿Se alcanza este equilibrio desde cualquier estado inicial?**
-Sí, **absolutamente desde cualquier estado inicial**. Independiente del vector de masas original $v_0$, la existencia de una única clase absorbente recurrente que es, por añadidura, estrictamente **aperiódica** (el nodo 3 puede auto-transicionar a sí mismo, dándole ciclo 1), garantiza matemáticamente que $\lim_{k\to\infty} P^k$ converge incondicionalmente sin oscilar a una matriz de columnas idénticas correspondientes a $v_{eq}$.
+Sí, desde cualquier estado inicial. Independientemente del vector de masas inicial $v^{(0)}$, la existencia de una única clase recurrente que es, adicionalmente, **aperiódica** (el nodo 3 posee un lazo de autotransición), garantiza que $\lim_{k\to\infty} P^k$ converja al estado estacionario $v^{(\infty)}$.
 
 ---
 

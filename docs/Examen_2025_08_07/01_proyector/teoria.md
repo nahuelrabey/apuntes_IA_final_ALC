@@ -89,11 +89,38 @@ La intersección es trivial, la suma directa existe, y por lo tanto podemos defi
 - $\forall v \in Im(f): p(v) = v$
 - $\forall n \in Nu(f): p(n) = 0$
 
-Así, definimos $p$ explícitamente a través de su matriz asociada $P$ en la base canónica como $P = B D B^{-1}$, siendo $D$ la matriz diagonal con los autovalores asignados:
-
 $$
 D = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
 $$
+
+??? info "¿Por qué esta técnica construye el proyector buscado?"
+    Esta construcción se basa en el **Teorema de Descomposición por Autovalores**. Un proyector $p$ queda unívocamente determinado por su acción sobre una base que descompone al espacio en $Im(p) \oplus Nu(p)$:
+
+    - Si $v \in Im(p) \implies p(v) = 1 \cdot v$.
+    - Si $n \in Nu(p) \implies p(n) = 0 \cdot n$.
+
+    Al armar la matriz $B = [B_{Im} \mid B_{Nu}]$ y la matriz diagonal $D$ con 1s (para la imagen) y 0s (para el núcleo), la expresión $P = B D B^{-1}$ realiza tres pasos lógicamente:
+
+    1.  **$B^{-1}$**: Cambia el vector de la base canónica a nuestra base adaptada $B$.
+    2.  **$D$**: Aplica la proyección (mantiene componentes de la imagen, anula componentes del núcleo).
+    3.  **$B$**: Devuelve el vector resultante a la base canónica.
+
+??? check "Demostración de Idempotencia ($P^2 = P$)"
+    Para certificar que $P$ es efectivamente un proyector, debemos demostrar que es **idempotente**:
+
+    $$
+    P^2 = (B D B^{-1}) (B D B^{-1}) = B D (B^{-1} B) D B^{-1} = B (D \cdot D) B^{-1} = B D^2 B^{-1}
+    $$
+
+
+    Como $D$ es una matriz diagonal cuyos elementos son solo $0$ o $1$, y dado que $0^2 = 0$ y $1^2 = 1$, se cumple que $D^2 = D$. Por lo tanto:
+
+    $$
+    P^2 = B D B^{-1} = P
+    $$
+
+
+    **Q.E.D.**
 
 Resolviendo el producto de matrices, la matriz del proyector resulta:
 
@@ -114,7 +141,16 @@ $$
 
 ## Solución del Inciso (b)
 
+??? info "¿Qué es un Proyector Ortogonal?"
+    Un proyector $p$ sobre un subespacio $S$ es **ortogonal** si proyecta los vectores de forma perpendicular al subespacio imagen. Geométricamente, esto significa que la dirección de proyección (el núcleo) es perpendicular a la imagen:
+    
+    $$Nu(p) = Im(p)^\perp$$
+    
+    En términos matriciales (en base canónica), un proyector es ortogonal **si y solo si su matriz asociada $P$ es simétrica** ($P = P^T$). Si el proyector es idempotente pero no simétrico, se denomina proyector **oblicuo**.
+
 Para que un proyector $p$ sea proyectado **ortogonal** sobre un subespacio, el núcleo del proyector debe ser el complemento ortogonal de su imagen: $Nu(p) = Im(p)^\perp$. Esto se verifica analíticamente comprobando si la matriz del proyector $P$ en la base canónica es simétrica: $P = P^T$.
+
+**(La demostración formal de por qué la simetría implica ortogonalidad se encuentra en [Simetría y Ortogonalidad de Proyectores](../../demostraciones/proyector_simetria_ortogonalidad.md)).**
 
 Observando la matriz $P$ obtenida en el inciso a), claramente $P \neq P^T$ (por ejemplo, $P_{1,2} = 1.33 \neq P_{2,1} = 0.66$). Por lo tanto, **$p$ no es un proyector ortogonal**; es un proyector oblicuo.
 
@@ -132,6 +168,11 @@ $$
 
 Esto demuestra que $Nu(f)$ no es perpendicular a $Im(f)$.
 
+??? info "¿Por qué un solo producto no nulo invalida la ortogonalidad?"
+    Para que dos subespacios sean perpendiculares ($S \perp W$), **todos** los vectores de $S$ deben ser ortogonales a **todos** los vectores de $W$.
+    
+    Si encontramos aunque sea un par de vectores (uno de cada subespacio) cuyo producto interno sea distinto de cero, hemos hallado un **contraejemplo** que rompe la condición de perpendicularidad global. En este caso, aunque $\langle v_1, n_1 \rangle = 0$, el hecho de que $\langle v_2, n_1 \rangle = -1$ es suficiente para asegurar que los subespacios no están a 90 grados entre sí.
+
 ¿Es $p$ idéntico a $f$?
 Para que $p(x) = f(x) \;\forall x$, debería ocurrir que la matriz $P$ sea idéntica a $A$. A simple vista de las matrices, vemos que $P \neq A$. Otra forma de verlo es analizando la restricción sobre la imagen: si $p \equiv f$, deberíamos tener $f(v) = v$ para todo $v \in Im(f)$.
 Evaluamos la transformación $f$ en $v_1$:
@@ -140,6 +181,15 @@ $$
 f(v_1) = A v_1 = \begin{pmatrix} 3 \\ -5 \\ -3 \\ -1 \end{pmatrix} \neq v_1
 $$
 
+??? info "¿Por qué esta desigualdad demuestra que $p \neq f$?"
+    El razonamiento es una **demostración por contradicción**:
+    
+    1.  **Propiedad del Proyector**: Por definición, un proyector $p$ actúa como la identidad sobre su imagen. Es decir, si $v \in Im(p)$, entonces $p(v) = v$.
+    2.  **Igualdad de Imágenes**: Nosotros definimos $p$ tal que $Im(p) = Im(f)$. Por lo tanto, para cualquier vector $v \in Im(f)$, se debe cumplir que $p(v) = v$.
+    3.  **Hipótesis**: Si $f$ fuera idéntico a $p$ ($f \equiv p$), entonces $f$ debería cumplir la misma propiedad: $f(v) = v$ para todo vector en su imagen.
+    
+    Al comprobar que para el vector $v_1$, la transformación $f(v_1)$ devuelve algo distinto a $v_1$, demostramos que $f$ **no es la identidad en su propia imagen**. Como un proyector *debe* ser la identidad en su imagen, entonces $f$ no puede ser ese proyector.
+
 Con esto, demostramos que **$p$ no es idéntico a $f$**. $A$ no actuaba operativamente como la identidad en su propio subespacio imagen.
 
 ---
@@ -147,6 +197,15 @@ Con esto, demostramos que **$p$ no es idéntico a $f$**. $A$ no actuaba operativ
 > c) Hallar una base $B$ tal que la matriz de $p$ en $B$ sea diagonal.
 
 ## Solución del Inciso (c)
+
+??? info "¿Qué significa que la matriz sea diagonal en una base $B$?"
+    En álgebra lineal, decir que una matriz es diagonal en una base determinada significa que todos los vectores de esa base son **autovectores** de la transformación.
+    
+    Para un proyector $p$, esto es especialmente sencillo ya que solo existen dos autovalores posibles:
+    - **$\lambda = 1$**: Para cualquier vector que pertenezca a la Imagen ($Im(p)$).
+    - **$\lambda = 0$**: Para cualquier vector que pertenezca al Núcleo ($Nu(p)$).
+    
+    Por lo tanto, "hallar una base $B$ tal que la matriz sea diagonal" consiste simplemente en ensamblar una base del espacio total utilizando vectores de la imagen y vectores del núcleo. Decimos entonces que la matriz del proyector $P$ es **semejante** a la matriz diagonal $D$ ($P = BDB^{-1}$), lo que significa que ambas representan la misma transformación pero expresadas en sistemas de coordenadas distintos.
 
 Esta respuesta la construimos inherentemente en la resolución del inciso a). Todo proyector $p$ cuyas restricciones son la suma directa iterativa de su propia imagen y núcleo ($Im \oplus Nu = \mathbb{R}^n$) es naturalmente diagonalizable, teniendo como autovalores a 1 (con multiplicidad algebraica igual a la dimensión de su imagen) y a 0 (con multiplicidad idéntica a la nulidad).
 
