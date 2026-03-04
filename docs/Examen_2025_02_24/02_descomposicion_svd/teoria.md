@@ -135,9 +135,9 @@ Por consiguiente, los valores singulares producidos por $P^T A^T A P$ serán los
 
 Sabemos por sus propiedades fundamentales que:
 
-- La norma-2 de una matriz es igual a su mayor valor singular: $\|M\|_2 = \sigma_{\max}$
+- La norma-2 de una matriz es igual a su mayor valor singular: $\|M\|_2 = \sigma_{\max}$ *(ver [demostración](../../demostraciones/norma2_igual_sigma_max.md))*
 
-- El número de condición en base 2 equivale a la proporción de elongamiento límite: $\kappa_2(M) = \frac{\sigma_{\max}}{\sigma_{\min}}$
+- El número de condición en base 2 equivale a la proporción de elongamiento límite: $\kappa_2(M) = \frac{\sigma_{\max}}{\sigma_{\min}}$ *(ver [demostración](../../demostraciones/numero_condicion_svd.md))*
 
 Al haber probado instantes atrás que multiplicar por una permutación no afecta los valores singulares en absoluto, usamos el espectro ya calculado $\sigma \in \{3, 2, 1\}$:
 

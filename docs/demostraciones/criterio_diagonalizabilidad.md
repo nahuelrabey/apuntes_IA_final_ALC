@@ -1,55 +1,55 @@
 # Demostración: Criterio de Diagonalizabilidad por Bases de Autoespacios
 
 > **Teorema a Demostrar:**
-> Una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ es diagonalizable si y solo si la suma de las multiplicidades geométricas de todos sus autovalores es estrictamente igual a $n$ (el orden de la matriz), lo cual implica equivalentemente que para cada autovalor $\lambda_i$, su multiplicidad algebraica coincide con su multiplicidad geométrica.
+> Una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ es diagonalizable si y solo si la suma de las multiplicidades geométricas de todos sus autovalores es estrictamente igual a $n$ (el orden de la matriz), lo cual implica que para cada autovalor $\lambda_i$, su multiplicidad algebraica coincide con su multiplicidad geométrica.
 
 ## Interpretación del Enunciado
 
-Para que una matriz $A$ pueda entrar en la descomposición canónica constitutiva **$A = P D P^{-1}$**, el requisito operacional indispensable recae sobre la matriz de transferencia $P$.
-$P$ es la matriz cuyas **columnas son los autovectores** de $A$. Para que la inversa $P^{-1}$ pueda existir matemáticamente (y así el isomorfismo se consolide), $P$ debe poseer rango completo n.
-Esto significa que necesitamos recopilar un set exacto de $n$ autovectores que sean **Linealmente Independientes (L.I.)** que conformen una base en $\mathbb{R}^n$.
+Para que una matriz $A$ pueda descomponerse algebraicamente a través de la fórmula **$A = P D P^{-1}$**, es necesario que la matriz de transferencia $P$ sea válida.
+$P$ es la matriz formada por los **autovectores** de $A$ alineados en sus columnas. Para que su respectiva inversa $P^{-1}$ exista matemáticamente, $P$ debe poseer rango completo $n$.
+Esto significa que es indispensable hallar un conjunto exacto de $n$ autovectores que conformen un sistema de vectores **Linealmente Independientes (L.I.)**, generando una base en $\mathbb{R}^n$.
 
 ## Solución Analítica
 
-El conjunto de todos los autovectores asociados a un autovalor particular $\lambda_j$ genera un subespacio vectorial llamado **Autoespacio ($E_{\lambda_j}$)**, que corresponde al núcleo o *espacio nulo* de la transformación desplazada $(A - \lambda_j I)$.
+Los autovectores que se asocian a un autovalor dado $\lambda_j$ generan un subespacio vectorial llamado **Autoespacio ($E_{\lambda_j}$)**, que corresponde al núcleo o *espacio nulo* de la matriz desplazada $(A - \lambda_j I)$.
 
-La cantidad de autovectores linealmente independientes que podemos "extraer" del autovalor $\lambda_j$ está limitada dictada estrictamente por la **dimensión topológica** de su autoespacio, número que denominamos **Multiplicidad Geométrica (M.G.)**.
-Por el Teorema del Rango-Nulidad:
+La cantidad de autovectores linealmente independientes correspondientes al autovalor $\lambda_j$ está limitada por la dimensión su autoespacio, número que denominamos **Multiplicidad Geométrica (M.G.)**.
+Acudiendo al Teorema del Rango-Nulidad:
 
 $$
 \text{M.G.}_j = \dim(E_{\lambda_j}) = \dim(\ker(A - \lambda_j I)) = n - \text{rg}(A - \lambda_j I)
 $$
 
-### Unión de Bases y Generación Total
+### Unión de Bases y Conjunto de Autovectores Totales
 
-Si consideramos al espectro de $A$ compuesto por $k$ autovalores únicos (donde $k \le n$), sabemos que el conjunto total de autovectores de $A$ surgirá de agrupar los vectores extraídos de los *subespacios propios* inconexos.
+Dicho un espectro de $A$ compuesto por $k$ autovalores únicos (donde $k \le n$), el conjunto total de autovectores de autovectores se formará de la unión del conjunto de los extraídos de cada uno de sus autoespacios.
 
-Existe un teorema fundamental que establece que **los autovectores que provienen de autovalores distintos son siempre linealmente independientes entre sí**. Esto significa que al "unir" las bases de cada subespacio $E_{\lambda_1}, E_{\lambda_2}, \dots, E_{\lambda_k}$, no generaremos vectores redundantes a nivel matricial abstracto.
-La cantidad final de autovectores en nuestro "bolso colector" $P$ será equivalente a la suma estricta de las multiplicidades geométricas:
-
-$$
-\text{Dimensión de Autovectores Totales} = \sum_{j=1}^{k} \text{M.G.}_j
-$$
-
-### El Cierre de la Demostración
-
-Si deseamos que la matriz sea diagonalizable, este bolso colector de autovectores debe aportarnos una base completa de $\mathbb{R}^n$. Traducido a nuestro planteamiento numérico, necesitamos recolectar un número exacto de $n$ vectores para que la matriz $P \in \mathbb{R}^{n \times n}$ expanda todo su volumen y sea, en consecuencia, inversible.
+Los **autovectores provenientes de autovalores distintos son siempre linealmente independientes entre sí**. Esto significa que al unir todas las bases individuales extraídas de los subespacios $E_{\lambda_1}, E_{\lambda_2}, \dots, E_{\lambda_k}$, el subconjunto obtenido será íntegramente de elementos independientes.
+La cantidad final de componentes correspondientes de autovectores totales será la sumatoria particular estricta de cada multiplicidad geométrica individual de la base:
 
 $$
-\text{Para ser Diagonalizable} \iff \sum_{j=1}^{k} \text{dim}(E_{\lambda_j}) = n
+\text{Cantidad de Autovectores L.I.} = \sum_{j=1}^{k} \text{M.G.}_j
 $$
 
-A esto le sumamos el axioma restrictivo superior, donde una multiplicidad geométrica jamás puede superar a la multiplicidad algebraica (las veces que la raíz aparece en el Polinomio Característico), y que la suma de todas las M.A. (incluidos los autovalores complejos) da exactamente $n$. Por consiguiente, **la única forma** fáctica de alcanzar que la suma rinda $n$ es si y solo si cada bloque particular entrega su techo máximo permitido: $\text{M.G.}_j = \text{M.A.}_j \quad \forall \lambda_j$.
+### Consecuencias Estructurales del Teorema
+
+Para que la matriz general sea diagonalizable, el conjunto de autovectores independientes totales debe ser igual al orden matricial $n$.
+
+$$
+\text{A matriz} \text{ Diagonalizable} \iff \sum_{j=1}^{k} \dim(E_{\lambda_j}) = n
+$$
+
+Adicionalmente, se estipula que una multiplicidad geométrica jamás puede promediar más que la multiplicidad algebraica o repetición modular en la identidad del propio Polinomio Característico ($\text{M.G.} \le \text{M.A.}$), y que la suma de autovalores es estrictamente exactamente igual a $n$. La única forma posible de que la sumatoria alcance el tope $n$, por lo tanto, yace en la propiedad estricta en la cual ninguna de las dimensiones entregue un valor inferior: $\text{M.G.}_j = \text{M.A.}_j \quad \forall \lambda_j$.
 
 ### Conclusión
 
-Si la suma de dimensiones de los autoespacios iguala al orden de la matriz matriz $n$, logramos blindar los escalones faltantes de la matriz $P$, armando una base conformada por los autovectores, volviéndola matriz regular e inversible, y avalando la tan ansiada factorización de autodescomposición que le da nombre al fenómeno matemático de diagonalizabilidad.
+Si la suma de dimensiones de los autoespacios iguala al orden matricial $n$, es posible estructurar una base generadora compuesta puramente por un conjunto completo de autovectores independientes. Esta matriz estructurada corresponde directamente a una operatoria final regular e inversible de la forma paramétrica de una Descomposición y diagonalizabilidad.
 
 ---
 
-## Verificación Computacional en Abstracción a Caos
+## Verificación Computacional
 
-Apoyando las reglas de resolución matricial estipuladas, no basta con la inducción teórica. Validamos probabilísticamente esta propiedad generando matrices diagonales pseudo-aleatorias y matrices intencionalmente defectivas (Bloques de Jordan) mediante desorden controlado vía `NumPy`, demostrando cómo este corolario matemático de la suma de M.G. persiste e incide perimetralmente independientemente de fallos de punto flotante en cálculo espectral de grado alto, soportado con una tolerancia booleana.
+Se valida su comportamiento probabilístico en simulación empleando bloques de Jordan generados a través de la librería `NumPy`, demostrando vía la toleración métrica el funcionamiento de las bases correspondientes frente al fallo.
 
 ```python
 --8<-- "demostraciones/verificacion_criterio_diagonalizabilidad.py"
