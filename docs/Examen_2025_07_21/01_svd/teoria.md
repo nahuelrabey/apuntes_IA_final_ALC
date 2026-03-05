@@ -46,7 +46,7 @@ $$
 
     Dado que $u_i$ y $v_i$ son vectores columna, cada término $u_i v_i^t$ (el **producto exterior** entre el $i$-ésimo vector singular izquierdo y el derecho) produce una matriz de $m \times n$ de **rango 1**, ya que todas sus columnas son múltiplos de $u_i$.
 
-    Al ponderarla por su valor singular $\sigma_i$, la suma de estos términos de rango 1 reconstruye exactamente $M$, priorizando las direcciones de mayor varianza.
+    Al ponderarla por su valor singular $\sigma_i$, la suma de estos términos de rango 1 reconstruye exactamente $M$, con los términos asociados a mayores valores singulares capturando la mayor parte de la varianza.
 
 Dado que se nos informa que $\tilde{A} = \sigma_1 u_1 v_1^t$ es la aproximación de mayor rango, podemos definir el error vectorial de efectuar dicha predicción como $e = A x - \tilde{A} x$.
 
@@ -226,7 +226,7 @@ $$
     B^k x^{(0)} = c_1 (B^k v_1) + c_2 (B^k v_2)
     $$
 
-    Sustituyendo la conducta matricial proyectada en las componentes individuales para desacoplarnos matemáticamente del producto matricial y transformarlo en escalares algebraicos:
+    Sustituyendo el efecto de $B^k$ sobre cada autovector:
 
     $$
     B^k x^{(0)} = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2

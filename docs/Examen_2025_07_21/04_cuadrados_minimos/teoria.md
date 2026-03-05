@@ -18,7 +18,7 @@ $$
 A = \begin{pmatrix} | & | & | \\ q_1 & q_2 & q_3 \\ | & | & | \end{pmatrix}
 $$
 
-Cualquier vector $v$ que pertenezca a la imagen de $A$ (es decir, $v \in Col(A)$), debe expresarse íntegramente como una combinación lineal estricta de sus tres columnas componentes $\{q_1, q_2, q_3\}$.
+Cualquier vector $v \in Col(A)$ se expresa como combinación lineal de las columnas de $A$: $\{q_1, q_2, q_3\}$.
 
 $$
 A x = x_1 q_1 + x_2 q_2 + x_3 q_3
@@ -30,23 +30,21 @@ $$
 b = 1 q_1 + 2 q_2 + 3 q_3 + 4 q_4 + 5 q_5
 $$
 
-Dado que por naturaleza los cinco vectores componen una base espacial, son lógicamente **linealmente independientes**. Nos resulta materialmente imposible generar las proyecciones relativas a $q_4$ y $q_5$ valiéndonos pura y exclusivamente de los tres primeros vectores generadores. Todo aporte al subespacio nulo del vector $b$ es ajeno a $Col(A)$.
+Como los cinco vectores forman una base, son **linealmente independientes**: las componentes en $q_4$ y $q_5$ no pueden generarse a partir de $\{q_1, q_2, q_3\}$. Por lo tanto $b \notin Col(A)$, y **el sistema $Ax = b$ no tiene solución**.
 
-**En conclusión, $b \notin Col(A)$, hecho que decreta instantáneamente que el sistema $A x = b$ es intrínsecamente incompatible y carece de solución matemática.**
-
-Para solventar esta carencia, la ortodoxia analítica exige hallar el punto hiperespacial que minice el grado de residuo $||Ax - b||$. A este designio le llamamos construir la Ecuación Normal de Mínimos Cuadrados:
+Se busca entonces el vector $\hat{x}$ que minimice el residuo $||Ax - b||$. Esto conduce a la ecuación normal:
 
 $$
 A^t A \hat{x} = A^t b
 $$
 
-Inspeccionemos cautelosamente de qué consta en sí el núcleo multiplicativo $\bold{A^t A}$. Reuniendo los vectores columnas transpuestos, encontramos la Matriz Gramiana:
+Calculamos $A^t A$ (la matriz de Gram):
 
 $$
 A^t A = \begin{pmatrix} - & q_1^t & - \\ - & q_2^t & - \\ - & q_3^t & - \end{pmatrix} \begin{pmatrix} | & | & | \\ q_1 & q_2 & q_3 \\ | & | & | \end{pmatrix} = \begin{pmatrix} q_1^t q_1 & q_1^t q_2 & q_1^t q_3 \\ q_2^t q_1 & q_2^t q_2 & q_2^t q_3 \\ q_3^t q_1 & q_3^t q_2 & q_3^t q_3 \end{pmatrix}
 $$
 
-No obstante, la premisa enmarca formalmente que el conjunto engloba una **Base Ortonormal**. Dicho vocablo asume que el producto interior decantado arroja uno entre vectores homólogos y cero frente a proyecciones ortogonales de índices mixtos ($q_i^t q_j = \delta_{ij}$). Como corolario irremediable, la diagonal queda plagada de unos, y la anti-diagonal se limpia gravitando en nulos:
+Como $\{q_1, q_2, q_3, q_4, q_5\}$ es una **base ortonormal**, se tiene $q_i^t q_j = \delta_{ij}$. Por lo tanto:
 
 $$
 A^t A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} = I_3
@@ -54,40 +52,38 @@ $$
 
 Donde $I_3$ es la matriz Identidad en $\mathbb{R}^{3 \times 3}$.
 
-Abordemos ahora la operación restante en el extremo de resultados del modelo, desarticulando el vector $b$:
+Calculamos ahora $A^t b$:
 
 $$
 A^t b = \begin{pmatrix} - & q_1^t & - \\ - & q_2^t & - \\ - & q_3^t & - \end{pmatrix} (1 q_1 + 2 q_2 + 3 q_3 + 4 q_4 + 5 q_5)
 $$
 
-Al distribuir los multiplicadores punto de cada fila, la cualidad de las componentes ortogonales vuelve a operar. Cada vector asimila únicamente aquél escalar co-paralelo de su misma especie y anula irrefutablemente frente al producto escalar toda correlación con elementos dispares (como $q_4$ y $q_5$).
-
-En consecuencia obtenemos algebraicamente el vector unicamente compuesto por los escalares base rescatados:
+Por ortonormalidad, cada fila de $A^t$ extrae únicamente el coeficiente del vector correspondiente. Los términos en $q_4$ y $q_5$ se anulan. El resultado es:
 
 $$
 A^t b = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
 $$
 
-Retornando a nuestra Ecuación Normal primigenia y volcando allí nuestras deducciones operacionales:
+Sustituyendo en la ecuación normal:
 
 $$
 I_3 \hat{x} = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
 $$
 
-Revelando la estocástica pura:
+Por lo tanto:
 **$\hat{x} = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}$**
 
 ---
 
 ## Solución Inciso B
 
-Calcularemos matemáticamente la pureza de la respuesta hallada evaluando el vector margen de error originado en la desestimación. Formulemos a la Proyección Ortonormal $p$ arrojada por nuestro sistema aproximado en mínimos recuadros:
+La proyección ortogonal $p$ obtenida por la solución $\hat{x}$ es:
 
 $$
 p = A \hat{x} = \begin{pmatrix} | & | & | \\ q_1 & q_2 & q_3 \\ | & | & | \end{pmatrix} \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} = 1 q_1 + 2 q_2 + 3 q_3
 $$
 
-Se define unánimemente el vector de error $e$ intercediendo el objetivo deseado frente al punto más próximo lícito validable en subespacio ($p$):
+El vector de error es:
 
 $$
 e = b - p
@@ -97,19 +93,19 @@ $$
 e = (1 q_1 + 2 q_2 + 3 q_3 + 4 q_4 + 5 q_5) - (1 q_1 + 2 q_2 + 3 q_3)
 $$
 
-Extrayendo denominadores comunes y suprimiendo términos afines:
+Cancelando los términos comunes:
 
 $$
 e = 4 q_4 + 5 q_5
 $$
 
-Someteremos a evaluación de norma Euclidiana (distancia-2 computacional) ($|| \cdot ||_2$) para constatar el Error Cuadrático Final total. Aplicando el axioma de Pitágoras debido a que nuestra base es un abanico pre-ortogonal (donde el cateto vector 4 no posee injerencias angulares con el cateto vector 5):
+Como $q_4$ y $q_5$ son ortogonales, por el teorema de Pitágoras:
 
 $$
 ||e||_2^2 = (4 ||q_4||_2)^2 + (5 ||q_5||_2)^2
 $$
 
-Dado su condición normativa que restringe el largo a uno ($||q||=1$ para todo subespacio interviniente):
+Como $||q_i||_2 = 1$ para todo $i$:
 
 $$
 ||e||_2^2 = 16 (1)^2 + 25 (1)^2 = 41
@@ -119,27 +115,27 @@ $$
 ||e||_2 = \sqrt{41}
 $$
 
-El error cometido en la regresión matemática más plausible asume rigurosamente la suma pitagórica del módulo residual de todo tensor independiente al subespacio de recabo ($\sqrt{41}$).
+El error de la aproximación por mínimos cuadrados es $\sqrt{41}$.
 
 ---
 
 ## Solución Inciso C
 
-La Pseudoinversa explícita de Moore-Penrose, universalmente representada por el símbolo transfigurado de una daga formal algebraico o comúnmente una cuña supra-marcada ($A^\dagger$), generaliza matricialmente toda función inversa en el contexto que aglomera tensores asimétricos no cuadrados para poder invertirlos en espacios de características lineales dependientes.
+La pseudoinversa de Moore-Penrose, denotada $A^\dagger$, generaliza la inversa a matrices no cuadradas o singulares.
 
-Para constatar si encuadramos, se sabe por norma general que si el conjunto matriz en columnas asume en su integridad **rango pleno de sus componentes columna** (que sus columnas $q_1, q_2, q_3$ son linealmente independientes en todo aspecto), la pseudoinversa de limitación izquierda subyace definida por la formalidad computacional:
+Si $A$ tiene **rango columna completo** (sus columnas son linealmente independientes), la pseudoinversa izquierda se define como:
 
 $$
 A^\dagger = (A^t A)^{-1} A^t
 $$
 
-A diferencia del espectro, nuestra matriz de diseño $A$ sí posee sus vectores base definidos y ratificados en este postulado al ser la base ortonormal madre (donde todo generador ostentado no asume interdependencia). Nos avala a aplicar la Ley Fundamental de la izquierda, invocando el álgebra probada rigurosamente en el comienzo del Inciso A, en donde expusimos en un cuadro gramiano axiomático que la multiplicación pre-transpuesta desencadenaba el orden en Identidad Absoluta:
+Las columnas de $A$ son linealmente independientes (son parte de una base ortonormal), por lo que $A$ tiene rango columna completo. Del inciso A se tiene que:
 
 $$
 A^t A = I_3
 $$
 
-Retornando al modelo teórico:
+Sustituyendo:
 
 $$
 A^\dagger = (I)^{-1} A^t
@@ -149,7 +145,7 @@ $$
 A^\dagger = I \cdot A^t = A^t
 $$
 
-Hemos demostrado incuestionablemente que por la idiosincrasia formal de ostentar matrices constituidas como subespacios con bases de características modulares ortonormales puros, **su inversa ideal minimizadora se contrae por isomorfismo lógicamente analítico a su propia Matriz Traspuesta ($A^\dagger = A^t$)**.
+Por lo tanto, **$A^\dagger = A^t$**, lo que se cumple porque las columnas de $A$ forman una base ortonormal.
 
 ---
 
