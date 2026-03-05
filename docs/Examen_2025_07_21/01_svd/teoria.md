@@ -48,6 +48,8 @@ $$
 
     Al ponderarla por su valor singular $\sigma_i$, la suma de estos términos de rango 1 reconstruye exactamente $M$, con los términos asociados a mayores valores singulares capturando la mayor parte de la varianza.
 
+    Fin de la profundización.
+
 Dado que se nos informa que $\tilde{A} = \sigma_1 u_1 v_1^t$ es la aproximación de mayor rango, podemos definir el error vectorial de efectuar dicha predicción como $e = A x - \tilde{A} x$.
 
 Reemplazando los términos, el residuo es exactamente la componente descartada de la matriz SVD:
@@ -72,6 +74,8 @@ Como un escalar positivo puede extraerse de la norma:
     Dado que el enunciado establece $\sigma_i \neq \sigma_j$ y los valores singulares se ordenan descendentemente, se tiene **$\sigma_2 > 0$**.
 
     Por ser $\sigma_2$ un escalar positivo, puede extraerse de la norma: $|\sigma_2| = \sigma_2$ y $||\sigma_2 u|| = \sigma_2 ||u||$.
+
+    Fin de la observación.
 
     $$
     ||e||_2 = \sigma_2 ||u_2 (v_2^t x)||_2
@@ -155,6 +159,8 @@ Los autovectores de $B$ son precisamente las columnas de la matriz $V$, denotado
 
     Por lo tanto, las columnas de $V$ ($v_1, v_2$) son los autovectores de $B$.
 
+    Fin de la observación.
+
 Dado que $\sigma_1 > \sigma_2 > 0$, se tiene $\lambda_1 > \lambda_2 > 0$.
 
 ??? info "Observación Teórica: ¿El orden estricto $\sigma_1 > \sigma_2 > 0$ es una convención algorítmica?"
@@ -164,7 +170,9 @@ Dado que $\sigma_1 > \sigma_2 > 0$, se tiene $\lambda_1 > \lambda_2 > 0$.
 
     El enunciado establece adicionalmente que **$\sigma_i \neq \sigma_j$** para $i \neq j$, lo que descarta la posibilidad de valores singulares repetidos.
 
-    Combinando la convención de ordenamiento descendente con la restricción de desigualdad estricta, se obtiene **$\sigma_1 > \sigma_2 > 0$**.
+    Combinando la convención de ordenamiento descendente con la restricción de desigualdad estricta, se obtiene **$\sigma_1 > 2 > 0$**.
+
+    Fin de la observación.
 
 El algoritmo planteado evalúa un simple bucle $k \in 1, \dots, N$ sobre la operación iterada:
 
@@ -188,6 +196,8 @@ $$
 
     📌 *Para consultar la demostración inductiva detallada y su verificación empírica en Python, podés remitirte al [Método de la Potencia](../../demostraciones/metodo_potencia.md).*
 
+    Fin de la observación.
+
 Se nos explica que $x \in \mathbb{R}^2$ es elegido al azar, por lo que podemos representarlo en función de la base ortonormal completa del plano compuesto por $v_1$ y $v_2$:
 
 $$
@@ -200,6 +210,8 @@ $$
     Como $v_1$ y $v_2$ son dos vectores ortogonales en $\mathbb{R}^2$, son linealmente independientes y forman una **base ortonormal** del espacio.
 
     Por lo tanto, cualquier vector $x^{(0)} \in \mathbb{R}^2$ puede expresarse como combinación lineal: $x^{(0)} = c_1 v_1 + c_2 v_2$.
+
+    Fin de la observación.
 
 Aplicando el álgebra del operador iterativo con iteraciones tendientes a $\infty$:
 
@@ -231,6 +243,8 @@ $$
     $$
     B^k x^{(0)} = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2
     $$
+
+    Fin de la observación.
 
 Factorizando $\lambda_1^k$:
 
@@ -266,6 +280,8 @@ Si $c_1 = 0$ (el vector inicial es ortogonal a $v_1$), el proceso converge a $v_
     $$
 
     Por lo tanto, el algoritmo no tiende al origen $(0,0)$: la normalización en cada iteración preserva la norma unitaria, y el vector converge a $\pm v_2$.
+
+    Fin de la observación.
 
 En la práctica, para vectores iniciales generados aleatoriamente en aritmética de punto flotante, la probabilidad de que $c_1 = 0$ exactamente es nula, por lo que el algoritmo converge a $v_1$ con probabilidad 1.
 

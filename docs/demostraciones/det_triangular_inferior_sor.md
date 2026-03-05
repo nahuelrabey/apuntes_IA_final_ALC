@@ -55,6 +55,8 @@ $$
     \det(T) = \text{sgn}(\text{id}) \prod_{i=1}^{n} T_{ii} = \prod_{i=1}^{n} T_{ii}
     $$
 
+    Fin de la justificación.
+
 ### Paso 3: Aplicación a $D + \omega L$
 
 Dado que $D + \omega L$ es triangular inferior con diagonal $a_{ii}$, aplicando el resultado anterior:

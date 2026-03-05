@@ -54,10 +54,14 @@ $$
 
     La confusión es natural porque ambas desigualdades tienen la misma "forma" ($\|\cdot\| \leq \|\cdot\| \cdot \|\cdot\|$), pero sus objetos y su fundamentación son completamente diferentes.
 
+    Fin de la observación.
+
 ??? info "Observación Teórica: ¿Es válido para cualquier norma, o sólo las inducidas?"
     Esta propiedad de consistencia **se cumple por definición** en las normas inducidas. Para normas matriciales no inducidas (como la norma de Frobenius), la propiedad puede o no cumplirse dependiendo de cómo esté definida. Sin embargo, la norma de Frobenius sí satisface $\|Mv\|_2 \leq \|M\|_F \cdot \|v\|_2$, aunque $\|\cdot\|_F$ no sea una norma inducida.
 
     En el contexto de este ejercicio, el enunciado especifica explícitamente que $\|\cdot\|$ es una norma matricial **inducida**, lo cual garantiza la propiedad sin necesidad de verificaciones adicionales.
+
+    Fin de la observación.
 
 ---
 

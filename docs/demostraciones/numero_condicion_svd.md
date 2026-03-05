@@ -70,8 +70,12 @@ $$
 ??? info "Interpretación Geométrica"
     La SVD muestra que $M$ estira la bola unitaria en la dirección $v_1$ por un factor $\sigma_{\max}$ y la contrae en la dirección $v_n$ por un factor $\sigma_{\min}$. El número de condición $\kappa_2(M)$ mide exactamente el cociente entre la máxima elongación y la máxima contracción. Cuando $\kappa_2(M)$ es grande, la matriz está casi degenerada: estira fuertemente en una dirección y aplana casi a cero en otra, lo que hace numericamente inestable la resolución de sistemas lineales.
 
+    Fin de la interpretación.
+
 ??? info "Caso no invertible: número de condición infinito"
     Si $M$ es singular, $\sigma_{\min} = 0$ y la expresión $\sigma_{\max}/\sigma_{\min}$ es infinita. Esto es consistente con la definición: una matriz singular no puede invertirse, y cualquier perturbación pequeña del lado derecho puede producir errores arbitrariamente grandes en la solución, lo que se corresponde con $\kappa_2 = \infty$.
+
+    Fin de la observación.
 
 ??? question "¿Por qué invertir el orden de los valores singulares?"
     Si $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_n > 0$, entonces tomando recíprocos se invierte el orden de las desigualdades:
@@ -80,7 +84,11 @@ $$
     \frac{1}{\sigma_1} \leq \frac{1}{\sigma_2} \leq \cdots \leq \frac{1}{\sigma_n}
     $$
 
-    por lo que $\max_i \tfrac{1}{\sigma_i} = \tfrac{1}{\sigma_n} = \tfrac{1}{\sigma_{\min}}$.
+    por lo que    $$
+    \max_i \tfrac{1}{\sigma_i} = \tfrac{1}{\sigma_n} = \tfrac{1}{\sigma_{\min}}.
+    $$
+
+    Fin de la explicación.
 
 ---
 

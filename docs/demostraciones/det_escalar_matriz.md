@@ -74,6 +74,8 @@ $$
 
     Esta vía es más directa pero requiere conocer la definición combinatoria del determinante.
 
+    Fin de la justificación.
+
 ---
 
 ## Verificación Empírica Computacional

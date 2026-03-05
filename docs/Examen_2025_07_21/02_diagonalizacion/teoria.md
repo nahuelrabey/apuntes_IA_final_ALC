@@ -23,6 +23,8 @@ Dado que por hipótesis se nos confirma que la matriz $A$ posee $n$ autovalores 
 
     📌 *Para consultar paso a paso la justificación analítica y matemática detrás de este Lema de Independencia (junto con su validador masivo estocástico en Python), puedes remitirte a: [Demostración: Independencia Lineal de Autovectores](../../demostraciones/autovalores_distintos.md).*
 
+    Fin de la demostración.
+
 Todo conjunto de $n$ vectores linealmente independientes en un espacio de dimensión $n$ forma una base de dicho espacio. Por lo tanto, $\{v_1, \dots, v_n\}$ es una base de $\mathbb{R}^n$.
 
 ---
@@ -44,12 +46,16 @@ Como sus columnas son **linealmente independientes**, su determinante es no nulo
 
     📌 *Para consultar el porqué de esta afirmación estructural, el desarrollo del Teorema de la Matriz Inversible (IMT) y su respectiva contraverificación estadística por fuerza bruta en Python, puedes remitirte a: [Demostración: Independencia Lineal e Invertibilidad](../../demostraciones/columnas_li_inversibles.md).*
 
+    Fin de la demostración.
+
 ??? info "Observación Teórica: ¿Los autovectores siempre son ortogonales entre sí?"
     **No.** El resultado del inciso anterior garantiza que los autovectores son **linealmente independientes** cuando los autovalores son distintos, pero no que sean ortogonales entre sí.
 
     La ortogonalidad entre autovectores (es decir, que $v_i \cdot v_j = 0$) es una propiedad exclusiva de las **matrices simétricas reales**, garantizada por el *Teorema Espectral*.
 
     Para una matriz cuadrada $A$ general no simétrica, los autovectores forman una base de $\mathbb{R}^n$, pero en general es una **base oblicua** (independientes pero no necesariamente ortogonales).
+
+    Fin de la observación.
 
 A continuación debemos probar la aseveración analítica de igualdad. Evaluemos el producto en el miembro izquierdo $AC$:
 
@@ -63,6 +69,8 @@ $$
     Al multiplicar $A \in \mathbb{R}^{n \times n}$ por $C \in \mathbb{R}^{n \times p}$, se puede expresar $C$ en términos de sus columnas $[v_1, v_2, \dots, v_p]$.
 
     El producto $AC$ produce una matriz cuya $i$-ésima columna es $Av_i$.
+
+    Fin del fundamento.
 
 Por definición de autovector, $Av_i = \lambda_i v_i$, por lo que:
 

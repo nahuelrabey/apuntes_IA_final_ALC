@@ -82,6 +82,8 @@ $$
     - **Matrices SPD**: Si $A$ es Simétrica Definida Positiva, SOR converge para cualquier $\omega \in (0, 2)$.
     - **Diagonal Dominante**: GS y Jacobi convergen si $A$ es estrictamente dominante por filas.
 
+    Fin de la observación.
+
 ---
 
 ## Referencias

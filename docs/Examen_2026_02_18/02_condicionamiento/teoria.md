@@ -30,6 +30,8 @@ $$
 
     Estas normas son fundamentales en el análisis de error porque garantizan por definición la propiedad de **consistencia**: $\|Ax\| \leq \|A\| \cdot \|x\|$. Ejemplos clásicos son la norma 1 (máxima suma por columnas), la norma $\infty$ (máxima suma por filas) y la norma 2 (el autovalor máximo de $A^T A$).
 
+    Fin de la observación.
+
 El ejercicio analiza el condicionamiento de una matriz y su relación con la distancia a la singularidad. En la primera parte, se demuestra que el recíproco del número de condición de una matriz inversible $A$ representa una cota inferior para la distancia relativa de $A$ a cualquier matriz singular $B$.
 
 En la segunda parte, se analiza la matriz de Kronecker $A_n$, cuya estructura depende de $n$. Se busca demostrar que su número de condición crece con $n$ (en normas $\infty$ y $2$), lo que indica que el sistema se vuelve numéricamente inestable para valores grandes de $n$.
@@ -52,6 +54,8 @@ Sea $B$ una matriz singular. Existe un vector $x \neq 0$ tal que $Bx = 0$.
     3. **Núcleo No Trivial**: Por la definición de producto matriz-vector, $\sum x_i b_i$ es idéntico a $Bx$. Por lo tanto, existe un vector $x = (x_1, \dots, x_n)^T \neq \mathbf{0}$ tal que $Bx = \mathbf{0}$.
 
     Geométricamente, una matriz singular "colapsa" al menos una dimensión del espacio, enviando todos los puntos de esa dirección al origen ($\mathbf{0}$).
+
+    Fin de la observación.
 
 Podemos escribir $Ax$ como:
 
@@ -135,6 +139,8 @@ Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$
     $E$ es la matriz de todos unos: cada entrada vale $1$. Por lo tanto $B = \frac{1}{n}E$ tiene **todas sus filas idénticas** (cada fila es el vector $\frac{1}{n}(1, 1, \ldots, 1)$). Filas iguales son linealmente dependientes, luego $\text{rank}(B) = 1 < n$ y $\det(B) = 0$.
 
     Equivalentemente, cualquier vector $v$ ortogonal a $(1,\ldots,1)^T$ satisface $Ev = 0$, y por tanto $Bv = 0$: el núcleo de $B$ tiene dimensión $n-1$, confirmando que $B$ no es inversible.
+
+    Fin de la observación.
 
     $$
 A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2}

@@ -59,6 +59,8 @@ Esto demuestra que **la matriz $B^{-1}$ toma un vector en la base canónica y de
     2.  **$D$**: Opera sobre sus componentes (proyecta).
     3.  **$B$**: Devuelve el resultado al sistema de coordenadas estándar (canónico).
 
+    Fin de la conclusión.
+
 ---
 
 --8<-- "docs/demostraciones/verificacion_cambio_base.py"

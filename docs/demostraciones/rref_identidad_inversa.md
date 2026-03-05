@@ -96,3 +96,5 @@ Si durante la eliminación se obtiene un renglón nulo que dictamina la falta de
     Si el proceso denota dependencia lineal ocasionando que una fila se anule completamente, el espacio asignado por un escalón resbalará a la derecha ubicando y reconociendo el pivote siguiente por afuera del parámetro acotado de $A$.
 
     El bloque matriz general izquierdo no será igualado funcionalmente a la Identidad en este escenario estricto y consecuente de falta del pivote sobre la variable correspondiente que corrobora la inexistencia de un Rango numérico pleno originario. Como $A$ no cuenta con $n$ pivotes base, no es inversible de raíz.
+
+    Fin del análisis del fallo.

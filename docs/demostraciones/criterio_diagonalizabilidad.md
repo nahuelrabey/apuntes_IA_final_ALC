@@ -41,6 +41,8 @@ $$
 
 Adicionalmente, se estipula que una multiplicidad geométrica jamás puede promediar más que la multiplicidad algebraica o repetición modular en la identidad del propio Polinomio Característico ($\text{M.G.} \le \text{M.A.}$), y que la suma de autovalores es estrictamente exactamente igual a $n$. La única forma posible de que la sumatoria alcance el tope $n$, por lo tanto, yace en la propiedad estricta en la cual ninguna de las dimensiones entregue un valor inferior: $\text{M.G.}_j = \text{M.A.}_j \quad \forall \lambda_j$.
 
+    Fin de la observación.
+
 ### Conclusión
 
 Si la suma de dimensiones de los autoespacios iguala al orden matricial $n$, es posible estructurar una base generadora compuesta puramente por un conjunto completo de autovectores independientes. Esta matriz estructurada corresponde directamente a una operatoria final regular e inversible de la forma paramétrica de una Descomposición y diagonalizabilidad.

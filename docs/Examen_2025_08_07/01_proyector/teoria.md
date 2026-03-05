@@ -30,6 +30,8 @@ Para construir dicho proyector $p$, necesitamos conocer explícitamente bases pa
 
     Cualquier vector del espacio se puede escribir como una suma de un vector en la imagen y uno en el núcleo. El proyector simplemente "se queda" con la parte que pertenece a la imagen y "descarta" la parte del núcleo.
 
+    Fin de la definición.
+
 Comenzamos escalonando la matriz $A$ para hallar su forma reducida por filas y determinar los pivotes:
 
 $$
@@ -41,6 +43,8 @@ $$
     Las operaciones elementales de fila aplicadas para llegar a la RREF (Escalonada Reducida) preservan las **relaciones de dependencia lineal** entre las columnas.
 
     Si las columnas 1 y 3 son pivotales en la RREF, significa que son linealmente independientes y que las demás columnas pueden expresarse como combinación lineal de ellas. Debido a que la estructura se mantiene, las columnas 1 y 3 de la matriz **original** $A$ también son linealmente independientes y generan el mismo espacio (la Imagen).
+
+    Fin de la observación.
 
 De las columnas pivotales (primera y tercera), deducimos una base $B_{Im}$ para la imagen $Im(f) = Col(A)$:
 
@@ -55,12 +59,16 @@ De las variables libres ($x_2$ y $x_4$), derivamos las ecuaciones del núcleo $N
 
     Las **variables libres** representan los grados de libertad del sistema. Cada variable libre nos permite construir un vector independiente en el Núcleo (asignándole el valor 1 y 0 a las demás libres). La cantidad de variables libres coincide exactamente con la **nulidad** de la transformación (por el Teorema de la Dimensión).
 
+    Fin de la observación.
+
 ??? info "Observación Teórica: ¿Cómo derivamos estas ecuaciones rref?"
     Las ecuaciones surgen de traducir directamente las filas no nulas de la matriz escalonada reducida por filas (la forma RREF obtenida arriba) de vuelta a un sistema homogéneo ($Ax = 0$).
 
     - La **primera fila** $(1, -1, 0, -1)$ representa la ecuación: $1 \cdot x_1 + (-1) \cdot x_2 + 0 \cdot x_3 + (-1) \cdot x_4 = 0 \implies x_1 - x_2 - x_4 = 0$.
 
     - La **segunda fila** $(0, 0, 1, 1)$ representa la ecuación: $0 \cdot x_1 + 0 \cdot x_2 + 1 \cdot x_3 + 1 \cdot x_4 = 0 \implies x_3 + x_4 = 0$.
+
+    Fin de la observación.
 
 Expresado paramétricamente de acuerdo a las variables libres, despejamos con $x_1 = x_2 + x_4$ y $x_3 = -x_4$. Por lo que obtenemos una base $B_{Nu}$:
 
@@ -85,6 +93,8 @@ Para que la transformación $p$ sea un proyector definido de esta forma, y dado 
     2.  **Intersección Trivial**: $Im(f) \cap Nu(f) = \{0\}$ (no hay solapamiento de información entre ellos).
 
     La unión de estas condiciones define la **Suma Directa**.
+
+    Fin de la nota técnica.
 
 Evaluamos la independencia lineal de la unión de las bases mediante el determinante de la matriz ensamblada $B = [B_{Im} \mid B_{Nu}]$ para certificar esto:
 
@@ -115,6 +125,8 @@ $$
 
     **(La justificación analítica de este cambio de base se encuentra documentada en [Cambio de Base: Matrices $B$ y $B^{-1}$](../../demostraciones/cambio_base.md)).**
 
+    Fin de la observación.
+
 ??? check "Demostración de Idempotencia ($P^2 = P$)"
     Para certificar que $P$ es efectivamente un proyector, debemos demostrar que es **idempotente**:
 
@@ -128,7 +140,7 @@ $$
     P^2 = B D B^{-1} = P
     $$
 
-    **Q.E.D.**
+    **Q.E.D.** (Fin de la demostración).
 
 Resolviendo el producto de matrices, la matriz del proyector resulta:
 

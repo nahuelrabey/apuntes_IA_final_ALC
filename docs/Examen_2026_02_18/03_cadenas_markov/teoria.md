@@ -41,6 +41,8 @@ Por **hipótesis**, la matriz $P$ es diagonalizable.
 
     *¿Qué garantiza que una matriz sea diagonalizable?* Una condición suficiente es que sus autovalores sean distintos entre sí. Para el desarrollo formal de esta propiedad, véase [Demostración: Autovalores Distintos implican L.I.](../../demostraciones/autovalores_distintos.md).
 
+    Fin de la observación.
+
 ??? warning "Trampa Común: ¿Diagonalizable implica autovalores únicos?"
     Una confusión metodológica frecuente es asumir que si $P$ es diagonalizable, entonces todos sus autovalores deben ser distintos, y por ende el estado estacionario con $\lambda = 1$ sería único. **Esto es falso**.
     La implicación matemática es estrictamente unidireccional: **Autovalores distintos $\implies$ Diagonalizable.**
@@ -48,6 +50,8 @@ Por **hipótesis**, la matriz $P$ es diagonalizable.
     Una matriz puede ser diagonalizable con autovalores repetidos (como ocurre en este mismo ejercicio en el inciso B, donde $\lambda=1$ tiene multiplicidad algebraica 2). Si $\lambda=1$ se repite (ej. múltiples estados absorbentes), el estado estacionario límite no tiende a un único autovector $v_{\text{max}}$, sino a una **combinación lineal** de la base del autoespacio $E_{\lambda=1}$ (los estados de equilibrio $w_1, \dots, w_k$), y sus ponderaciones dependerán del vector de condición inicial $v^{(0)}$.
 
     Para ver una demostración formal matricial y computacional de esto, véase [Demostración: Diagonalizable con Autovalores Repetidos](../../demostraciones/diagonalizable_autovalores_repetidos.md).
+
+    Fin de la advertencia.
 
 Al ser $P$ diagonalizable, existe una base de autovectores $\{v_1, \dots, v_n\}$. Por lo tanto, cualquier estado inicial arbitrario $v^{(0)} \in \mathbb{R}^n$ se puede expresar como una combinación lineal de dicha base:
 
@@ -80,6 +84,8 @@ Analizamos el comportamiento de $\lambda_i^k$ cuando $k \to \infty$:
 
     El caso 3 también admite autovalores complejos: cualquier $\lambda$ con $|\lambda| = 1$ y $\lambda \ne 1$ (por ejemplo $e^{2\pi i/3}$ en una cadena de período 3) produce una sucesión $\lambda^k$ que recorre el círculo unitario sin converger. La hipótesis de que $-1$ no es autovalor cubre el único caso real problemático; en el contexto de este ejercicio (donde $P \in \mathbb{R}^{n\times n}$ y se pide probar la existencia del límite bajo esa hipótesis), es suficiente ser precisos con la condición real pedida.
 
+    Fin de la nota.
+
 Para que el límite exista, se requiere que **no haya ningún autovalor con $|\lambda_i| = 1$ distinto de $1$**: ni reales ni complejos. La hipótesis del enunciado garantiza la ausencia del caso real $\lambda_i = -1$. Si además no existen autovalores complejos de módulo 1 (lo cual ocurre en el inciso B y en cualquier cadena aperiodica), todos los términos con $|\lambda_i| < 1$ desaparecen en el límite y los términos con $\lambda_i = 1$ permanecen constantes. Por lo tanto, el límite existe para cualquier $v^{(0)}$.
 
 #### Demostración A-2: Cálculo del Límite
@@ -92,6 +98,8 @@ Para que el límite exista, se requiere que **no haya ningún autovalor con $|\l
     Para que existan dos autovectores linealmente independientes asociados a $\lambda = 1$, la dimensión de $E_{\lambda=1}$ (multiplicidad geométrica) debe ser al menos 2, lo que implica que el autovalor $\lambda = 1$ no es único (su multiplicidad algebraica es $\ge 2$).
 
     ¿Qué significa esto desde el punto de vista de la cadena de Markov? Ocurre cuando la cadena es **reducible** y presenta múltiples "componentes conexas aisladas" o "estados absorbentes" (como veremos luego en el inciso B con la matriz $4 \times 4$).
+
+    Fin de la observación.
 
 Sabemos que:
 
@@ -161,6 +169,8 @@ Los autovalores se obtienen de los bloques diagonales:
 
     Esto demuestra algebraicamente que el polinomio característico global de $P$ se factoriza exactamente como el producto de los polinomios de sus submatrices. En consecuencia, las raíces totales del sistema son simplemente la unión de los autovalores individuales de cada bloque, evadiendo calcular y factorear un polinomio de grado 4 a fuerza bruta.
 
+    Fin de la nota técnica.
+
 Espectro de $P$: $\lambda \in \{1, 1, 0, 0.7\}$.
 
 **Autoespacio $E_{\lambda=1}$ (equilibrio):**
@@ -185,6 +195,8 @@ Base: $\{(1, -1, 0, 0)^T\}$. Dimensión 1.
 
     Por teorema, siempre se cumple que **$1 \le M.G. \le M.A.$**
     Para que una matriz sea **diagonalizable**, la multiplicidad geométrica de **todos** sus autovalores debe coincidir exactamente con su multiplicidad algebraica ($M.G. = M.A.$).
+
+    Fin de la observación.
 
 **Diagonalizabilidad:**
 $\lambda=1$ tiene multiplicidad algebraica 2 y geométrica 2. Los otros autovalores son simples. La suma de dimensiones de los autoespacios es 4, igual al orden de la matriz. $P$ es diagonalizable.

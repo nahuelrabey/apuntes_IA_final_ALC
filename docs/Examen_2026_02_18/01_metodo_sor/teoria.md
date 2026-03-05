@@ -104,6 +104,8 @@ $$
 
     > 📎 Demostración formal: [¿Por qué det(D + ωL) = det(D)?](../../demostraciones/det_triangular_inferior_sor.md)
 
+    Fin de la demostración.
+
 Sustituyendo en la expresión inicial:
 
 $$
@@ -139,8 +141,12 @@ Queda demostrada la condición necesaria.
 ??? info "Observación: Condición Necesaria vs Suficiente"
     Que $\omega \in (0, 2)$ es una condición **necesaria**, no suficiente. No garantiza convergencia, pero es un requisito previo.
 
+    Fin de la observación.
+
 ??? question "¿Qué pasa con el término independiente $c$?"
     📎 Ver demostración completa: [Rol del término independiente $c$ en métodos iterativos](../../demostraciones/termino_independiente_convergencia.md)
+
+    Fin de la nota.
 
 ---
 

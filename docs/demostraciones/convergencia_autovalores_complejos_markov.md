@@ -90,6 +90,8 @@ $$
     - **Período 3**: $\lambda \in \{1, e^{2\pi i/3}, e^{4\pi i/3}\}$. Los dos últimos son complejos conjugados no reales.
     - **Período $p$ general**: los $p-1$ autovalores distintos de $1$ producen estados que "rotan" entre $p$ configuraciones sin estabilizarse nunca.
 
+    Fin de la observación.
+
 ### 5. Conclusión
 
 $$

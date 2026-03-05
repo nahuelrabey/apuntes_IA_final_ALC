@@ -38,8 +38,9 @@ $$
 
 La demostración teórica ha dictaminado con éxito la igualdad formal solicitada.
 
-??? info "Observación Teórica: ¿Qué pasaría si el rango no fuese completo?"
     Si $rg(A) < n$ (sistema deficiente), $A^T A$ deja de ser biyectiva porque su determinante colapsa a cero. En ese caso, la resolución analítica pasa por la Descomposición SVD completa truncada, que engendra naturalmente a la forma generalizada de $A^\dagger$ con la matriz $D^\dagger$ de recíprocos espectrales. La solución de pseudoinversa nos devolverá siempre "el $x_{cm}$ más corto" ($\|x\|_2$ min).
+
+    Fin de la observación.
 
 ### Importancia y Traslación a la Práctica Computacional
 

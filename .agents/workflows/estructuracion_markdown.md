@@ -32,6 +32,7 @@ Este flujo de trabajo define las reglas estrictas de redacción y formato que la
 - El razonamiento principal debe fluir de forma limpia y directa.
 - Cualquier justificación profunda, análisis del porqué de una técnica matemática subyacente, demostraciones periféricas o historia, deberá quedar "escondida" en un bloque sintáctico colapsable usando los **admonitions interactivos** de MkDocs.
 - Sintaxis obligatoria del bloque colapsable: `??? info "Título Breve"` (o `??? question`, `??? warning` según corresponda).
+- **Regla de Cierre de Admonitions**: Todo bloque admonition debe terminar siempre con un **párrafo de texto** (puede ser contexto, un saludo, o un simple "Fin."), nunca con un bloque de matemática (`$$...$$`). Esto asegura que el bloque se cierre visualmente de forma limpia.
 
 ## 4. Validación Automatizada Estricta
 

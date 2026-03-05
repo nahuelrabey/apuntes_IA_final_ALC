@@ -41,6 +41,8 @@ Buscamos aplicar el operador determinante a ambos lados de la ecuación, recorda
 
     📌 *Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué $\det(AB) = \det(A)\det(B)$ (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: [Demostración: Regla Multiplicativa del Determinante](../../demostraciones/determinante_producto.md).*
 
+    Fin de la demostración.
+
     $$
 |A^2| = |I|
 $$
@@ -63,6 +65,8 @@ Respecto a la diagonalizabilidad, el **Teorema Espectral** establece que toda ma
     La demostración de que las matrices simétricas tienen autovalores reales y autovectores ortogonales se basa en propiedades del conjugado transpuesto.
 
     📌 *Revisar riguroso desarrollo paso a paso del porqué $\lambda = \overline{\lambda}$ junto con el porqué de la ortogonalidad $v_i \cdot v_j = 0$ sumado a su estrés computacional randomizado por Python, aquí: [Demostración: Teorema Espectral](../../demostraciones/teorema_espectral.md).*
+
+    Fin de la demostración.
 
 ---
 
