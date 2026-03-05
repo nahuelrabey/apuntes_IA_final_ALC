@@ -113,3 +113,5 @@ nav:
       - Número de Condición y SVD: demostraciones/numero_condicion_svd.md
       - Convergencia Autovalores Complejos (Markov): demostraciones/convergencia_autovalores_complejos_markov.md
       - Simetría y Ortogonalidad de Proyectores: demostraciones/proyector_simetria_ortogonalidad.md
+      - Rango en Mínimos Cuadrados: demostraciones/rango_minimos_cuadrados.md
+      - Teorema de Rouché-Frobenius: demostraciones/rouche_frobenius.md

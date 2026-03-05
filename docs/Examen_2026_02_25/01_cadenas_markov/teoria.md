@@ -19,8 +19,39 @@
 
 ## Interpretación del Enunciado
 
-<!-- Identificar qué tipo de cadena de Markov es, qué información da el diagrama de transición
-     y cuál es la estructura del sistema. -->
+El sistema modela el movimiento anual de población entre 4 ciudades. El diagrama de transición del enunciado es:
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    1 --> 1 : 1/2
+    1 --> 2 : 1/2
+    2 --> 1 : 1/2
+    2 --> 3 : 1/2
+    3 --> 1 : a
+    3 --> 3 : b
+    3 --> 4 : c
+    4 --> 2 : d
+    4 --> 3 : e
+```
+
+La matriz de transición $P$ asociada es:
+
+$$
+P = \begin{pmatrix}
+1/2 & 1/2 & a & 0 \\
+1/2 & 0 & 0 & d \\
+0 & 1/2 & b & e \\
+0 & 0 & c & 0
+\end{pmatrix}
+$$
+```
+
+Las probabilidades $a, b, c, d, e$ son incógnitas que se determinan imponiendo:
+
+- Cada columna de $P$ suma 1 (distribución de probabilidad válida).
+- El vector $v = (0,\, 0,\, \frac{1}{2},\, \frac{1}{2})^t$ es estado de equilibrio, es decir, $Pv = v$.
+
 
 ---
 
