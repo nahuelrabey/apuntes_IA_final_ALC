@@ -106,7 +106,6 @@ Para que las ecuaciones de mínimos cuadrados posean una **solución única**, l
 
     Esta operación solo es posible si $(M^TM)^{-1}$ existe, es decir, si $M^TM$ es invertible. Si no lo fuera, el sistema tendría **infinitas soluciones** (o ninguna), ya que no habría una única forma de despejar $\hat{\theta}$.
 
-
 Como $M$ tiene 3 columnas, necesitamos que el $\text{Rango}(M) = 3$. Geométricamente, los vectores columna de la matriz $M$ formados por las mediciones no deben ser dependientes entre sí.
 
 En el contexto físico del problema, esto implica que:
@@ -135,7 +134,6 @@ En el contexto físico del problema, esto implica que:
     Geométricamente: si graficás los puntos $(x_i,\, \ln(y_i))$ y todos caen exactamente sobre una recta, las dos variables no aportan información independiente y el sistema tiene infinitas soluciones.
 
     **Ejemplo concreto:** si todos los datos satisfacen $x_i = \ln(y_i)$, las columnas 2 y 3 de $M$ son idénticas → $\text{Rango}(M) = 2$ → $M^TM$ no es invertible → sin solución única.
-
 
 - La variable $y_i$ **debe ser estrictamente positiva ($y_i > 0$)** para todo $i$, dado que el dominio natural del $\ln(y_i)$ no admite valores negativos ni ceros.
 
@@ -173,7 +171,6 @@ Por el Teorema de Rouché-Frobenius y el rango fundamental del álgebra matricia
     📌 *[Demostración: Teorema de Rouché-Frobenius](../../demostraciones/rouche_frobenius.md)* — justifica cuándo un sistema lineal tiene solución única, infinitas soluciones o ninguna, en función del rango de la matriz y la matriz ampliada.
 
     📌 *[Demostración: Rango Completo y Unicidad en Mínimos Cuadrados](../../demostraciones/rango_minimos_cuadrados.md)* — demuestra que $M^TM$ es invertible si y solo si $M$ tiene rango columna completo, lo que garantiza una solución única de las ecuaciones normales.
-
 
 - Si aportamos $m < 3$ puntos, el sistema quedará sub-determinado (tendrá infinitas soluciones lógicas porque habrán variables libres, el rango máximo será menor a 3 penalizando a $M^T M$).
 

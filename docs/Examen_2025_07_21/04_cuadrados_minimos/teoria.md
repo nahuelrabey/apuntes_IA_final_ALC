@@ -58,7 +58,7 @@ Como $\{q_1, q_2, q_3, q_4, q_5\}$ es una **base ortonormal**, se tiene $q_i^t q
     \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}
     $$
 
-$$
+    $$
 A^t A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} = I_3
 $$
 
@@ -153,7 +153,6 @@ $$
     $$
     \|e\|_2^2 = \|4q_4\|_2^2 + \|5q_5\|_2^2 = (4\|q_4\|_2)^2 + (5\|q_5\|_2)^2
     $$
-
 
 Como $||q_i||_2 = 1$ para todo $i$:
 

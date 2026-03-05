@@ -45,6 +45,7 @@ P = \begin{pmatrix}
 0 & 0 & c & 0
 \end{pmatrix}
 $$
+
 ```
 
 Las probabilidades $a, b, c, d, e$ son incógnitas que se determinan imponiendo:

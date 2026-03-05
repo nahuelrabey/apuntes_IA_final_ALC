@@ -38,6 +38,7 @@ def run_verification():
 
     print("\n3) Construyendo matriz del proyector P = B * D * B^-1:")
     B_inv = np.linalg.inv(B)
+    print(f"B_inv = \n{np.round(B_inv,3)}")
     D = np.diag([1, 1, 0, 0])
     P = B @ D @ B_inv
     print("P =")

@@ -120,6 +120,32 @@ class TestMathBlocksFixer(unittest.TestCase):
         )
         self.assertEqual(fix_math_blocks(input_text), expected)
 
+    def test_math_block_after_admonition_no_indent(self):
+        """Bloque $$ a columna 0 que sigue a una admonición pero NO forma parte
+        de ella porque el texto posterior tampoco está indentado. El fixer
+        DEBE preservar la columna 0 y agregar líneas en blanco si faltan."""
+        input_text = (
+            '??? info "Admonición"\n'
+            '    Contenido indentado.\n'
+            '$$\n'
+            'x = 1\n'
+            '$$\n'
+            'Texto fuera de la admonición.'
+        )
+        # El resultado esperado es que el bloque se mantenga en columna 0,
+        # con las líneas en blanco reglamentarias (según el comportamiento base del fixer).
+        expected = (
+            '??? info "Admonición"\n'
+            '    Contenido indentado.\n'
+            '\n'
+            '$$\n'
+            'x = 1\n'
+            '$$\n'
+            '\n'
+            'Texto fuera de la admonición.\n'
+        )
+        self.assertEqual(fix_math_blocks(input_text), expected)
+
 
 class TestListBlocksFixer(unittest.TestCase):
     def test_list_missing_blank_line(self):

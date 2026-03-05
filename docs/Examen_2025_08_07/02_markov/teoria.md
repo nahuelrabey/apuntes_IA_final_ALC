@@ -32,7 +32,7 @@ C = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-Se describe un subconjunto de $k$ estados dentro de un sistema más grande de $n$ estados totales ($k \le n$). Mientras que $n$ representa la dimensión global del proceso de Markov, el fenómeno cíclico ocurre solo en un subconjunto específico. 
+Se describe un subconjunto de $k$ estados dentro de un sistema más grande de $n$ estados totales ($k \le n$). Mientras que $n$ representa la dimensión global del proceso de Markov, el fenómeno cíclico ocurre solo en un subconjunto específico.
 
 Al ordenar el espacio de estados para que estos $k$ nodos encabecen la matriz, la matriz global $P \in \mathbb{R}^{n \times n}$ adquiere una estructura de bloques donde la submatriz de permutación cíclica $C_{k \times k}$ rige las transiciones internas de dicho subconjunto:
 
@@ -46,6 +46,7 @@ $$
 Los autovalores de una matriz triangular/bloque-triangular son la unión de los autovalores de sus bloques diagonales. De este modo, los autovalores de la submatriz cíclica $C$ son también autovalores de $P$.
 
 Los autovalores de una permutación puramente cíclica de longitud $k$ se determinan a partir de su estructura. Se denomina **cíclica** por tres factores principales:
+
 - **Estructural**: Cada estado transiciona de forma determinística al siguiente ($i_1 \to i_2 \to \dots \to i_k \to i_1$).
 - **Geométrico**: Los estados forman un bucle cerrado o polígono regular de $k$ nodos.
 - **Algebraico**: Aplicar el proceso $k$ veces recupera la identidad, es decir, $C^k = I$. Esto sucede porque cada aplicación de $C$ realiza un desplazamiento cíclico de los estados; tras $k$ desplazamientos, cada estado vuelve a su posición original (matemáticamente, $C^k e_j = e_j$ para toda base canónica $e_j$).
