@@ -46,6 +46,18 @@ $$
 
 Como $\{q_1, q_2, q_3, q_4, q_5\}$ es una **base ortonormal**, se tiene $q_i^t q_j = \delta_{ij}$. Por lo tanto:
 
+??? info "Observación Teórica: ¿Por qué vale $q_i^t q_j = \delta_{ij}$?"
+    El término $q_i^t q_j$ es el **producto interno** entre los vectores $q_i$ y $q_j$. El resultado $\delta_{ij}$ (delta de Kronecker) unifica dos propiedades que define una base ortonormal:
+
+    - **Norma unitaria**: cada vector tiene longitud 1, por lo que $q_i^t q_i = \|q_i\|_2^2 = 1$.
+    - **Ortogonalidad**: vectores distintos son perpendiculares, por lo que $q_i^t q_j = 0$ para $i \neq j$.
+
+    En forma compacta:
+
+    $$
+    \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}
+    $$
+
 $$
 A^t A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} = I_3
 $$
@@ -104,6 +116,44 @@ Como $q_4$ y $q_5$ son ortogonales, por el teorema de Pitágoras:
 $$
 ||e||_2^2 = (4 ||q_4||_2)^2 + (5 ||q_5||_2)^2
 $$
+
+??? info "Observación Teórica: ¿Cómo aplica el teorema de Pitágoras aquí?"
+    El teorema de Pitágoras se generaliza a espacios con producto interno: si $u \perp v$, entonces $\|u + v\|_2^2 = \|u\|_2^2 + \|v\|_2^2$.
+
+    **Paso 1: Distribuir la transpuesta**
+
+    La transpuesta es lineal, por lo que:
+
+    $$
+    (u + v)^t = u^t + v^t
+    $$
+
+    **Paso 2: Reescribir la norma al cuadrado**
+
+    $$
+    \|u + v\|_2^2 = (u + v)^t(u + v) = (u^t + v^t)(u + v)
+    $$
+
+    **Paso 3: Distribuir como un binomio**
+
+    $$
+    = u^t u + u^t v + v^t u + v^t v
+    $$
+
+    **Paso 4: Identificar cada término**
+
+    - $u^t u = \|u\|_2^2$
+    - $v^t v = \|v\|_2^2$
+    - $u^t v = v^t u = \langle u, v \rangle = 0$ (por ortogonalidad de $q_4$ y $q_5$)
+
+    Por lo tanto: $\|u + v\|_2^2 = \|u\|_2^2 + \|v\|_2^2$.
+
+    Aplicando esto a $e = 4q_4 + 5q_5$, con $u = 4q_4$ y $v = 5q_5$:
+
+    $$
+    \|e\|_2^2 = \|4q_4\|_2^2 + \|5q_5\|_2^2 = (4\|q_4\|_2)^2 + (5\|q_5\|_2)^2
+    $$
+
 
 Como $||q_i||_2 = 1$ para todo $i$:
 

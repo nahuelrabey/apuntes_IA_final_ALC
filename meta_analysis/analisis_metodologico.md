@@ -32,3 +32,17 @@ Si tuviéramos que empaquetar el flujo de asimilación y fijación deductiva en 
 2.  **Verificación Práctica:** Modelizar y estresar computacionalmente el comportamiento del teorema mediante Python para verlo "en la naturaleza".
 3.  **Documentación Arquitectónica:** Compilar y encapsular la teoría unida su motor de verificación dentro de un esquema Markdown legible y con referencias mediáticas cruzadas.
 4.  **Reflexión (Meta):** Absorber y aislar la táctica de aprendizaje lograda para la próxima iteración del estudio de Finales universitarios.
+
+---
+
+## 4. Los Tres Pilares del Proyecto (Reflexión Estructural)
+
+Todo conjunto de apuntes producido bajo esta metodología — ya sea para ALC, IA u otra materia — debe contener tres elementos bien definidos y no negociables:
+
+| Pilar | Descripción | Herramientas / Artefactos |
+|---|---|---|
+| **1. Resolución** | Una forma clara y rigurosa de resolver los ejercicios: demostración formal paso a paso, con justificación de cada transición algebraica. | `teoria.md`, `docs/demostraciones/*.md`, workflows `/resolucion_matematica` |
+| **2. Visualización** | Una forma de mostrar y navegar el material: sitio estático con jerarquía de carpetas, búsqueda, admonitions colapsables y referencias cruzadas. | MkDocs, `mkdocs.yml`, estructura de carpetas `docs/` |
+| **3. Formateo** | Una forma de escribir y corregir el formato del material: reglas de estilo académico, linters automáticos y workflows de revisión. | `scripts/fix_formato_markdown.py`, `scripts/verificador_formato_markdown.py`, workflows `/estructuracion_markdown`, `/minimal_figurative_language` |
+
+La ausencia de cualquiera de estos tres pilares en un conjunto de apuntes lo hace incompleto. Un material puede ser matemáticamente correcto (pilar 1) pero ilegible por mal formato (pilar 3) o inaccesible por falta de estructura navegable (pilar 2).
