@@ -37,28 +37,33 @@ Para obtener una cota de $\|A^{-1}\|_\infty$, se calcula $A^{-1}$ usando la matr
 
 1. El determinante es $\det(A) = 1(k^2) - 1(k^2) + 1(-k^2) = -k^2$, corroborando que $A$ carece de vectores nulos para $k \neq 0$.
 
-2. Transpuesta de la matriz de cofactores para la posición (1, 1), $C_{11} = 1 \cdot k^2 - 0 \cdot 0 = k^2$. Al dividir esta componente generalizada por el determinante, el primer término pivot es $(A^{-1})_{1,1} = -1$.
+2. Se calcula únicamente la primera fila de $A^{-1}$, usando la fórmula de la adjunta:
 
-??? info "Cálculo del Determinante (Regla de Laplace)"
-    El cálculo se realiza mediante el desarrollo por cofactores (o Regla de Laplace) aplicado a la **primera fila** de la matriz $A$:
+$$
+\bigl(A^{-1}\bigr)_{ij} = \frac{C_{ji}}{\det(A)}
+$$
+
+donde $C_{ji}$ es el cofactor de la posición $(j, i)$.
+
+Para la posición $(1,1)$: el cofactor $C_{11}$ es el determinante del menor obtenido al eliminar fila 1 y columna 1:
+
+$$
+C_{11} = \det\begin{pmatrix} 1 & 0 \\ 0 & k^2 \end{pmatrix} = k^2 \implies \bigl(A^{-1}\bigr)_{1,1} = \frac{k^2}{-k^2} = -1
+$$
+
+??? info "¿Por qué calcular solo la primera fila?"
+    El objetivo es acotar $\|A^{-1}\|_\infty$ por abajo. La norma-∞ es el máximo de las sumas absolutas de filas:
 
     $$
-    A = \begin{pmatrix} \mathbf{1} & \mathbf{1} & \mathbf{1} \\ 1 & 1 & 0 \\ k^2 & 0 & k^2 \end{pmatrix}
+    \|A^{-1}\|_\infty = \max_i \sum_j |\bigl(A^{-1}\bigr)_{ij}|
     $$
 
-    Desglosando el desarrollo por la fila 1:
+    Como el máximo es siempre mayor o igual que cualquier término individual, basta con exhibir **una sola fila** cuya suma sea suficientemente grande. Se elige la primera fila porque sus entradas resultan simples de calcular por cofactores, y su suma $|-1| + |1| + |1/k^2| = 2 + 1/k^2$ ya establece la cota deseada.
 
-    -   Para $a_{11}=1$: $\det \begin{pmatrix} 1 & 0 \\ 0 & k^2 \end{pmatrix} = (k^2 - 0) = k^2$.
-    -   Para $a_{12}=1$: $\det \begin{pmatrix} 1 & 0 \\ k^2 & k^2 \end{pmatrix} = (k^2 - 0) = k^2$. Por posición impar se resta: $-1(k^2)$.
-    -   Para $a_{13}=1$: $\det \begin{pmatrix} 1 & 1 \\ k^2 & 0 \end{pmatrix} = (0 - k^2) = -k^2$.
+    Fin de la observación.
 
-    $$
-    \det(A) = 1(k^2) - 1(k^2) + 1(-k^2) = -k^2
-    $$
+La primera fila de $A^{-1}$ es $(-1,\, 1,\, 1/k^2)$, por lo que:
 
-    Fin de la explicación.
-
-La primera fila exacta de $A^{-1}$ es $(-1, 1, 1/k^2)$. La suma abosluta resultante reciclando esta fila mínima arrojará:
 
 $$
 \|A^{-1}\|_\infty \ge \sum |(A^{-1})_{1,j}| = |-1| + |1| + |1/k^2| = 2 + \frac{1}{k^2}
