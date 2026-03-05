@@ -115,3 +115,4 @@ nav:
       - Simetría y Ortogonalidad de Proyectores: demostraciones/proyector_simetria_ortogonalidad.md
       - Rango en Mínimos Cuadrados: demostraciones/rango_minimos_cuadrados.md
       - Teorema de Rouché-Frobenius: demostraciones/rouche_frobenius.md
+      - Cambio de Base ($B$ y $B^{-1}$): demostraciones/cambio_base.md
