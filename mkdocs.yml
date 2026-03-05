@@ -116,3 +116,7 @@ nav:
       - Rango en Mínimos Cuadrados: demostraciones/rango_minimos_cuadrados.md
       - Teorema de Rouché-Frobenius: demostraciones/rouche_frobenius.md
       - Cambio de Base ($B$ y $B^{-1}$): demostraciones/cambio_base.md
+      - Equivalencia de Normas ($\ell_2$ y $\ell_\infty$): demostraciones/equivalencia_normas_2_inf.md
+      - Equivalencia de Normas ($\ell_1$ y $\ell_2$): demostraciones/equivalencia_normas_1_2.md
+      - Equivalencia de Normas Matriciales ($\|A\|_2$ y $\|A\|_\infty$): demostraciones/equivalencia_normas_matriciales_2_inf.md
+      - Equivalencia de Normas Matriciales ($\|A\|_1$ y $\|A\|_2$): demostraciones/equivalencia_normas_matriciales_1_2.md
