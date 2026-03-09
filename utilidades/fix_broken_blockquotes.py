@@ -1,3 +1,8 @@
+"""
+Descripción:
+Restaura blockquotes matemáticos que habían sido rotos por conversiones previas (ej. `> $$`).
+"""
+
 import os
 from pathlib import Path
 

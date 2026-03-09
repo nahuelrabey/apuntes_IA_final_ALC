@@ -1,3 +1,8 @@
+"""
+Descripción:
+Elimina el prefijo `>` de los blockquotes en las fórmulas matemáticas para evitar conflictos de renderizado con KaTeX.
+"""
+
 import os
 import re
 from pathlib import Path

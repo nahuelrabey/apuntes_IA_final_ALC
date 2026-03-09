@@ -1,3 +1,8 @@
+"""
+Descripción:
+Limpia y corrige bloques de código mal formados en Markdown.
+"""
+
 import os
 import re
 from pathlib import Path

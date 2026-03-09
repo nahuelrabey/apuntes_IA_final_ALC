@@ -1,3 +1,8 @@
+"""
+Descripción:
+Reemplaza las referencias a snippets externos inyectando el código directamente en los archivos MDX.
+"""
+
 import os
 import re
 from pathlib import Path

@@ -1,3 +1,8 @@
+"""
+Descripción:
+Corrige errores de sintaxis general en el Markdown para asegurar la compatibilidad con MDX.
+"""
+
 import os
 import re
 from pathlib import Path

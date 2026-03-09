@@ -1,3 +1,8 @@
+"""
+Descripción:
+Escanea el código para migrar los bloques desplegables de MkDocs (`??? info`) al nuevo componente React `<Info>`.
+"""
+
 import os
 import re
 from pathlib import Path

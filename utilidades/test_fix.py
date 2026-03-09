@@ -1,3 +1,8 @@
+"""
+Descripción:
+Script de prueba transitorio para validar las expresiones regulares sobre la sintaxis de Markdown.
+"""
+
 import re
 from pathlib import Path
 

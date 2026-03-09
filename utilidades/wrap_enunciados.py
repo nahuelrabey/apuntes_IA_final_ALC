@@ -1,3 +1,8 @@
+"""
+Descripción:
+Detecta los títulos de ejercicios (`**Ejercicio X**`) y los envuelve integralmente en el componente React `<Enunciado>`.
+"""
+
 import os
 import re
 from pathlib import Path

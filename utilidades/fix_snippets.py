@@ -1,3 +1,8 @@
+"""
+Descripción:
+Ajusta la sintaxis de inclusión de fragmentos de código (snippets) de MkDocs para el formato moderno.
+"""
+
 import os
 import re
 from pathlib import Path

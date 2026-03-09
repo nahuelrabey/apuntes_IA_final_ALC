@@ -1,3 +1,8 @@
+"""
+Descripción:
+Convierte comentarios HTML `<!-- -->` a comentarios JSX `{/* */}` compatibles con MDX.
+"""
+
 import os
 import re
 from pathlib import Path
