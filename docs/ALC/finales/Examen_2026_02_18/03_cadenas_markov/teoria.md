@@ -57,14 +57,14 @@ Al ser $P$ diagonalizable, existe una base de autovectores $\{v_1, \dots, v_n\}$
 
 $$
 v^{(0)} = c_1 v_1 + c_2 v_2 + \dots + c_n v_n
-$$
 
+$$
 La evolución del sistema tras $k$ pasos ($v^{(k)} = P^k v^{(0)}$) escala cada componente por su autovalor correspondiente a la potencia $k$:
 
 $$
 v^{(k)} = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2 + \dots + c_n \lambda_n^k v_n
-$$
 
+$$
 Analizamos el comportamiento de $\lambda_i^k$ cuando $k \to \infty$:
 
 1. Si $|\lambda_i| < 1$, entonces $\lambda_i^k \to 0$.
@@ -76,10 +76,10 @@ Analizamos el comportamiento de $\lambda_i^k$ cuando $k \to \infty$:
 ??? info "Validez para autovalores complejos"
     El caso 1 es válido tanto para autovalores reales como complejos. Si $\lambda_i = r e^{i\theta} \in \mathbb{C}$ con $r = |\lambda_i| < 1$, entonces:
 
-    $$
+$$
     |\lambda_i^k| = |\lambda_i|^k = r^k \xrightarrow{k \to \infty} 0
-    $$
 
+$$
     independientemente del argumento $\theta$. Por lo tanto $\lambda_i^k \to 0$ en $\mathbb{C}$.
 
     El caso 3 también admite autovalores complejos: cualquier $\lambda$ con $|\lambda| = 1$ y $\lambda \ne 1$ (por ejemplo $e^{2\pi i/3}$ en una cadena de período 3) produce una sucesión $\lambda^k$ que recorre el círculo unitario sin converger. La hipótesis de que $-1$ no es autovalor cubre el único caso real problemático; en el contexto de este ejercicio (donde $P \in \mathbb{R}^{n\times n}$ y se pide probar la existencia del límite bajo esa hipótesis), es suficiente ser precisos con la condición real pedida.
@@ -110,18 +110,18 @@ Aplicamos $P^k$ a $v^{(0)}$:
 
 $$
 v^{(k)} = P^k (\alpha w_1 + \beta w_2 + \gamma u) = \alpha P^k w_1 + \beta P^k w_2 + \gamma P^k u
-$$
 
+$$
 $$
 v^{(k)} = \alpha (1)^k w_1 + \beta (1)^k w_2 + \gamma \lambda^k u
-$$
 
+$$
 Tomando el límite $k \to \infty$:
 
 $$
 \lim_{k \to \infty} v^{(k)} = \alpha w_1 + \beta w_2 + \gamma (0) u = \alpha w_1 + \beta w_2
-$$
 
+$$
 ---
 
 ### Inciso B: Dinámica Poblacional
@@ -151,8 +151,8 @@ P = \begin{pmatrix}
 0 & 0 & 1 & 0.3 \\
 0 & 0 & 0 & 0.7
 \end{pmatrix}
-$$
 
+$$
 Los autovalores se obtienen de los bloques diagonales:
 
 - Del bloque $\begin{pmatrix} 0.5 & 0.5 \\ 0.5 & 0.5 \end{pmatrix}$: $\lambda = 1, 0$.
@@ -163,10 +163,10 @@ Los autovalores se obtienen de los bloques diagonales:
 
     Por lo tanto, al plantear la ecuación del polinomio característico $p_P(\lambda) = \det(P - \lambda I)$:
 
-    $$
+$$
     \det \begin{pmatrix} A - \lambda I_A & \mathbf{0} \\ \mathbf{0} & B - \lambda I_B \end{pmatrix} = \det(A - \lambda I_A) \cdot \det(B - \lambda I_B) = 0
-    $$
 
+$$
     Esto demuestra algebraicamente que el polinomio característico global de $P$ se factoriza exactamente como el producto de los polinomios de sus submatrices. En consecuencia, las raíces totales del sistema son simplemente la unión de los autovalores individuales de cada bloque, evadiendo calcular y factorear un polinomio de grado 4 a fuerza bruta.
 
     Fin de la nota técnica.
@@ -178,8 +178,8 @@ Resolvemos $(P-I)v = 0$:
 
 $$
 \begin{pmatrix} -0.5 & 0.5 & 0 & 0 \\ 0.5 & -0.5 & 0 & 0 \\ 0 & 0 & 0 & 0.3 \\ 0 & 0 & 0 & -0.3 \end{pmatrix} \begin{pmatrix} b \\ s \\ e \\ r \end{pmatrix} = 0 \implies b=s, r=0, e \text{ libre}.
-$$
 
+$$
 Base: $\{(1, 1, 0, 0)^T, (0, 0, 1, 0)^T\}$. Dimensión 2.
 
 **Autoespacio $E_{\lambda=0}$:**
@@ -219,5 +219,5 @@ El estado límite es $v^{(\infty)} = (200, 200, 200, 0)^T$.
 Se utiliza `NumPy` para instanciar la matriz $P$, calcular sus autovalores y simular la evolución del sistema a largo plazo.
 
 ```python
---8<-- "Examen_2026_02_18/03_cadenas_markov/verificacion.py"
+{/* --8<-- "Examen_2026_02_18/03_cadenas_markov/verificacion.py" */}
 ```

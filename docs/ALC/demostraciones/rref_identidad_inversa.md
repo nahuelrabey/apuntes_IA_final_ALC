@@ -56,8 +56,8 @@ El procedimiento convencional para calcular la matriz inversa requiere conformar
 
 $$
 [~A \quad \mid \quad I_n~]
-$$
 
+$$
 El algoritmo instruye aplicar operaciones elementales de fila simultáneas sobre la estructura combinada hasta que el sector izquierdo alcance la forma de la Identidad ($I_n$). El producto resultante estacionado en la mitad derecha corresponderá a la matriz inversa: $[I_n \mid A^{-1}]$.
 
 **Fundamento Algebraico**
@@ -68,22 +68,22 @@ Someter a la matriz $A$ y llevarla hasta su escalonado de la Identidad ($I_n$), 
 
 $$
 (\dots E_3 \cdot E_2 \cdot E_1) \cdot A = I_n
-$$
 
+$$
 Si se define el producto acumulado de estas matrices limitantes como una matriz $C$:
 
 $$
 C \cdot A = I_n
-$$
 
+$$
 Por definición matricial formal, la matriz $C$ que al pre-multiplicar a $A$ produce la Identidad, es su matriz inversa:
 
 La formulación $C = A^{-1}$ determina la veracidad de su transformación temporal del sector derecho. Al haber iniciado esta fase artificialmente combinándola con la matriz de Identidad ($I_n$), el bloque secundario adquirió las alteraciones factoriales estipuladas por $C$:
 
 $$
 C \cdot I_n = C = A^{-1}
-$$
 
+$$
 El fundamento formal del procedimiento expone que **el algoritmo depende del hecho fundamental de que $A$ es reductible en forma $I_n$. (Por ende, tiene $n$ pivotes).**
 
 Si durante la eliminación se obtiene un renglón nulo que dictamina la falta de un pivote, el paso a $I_n$ es algorítmicamente imposible de cumplir y la matriz correspondiente original no posee inversa estructural.

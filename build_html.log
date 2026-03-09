@@ -1,0 +1,67 @@
+
+> temp-docs@0.0.0 build
+> docusaurus build
+
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
+[INFO] [es] Creating an optimized production build...
+[WARNING] The `siteConfig.onBrokenMarkdownLinks` config option is deprecated and will be removed in Docusaurus v4.
+Please migrate and move this option to `siteConfig.markdown.hooks.onBrokenMarkdownLinks` instead.
+[90m[[90mwebpackbar[90m][39m [36mÔä╣[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [36mÔä╣[39m Compiling Server
+[90m[[90mwebpackbar[90m][39m [32mÔ£ö[39m Server: Compiled successfully in 2.75s
+[90m[[90mwebpackbar[90m][39m [32mÔ£ö[39m Client: Compiled successfully in 3.52s
+
+[ERROR] Error: Unable to build website for locale es.
+    at tryToBuildLocale (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\build.js:83:15)
+    at async C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\build.js:35:9
+    at async mapAsyncSequential (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\utils\lib\jsUtils.js:21:24)
+    at async Command.build (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\build.js:34:5)
+    at async Promise.all (index 0)
+    at async runCLI (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\cli.js:56:5)
+    at async file:///C:/Users/nahue/Desktop/Finales_ALC_IA/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3 {
+  [cause]: Error: Docusaurus static site generation failed for 1 paths:
+  - "/apuntes_IA_final_ALC/ALC/demostraciones/convergencia_autovalores_complejos_markov"
+      at throwSSGError (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:56:11)
+      at createGlobalSSGResult (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:66:9)
+      ... 7 lines matching cause stack trace ...
+      at async mapAsyncSequential (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\utils\lib\jsUtils.js:21:24) {
+    [cause]: AggregateError
+        at throwSSGError (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:57:16)
+        at createGlobalSSGResult (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgGlobalResult.js:66:9)
+        at C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgExecutor.js:30:68
+        at async executeSSG (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgExecutor.js:144:20)
+        at async buildLocale (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\buildLocale.js:84:31)
+        at async runBuildLocaleTask (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\build.js:98:5)
+        at async C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\build.js:79:13
+        at async tryToBuildLocale (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\build.js:75:9)
+        at async C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\commands\build\build.js:35:9
+        at async mapAsyncSequential (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\utils\lib\jsUtils.js:21:24) {
+      [errors]: [
+        Error: Can't render static file for pathname "/apuntes_IA_final_ALC/ALC/demostraciones/convergencia_autovalores_complejos_markov"
+            at generateStaticFile (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:131:20)
+            at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+            at async C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\p-map\index.js:57:22 {
+          [cause]: Error: HTML minification failed (Terser)
+              at Object.minifyHtmlWithTerser [as minify] (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\bundler\lib\minifyHtml.js:48:23)
+              at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+              at async generateStaticFile (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:107:32)
+              at async C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\p-map\index.js:57:22 {
+            [cause]: Error: Parse Error: < 1: convergencia a cero (v├ílido en \mathbb{C})</a></li><li><a href="#3-caso-lambda_i--1-componente-constante" class="table-of-contents__link toc-highlight">3. Caso \lambda_i = 1: componente constante</a></li><li><a href="#4-caso-lambda_i--1-lambda_i-ne-1-oscilaci├│n-sin-convergencia" class="table-of-contents__link toc-highlight">4. Caso |\lambda_i| = 1, \lambda_i \ne 1: oscilaci├│n sin convergencia</a></li><li><a href="#5-conclusi├│n" class="table-of-contents__link toc-highlight">5. Conclusi├│n</a></li></ul></li><li><a href="#referencias-externas" class="table-of-contents__link toc-highlight">Referencias Externas</a></li><li><a href="#verificaci├│n-emp├¡rica-computacional" class="table-of-contents__link toc-highlight">Verificaci├│n Emp├¡rica Computacional</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright ┬® 2026 Nahuel Rabey. Construido con Docusaurus.</div></div></div></footer></div>
+            </body>
+            </html>
+                at HTMLParser.parse (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\html-minifier-terser\dist\htmlminifier.cjs:245:15)
+                at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+                at async minifyHTML (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\html-minifier-terser\dist\htmlminifier.cjs:1764:3)
+                at async minify (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\html-minifier-terser\dist\htmlminifier.cjs:1849:18)
+                at async Object.minifyHtmlWithTerser [as minify] (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\bundler\lib\minifyHtml.js:33:30)
+                at async generateStaticFile (C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\@docusaurus\core\lib\ssg\ssgRenderer.js:107:32)
+                at async C:\Users\nahue\Desktop\Finales_ALC_IA\node_modules\p-map\index.js:57:22
+          }
+        }
+      ]
+    }
+  }
+}
+[INFO] Docusaurus version: 3.9.2
+Node version: v24.12.0

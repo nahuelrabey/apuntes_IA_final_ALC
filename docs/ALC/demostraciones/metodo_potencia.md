@@ -10,30 +10,30 @@ Es decir, se debe probar que:
 
 $$
 x^{(k)} = \frac{B^k x^{(0)}}{||B^k x^{(0)}||}
-$$
 
+$$
 ## Solución Analítica (Demostración por Inducción)
 
 Definimos la relación de recurrencia del Método de la Potencia normalizado. Se comienza con un vector inicial $x^{(0)}$ tal que $||x^{(0)}|| = 1$. En cada paso $k \ge 1$ se ejecuta:
 
 $$
 x^{(k)} = \frac{B x^{(k-1)}}{||B x^{(k-1)}||}
-$$
 
+$$
 Se procederá a probar que para todo $k \ge 1$, la proposición $P(k)$ sobre el vector iterativo es verdadera:
 
 $$
 P(k): \quad x^{(k)} = \frac{B^k x^{(0)}}{||B^k x^{(0)}||}
-$$
 
+$$
 ### 1. Caso Base ($k = 1$)
 
 Evaluamos la proposición en su iteración $k=1$ sustituyendo directamente en la fórmula recursiva analítica:
 
 $$
 x^{(1)} = \frac{B x^{(0)}}{||B x^{(0)}||}
-$$
 
+$$
 Este resultado coincide con la proposición evaluada en $k=1$, ya que $B^1 = B$. Por lo tanto, el caso base es válido.
 
 ### 2. Paso Inductivo
@@ -42,22 +42,22 @@ Asumimos como **Hipótesis Inductiva (H.I.)** que la proposición es válida par
 
 $$
 x^{(k-1)} = \frac{B^{k-1} x^{(0)}}{||B^{k-1} x^{(0)}||}
-$$
 
+$$
 A partir de esta igualdad estructurada algorítmicamente, debemos demostrar que la proposición subyacente se satisface también para el paso $k$.
 
 Iniciamos partiendo de la forma rigurosa de la definición iterativa computacional del caso general $k$:
 
 $$
 x^{(k)} = \frac{B x^{(k-1)}}{||B x^{(k-1)}||}
-$$
 
+$$
 Sustituimos la variable temporal iterativa $x^{(k-1)}$ empleando la aserción integral de nuestra Hipótesis Inductiva:
 
 $$
 x^{(k)} = \frac{B \left( \frac{B^{k-1} x^{(0)}}{||B^{k-1} x^{(0)}||} \right)}{\left\| B \left( \frac{B^{k-1} x^{(0)}}{||B^{k-1} x^{(0)}||} \right) \right\|}
-$$
 
+$$
 Es oportuno mencionar que la norma observada en el denominador en el paso analizado, correspondiente formalmente a $c = ||B^{k-1} x^{(0)}||$, representa algorítmicamente un escalar estricto (número real mayor a 0, puesto que se descartan de plano los resultados del vector nulo en el proceso iterativo).
 
 Por las propiedades de linealidad escalable que gobiernan la operatoria de las matrices algebraicas y de cualquier norma física, en conjunción para un escalar $c > 0$ y un vector físico libre $v$, pueden procesarse resultando:
@@ -69,20 +69,20 @@ Procedemos a extraer el factor numérico expresado como multiplicador recíproco
 
 $$
 x^{(k)} = \frac{ \frac{1}{||B^{k-1} x^{(0)}||} \cdot B (B^{k-1} x^{(0)}) }{ \frac{1}{||B^{k-1} x^{(0)}||} \cdot \| B (B^{k-1} x^{(0)}) \| }
-$$
 
+$$
 Dado que este factor numérico es estrictamente un número real distinto de cero, su redundancia fraccional ocasiona su auto-cancelación simultánea en el cociente:
 
 $$
 x^{(k)} = \frac{ B (B^{k-1} x^{(0)}) }{ \| B (B^{k-1} x^{(0)}) \| }
-$$
 
+$$
 Al aplicar las características elementales y directas sobre arreglos factoriales algebraicos tales que matricialmente se cumple siempre ($B \cdot B^{k-1} = B^k$), llegamos a nuestra formulación requerida:
 
 $$
 x^{(k)} = \frac{ B^k x^{(0)} }{ || B^k x^{(0)} || }
-$$
 
+$$
 ### Conclusión
 
 Por el Principio de Inducción, se estipula que la fórmula iterada para la normalización en todo nivel se corresponde con el re-escalado equivalente post-multiplicación y resulta válido para cualquier constante evaluada correspondiente a número de iteraciones computacionales $k \ge 1$.

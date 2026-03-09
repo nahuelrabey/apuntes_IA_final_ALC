@@ -4,15 +4,23 @@
 >
 > **a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular:
 >
-> $$
+>
+
+$$
 > \frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}
-> $$
+>
+
+$$
 >
 > **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
 >
-> $$
+>
+
+$$
 > a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n
-> $$
+>
+
+$$
 >
 >donde $\delta_{ij}$ denota el delta de Kronecker.
 >
@@ -24,10 +32,10 @@
 ??? info "Observación Teórica: Norma Matricial Inducida"
     Una **norma matricial inducida** (u operatoria) es aquella que se deriva directamente de una norma vectorial $\|\cdot\|$ preexistente. Se define como el máximo factor de amplificación que la matriz $A$ puede aplicar a cualquier vector $x$ no nulo:
 
-    $$
-\|A\| = \max_{x \neq 0} \frac{\|Ax\|}{\|x\|} = \max_{\|x\|=1} \|Ax\|
 $$
+\|A\| = \max_{x \neq 0} \frac{\|Ax\|}{\|x\|} = \max_{\|x\|=1} \|Ax\|
 
+$$
     Estas normas son fundamentales en el análisis de error porque garantizan por definición la propiedad de **consistencia**: $\|Ax\| \leq \|A\| \cdot \|x\|$. Ejemplos clásicos son la norma 1 (máxima suma por columnas), la norma $\infty$ (máxima suma por filas) y la norma 2 (el autovalor máximo de $A^T A$).
 
     Fin de la observación.
@@ -61,38 +69,38 @@ Podemos escribir $Ax$ como:
 
 $$
 Ax = Ax - Bx = (A - B)x
-$$
 
+$$
 Como $A$ es inversible, existe $A^{-1}$. Multiplicamos por $A^{-1}$:
 
 $$
 x = A^{-1}(A - B)x
-$$
 
+$$
 Aplicando normas (usando la [submultiplicatividad de normas inducidas](../../../demostraciones/submultiplicatividad_norma_inducida.md), i.e. $\|Mv\| \leq \|M\| \cdot \|v\|$, dos veces):
 
 $$
 \|x\| = \|A^{-1}(A - B)x\| \leq \|A^{-1}\| \|(A - B)x\| \leq \|A^{-1}\| \|A - B\| \|x\|
-$$
 
+$$
 Dado que $x \neq 0$, tenemos $\|x\| > 0$, por lo que podemos dividir por $\|x\|$:
 
 $$
 1 \leq \|A^{-1}\| \|A - B\|
-$$
 
+$$
 Recordando que $\text{cond}(A) = \|A\| \|A^{-1}\|$, sustituimos $\|A^{-1}\| = \frac{\text{cond}(A)}{\|A\|}$:
 
 $$
 1 \leq \frac{\text{cond}(A)}{\|A\|} \|A - B\|
-$$
 
+$$
 Reordenando los términos obtenemos:
 
 $$
 \frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}
-$$
 
+$$
 Queda demostrada la propiedad para cualquier norma inducida.
 
 ---
@@ -100,9 +108,13 @@ Queda demostrada la propiedad para cualquier norma inducida.
 ### Inciso B: Condicionamiento de la Matriz $A_n$
 > **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
 >
-> $$
+>
+
+$$
 > a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n
-> $$
+>
+
+$$
 >
 >donde $\delta_{ij}$ denota el delta de Kronecker.
 >
@@ -113,14 +125,14 @@ La matriz $A_n \in \mathbb{R}^{n \times n}$ se define como:
 
 $$
 a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}
-$$
 
+$$
 Esta matriz puede expresarse como:
 
 $$
 A_n = \frac{1}{n} E + \frac{1}{n^2} I_n
-$$
 
+$$
 donde $E$ es la matriz de unos y $I_n$ la identidad.
 
 #### B-1. Cota inferior para $\text{cond}_\infty(A_n)$
@@ -131,8 +143,8 @@ Calculamos la norma infinito de $A_n$. Cada fila tiene $n$ entradas: $(n-1)$ ent
 
 $$
 \|A_n\|_\infty = \max_i \sum_j |a_{ij}| = (n-1)\frac{1}{n} + \left(\frac{1}{n} + \frac{1}{n^2}\right) = 1 + \frac{1}{n^2}
-$$
 
+$$
 Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$:
 
 ??? info "Observación Teórica: ¿Por qué $B = \frac{1}{n}E$ es singular?"
@@ -142,22 +154,22 @@ Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$
 
     Fin de la observación.
 
-    $$
-A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2}
 $$
+A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2}
 
+$$
 Sustituimos en la fórmula:
 
 $$
 \frac{1}{\text{cond}_\infty(A_n)} \leq \frac{1/n^2}{1 + 1/n^2} = \frac{1}{n^2 + 1}
-$$
 
+$$
 Invirtiendo la inecuación:
 
 $$
 \text{cond}_\infty(A_n) \geq n^2 + 1
-$$
 
+$$
 Por lo tanto, $\text{cond}_\infty(A_n)$ crece por lo menos como $n^2$.
 
 #### B-2. Límite de $\text{cond}_2(A_n)$
@@ -170,30 +182,30 @@ Para una matriz simétrica, $\text{cond}_2(A_n) = \frac{|\lambda_{\max}|}{|\lamb
 
 $$
     A_n \mathbf{1} = \frac{1}{n^2} \mathbf{1} + \frac{1}{n} (n \mathbf{1}) = \left( \frac{1}{n^2} + 1 \right) \mathbf{1}
-    $$
 
+$$
     $\implies \lambda_1 = 1 + \frac{1}{n^2}$.
 
 2. Si $v \perp \mathbf{1}$ (hay $n-1$ tales vectores). Como $Ev = 0$ por ortogonalidad:
 
 $$
     A_n v = \frac{1}{n^2} v + \frac{1}{n} \cdot 0 = \frac{1}{n^2} v
-    $$
 
+$$
     $\implies \lambda_i = \frac{1}{n^2}$ para $i = 2, \dots, n$.
 
 El número de condición es:
 
 $$
 \text{cond}_2(A_n) = \frac{1 + 1/n^2}{1/n^2} = n^2 + 1
-$$
 
+$$
 Al tender $n$ a infinito:
 
 $$
 \lim_{n \to \infty} \text{cond}_2(A_n) = \lim_{n \to \infty} (n^2 + 1) = \infty
-$$
 
+$$
 El sistema se vuelve mal condicionado al aumentar $n$.
 
 ---
@@ -203,5 +215,66 @@ El sistema se vuelve mal condicionado al aumentar $n$.
 El script siguiente verifica numéricamente los resultados del inciso B para valores crecientes de $n$, confirmando que $\text{cond}_\infty(A_n) \geq n^2 + 1$ y que $\text{cond}_2(A_n) = n^2 + 1$:
 
 ```python
---8<-- "docs/Examen_2026_02_18/02_condicionamiento/verificacion.py"
+"""
+Verificación computacional - Ejercicio 2: Condicionamiento de A_n
+
+Confirma para valores crecientes de n que:
+  - cond_inf(A_n) >= n^2 + 1  (cota probada en B-1 vía distancia a la singularidad)
+  - cond_2(A_n)  == n^2 + 1  (calculado exactamente en B-2)
+"""
+
+import numpy as np
+import sympy as sp
+
+# ---------------------------------------------------------------------------
+# 1. Verificación simbólica para n pequeño (SymPy, sin errores de punto flotante)
+# ---------------------------------------------------------------------------
+n_sym = sp.Symbol("n", positive=True, integer=True)
+
+for n_val in [2, 3, 4, 5]:
+    n = n_val
+    A = sp.Rational(1, n) * sp.ones(n, n) + sp.Rational(1, n**2) * sp.eye(n)
+
+    eigenvalues = A.eigenvals()          # {valor: multiplicidad}
+    evs = list(eigenvalues.keys())
+
+    lam_max = max(evs, key=lambda e: sp.Abs(e))
+    lam_min = min(evs, key=lambda e: sp.Abs(e))
+    cond_2_sym = lam_max / lam_min
+
+    expected = n**2 + 1
+    assert cond_2_sym == expected, (
+        f"n={n}: cond_2 simbólico={cond_2_sym}, esperado={expected}"
+    )
+    print(f"[SYMPY] n={n:2d} | λ_max={lam_max} | λ_min={lam_min} | "
+          f"cond_2={cond_2_sym} | esperado={expected} ✓")
+
+print()
+
+# ---------------------------------------------------------------------------
+# 2. Verificación numérica con NumPy para n más grandes
+# ---------------------------------------------------------------------------
+print(f"{'n':>5} | {'cond_inf(A_n)':>14} | {'cond_2(A_n)':>12} | "
+      f"{'cota n²+1':>10} | {'cond_inf >= cota':>16} | {'cond_2 == cota':>14}")
+print("-" * 80)
+
+for n in [2, 3, 5, 10, 20, 50, 100, 200]:
+    A = np.full((n, n), 1.0 / n) + np.eye(n) / n**2
+
+    cond_inf = np.linalg.cond(A, np.inf)
+    cond_2   = np.linalg.cond(A, 2)
+    cota     = n**2 + 1
+
+    ok_inf = cond_inf >= cota - 1e-8           # cota inferior: cond_inf >= n^2+1
+    ok_2   = np.isclose(cond_2, cota, rtol=1e-8)  # igualdad exacta: cond_2 == n^2+1
+
+    print(f"{n:>5} | {cond_inf:>14.4f} | {cond_2:>12.4f} | "
+          f"{cota:>10} | {'✓' if ok_inf else '✗':>16} | {'✓' if ok_2 else '✗':>14}")
+
+    assert ok_inf, f"n={n}: cond_inf={cond_inf:.4f} < cota={cota}"
+    assert ok_2,   f"n={n}: cond_2={cond_2:.4f} ≠ esperado={cota}"
+
+print()
+print("Todas las verificaciones pasaron correctamente.")
+
 ```

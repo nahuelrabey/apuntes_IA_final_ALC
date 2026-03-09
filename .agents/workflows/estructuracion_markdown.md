@@ -19,22 +19,30 @@ Este flujo de trabajo define las reglas estrictas de redacción y formato que la
 
 - **Deducción Paso a Paso**: Las variables matemáticas y derivaciones formales se deben explayar de modo deductivo, sin obviar el "puente lógico" entre axiomas.
 - **Bloques de Ecuaciones (`$$...$$`)**: 
-  Las ecuaciones de peso deben separarse en bloque. **Es obligatorio** dejar una línea vacía por encima, por debajo y entre bloques de ecuaciones consecutivos para asegurar el correcto renderizado en MkDocs/MathJax.
+  Las ecuaciones de peso deben separarse en bloque. **ES EXTREMADAMENTE OBLIGATORIO** dejar una línea vacía por encima, por debajo y entre bloques de ecuaciones consecutivos para asegurar el correcto renderizado de Docusaurus y MDX. Si hay texto en la misma línea que `$$`, la compilación fallará.
 - **Identación de Bloques LaTeX dentro de Admonitions**:
-  Si un bloque `$$...$$` aparece dentro de un admonition (`???`, `!!! info`, etc.), debe estar identado con 4 espacios, al igual que el resto del contenido del admonition. Esto incluye tanto los delimitadores `$$` como el contenido interno del bloque.
+  Si un bloque `$$...$$` aparece dentro de un componente MDX (`<Nota>`, `<Advertencia>`, etc.), NO debe estar identado con espacios adicionales, pero debe mantener las líneas vacías. La sintaxis es puramente JSX y Markdown.
 - **Listas y Viñetas**:
   Asegúrate siempre de dejar un salto de línea en blanco antes y entre medio de los ítems de cualquier enumerado para evitar condensación del hipertexto al compilar.
 - **Diagramas (Mermaid)**:
   Las representaciones visuales (arquitecturas, grafos de transición Markov, etc.) deben hacerse utilizando sintaxis de Mermaid (` ```mermaid ... ``` `).
 
-## 3. Manejo de Notas Adicionales y Complejidad Oculta
+## 3. Manejo de Notas Adicionales, Admonitions y Código MDX
 
 - El razonamiento principal debe fluir de forma limpia y directa.
-- Cualquier justificación profunda, análisis del porqué de una técnica matemática subyacente, demostraciones periféricas o historia, deberá quedar "escondida" en un bloque sintáctico colapsable usando los **admonitions interactivos** de MkDocs.
-- Sintaxis obligatoria del bloque colapsable: `??? info "Título Breve"` (o `??? question`, `??? warning` según corresponda).
-- **Regla de Cierre de Admonitions**: Todo bloque admonition debe terminar siempre con un **párrafo de texto** (puede ser contexto, un saludo, o un simple "Fin."), nunca con un bloque de matemática (`$$...$$`). Esto asegura que el bloque se cierre visualmente de forma limpia.
-
-## 4. Validación Automatizada Estricta
+- Cualquier justificación profunda o análisis del porqué de una técnica matemática subyacente deberá quedar en un bloque destacado usando **React Components de Docusaurus**.
+- Sintaxis obligatoria para Admonitions:
+  ```mdx
+  <Nota titulo="Título Breve">
+  Contenido de la nota detallada aquí. Puede tener bloques matemáticos sin problema.
+  </Nota>
+  
+  <Advertencia titulo="Aviso importante">
+  Texto de la advertencia.
+  </Advertencia>
+  ```
+- **Regla Estricta MDX**: No utilices sintaxis de MkDocs (`!!! note`, `??? info`). Usa siempre `<Nota>`, `<Advertencia>`, `<Ejercicio>`, o `<Demostracion>`.
+- **Regla Estricta MDX sobre Llaves e Inclusiones**: No debes dejar llaves `{}` sin escapar fuera de bloques de código o bloques matemáticos. Tampoco debes usar la sintaxis de Snippets de MkDocs (`--8<--`). Si necesitas incluir código, usa bloques ` ```python ` estándar.
 
 Para garantizar que estas normas se cumplan de manera sistemática y que el renderizado no se contamine con aglomeraciones de texto, se deben ejecutar obligatoriamente **dos scripts de verificación y corrección tras cada sesión de redacción o modificación de los archivos Markdown**.
 

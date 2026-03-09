@@ -10,8 +10,8 @@ Sea $A = L + D + U \in \mathbb{R}^{n \times n}$ con $a_{ii} \neq 0$ para todo $i
 
 $$
 \det(D + \omega L) = \det(D) = \prod_{i=1}^{n} a_{ii}
-$$
 
+$$
 ---
 
 ## Demostración
@@ -28,8 +28,8 @@ La suma $D + \omega L$ tiene entonces la siguiente estructura por entradas:
 
 $$
 (D + \omega L)_{ij} = \begin{cases} a_{ii} & \text{si } i = j \\ \omega \, a_{ij} & \text{si } i > j \\ 0 & \text{si } i < j \end{cases}
-$$
 
+$$
 Por lo tanto, $D + \omega L$ es una **matriz triangular inferior** con diagonal $a_{11}, a_{22}, \ldots, a_{nn}$.
 
 ### Paso 2: Determinante de una matriz triangular
@@ -38,23 +38,23 @@ El determinante de cualquier matriz triangular (superior o inferior) es igual al
 
 $$
 \det(T) = \prod_{i=1}^{n} T_{ii}
-$$
 
+$$
 ??? info "Justificación: expansión de Leibniz en matrices triangulares"
     El determinante se define por la fórmula de Leibniz:
 
-    $$
+$$
     \det(T) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} T_{i,\sigma(i)}
-    $$
 
+$$
     Para una matriz triangular inferior, $T_{ij} = 0$ siempre que $j > i$. El único término no nulo en la suma corresponde a la permutación identidad $\sigma = \text{id}$, ya que cualquier otra permutación $\sigma$ contiene al menos un índice $\sigma(i) > i$ para algún $i$, forzando un factor cero en el producto.
 
     Por lo tanto:
 
-    $$
+$$
     \det(T) = \text{sgn}(\text{id}) \prod_{i=1}^{n} T_{ii} = \prod_{i=1}^{n} T_{ii}
-    $$
 
+$$
     Fin de la justificación.
 
 ### Paso 3: Aplicación a $D + \omega L$
@@ -63,20 +63,20 @@ Dado que $D + \omega L$ es triangular inferior con diagonal $a_{ii}$, aplicando 
 
 $$
 \det(D + \omega L) = \prod_{i=1}^{n} (D + \omega L)_{ii} = \prod_{i=1}^{n} a_{ii}
-$$
 
+$$
 Y dado que $D$ también es triangular con los mismos elementos en la diagonal:
 
 $$
 \det(D) = \prod_{i=1}^{n} a_{ii}
-$$
 
+$$
 Por lo tanto:
 
 $$
 \det(D + \omega L) = \det(D) = \prod_{i=1}^{n} a_{ii} \qquad \blacksquare
-$$
 
+$$
 ---
 
 ## Intuición Geométrica

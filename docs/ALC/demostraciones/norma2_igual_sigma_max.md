@@ -4,9 +4,13 @@
 
 > Sea $M \in \mathbb{R}^{m \times n}$ una matriz con descomposición SVD $M = U \Sigma V^T$, y sea $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0$ sus valores singulares. Entonces la norma matricial inducida por la norma euclídea vectorial satisface:
 >
-> $$
+>
+
+$$
 > \|M\|_2 = \sigma_{\max}(M) = \sigma_1
-> $$
+>
+
+$$
 >
 
 ---
@@ -17,8 +21,8 @@ La norma matricial inducida por la norma euclídea $\|\cdot\|_2$ se define como:
 
 $$
 \|M\|_2 = \max_{x \neq 0} \frac{\|Mx\|_2}{\|x\|_2} = \max_{\|x\|_2 = 1} \|Mx\|_2
-$$
 
+$$
 ### Paso 1: Reducción a $\Sigma$ usando la SVD
 
 Sea $M = U \Sigma V^T$ la descomposición SVD de $M$, donde $U$ y $V$ son matrices ortogonales ($U^T U = I$, $V^T V = I$), y $\Sigma = \text{diag}(\sigma_1, \ldots, \sigma_r, 0, \ldots, 0)$.
@@ -27,50 +31,50 @@ Como $U$ y $V^T$ son ambas ortogonales, preservan la norma euclídea: $\|Qz\|_2 
 
 $$
 \|Mx\|_2 = \|U \Sigma V^T x\|_2 = \|\Sigma V^T x\|_2
-$$
 
+$$
 Además, $V^T$ mapea la esfera unitaria sobre sí misma (es una biyección isométrica), por lo que al maximizar sobre $\|x\|_2 = 1$ es equivalente a maximizar sobre $\|V^T x\|_2 = 1$. El problema se reduce entonces a:
 
 $$
 \|M\|_2 = \max_{\|x\|_2 = 1} \|\Sigma V^T x\|_2 = \max_{\|w\|_2 = 1} \|\Sigma w\|_2
-$$
 
+$$
 ### Paso 3: Cota superior mediante los valores singulares
 
 Escribiendo $y = (y_1, y_2, \ldots, y_n)^T$ con $\sum_i y_i^2 = 1$, y usando que $\Sigma$ es diagonal con entradas $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r \geq 0$:
 
 $$
 \|\Sigma y\|_2^2 = \sum_{i=1}^{r} \sigma_i^2 y_i^2 \leq \sigma_1^2 \sum_{i=1}^{r} y_i^2 \leq \sigma_1^2 \sum_{i=1}^{n} y_i^2 = \sigma_1^2
-$$
 
+$$
 Tomando raíz cuadrada: $\|\Sigma y\|_2 \leq \sigma_1$. Por lo tanto:
 
 $$
 \|M\|_2 \leq \sigma_1
-$$
 
+$$
 ### Paso 4: La cota se alcanza
 
 Tomando $y = e_1 = (1, 0, \ldots, 0)^T$ (primer vector canónico), con $\|e_1\|_2 = 1$:
 
 $$
 \|\Sigma e_1\|_2 = \|(\sigma_1, 0, \ldots, 0)^T\|_2 = \sigma_1
-$$
 
+$$
 Luego el máximo es efectivamente alcanzado, y:
 
 $$
 \|M\|_2 \geq \sigma_1
-$$
 
+$$
 ### Conclusión
 
 Combinando ambas cotas:
 
 $$
 \|M\|_2 = \sigma_1 = \sigma_{\max}(M) \qquad \blacksquare
-$$
 
+$$
 ---
 
 ??? info "Intuición Geométrica"
@@ -79,10 +83,10 @@ $$
 ??? info "Consecuencia: Número de Condición en Base 2"
     Una vez establecido que $\|M\|_2 = \sigma_{\max}$, la misma lógica aplicada a $M^{-1}$ (cuya SVD invierte y ordena los valores singulares) da $\|M^{-1}\|_2 = 1/\sigma_{\min}$. El número de condición resulta entonces:
 
-    $$
+$$
     \kappa_2(M) = \|M\|_2 \cdot \|M^{-1}\|_2 = \frac{\sigma_{\max}}{\sigma_{\min}}
-    $$
 
+$$
     Este cociente mide el ratio entre la máxima y mínima elongación que $M$ aplica a vectores unitarios.
 
 ---
@@ -90,9 +94,68 @@ $$
 ## Verificación Computacional
 
 ```python
---8<-- "docs/demostraciones/norma2_igual_sigma_max.py"
-```
+"""
+Verificación: la norma-2 inducida de una matriz es su mayor valor singular.
 
+Metodología:
+- Prueba estocástica sobre matrices aleatorias de distintos tamaños.
+- Compara np.linalg.norm(M, 2) contra np.linalg.svd(M, compute_uv=False)[0].
+- Valida con tolerancia numérica via np.isclose.
+"""
+
+import numpy as np
+
+rng = np.random.default_rng(seed=42)
+
+SHAPES = [(3, 3), (5, 5), (4, 7), (10, 3), (20, 20)]
+N_TRIALS = 200
+
+all_passed = True
+
+for shape in SHAPES:
+    m, n = shape
+    passed = 0
+
+    for _ in range(N_TRIALS):
+        M = rng.standard_normal((m, n))
+
+        # Norma-2 inducida (norma espectral) via numpy
+        norm2 = np.linalg.norm(M, ord=2)
+
+        # Mayor valor singular
+        sigma_max = np.linalg.svd(M, compute_uv=False)[0]
+
+        if np.isclose(norm2, sigma_max, atol=1e-10):
+            passed += 1
+
+    ok = passed == N_TRIALS
+    all_passed = all_passed and ok
+    status = "✓ OK" if ok else f"✗ FALLÓ ({N_TRIALS - passed}/{N_TRIALS} casos)"
+    print(f"Forma {str(shape):>8}  →  {passed}/{N_TRIALS} pruebas  {status}")
+
+print()
+
+# Verificación simbólica con un ejemplo concreto del ejercicio
+print("── Caso concreto (Ejercicio 2, Examen 2025-02-24) ──")
+A = np.array([[0, -1, 0],
+              [2,  0, 0],
+              [0,  0, -3]], dtype=float)
+
+norm_A = np.linalg.norm(A, ord=2)
+svd_A  = np.linalg.svd(A, compute_uv=False)
+
+print(f"  Valores singulares de A : {svd_A}")
+print(f"  ‖A‖₂ via numpy          : {norm_A:.10f}")
+print(f"  σ_max(A)                : {svd_A[0]:.10f}")
+print(f"  ¿Coinciden?             : {np.isclose(norm_A, svd_A[0])}")
+
+print()
+if all_passed:
+    print("✓ Todas las pruebas aleatorias pasaron: ‖M‖₂ = σ_max(M).")
+else:
+    print("✗ Algunas pruebas fallaron.")
+
+```
 ---
 
 ## Referencias Externas

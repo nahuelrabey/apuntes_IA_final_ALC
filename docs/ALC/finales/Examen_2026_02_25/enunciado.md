@@ -47,9 +47,13 @@ cuyas demostraciones formales pueden ser consultadas en la base de conocimiento:
 > **Ejercicio 2.** Sea $\{q_1, q_2, q_3, q_4, q_5\}$ una base ortonormal de $\mathbb{R}^5$, $A$ una
 > matriz de $5 \times 3$ tal que
 >
-> $$
+>
+
+$$
 > A = \left(\, q_1 \;\middle|\; q_1 + q_2 \;\middle|\; q_2 + q_3 \,\right)
-> $$
+>
+
+$$
 >
 > **(a)** De una factorización $QR$ de la matriz $A$.
 >

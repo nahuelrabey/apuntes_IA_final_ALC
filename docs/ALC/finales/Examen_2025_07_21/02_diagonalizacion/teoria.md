@@ -37,8 +37,8 @@ A partir del inciso (A), hemos concluido que los autovectores $\{v_1, \dots, v_n
 
 $$
 C = \begin{pmatrix} | & | & & | \\ v_1 & v_2 & \dots & v_n \\ | & | & & | \end{pmatrix}
-$$
 
+$$
 Como sus columnas son **linealmente independientes**, su determinante es no nulo y la matriz $C$ es inversible.
 
 ??? info "Demostración Teórica: Columnas L.I. e Invertibilidad"
@@ -61,8 +61,8 @@ A continuación debemos probar la aseveración analítica de igualdad. Evaluemos
 
 $$
 AC = A \begin{pmatrix} | & & | \\ v_1 & \dots & v_n \\ | & & | \end{pmatrix} = \begin{pmatrix} | & & | \\ Av_1 & \dots & Av_n \\ | & & | \end{pmatrix}
-$$
 
+$$
 ??? abstract "Fundamento Algebraico: Multiplicación Matricial (Por Columnas)"
     Esta igualdad se desprende directamente de la **definición del producto de matrices**.
 
@@ -76,20 +76,20 @@ Por definición de autovector, $Av_i = \lambda_i v_i$, por lo que:
 
 $$
 AC = \begin{pmatrix} | & & | \\ \lambda_1 v_1 & \dots & \lambda_n v_n \\ | & & | \end{pmatrix}
-$$
 
+$$
 Evaluamos ahora el miembro derecho, el producto de $C$ por la matriz diagonal $S = \text{diag}(\lambda_1, \dots, \lambda_n)$:
 
 $$
 CS = \begin{pmatrix} | & & | \\ v_1 & \dots & v_n \\ | & & | \end{pmatrix} \begin{pmatrix} \lambda_1 & & 0 \\ & \ddots & \\ 0 & & \lambda_n \end{pmatrix}
-$$
 
+$$
 La multiplicación por derecha de una matriz diagonal escala cada columna de $C$ por el correspondiente elemento diagonal. Por lo tanto:
 
 $$
 CS = \begin{pmatrix} | & & | \\ \lambda_1 v_1 & \dots & \lambda_n v_n \\ | & & | \end{pmatrix}
-$$
 
+$$
 Como ambos lados producen la misma matriz, queda demostrado que **$AC = CS$**.
 
 ---
@@ -102,20 +102,20 @@ En el inciso anterior se demostró la igualdad:
 
 $$
 AC = CS
-$$
 
+$$
 Como se estableció que $C$ es inversible, multiplicamos por $C^{-1}$ a derecha en ambos miembros:
 
 $$
 (AC)C^{-1} = (CS)C^{-1}
-$$
 
+$$
 Por asociatividad y usando que $CC^{-1} = I$:
 
 $$
 A = C S C^{-1}
-$$
 
+$$
 Por definición, **una matriz cuadrada es diagonalizable si y solo si es semejante a una matriz diagonal**.
 
 La igualdad $A = C S C^{-1}$ verifica exactamente esta condición, con $S$ diagonal y $C$ invertible. **Por lo tanto, $A$ es diagonalizable.**
@@ -125,5 +125,5 @@ La igualdad $A = C S C^{-1}$ verifica exactamente esta condición, con $S$ diago
 ## Verificación Computacional en Python
 
 ```python
---8<-- "Examen_2025_07_21/02_diagonalizacion/verificacion.py"
+{/* --8<-- "Examen_2025_07_21/02_diagonalizacion/verificacion.py" */}
 ```

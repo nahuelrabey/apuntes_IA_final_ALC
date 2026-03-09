@@ -24,8 +24,8 @@ El número de condición de $A$ depende formalmente de la norma:
 
 $$
 Con d(A) = \|A\| \cdot \|A^{-1}\|
-$$
 
+$$
 Recordemos que la norma matricial infinito ($\|A\|_\infty$) es la máxima suma absoluta de los constituyentes de cada fila:
 
 - $\|A\|_\infty = \max \{ 1+1+1, \: 1+1+0, \: |k^2|+0+|k^2| \}$
@@ -41,54 +41,53 @@ Para obtener una cota de $\|A^{-1}\|_\infty$, se calcula $A^{-1}$ usando la matr
 
 $$
 \bigl(A^{-1}\bigr)_{ij} = \frac{C_{ji}}{\det(A)}
-$$
 
+$$
 donde $C_{ji}$ es el cofactor de la posición $(j, i)$.
 
 Para la posición $(1,1)$: el cofactor $C_{11}$ es el determinante del menor obtenido al eliminar fila 1 y columna 1:
 
 $$
 C_{11} = \det\begin{pmatrix} 1 & 0 \\ 0 & k^2 \end{pmatrix} = k^2 \implies \bigl(A^{-1}\bigr)_{1,1} = \frac{k^2}{-k^2} = -1
-$$
 
+$$
 ??? info "¿Por qué calcular solo la primera fila?"
     El objetivo es acotar $\|A^{-1}\|_\infty$ por abajo. La norma-∞ es el máximo de las sumas absolutas de filas:
 
-    $$
+$$
     \|A^{-1}\|_\infty = \max_i \sum_j |\bigl(A^{-1}\bigr)_{ij}|
-    $$
 
+$$
     Como el máximo es siempre mayor o igual que cualquier término individual, basta con exhibir **una sola fila** cuya suma sea suficientemente grande. Se elige la primera fila porque sus entradas resultan simples de calcular por cofactores, y su suma $|-1| + |1| + |1/k^2| = 2 + 1/k^2$ ya establece la cota deseada.
 
     Fin de la observación.
 
 La primera fila de $A^{-1}$ es $(-1,\, 1,\, 1/k^2)$, por lo que:
 
-
 $$
 \|A^{-1}\|_\infty \ge \sum |(A^{-1})_{1,j}| = |-1| + |1| + |1/k^2| = 2 + \frac{1}{k^2}
-$$
 
+$$
 Multiplicando ambas normas se obtiene la cota del número de condición:
 
 $$
 Cond_\infty(A) = (2k^2) \cdot \|A^{-1}\|_\infty \ge 2k^2 \cdot (2 + 1/k^2) = 4k^2 + 2
-$$
 
+$$
 Como $4k^2 + 2 > k^2$ para todo $k > 1$, se concluye que $Cond_\infty(A) \ge k^2$. $\square$
 
 Para la norma-2, se aplica la equivalencia entre normas matriciales en $\mathbb{R}^{n \times n}$:
 
 $$
 \frac{1}{n} Cond_\infty(A) \le Cond_2(A) \le n \cdot Cond_\infty(A)
-$$
 
+$$
 Tomando la cota inferior con $n=3$:
 
 $$
 Cond_2(A) \ge \frac{1}{3} Cond_\infty(A) \ge \frac{1}{3} (4k^2 + 2) = \frac{4}{3} k^2 + \frac{2}{3} > \frac{4}{3} k^2
-$$
 
+$$
 Se cumple $Cond_2(A) \ge ck^2$ con $c = 4/3$. $\square$
 
 ---
@@ -101,8 +100,8 @@ Un condicionamiento elevado implica que pequeñas perturbaciones en $b$ pueden g
 
 $$
 \frac{\|\delta x\|}{\|x\|} \le Cond(A) \frac{\|\delta b\|}{\|b\|}
-$$
 
+$$
 En la práctica, esto se traduce en pérdida de dígitos significativos al resolver el sistema numéricamente.
 
 **¿Depende esto del vector $b$?**
@@ -116,16 +115,79 @@ El precondicionador diagonal de Jacobi se define como la inversa de la matriz di
 
 $$
 Diag(A) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & k^2 \end{pmatrix} \implies C = Diag(A)^{-1} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1/k^2 \end{pmatrix}
-$$
 
+$$
 La matriz precondicionada $CA$ resulta:
 
 $$
 CA = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1/k^2 \end{pmatrix} \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ k^2 & 0 & k^2 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ \frac{k^2}{k^2} & 0 & \frac{k^2}{k^2} \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}
-$$
 
+$$
 El precondicionamiento elimina la dependencia en $k$: la matriz resultante solo contiene entradas $0$ y $1$, con número de condición $Cond_2(CA) \approx 6.85$ (constante, independiente de $k$). Esto indica que el sistema precondicionado está bien condicionado para cualquier valor de $k$.
 
 ---
 
---8<-- "docs/Examen_2025_08_07/04_numero_condicion/verificacion.py"
+```python
+import numpy as np
+
+def run_verification():
+    print("Iniciando verificación computacional del Ejercicio 4...")
+    
+    # 1. Abstracción a distintos Ks paramétricos
+    ks = [2, 10, 50]
+    
+    print("\n1) Verificando Condicionamiento cota inf L2 y L_inf:")
+    for k in ks:
+        print(f"\n--- Evaluando k = {k} ---")
+        A = np.array([
+            [1.0, 1.0, 1.0],
+            [1.0, 1.0, 0.0],
+            [k**2, 0.0, k**2]
+        ])
+        
+        # Normas
+        norm_inf_A = np.linalg.norm(A, np.inf)
+        norm_inf_invA = np.linalg.norm(np.linalg.inv(A), np.inf)
+        cond_inf = norm_inf_A * norm_inf_invA 
+        
+        cond_2 = np.linalg.cond(A, p=2)
+        
+        cota_inf_teorica = k**2
+        cota_2_teorica = (4/3) * (k**2)
+        
+        print(f"Cond_inf(A) analítico aproximado = {cond_inf:.2f} (Teórico >= {cota_inf_teorica})")
+        print(f"Cond_2(A) algorítmico exacto   = {cond_2:.2f} (Teórico >= {cota_2_teorica:.2f})")
+        
+        assert cond_inf >= cota_inf_teorica, f"Fallo empírico: Condicionamiento infinito debe ser mayor a {cota_inf_teorica}"
+        assert cond_2 >= cota_2_teorica - 1e-5, f"Fallo empírico: Condicionamiento L2 debe ser c proporcional mayor a {cota_2_teorica}"
+
+    print("\n2) Precondicionador Diagonal (C = Diag(A)^-1):")
+    k = 100 # Empleamos uno masivo para acentuar el escape numérico y posterior cura
+    A_bad = np.array([
+            [1.0, 1.0, 1.0],
+            [1.0, 1.0, 0.0],
+            [k**2, 0.0, k**2]
+    ])
+    
+    cond_2_antes = np.linalg.cond(A_bad, 2)
+    print(f"Condicionamiento catastrófico natural L2 SIN precondicionar (k={k}): {cond_2_antes:.3f}")
+    
+    # Construimos iteración precondicionadora de Jacobi
+    diag_A = np.diag(np.diag(A_bad))
+    C = np.linalg.inv(diag_A)
+    CA = C @ A_bad
+    
+    cond_2_despues = np.linalg.cond(CA, 2)
+    print(f"Matriz curada (CA):")
+    print(np.round(CA, 3))
+    print(f"Condicionamiento óptimo L2 CON precondicionador (Iteración de Jacobi): {cond_2_despues:.3f}")
+    
+    # Validamos desconexión dependiente del parámetro paramétrico dinámico k
+    assert cond_2_despues < 10.0, "Fallo: El precondicionador no aisló exitosamente el condicionamiento a valores de escala constantes O(1)."
+
+    print("\n[OK] Verificación completada con éxito. Crecimiento analítico de L2 ratificado, al igual curaciones mediante precondicionamiento diagonal constante.")
+
+if __name__ == '__main__':
+    run_verification()
+
+```

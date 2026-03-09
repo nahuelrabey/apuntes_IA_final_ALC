@@ -32,40 +32,40 @@ Partiendo de la descomposición $A = L + D + U$:
 
 $$
 (L + D + U)x = b
-$$
 
+$$
 Multiplicamos por el escalar $\omega \neq 0$:
 
 $$
 \omega (L + D + U)x = \omega b
-$$
 
+$$
 $$
 \omega Lx + \omega Dx + \omega Ux = \omega b
-$$
 
+$$
 Sumamos $Dx$ a ambos lados:
 
 $$
 Dx + \omega Lx + \omega Dx + \omega Ux = Dx + \omega b
-$$
 
+$$
 Agrupamos los términos de $D$ y $L$ en el lado izquierdo:
 
 $$
 (D + \omega L)x = Dx - \omega Dx - \omega Ux + \omega b
-$$
 
+$$
 Extrayendo $x$ como factor común:
 
 $$
 (D + \omega L)x = (1 - \omega)Dx - \omega Ux + \omega b
-$$
 
+$$
 $$
 (D + \omega L)x = ((1 - \omega)D - \omega U)x + \omega b
-$$
 
+$$
 Queda demostrada la equivalencia.
 
 ---
@@ -74,9 +74,13 @@ Queda demostrada la equivalencia.
 
 > **b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con
 >
-> $$
+>
+
+$$
 > B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)
-> $$
+>
+
+$$
 >
 > Probar que $\det(B(\omega)) = (1 - \omega)^n$ y concluir que si el método converge $\implies \omega \in (0, 2)$.
 
@@ -84,22 +88,22 @@ El determinante de la matriz de iteración se calcula como:
 
 $$
 \det(B(\omega)) = \det\Big((D + \omega L)^{-1}\Big) \cdot \det\Big((1 - \omega)D - \omega U\Big)
-$$
 
+$$
 Analizamos cada factor:
 
 1. El bloque $(D + \omega L)$ es una **matriz triangular inferior**. Su determinante es el producto de su diagonal, que coincide con la diagonal $D$ de $A$:
 
 $$
 \det(D + \omega L) = \det(D) = \prod_{i=1}^{n} a_{ii}
-$$
 
+$$
 2. El bloque $((1-\omega)D - \omega U)$ es una **matriz triangular superior**, con diagonal $(1-\omega)a_{ii}$. Su determinante es:
 
 $$
 \det\big((1-\omega)D - \omega U\big) = \prod_{i=1}^{n} (1-\omega)a_{ii} = (1-\omega)^n \det(D)
-$$
 
+$$
 ??? info "Demostración formal de esta propiedad"
 
     > 📎 Demostración formal: [¿Por qué det(D + ωL) = det(D)?](../../../demostraciones/det_triangular_inferior_sor.md)
@@ -110,32 +114,32 @@ Sustituyendo en la expresión inicial:
 
 $$
 \det(B(\omega)) = \frac{1}{\det(D)} \cdot \Big[ (1-\omega)^n \det(D) \Big] = (1-\omega)^n
-$$
 
+$$
 #### Condición Necesaria de Convergencia
 
 Para que el método converja, el **Radio Espectral** debe ser menor a 1 ($\rho(B) < 1$). Consulte la [demostración formal](../../../demostraciones/convergencia_radio_espectral.md) de esta condición, que incluye además el rol del término independiente $c$ y por qué no afecta la convergencia.
 
 $$
 \text{Si converge} \implies \rho(B(\omega)) = \max_{i} |\lambda_i| < 1
-$$
 
+$$
 Notemos que el determinante de una matriz es igual al producto de sus autovalores: $\det(B) = \prod_{i=1}^n \lambda_i$.
 
 Si todos los autovalores cumplen $|\lambda_i| < 1$, su producto también tendrá un módulo menor a 1. De esto se desprende que una condición necesaria para la convergencia es que el módulo del determinante sea menor a la unidad: $| \det(B) | < 1$.
 
 $$
 | (1-\omega)^n | < 1 \implies |1-\omega| < 1
-$$
 
+$$
 Para una justificación detallada de esta implicancia y la propiedad $|a^n| = |a|^n$, consulte la [demostración formal](../../../demostraciones/potencia_modulo.md).
 
 De donde obtenemos:
 
 $$
 -1 < 1 - \omega < 1 \implies 0 < \omega < 2
-$$
 
+$$
 Queda demostrada la condición necesaria.
 
 ??? info "Observación: Condición Necesaria vs Suficiente"
@@ -188,5 +192,5 @@ Como $\rho(B) = 2.0 > 1$:
 Aplicamos el testeo cruzado estocástico con Python para las identidades matriciales subyacentes de SOR validando flujos tensoriales reales entre desniveles lógicos por desbordamientos (`np.allclose`) en consonancia con la _Metodología Algebraica Estricta_:
 
 ```python
---8<-- "Examen_2026_02_18/01_metodo_sor/verificacion.py"
+{/* --8<-- "Examen_2026_02_18/01_metodo_sor/verificacion.py" */}
 ```

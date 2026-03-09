@@ -44,8 +44,8 @@ P = \begin{pmatrix}
 0 & 1/2 & b & e \\
 0 & 0 & c & 0
 \end{pmatrix}
-$$
 
+$$
 ```
 
 Las probabilidades $a, b, c, d, e$ son incógnitas que se determinan imponiendo:
@@ -62,21 +62,21 @@ Las probabilidades $a, b, c, d, e$ son incógnitas que se determinan imponiendo:
 
 > **(a)** Hallar la matriz de transición **P**.
 
-<!-- Leer el diagrama de transición y construir P columna a columna (columna j = distribución
-     de probabilidad de salir desde la ciudad j). Verificar que cada columna sume 1. -->
+{/* Leer el diagrama de transición y construir P columna a columna (columna j = distribución
+     de probabilidad de salir desde la ciudad j). Verificar que cada columna sume 1. */}
 
 ### Inciso B — Distribución después de 10 años
 
 > **(b)** Determinar la distribución de población después de 10 años,
 > si la distribución inicial es $v_0 = (\frac{1}{2}, 0, \frac{1}{2}, 0)^t$.
 
-<!-- Calcular v_10 = P^10 * v_0. Usar la descomposición espectral si P es diagonalizable. -->
+{/* Calcular v_10 = P^10 * v_0. Usar la descomposición espectral si P es diagonalizable. */}
 
 ### Inciso C — Existencia de $P^\infty$
 
 > **(c)** ¿Existe $P^\infty$? Si existe, calcularla.
 
-<!-- Analizar autovalores de P. Si todos excepto λ=1 tienen |λ| < 1, la potencia converge. -->
+{/* Analizar autovalores de P. Si todos excepto λ=1 tienen |λ| < 1, la potencia converge. */}
 
 ### Inciso D — Implementación Python
 
@@ -84,4 +84,4 @@ Las probabilidades $a, b, c, d, e$ son incógnitas que se determinan imponiendo:
 
 Ver implementación en [`verificacion.py`](verificacion.py).
 
---8<-- "Examen_2026_02_25/01_cadenas_markov/verificacion.py"
+{/* --8<-- "Examen_2026_02_25/01_cadenas_markov/verificacion.py" */}

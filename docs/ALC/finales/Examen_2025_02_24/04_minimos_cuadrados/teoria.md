@@ -4,9 +4,13 @@
 >
 > Dada la función:
 >
-> $$
+>
+
+$$
 > z = a y^b e^{cx+2}
-> $$
+>
+
+$$
 >
 > 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
 > 2. Proponer puntos de datos para que la solución sea única.
@@ -24,20 +28,20 @@ Para aplicar el método de Mínimos Cuadrados Lineales Clásicos, primero debemo
 
 $$
 \ln(z) = \ln(a \cdot y^b \cdot e^{cx + 2})
-$$
 
+$$
 Por las propiedades de los logaritmos (el logaritmo de un producto es la suma de los logaritmos, y el exponente baja multiplicando), la expresión queda:
 
 $$
 \ln(z) = \ln(a) + b \ln(y) + (cx + 2)
-$$
 
+$$
 Reagrupando los términos para independizar las incógnitas de las constantes conocidas:
 
 $$
 \ln(z) - 2 = \ln(a) + b \ln(y) + c x
-$$
 
+$$
 A partir de esta estructura lineal en sus parámetros, efectuamos los siguientes cambios de variable para llevarlo a un modelo lineal estándar de la forma $Z_i = \beta_0 + \beta_1 Y_i + \beta_2 X_i$:
 
 - $Z = \ln(z) - 2$ *(variable dependiente transformada)*
@@ -73,14 +77,14 @@ c
 \vdots \\
 \ln(z_m) - 2
 \end{pmatrix}
-$$
 
+$$
 **Las ecuaciones normales de Mínimos Cuadrados** se construyen multiplicando por izquierda la transpuesta de la matriz de diseño $M$:
 
 $$
 (M^T M) \vec{\theta} = M^T \vec{Z}
-$$
 
+$$
 Resolviendo este sistema lineal $(3 \times 3)$ se obtienen los estimadores paramétricos óptimos $\hat{A}$, $\hat{b}$ y $\hat{c}$. Posteriormente se recupera $\hat{a} = e^{\hat{A}}$.
 
 ---
@@ -94,16 +98,16 @@ Para que las ecuaciones de mínimos cuadrados posean una **solución única**, l
 ??? info "Observación Teórica: ¿Por qué $M^TM$ debe ser invertible?"
     Las ecuaciones normales son un sistema lineal de la forma:
 
-    $$
+$$
     (M^T M)\,\hat{\theta} = M^T Z
-    $$
 
+$$
     Para despejar el vector de parámetros $\hat{\theta}$, se multiplica por la inversa de $M^TM$ a izquierda:
 
-    $$
+$$
     \hat{\theta} = (M^T M)^{-1} M^T Z
-    $$
 
+$$
     Esta operación solo es posible si $(M^TM)^{-1}$ existe, es decir, si $M^TM$ es invertible. Si no lo fuera, el sistema tendría **infinitas soluciones** (o ninguna), ya que no habría una única forma de despejar $\hat{\theta}$.
 
 Como $M$ tiene 3 columnas, necesitamos que el $\text{Rango}(M) = 3$. Geométricamente, los vectores columna de la matriz $M$ formados por las mediciones no deben ser dependientes entre sí.
@@ -117,16 +121,16 @@ En el contexto físico del problema, esto implica que:
 
     Para que $M$ tenga rango 3, ninguna columna puede ser combinación lineal de las otras. El caso problemático ocurre cuando la columna de $x_i$ es proporcional (o afín) a la columna de $\ln(y_i)$, es decir, cuando para todos los datos vale:
 
-    $$
+$$
     x_i = k \cdot \ln(y_i) + C
-    $$
 
+$$
     El $+C$ no es arbitrario: representa el aporte de la **columna de unos** (col. 1) de $M$. Escrito explícitamente como combinación lineal de las tres columnas:
 
-    $$
+$$
     \underbrace{x_i}_{\text{col. 3}} = k \cdot \underbrace{\ln(y_i)}_{\text{col. 2}} + C \cdot \underbrace{1}_{\text{col. 1}}
-    $$
 
+$$
     Esto es exactamente la definición de dependencia lineal: la columna 3 queda expresada como combinación de las columnas 1 y 2, por lo que $M$ pierde rango.
 
     En ese caso, las columnas 2 y 3 de $M$ son **colineales**: una es versión escalada/desplazada de la otra. $M$ pierde rango y $M^TM$ deja de ser invertible.
@@ -150,8 +154,8 @@ Evaluemos cómo queda nuestra matriz de muestras con estos puntos de prueba para
 
 $$
 M_{\text{propuesta}} = \begin{pmatrix} 1 & \ln(1) & 1 \\ 1 & \ln(e) & 0 \\ 1 & \ln(1) & -1 \end{pmatrix} = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 1 & 0 & -1 \end{pmatrix}
-$$
 
+$$
 El determinante de esta matriz $3 \times 3$ no es cero (en efecto, vale $-2$):
 $\det(M_{\text{propuesta}}) = 1 \cdot (-1 - 0) - 0 \cdot (-1 -0) + 1 \cdot (0 - 1) = -1 - 1 = -2$.
 
@@ -183,5 +187,5 @@ Por el Teorema de Rouché-Frobenius y el rango fundamental del álgebra matricia
 ## Verificación Computacional en Python
 
 ```python
---8<-- "Examen_2025_02_24/04_minimos_cuadrados/verificacion.py"
+{/* --8<-- "Examen_2025_02_24/04_minimos_cuadrados/verificacion.py" */}
 ```

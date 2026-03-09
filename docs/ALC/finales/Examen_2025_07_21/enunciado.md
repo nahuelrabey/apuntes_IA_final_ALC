@@ -61,9 +61,13 @@ El presente examen evalúa la comprensión y aplicación práctica de los siguie
 >
 > d) Calcular los autovalores de la siguiente matriz:
 >
-> $$
+>
+
+$$
 > B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}
-> $$
+>
+
+$$
 >
 > *Sugerencia: usar los items anteriores.*
 

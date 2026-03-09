@@ -3,9 +3,13 @@
 > **Propiedad de las Raíces Complejas.**
 > Dado un polinomio cuadrático con coeficientes reales $P(\lambda) = \lambda^2 + b\lambda + c$, si el discriminante $\Delta = b^2 - 4c$ es negativo, las raíces $\lambda_1, \lambda_2$ son complejas conjugadas y su módulo es exactamente:
 >
-> $$
+>
+
+$$
 > |\lambda| = \sqrt{c}
-> $$
+>
+
+$$
 >
 
 ## Interpretación del Enunciado
@@ -29,20 +33,20 @@ Si los coeficientes $b$ y $c$ son reales y el discriminante es negativo ($b^2 - 
 
 $$
 \lambda_1 = \alpha + \beta i \quad \text{y} \quad \lambda_2 = \alpha - \beta i = \bar{\lambda}_1
-$$
 
+$$
 Sustituyendo en la relación del producto (Vieta):
 
 $$
 \lambda_1 \cdot \bar{\lambda}_1 = c
-$$
 
+$$
 Por definición de módulo de un número complejo ($z \cdot \bar{z} = |z|^2$):
 
 $$
 |\lambda_1|^2 = c \implies |\lambda_1| = \sqrt{c}
-$$
 
+$$
 Dado que $\lambda_2$ es el conjugado, su módulo es idéntico: $|\lambda_2| = |\lambda_1| = \sqrt{c}$.
 
 ### 3. Aplicación al Caso SOR ($\omega = 1/2$)
@@ -51,24 +55,24 @@ La ecuación obtenida para la matriz de iteración fue:
 
 $$
 \lambda^2 - \frac{7}{8}\lambda + \frac{1}{4} = 0
-$$
 
+$$
 Aquí identificamos $b = -7/8$ y $c = 1/4$.
 
 1.  **Verificación del discriminante**:
 
 $$
 \Delta = \left(-\frac{7}{8}\right)^2 - 4 \cdot \frac{1}{4} = \frac{49}{64} - 1 = -\frac{15}{64} < 0
-$$
 
+$$
     Confirmamos que las raíces son complejas conjugadas.
 
 2.  **Cálculo del módulo**:
 
 $$
 |\lambda| = \sqrt{c} = \sqrt{\frac{1}{4}} = 0.5
-$$
 
+$$
 Por lo tanto, el radio espectral es $\rho(B) = 0.5$, lo cual garantiza la convergencia del método ($0.5 < 1$).
 
 ---
@@ -89,5 +93,39 @@ Para profundizar en las relaciones entre raíces y coeficientes (Fórmulas de Vi
 Se utiliza `SymPy` para calcular las raíces exactas y su módulo, confirmando la validez de la propiedad $\sqrt{c}$.
 
 ```python
---8<-- "demostraciones/modulo_autovalores_complejos.py"
+import sympy as sp
+
+def verify_complex_eigenvalue_modulus():
+    print("Verificando relación entre término independiente y módulo de raíces complejas...")
+    
+    # Caso SOR Examen 18-02-2026: lam^2 - 7/8*lam + 1/4 = 0
+    lam = sp.symbols('lambda')
+    b = sp.Rational(-7, 8)
+    c = sp.Rational(1, 4)
+    poly = lam**2 + b*lam + c
+    
+    print(f"\nPolinomio: {poly} = 0")
+    
+    # 1. Calcular discriminante
+    delta = b**2 - 4*c
+    print(f"Discriminante (Delta): {delta} ({float(delta):.4f})")
+    
+    # 2. Hallar raíces
+    roots = sp.solve(poly, lam)
+    print(f"Raíces calculadas: {roots}")
+    
+    # 3. Calcular módulos
+    for i, r in enumerate(roots):
+        mod = sp.Abs(r)
+        print(f"|lambda_{i+1}| = {mod} (dec: {float(mod):.4f})")
+        
+        # Verificar contra sqrt(c)
+        if sp.simplify(mod - sp.sqrt(c)) == 0:
+            print(f"  ✓ Coincide con sqrt(c) = sqrt({c})")
+        else:
+            print(f"  ✗ error en la coincidencia")
+
+if __name__ == "__main__":
+    verify_complex_eigenvalue_modulus()
+
 ```

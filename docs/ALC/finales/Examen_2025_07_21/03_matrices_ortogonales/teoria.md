@@ -10,9 +10,13 @@
 >
 > d) Calcular los autovalores de la siguiente matriz:
 >
-> $$
+>
+
+$$
 > B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}
-> $$
+>
+
+$$
 >
 > *Sugerencia: usar los items anteriores.*
 
@@ -28,12 +32,12 @@ Para averiguar el determinante, partimos de la definición que nos fue dada al u
 
 $$
 A \cdot A = A \cdot A^{-1}
-$$
 
+$$
 $$
 A^2 = I
-$$
 
+$$
 Buscamos aplicar el operador determinante a ambos lados de la ecuación, recordando la propiedad multiplicativa del determinante $|A \cdot B| = |A| \cdot |B|$:
 
 ??? info "Demostración Teórica: La Regla Multiplicativa del Determinante"
@@ -43,20 +47,20 @@ Buscamos aplicar el operador determinante a ambos lados de la ecuación, recorda
 
     Fin de la demostración.
 
-    $$
-|A^2| = |I|
 $$
+|A^2| = |I|
 
+$$
 $$
 |A|^2 = 1
-$$
 
+$$
 Al despejar algebraicamente, obtenemos las dos posibles raíces reales del determinante:
 
 $$
 |A| = \pm 1
-$$
 
+$$
 Por lo tanto, **el determinante de la matriz estructurada $A$ puede valer $1$ o $-1$**.
 
 Respecto a la diagonalizabilidad, el **Teorema Espectral** establece que toda matriz real simétrica es ortogonalmente diagonalizable sobre los reales. Como $A$ satisface $A = A^t$, **$A$ es diagonalizable**.
@@ -78,42 +82,42 @@ Si $A$ es diagonalizable, asume autovalores $\lambda_i$ y autovectores asociados
 
 $$
 A v_i = \lambda_i v_i
-$$
 
+$$
 Para determinar los posibles valores de $\lambda$, multiplicamos por $A$ en ambos lados de la ecuación de autovectores:
 
 $$
 A (A v_i) = A (\lambda_i v_i)
-$$
 
+$$
 Por linealidad:
 
 $$
 A^2 v_i = \lambda_i (A v_i)
-$$
 
+$$
 Reemplazando la recursión original $A v_i$:
 
 $$
 A^2 v_i = \lambda_i (\lambda_i v_i) = \lambda_i^2 v_i
-$$
 
+$$
 Del inciso A se tiene que $A^2 = I$. Sustituyendo:
 
 $$
 I v_i = \lambda_i^2 v_i
-$$
 
+$$
 $$
 v_i = \lambda_i^2 v_i
-$$
 
+$$
 Como los autovectores satisfacen $v_i \neq 0$ por definición, la igualdad requiere:
 
 $$
 \lambda_i^2 = 1
-$$
 
+$$
 Por lo tanto, **los únicos autovalores posibles son $\lambda \in \{1, -1\}$**.
 
 ---
@@ -130,22 +134,22 @@ Calculemos internamente esta matriz a modelar:
 
 $$
 A^t A
-$$
 
+$$
 Usando las condiciones del enunciado ($A^t = A^{-1}$):
 
 $$
 A^t A = A^{-1} A = I
-$$
 
+$$
 La matriz $A^t A = I$, cuyos autovalores son todos iguales a $1$.
 
 Los valores singulares son:
 
 $$
 \sigma_i = \sqrt{1} = 1 \quad \forall i \in (1, \dots, n)
-$$
 
+$$
 Todos los valores singulares son iguales a $1$. Por lo tanto, **$\Sigma = I$.**
 
 ---
@@ -154,9 +158,13 @@ Todos los valores singulares son iguales a $1$. Por lo tanto, **$\Sigma = I$.**
 
 > d) Calcular los autovalores de la siguiente matriz:
 >
-> $$
+>
+
+$$
 > B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}
-> $$
+>
+
+$$
 >
 > *Sugerencia: usar los items anteriores.*
 
@@ -164,8 +172,8 @@ Nos proponen la matriz $4 \times 4$:
 
 $$
 B = \begin{pmatrix} 0.5 & -0.5 & -0.1 & -0.7 \\ -0.5 & 0.5 & -0.1 & -0.7 \\ -0.1 & -0.1 & 0.98 & -0.14 \\ -0.7 & -0.7 & -0.14 & 0.02 \end{pmatrix}
-$$
 
+$$
 La sugerencia indica usar los resultados de los incisos anteriores. Inspeccionando $B$:
 
 - Naturalmente saltan a la vista por espejo estructural sobre la diagonal que **B es simétrica** ($B = B^t$).
@@ -180,24 +188,24 @@ Calculando la diagonal de $B$:
 
 $$
 Tr(B) = 0.5 + 0.5 + 0.98 + 0.02 = 2
-$$
 
+$$
 Sea $k$ la cantidad de autovalores iguales a $1$ y $m$ la cantidad de autovalores iguales a $-1$. Como $\dim(B) = 4$, se plantea el sistema:
 
 $$
 \begin{cases} k + m = 4 \quad \text{(Espectro total)} \\ k(1) + m(-1) = 2 \quad \text{(Suma traza-autovalores)} \end{cases}
-$$
 
+$$
 Sumando las dos ecuaciones ($2k = 6$):
 
 $$
 k = 3
-$$
 
+$$
 $$
 m = 1
-$$
 
+$$
 Por lo tanto, sin necesidad de factorizar el polinomio de grado 4, **los autovalores de $B$ son $\{1, 1, 1, -1\}$**.
 
 ---
@@ -205,5 +213,5 @@ Por lo tanto, sin necesidad de factorizar el polinomio de grado 4, **los autoval
 ## Verificación Computacional en Python
 
 ```python
---8<-- "Examen_2025_07_21/03_matrices_ortogonales/verificacion.py"
+{/* --8<-- "Examen_2025_07_21/03_matrices_ortogonales/verificacion.py" */}
 ```

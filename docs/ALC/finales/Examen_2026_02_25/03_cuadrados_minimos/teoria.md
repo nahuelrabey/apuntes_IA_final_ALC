@@ -19,8 +19,8 @@
 
 ## Interpretación del Enunciado
 
-<!-- El sistema Ax = b es típicamente sobredeterminado (n >> m). Se busca la solución
-     de cuadrados mínimos x* = argmin ||Ax - b||_2. -->
+{/* El sistema Ax = b es típicamente sobredeterminado (n >> m). Se busca la solución
+     de cuadrados mínimos x* = argmin ||Ax - b||_2. */}
 
 ---
 
@@ -30,26 +30,26 @@
 
 > **(a)** ¿Qué condición se debe cumplir para que el puntaje $x$ esté definido unívocamente?
 
-<!-- La solución de cuadrados mínimos es única ⟺ A tiene rango columna completo (rango = m),
-     es decir, las columnas de A son linealmente independientes. -->
+{/* La solución de cuadrados mínimos es única ⟺ A tiene rango columna completo (rango = m),
+     es decir, las columnas de A son linealmente independientes. */}
 
 ### Inciso B — Puntaje = Fracción de Victorias
 
 > **(b)** Muestre que el puntaje $x_j$ del amigo $j$ es igual a la fracción de victorias.
 
-<!-- Escribir las ecuaciones normales A^T A x = A^T b. Analizar la estructura de A^T A
-     (diagonal con número de partidas jugadas por cada amigo) y A^T b (victorias por amigo). -->
+{/* Escribir las ecuaciones normales A^T A x = A^T b. Analizar la estructura de A^T A
+     (diagonal con número de partidas jugadas por cada amigo) y A^T b (victorias por amigo). */}
 
 ### Inciso C — Error Promedio con 3 Amigos y N Partidas
 
 > **(c)** Para tres amigos con $N$ partidas y todos ganando la mitad, calcule
 > $\frac{1}{3N}\|Ax - b\|_2$. ¿Aumenta o disminuye con $N$?
 
-<!-- Con x_j = 1/2 para todo j, calcular Ax - b explícitamente en términos de N
-     y evaluar la norma. -->
+{/* Con x_j = 1/2 para todo j, calcular Ax - b explícitamente en términos de N
+     y evaluar la norma. */}
 
 ---
 
 Ver implementación en [`verificacion.py`](verificacion.py).
 
---8<-- "Examen_2026_02_25/03_cuadrados_minimos/verificacion.py"
+{/* --8<-- "Examen_2026_02_25/03_cuadrados_minimos/verificacion.py" */}

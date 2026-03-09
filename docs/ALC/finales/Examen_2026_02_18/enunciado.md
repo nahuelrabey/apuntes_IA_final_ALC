@@ -37,15 +37,23 @@ El presente examen evalúa la comprensión y aplicación práctica de los siguie
 >
 > **a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular:
 >
-> $$
+>
+
+$$
 > \frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}
-> $$
+>
+
+$$
 >
 > **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
 >
-> $$
+>
+
+$$
 > a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n
-> $$
+>
+
+$$
 >
 >donde $\delta_{ij}$ denota el delta de Kronecker.
 >
@@ -80,9 +88,13 @@ El presente examen evalúa la comprensión y aplicación práctica de los siguie
 >
 > **Objetivo:** Determinar los coeficientes $\alpha_1, \dots, \alpha_m$ que minimizan el error cuadrático:
 >
-> $$
+>
+
+$$
 > EC(\mathbf{\alpha}) = \sum_{j=1}^n (f(x_j) - y_j)^2
-> $$
+>
+
+$$
 >
 > con $\mathbf{x} = (x_1, \dots, x_n)$ e $\mathbf{y} = (y_1, \dots, y_n)$ datos experimentales, con $n \ge m$.
 >

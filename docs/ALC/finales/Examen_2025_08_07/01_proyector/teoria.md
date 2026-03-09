@@ -36,9 +36,8 @@ Comenzamos escalonando la matriz $A$ para hallar su forma reducida por filas y d
 
 $$
 A \sim \begin{pmatrix} 1 & -1 & 0 & -1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+
 $$
-
-
 ??? info "¿Por qué las Columnas Pivotales?"
     Las operaciones elementales de fila aplicadas para llegar a la RREF (Escalonada Reducida) preservan las **relaciones de dependencia lineal** entre las columnas.
 
@@ -50,8 +49,8 @@ De las columnas pivotales (primera y tercera), deducimos una base $B_{Im}$ para 
 
 $$
 B_{Im} = \left\{ \begin{pmatrix} -1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ -1 \\ 0 \\ 1 \end{pmatrix} \right\}
-$$
 
+$$
 De las variables libres ($x_2$ y $x_4$), derivamos las ecuaciones del núcleo $Nu(f)$.
 
 ??? info "¿Por qué las Variables Libres?"
@@ -74,17 +73,17 @@ Expresado paramétricamente de acuerdo a las variables libres, despejamos con $x
 
 $$
 B_{Nu} = \left\{ \begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \end{pmatrix} \right\}
-$$
 
+$$
 Para que la transformación $p$ sea un proyector definido de esta forma, y dado que queremos proyectar sobre $Im(f)$ a lo largo de $Nu(f)$, debe cumplirse que $\mathbb{R}^4 = Im(f) \oplus Nu(f)$ (suma directa).
 
 ??? info "¿Por qué se requiere la Suma Directa ($\oplus$)??"
     Para que este proyector $p$ sea una función bien definida para **cualquier** vector $x$, necesitamos poder descomponerlo de forma **única** como:
 
-    $$
+$$
     x = \underbrace{s}_{s \in Im(f)} + \underbrace{n}_{n \in Nu(f)}
-    $$
 
+$$
     Donde la acción del proyector es simplemente filtrar la componente de la imagen: $p(x) = s$.
 
     Para que esa descomposición exista y sea unívoca para todo el espacio, se deben cumplir dos pilares algebraicos:
@@ -100,8 +99,8 @@ Evaluamos la independencia lineal de la unión de las bases mediante el determin
 
 $$
 \det(B) = \det \begin{pmatrix} -1 & 0 & 1 & 1 \\ 1 & -1 & 1 & 0 \\ 1 & 0 & 0 & -1 \\ 1 & 1 & 0 & 1 \end{pmatrix} = 3 \neq 0
-$$
 
+$$
 La intersección es trivial, la suma directa existe, y por lo tanto podemos definir $p(x)$ unívocamente dictando su acción sobre nuestra nueva base:
 
 - $\forall v \in Im(f): p(v) = v$
@@ -109,8 +108,8 @@ La intersección es trivial, la suma directa existe, y por lo tanto podemos defi
 
 $$
 D = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
-$$
 
+$$
 ??? info "¿Por qué esta técnica construye el proyector buscado?"
     Esta construcción se basa en el **Teorema de Descomposición por Autovalores**. Un proyector $p$ queda unívocamente determinado por su acción sobre una base que descompone al espacio en $Im(p) \oplus Nu(p)$:
 
@@ -130,16 +129,16 @@ $$
 ??? check "Demostración de Idempotencia ($P^2 = P$)"
     Para certificar que $P$ es efectivamente un proyector, debemos demostrar que es **idempotente**:
 
-    $$
+$$
     P^2 = (B D B^{-1}) (B D B^{-1}) = B D (B^{-1} B) D B^{-1} = B (D \cdot D) B^{-1} = B D^2 B^{-1}
-    $$
 
+$$
     Como $D$ es una matriz diagonal cuyos elementos son solo $0$ o $1$, y dado que $0^2 = 0$ y $1^2 = 1$, se cumple que $D^2 = D$. Por lo tanto:
 
-    $$
+$$
     P^2 = B D B^{-1} = P
-    $$
 
+$$
     **Q.E.D.** (Fin de la demostración).
 
 Resolviendo el producto de matrices, la matriz del proyector resulta:
@@ -151,8 +150,8 @@ P = \begin{pmatrix}
 -0.333 & 0.333 & 0 & 0.333 \\
 0.333 & -0.333 & 1.0 & 0.667
 \end{pmatrix}
-$$
 
+$$
 *(Nota: Valores decimales expresados de forma compacta para legibilidad, el resultado exacto usa fracciones periódicas).*
 
 ---
@@ -164,10 +163,10 @@ $$
 ??? info "¿Qué es un Proyector Ortogonal?"
     Un proyector $p$ sobre un subespacio $S$ es **ortogonal** si proyecta los vectores de forma perpendicular al subespacio imagen. Geométricamente, esto significa que la dirección de proyección (el núcleo) es perpendicular a la imagen:
 
-    $$
+$$
     Nu(p) = Im(p)^\perp
-    $$
 
+$$
     En términos matriciales (en base canónica), un proyector es ortogonal **si y solo si su matriz asociada $P$ es simétrica** ($P = P^T$). Si el proyector es idempotente pero no simétrico, se denomina proyector **oblicuo**.
 
 Para que un proyector $p$ sea proyectado **ortogonal** sobre un subespacio, el núcleo del proyector debe ser el complemento ortogonal de su imagen: $Nu(p) = Im(p)^\perp$. Esto se verifica analíticamente comprobando si la matriz del proyector $P$ en la base canónica es simétrica: $P = P^T$.
@@ -180,14 +179,14 @@ De manera alternativa, podíamos verificarlo tomando vectores de ambas bases cal
 
 $$
 \langle v_1, n_1 \rangle = (-1)(1) + (1)(1) + (1)(0) + (1)(0) = 0
-$$
 
+$$
 Sin embargo, basta probar con otro par:
 
 $$
 \langle v_2, n_1 \rangle = (0)(1) + (-1)(1) + (0)(0) + (1)(0) = -1 \neq 0
-$$
 
+$$
 Esto demuestra que $Nu(f)$ no es perpendicular a $Im(f)$.
 
 ??? info "¿Por qué un solo producto no nulo invalida la ortogonalidad?"
@@ -201,8 +200,8 @@ Evaluamos la transformación $f$ en $v_1$:
 
 $$
 f(v_1) = A v_1 = \begin{pmatrix} 3 \\ -5 \\ -3 \\ -1 \end{pmatrix} \neq v_1
-$$
 
+$$
 ??? info "¿Por qué esta desigualdad demuestra que $p \neq f$?"
     El razonamiento es una **demostración por contradicción**:
 
@@ -236,14 +235,96 @@ La matriz diagonal $D_{p}$ la obtenemos usando una matriz de paso $B$ cuyas colu
 
 $$
 B_{diag} = \left\{ \underbrace{\begin{pmatrix} -1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 0 \\ -1 \\ 0 \\ 1 \end{pmatrix}}_{\text{Autovalor } \lambda=1}, \underbrace{\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ -1 \\ 1 \end{pmatrix}}_{\text{Autovalor } \lambda=0} \right\}
-$$
 
+$$
 Con respecto a esta base $B_{diag}$, la matriz de $p$ es, en efecto, la matriz diagonal construida anteriormente:
 
 $$
 [P]_B = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
-$$
 
+$$
 ---
 
---8<-- "docs/Examen_2025_08_07/01_proyector/verificacion.py"
+```python
+import numpy as np
+
+def run_verification():
+    print("Iniciando verificación computacional del Ejercicio 1...")
+    
+    A = np.array([
+        [-1,  1,  0,  1],
+        [ 1, -1, -1, -2],
+        [ 1, -1,  0, -1],
+        [ 1, -1,  1,  0]
+    ], dtype=float)
+
+    # Bases calculadas en la teoría
+    B_Im = np.array([
+        [-1,  0],
+        [ 1, -1],
+        [ 1,  0],
+        [ 1,  1]
+    ], dtype=float)
+
+    B_Nu = np.array([
+        [1,  1],
+        [1,  0],
+        [0, -1],
+        [0,  1]
+    ], dtype=float)
+
+    print("\n1) Verificando que B_Nu pertenece al núcleo de A:")
+    print("A @ B_Nu =")
+    print(np.round(A @ B_Nu, 5))
+    assert np.allclose(A @ B_Nu, 0), "Fallo: B_Nu no pertenece al álgebra de Nu(A)"
+
+    print("\n2) Verificando suma directa (Independencia Lineal de B):")
+    B = np.hstack([B_Im, B_Nu])
+    det_B = np.linalg.det(B)
+    print(f"Det(B) = {det_B:.5f}")
+    assert np.abs(det_B) > 1e-10, "Fallo: Las bases no forman suma directa Im(A) (+) Nu(A) = R^4"
+
+    print("\n3) Construyendo matriz del proyector P = B * D * B^-1:")
+    B_inv = np.linalg.inv(B)
+    print(f"B_inv = \n{np.round(B_inv,3)}")
+    D = np.diag([1, 1, 0, 0])
+    P = B @ D @ B_inv
+    print("P =")
+    print(np.round(P, 3))
+
+    print("\n4) Verificando propiedes del proyector:")
+    # Idempotencia: P^2 = P
+    is_idempotent = np.allclose(P @ P, P)
+    print(f"¿P^2 = P? {is_idempotent}")
+    assert is_idempotent, "Fallo: P no es idempotente (no es un proyector)"
+
+    # Ortogonalidad: P = P^T
+    is_symmetric = np.allclose(P, P.T)
+    print(f"¿P ortogonal (P = P^T)? {is_symmetric}")
+    # En la teoría dedujimos que NO es ortogonal
+    assert not is_symmetric, "Fallo: P no debe ser ortogonal"
+
+    # Coincidencia: P = A
+    is_A = np.allclose(P, A)
+    print(f"¿P idéntico a A? {is_A}")
+    assert not is_A, "Fallo: P no debe ser idéntico a A"
+
+    print("\n5) Abstracción al Caos (Randomization Testing):")
+    # Generamos vectores aleatorios proyectados y verificamos que caen en la imagen original
+    np.random.seed(42)
+    for _ in range(50):
+        # Tomamos un vector aleatorio r en R^4
+        r = np.random.randn(4)
+        # Lo proyectamos p_r = P @ r
+        p_r = P @ r
+        # Verificamos si podemos representar p_r como combinación lineal de B_Im
+        # p_r = B_Im @ x -> x resoluble con cuadrados mínimos con residuo casi nulo
+        x, residuals, _, _ = np.linalg.lstsq(B_Im, p_r, rcond=None)
+        assert len(residuals) == 0 or np.allclose(residuals, 0), "Fallo empírico: Un vector proyectado cayó fuera de la Imagen."
+    
+    print("\n[OK] Verificación completada con éxito. Robustez estipulada tolerando floats.")
+
+if __name__ == '__main__':
+    run_verification()
+
+```

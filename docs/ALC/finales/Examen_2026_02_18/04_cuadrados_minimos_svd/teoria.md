@@ -4,9 +4,13 @@
 >
 > **Objetivo:** Determinar los coeficientes $\alpha_1, \dots, \alpha_m$ que minimizan el error cuadrático:
 >
-> $$
+>
+
+$$
 > EC(\mathbf{\alpha}) = \sum_{j=1}^n (f(x_j) - y_j)^2
-> $$
+>
+
+$$
 >
 > con $\mathbf{x} = (x_1, \dots, x_n)$ e $\mathbf{y} = (y_1, \dots, y_n)$ datos experimentales, con $n \ge m$.
 >
@@ -24,16 +28,16 @@ El ejercicio trata sobre la aproximación de datos mediante **Cuadrados Mínimos
 
 $$
 A^+ = V \Sigma^+ U^T
-$$
 
+$$
    donde $\Sigma^+$ contiene los recíprocos de los valores singulares no nulos.
 
 El vector de coeficientes óptimo es:
 
 $$
 \alpha = A^+ y = V \text{diag}\left(\frac{1}{s_i}\right) U^T y
-$$
 
+$$
 ---
 
 ## Solución Técnica (Implementación Python)
@@ -41,7 +45,7 @@ $$
 Dado que no se permite `lstsq`, se implementa el cálculo de la matriz $A$ y la resolución del sistema utilizando únicamente operaciones de `NumPy`.
 
 ```python
---8<-- "Examen_2026_02_18/04_cuadrados_minimos_svd/verificacion.py"
+{/* --8<-- "Examen_2026_02_18/04_cuadrados_minimos_svd/verificacion.py" */}
 ```
 
 ### Cálculo del Error Cuadrático (EC)
@@ -50,14 +54,14 @@ Una vez hallados los coeficientes $\alpha$, el error cuadrático se calcula eval
 
 $$
 \hat{y} = A \cdot \alpha
-$$
 
+$$
 $$
 \text{Residuos} = \hat{y} - y
-$$
 
+$$
 $$
 EC(\alpha) = \|\text{Residuos}\|_2^2 = (A \cdot \alpha - y)^T (A \cdot \alpha - y)
-$$
 
+$$
 Este valor permite cuantificar la bondad del ajuste del modelo a los datos experimentales.

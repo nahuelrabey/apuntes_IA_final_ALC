@@ -1,0 +1,54 @@
+/* src/components/Ejercicio.module.css */
+.ejercicio,
+.demostracion {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: var(--ifm-alert-border-radius);
+    background-color: var(--ifm-background-surface-color);
+    overflow: hidden;
+}
+
+.header {
+    background-color: var(--ifm-color-emphasis-100);
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.numero {
+    font-weight: 800;
+    color: var(--ifm-color-primary);
+}
+
+.badge {
+    background-color: var(--ifm-color-primary);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.titulo {
+    font-weight: 500;
+    color: var(--ifm-color-emphasis-800);
+}
+
+.body {
+    padding: 1.5rem;
+}
+
+.body> :first-child {
+    margin-top: 0;
+}
+
+.body> :last-child {
+    margin-bottom: 0;
+}
