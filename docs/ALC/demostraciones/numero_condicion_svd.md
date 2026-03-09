@@ -2,16 +2,12 @@
 
 ## Enunciado del Teorema
 
-> Sea $M \in \mathbb{R}^{n \times n}$ invertible con descomposición SVD $M = U \Sigma V^T$ y valores singulares $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_n > 0$. Entonces:
->
->
+Sea $M \in \mathbb{R}^{n \times n}$ invertible con descomposición SVD $M = U \Sigma V^T$ y valores singulares $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_n > 0$. Entonces:
 
 $$
-> \kappa_2(M) = \|M\|_2 \cdot \|M^{-1}\|_2 = \frac{\sigma_{\max}}{\sigma_{\min}}
->
-
+\kappa_2(M) = \|M\|_2 \cdot \|M^{-1}\|_2 = \frac{\sigma_{\max}}{\sigma_{\min}}
 $$
->
+
 
 ---
 
@@ -71,15 +67,21 @@ $$
 $$
 ---
 
-??? info "Interpretación Geométrica"
-    La SVD muestra que $M$ estira la bola unitaria en la dirección $v_1$ por un factor $\sigma_{\max}$ y la contrae en la dirección $v_n$ por un factor $\sigma_{\min}$. El número de condición $\kappa_2(M)$ mide exactamente el cociente entre la máxima elongación y la máxima contracción. Cuando $\kappa_2(M)$ es grande, la matriz está casi degenerada: estira fuertemente en una dirección y aplana casi a cero en otra, lo que hace numericamente inestable la resolución de sistemas lineales.
+<Info titulo="Interpretación Geométrica">
 
-    Fin de la interpretación.
+La SVD muestra que $M$ estira la bola unitaria en la dirección $v_1$ por un factor $\sigma_{\max}$ y la contrae en la dirección $v_n$ por un factor $\sigma_{\min}$. El número de condición $\kappa_2(M)$ mide exactamente el cociente entre la máxima elongación y la máxima contracción. Cuando $\kappa_2(M)$ es grande, la matriz está casi degenerada: estira fuertemente en una dirección y aplana casi a cero en otra, lo que hace numericamente inestable la resolución de sistemas lineales.
 
-??? info "Caso no invertible: número de condición infinito"
-    Si $M$ es singular, $\sigma_{\min} = 0$ y la expresión $\sigma_{\max}/\sigma_{\min}$ es infinita. Esto es consistente con la definición: una matriz singular no puede invertirse, y cualquier perturbación pequeña del lado derecho puede producir errores arbitrariamente grandes en la solución, lo que se corresponde con $\kappa_2 = \infty$.
+Fin de la interpretación.
 
-    Fin de la observación.
+</Info>
+
+<Info titulo="Caso no invertible: número de condición infinito">
+
+Si $M$ es singular, $\sigma_{\min} = 0$ y la expresión $\sigma_{\max}/\sigma_{\min}$ es infinita. Esto es consistente con la definición: una matriz singular no puede invertirse, y cualquier perturbación pequeña del lado derecho puede producir errores arbitrariamente grandes en la solución, lo que se corresponde con $\kappa_2 = \infty$.
+
+Fin de la observación.
+
+</Info>
 
 ??? question "¿Por qué invertir el orden de los valores singulares?"
     Si $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_n > 0$, entonces tomando recíprocos se invierte el orden de las desigualdades:

@@ -2,7 +2,7 @@
 
 ## Interpretación del Enunciado
 
-> ¿Una matriz cuadrada $A$, bajo la condición de que posea todas sus columnas conformando un conjunto de **vectores linealmente independientes**, gozará *siempre* de la propiedad de ser **inversible**?
+¿Una matriz cuadrada $A$, bajo la condición de que posea todas sus columnas conformando un conjunto de **vectores linealmente independientes**, gozará *siempre* de la propiedad de ser **inversible**?
 
 La respuesta es afirmativa. Representa un teorema central de las transformaciones lineales, donde la presencia de ejes linealmente independientes garantiza un mapeo biyectivo en el espacio.
 

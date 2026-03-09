@@ -1,13 +1,9 @@
 # Equivalencia de Normas: $\ell_1$ y $\ell_2$
 
-> **Demostración.** Sea $x \in \mathbb{R}^n$. Demostrar las siguientes desigualdades que relacionan la norma del taxi ($\|x\|_1$) con la norma euclídea ($\|x\|_2$):
->
->
+**Demostración.** Sea $x \in \mathbb{R}^n$. Demostrar las siguientes desigualdades que relacionan la norma del taxi ($\|x\|_1$) con la norma euclídea ($\|x\|_2$):
 
 $$
-> \frac{1}{\sqrt{n}}\|x\|_1 \leq \|x\|_2 \leq \|x\|_1
->
-
+\frac{1}{\sqrt{n}}\|x\|_1 \leq \|x\|_2 \leq \|x\|_1
 $$
 ## Interpretación del Enunciado
 

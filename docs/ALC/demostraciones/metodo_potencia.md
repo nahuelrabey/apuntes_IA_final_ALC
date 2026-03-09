@@ -2,7 +2,7 @@
 
 ## Interpretación del Enunciado
 
-> El **Método de la Potencia** normalizado divide por la norma del vector obtenido en cada paso iterativo. A través del principio de inducción, podemos comprobar que este proceso equivale a un cambio de escala.
+El **Método de la Potencia** normalizado divide por la norma del vector obtenido en cada paso iterativo. A través del principio de inducción, podemos comprobar que este proceso equivale a un cambio de escala.
 
 El objetivo es demostrar matemáticamente que en el Método de la Potencia, re-normalizar el vector resultante a magnitud 1 en cada iteración $k$ es matemáticamente equivalente a aplicar la matriz $B$ elevada a la potencia $k$ directamente sobre el vector inicial $x^{(0)}$ y normalizar el resultado de dicha operación final.
 

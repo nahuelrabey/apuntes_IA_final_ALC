@@ -24,3 +24,15 @@ export function Demostracion({ titulo, children }) {
         </div>
     );
 }
+
+export function Enunciado({ titulo, children }) {
+    return (
+        <div className={styles.ejercicio}>
+            <h3 className={styles.header}>
+                <span className={styles.numero}>Enunciado</span>
+                {titulo && <span className={styles.titulo}>: {titulo}</span>}
+            </h3>
+            <div className={styles.body}>{children}</div>
+        </div>
+    );
+}

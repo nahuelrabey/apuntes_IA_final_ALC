@@ -1,12 +1,17 @@
 # Ejercicio 1: Proyectores y Subespacios
 
-> **Ejercicio 1.** Sea $A = \begin{pmatrix} -1 & 1 & 0 & 1 \\ 1 & -1 & -1 & -2 \\ 1 & -1 & 0 & -1 \\ 1 & -1 & 1 & 0 \end{pmatrix}$ y $f: \mathbb{R}^4 \to \mathbb{R}^4$ definida por $f(x) = Ax$.
->
-> **a)** Definir un proyector $p:\mathbb{R}^4 \to \mathbb{R}^4$ tal que $Im(p) = Im(f)$ y $Nu(p) = Nu(f)$.
->
-> **b)** Decidir si $p$ es un proyector ortogonal. ¿Es $p$ idéntico a $f$?
->
-> **c)** Hallar una base $B$ tal que la matriz de $p$ en $B$ sea diagonal.
+<Enunciado titulo="Ejercicio 1.">
+
+Sea $A = \begin{pmatrix} -1 & 1 & 0 & 1 \\ 1 & -1 & -1 & -2 \\ 1 & -1 & 0 & -1 \\ 1 & -1 & 1 & 0 \end{pmatrix}$ y $f: \mathbb{R}^4 \to \mathbb{R}^4$ definida por $f(x) = Ax$.
+
+**a)** Definir un proyector $p:\mathbb{R}^4 \to \mathbb{R}^4$ tal que $Im(p) = Im(f)$ y $Nu(p) = Nu(f)$.
+
+**b)** Decidir si $p$ es un proyector ortogonal. ¿Es $p$ idéntico a $f$?
+
+**c)** Hallar una base $B$ tal que la matriz de $p$ en $B$ sea diagonal.
+
+</Enunciado>
+
 
 ## Interpretación del Enunciado
 
@@ -14,36 +19,42 @@ Se nos da una matriz $A \in \mathbb{R}^{4 \times 4}$ que define una transformaci
 
 ---
 
-> a) Definir un proyector $p:\mathbb{R}^4 \to \mathbb{R}^4$ tal que $Im(p) = Im(f)$ y $Nu(p) = Nu(f)$.
+a) Definir un proyector $p:\mathbb{R}^4 \to \mathbb{R}^4$ tal que $Im(p) = Im(f)$ y $Nu(p) = Nu(f)$.
 
 ## Solución del Inciso (a)
 
 Para construir dicho proyector $p$, necesitamos conocer explícitamente bases para la imagen ($Im(f)$) y el núcleo ($Nu(f)$) de nuestra transformación lineal.
 
-??? info "¿Qué es un Proyector? (Definición Conceptual)"
-    En álgebra lineal, un **proyector** es una transformación lineal $p: V \to V$ que es **idempotente**, lo que significa que aplicar la transformación dos veces es lo mismo que aplicarla una sola vez: $p \circ p = p$ (o en términos de matrices, $P^2 = P$).
+<Info titulo="¿Qué es un Proyector? (Definición Conceptual)">
 
-    Conceptualmente, un proyector "descompone" el espacio en dos partes:
+En álgebra lineal, un **proyector** es una transformación lineal $p: V \to V$ que es **idempotente**, lo que significa que aplicar la transformación dos veces es lo mismo que aplicarla una sola vez: $p \circ p = p$ (o en términos de matrices, $P^2 = P$).
 
-    -   **La Imagen ($Im(p)$)**: Es el subespacio "hacia donde" proyectamos. Si un vector ya está aquí, el proyector lo deja idéntico.
-    -   **El Núcleo ($Nu(p)$)**: Es el subespacio "a lo largo del cual" proyectamos. Todo lo que esté aquí se colapsa al vector nulo.
+Conceptualmente, un proyector "descompone" el espacio en dos partes:
 
-    Cualquier vector del espacio se puede escribir como una suma de un vector en la imagen y uno en el núcleo. El proyector simplemente "se queda" con la parte que pertenece a la imagen y "descarta" la parte del núcleo.
+-   **La Imagen ($Im(p)$)**: Es el subespacio "hacia donde" proyectamos. Si un vector ya está aquí, el proyector lo deja idéntico.
+-   **El Núcleo ($Nu(p)$)**: Es el subespacio "a lo largo del cual" proyectamos. Todo lo que esté aquí se colapsa al vector nulo.
 
-    Fin de la definición.
+Cualquier vector del espacio se puede escribir como una suma de un vector en la imagen y uno en el núcleo. El proyector simplemente "se queda" con la parte que pertenece a la imagen y "descarta" la parte del núcleo.
+
+Fin de la definición.
+
+</Info>
 
 Comenzamos escalonando la matriz $A$ para hallar su forma reducida por filas y determinar los pivotes:
 
 $$
 A \sim \begin{pmatrix} 1 & -1 & 0 & -1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
-
 $$
-??? info "¿Por qué las Columnas Pivotales?"
-    Las operaciones elementales de fila aplicadas para llegar a la RREF (Escalonada Reducida) preservan las **relaciones de dependencia lineal** entre las columnas.
 
-    Si las columnas 1 y 3 son pivotales en la RREF, significa que son linealmente independientes y que las demás columnas pueden expresarse como combinación lineal de ellas. Debido a que la estructura se mantiene, las columnas 1 y 3 de la matriz **original** $A$ también son linealmente independientes y generan el mismo espacio (la Imagen).
+<Info titulo="¿Por qué las Columnas Pivotales?">
 
-    Fin de la observación.
+Las operaciones elementales de fila aplicadas para llegar a la RREF (Escalonada Reducida) preservan las **relaciones de dependencia lineal** entre las columnas.
+
+Si las columnas 1 y 3 son pivotales en la RREF, significa que son linealmente independientes y que las demás columnas pueden expresarse como combinación lineal de ellas. Debido a que la estructura se mantiene, las columnas 1 y 3 de la matriz **original** $A$ también son linealmente independientes y generan el mismo espacio (la Imagen).
+
+Fin de la observación.
+
+</Info>
 
 De las columnas pivotales (primera y tercera), deducimos una base $B_{Im}$ para la imagen $Im(f) = Col(A)$:
 
@@ -53,21 +64,27 @@ B_{Im} = \left\{ \begin{pmatrix} -1 \\ 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix
 $$
 De las variables libres ($x_2$ y $x_4$), derivamos las ecuaciones del núcleo $Nu(f)$.
 
-??? info "¿Por qué las Variables Libres?"
-    El Núcleo consiste en todos los vectores $x$ tales que $Ax = 0$. Al escalonar la matriz, estamos simplificando este sistema de ecuaciones sin cambiar su conjunto solución.
+<Info titulo="¿Por qué las Variables Libres?">
 
-    Las **variables libres** representan los grados de libertad del sistema. Cada variable libre nos permite construir un vector independiente en el Núcleo (asignándole el valor 1 y 0 a las demás libres). La cantidad de variables libres coincide exactamente con la **nulidad** de la transformación (por el Teorema de la Dimensión).
+El Núcleo consiste en todos los vectores $x$ tales que $Ax = 0$. Al escalonar la matriz, estamos simplificando este sistema de ecuaciones sin cambiar su conjunto solución.
 
-    Fin de la observación.
+Las **variables libres** representan los grados de libertad del sistema. Cada variable libre nos permite construir un vector independiente en el Núcleo (asignándole el valor 1 y 0 a las demás libres). La cantidad de variables libres coincide exactamente con la **nulidad** de la transformación (por el Teorema de la Dimensión).
 
-??? info "Observación Teórica: ¿Cómo derivamos estas ecuaciones rref?"
-    Las ecuaciones surgen de traducir directamente las filas no nulas de la matriz escalonada reducida por filas (la forma RREF obtenida arriba) de vuelta a un sistema homogéneo ($Ax = 0$).
+Fin de la observación.
 
-    - La **primera fila** $(1, -1, 0, -1)$ representa la ecuación: $1 \cdot x_1 + (-1) \cdot x_2 + 0 \cdot x_3 + (-1) \cdot x_4 = 0 \implies x_1 - x_2 - x_4 = 0$.
+</Info>
 
-    - La **segunda fila** $(0, 0, 1, 1)$ representa la ecuación: $0 \cdot x_1 + 0 \cdot x_2 + 1 \cdot x_3 + 1 \cdot x_4 = 0 \implies x_3 + x_4 = 0$.
+<Info titulo="Observación Teórica: ¿Cómo derivamos estas ecuaciones rref?">
 
-    Fin de la observación.
+Las ecuaciones surgen de traducir directamente las filas no nulas de la matriz escalonada reducida por filas (la forma RREF obtenida arriba) de vuelta a un sistema homogéneo ($Ax = 0$).
+
+- La **primera fila** $(1, -1, 0, -1)$ representa la ecuación: $1 \cdot x_1 + (-1) \cdot x_2 + 0 \cdot x_3 + (-1) \cdot x_4 = 0 \implies x_1 - x_2 - x_4 = 0$.
+
+- La **segunda fila** $(0, 0, 1, 1)$ representa la ecuación: $0 \cdot x_1 + 0 \cdot x_2 + 1 \cdot x_3 + 1 \cdot x_4 = 0 \implies x_3 + x_4 = 0$.
+
+Fin de la observación.
+
+</Info>
 
 Expresado paramétricamente de acuerdo a las variables libres, despejamos con $x_1 = x_2 + x_4$ y $x_3 = -x_4$. Por lo que obtenemos una base $B_{Nu}$:
 
@@ -77,8 +94,11 @@ B_{Nu} = \left\{ \begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix}
 $$
 Para que la transformación $p$ sea un proyector definido de esta forma, y dado que queremos proyectar sobre $Im(f)$ a lo largo de $Nu(f)$, debe cumplirse que $\mathbb{R}^4 = Im(f) \oplus Nu(f)$ (suma directa).
 
-??? info "¿Por qué se requiere la Suma Directa ($\oplus$)??"
-    Para que este proyector $p$ sea una función bien definida para **cualquier** vector $x$, necesitamos poder descomponerlo de forma **única** como:
+<Info titulo="¿Por qué se requiere la Suma Directa ($\oplus$)??">
+
+Para que este proyector $p$ sea una función bien definida para **cualquier** vector $x$, necesitamos poder descomponerlo de forma **única** como:
+
+</Info>
 
 $$
     x = \underbrace{s}_{s \in Im(f)} + \underbrace{n}_{n \in Nu(f)}
@@ -110,21 +130,24 @@ $$
 D = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
 
 $$
-??? info "¿Por qué esta técnica construye el proyector buscado?"
-    Esta construcción se basa en el **Teorema de Descomposición por Autovalores**. Un proyector $p$ queda unívocamente determinado por su acción sobre una base que descompone al espacio en $Im(p) \oplus Nu(p)$:
+<Info titulo="¿Por qué esta técnica construye el proyector buscado?">
 
-    - Si $v \in Im(p) \implies p(v) = 1 \cdot v$.
-    - Si $n \in Nu(p) \implies p(n) = 0 \cdot n$.
+Esta construcción se basa en el **Teorema de Descomposición por Autovalores**. Un proyector $p$ queda unívocamente determinado por su acción sobre una base que descompone al espacio en $Im(p) \oplus Nu(p)$:
 
-    Al armar la matriz $B = [B_{Im} \mid B_{Nu}]$ y la matriz diagonal $D$ con 1s (para la imagen) y 0s (para el núcleo), la expresión $P = B D B^{-1}$ realiza tres pasos lógicamente:
+- Si $v \in Im(p) \implies p(v) = 1 \cdot v$.
+- Si $n \in Nu(p) \implies p(n) = 0 \cdot n$.
 
-    -   **$B^{-1}$**: Cambia el vector de la base canónica a nuestra base adaptada $B$.
-    -   **$D$**: Aplica la proyección (mantiene componentes de la imagen, anula componentes del núcleo).
-    -   **$B$**: Devuelve el vector resultante a la base canónica.
+Al armar la matriz $B = [B_{Im} \mid B_{Nu}]$ y la matriz diagonal $D$ con 1s (para la imagen) y 0s (para el núcleo), la expresión $P = B D B^{-1}$ realiza tres pasos lógicamente:
 
-    **(La justificación analítica de este cambio de base se encuentra documentada en [Cambio de Base: Matrices $B$ y $B^{-1}$](../../../demostraciones/cambio_base.md)).**
+-   **$B^{-1}$**: Cambia el vector de la base canónica a nuestra base adaptada $B$.
+-   **$D$**: Aplica la proyección (mantiene componentes de la imagen, anula componentes del núcleo).
+-   **$B$**: Devuelve el vector resultante a la base canónica.
 
-    Fin de la observación.
+**(La justificación analítica de este cambio de base se encuentra documentada en [Cambio de Base: Matrices $B$ y $B^{-1}$](../../../demostraciones/cambio_base.md)).**
+
+Fin de la observación.
+
+</Info>
 
 ??? check "Demostración de Idempotencia ($P^2 = P$)"
     Para certificar que $P$ es efectivamente un proyector, debemos demostrar que es **idempotente**:
@@ -156,12 +179,15 @@ $$
 
 ---
 
-> b) Decidir si $p$ es un proyector ortogonal. ¿Es $p$ idéntico a $f$?
+b) Decidir si $p$ es un proyector ortogonal. ¿Es $p$ idéntico a $f$?
 
 ## Solución del Inciso (b)
 
-??? info "¿Qué es un Proyector Ortogonal?"
-    Un proyector $p$ sobre un subespacio $S$ es **ortogonal** si proyecta los vectores de forma perpendicular al subespacio imagen. Geométricamente, esto significa que la dirección de proyección (el núcleo) es perpendicular a la imagen:
+<Info titulo="¿Qué es un Proyector Ortogonal?">
+
+Un proyector $p$ sobre un subespacio $S$ es **ortogonal** si proyecta los vectores de forma perpendicular al subespacio imagen. Geométricamente, esto significa que la dirección de proyección (el núcleo) es perpendicular a la imagen:
+
+</Info>
 
 $$
     Nu(p) = Im(p)^\perp
@@ -189,10 +215,13 @@ $$
 $$
 Esto demuestra que $Nu(f)$ no es perpendicular a $Im(f)$.
 
-??? info "¿Por qué un solo producto no nulo invalida la ortogonalidad?"
-    Para que dos subespacios sean perpendiculares ($S \perp W$), **todos** los vectores de $S$ deben ser ortogonales a **todos** los vectores de $W$.
+<Info titulo="¿Por qué un solo producto no nulo invalida la ortogonalidad?">
 
-    Si encontramos aunque sea un par de vectores (uno de cada subespacio) cuyo producto interno sea distinto de cero, hemos hallado un **contraejemplo** que rompe la condición de perpendicularidad global. En este caso, aunque $\langle v_1, n_1 \rangle = 0$, el hecho de que $\langle v_2, n_1 \rangle = -1$ es suficiente para asegurar que los subespacios no están a 90 grados entre sí.
+Para que dos subespacios sean perpendiculares ($S \perp W$), **todos** los vectores de $S$ deben ser ortogonales a **todos** los vectores de $W$.
+
+Si encontramos aunque sea un par de vectores (uno de cada subespacio) cuyo producto interno sea distinto de cero, hemos hallado un **contraejemplo** que rompe la condición de perpendicularidad global. En este caso, aunque $\langle v_1, n_1 \rangle = 0$, el hecho de que $\langle v_2, n_1 \rangle = -1$ es suficiente para asegurar que los subespacios no están a 90 grados entre sí.
+
+</Info>
 
 ¿Es $p$ idéntico a $f$?
 Para que $p(x) = f(x) \;\forall x$, debería ocurrir que la matriz $P$ sea idéntica a $A$. A simple vista de las matrices, vemos que $P \neq A$. Otra forma de verlo es analizando la restricción sobre la imagen: si $p \equiv f$, deberíamos tener $f(v) = v$ para todo $v \in Im(f)$.
@@ -202,32 +231,38 @@ $$
 f(v_1) = A v_1 = \begin{pmatrix} 3 \\ -5 \\ -3 \\ -1 \end{pmatrix} \neq v_1
 
 $$
-??? info "¿Por qué esta desigualdad demuestra que $p \neq f$?"
-    El razonamiento es una **demostración por contradicción**:
+<Info titulo="¿Por qué esta desigualdad demuestra que $p \neq f$?">
 
-    1.  **Propiedad del Proyector**: Por definición, un proyector $p$ actúa como la identidad sobre su imagen. Es decir, si $v \in Im(p)$, entonces $p(v) = v$.
-    2.  **Igualdad de Imágenes**: Nosotros definimos $p$ tal que $Im(p) = Im(f)$. Por lo tanto, para cualquier vector $v \in Im(f)$, se debe cumplir que $p(v) = v$.
-    3.  **Hipótesis**: Si $f$ fuera idéntico a $p$ ($f \equiv p$), entonces $f$ debería cumplir la misma propiedad: $f(v) = v$ para todo vector en su imagen.
+El razonamiento es una **demostración por contradicción**:
 
-    Al comprobar que para el vector $v_1$, la transformación $f(v_1)$ devuelve algo distinto a $v_1$, demostramos que $f$ **no es la identidad en su propia imagen**. Como un proyector *debe* ser la identidad en su imagen, entonces $f$ no puede ser ese proyector.
+1.  **Propiedad del Proyector**: Por definición, un proyector $p$ actúa como la identidad sobre su imagen. Es decir, si $v \in Im(p)$, entonces $p(v) = v$.
+2.  **Igualdad de Imágenes**: Nosotros definimos $p$ tal que $Im(p) = Im(f)$. Por lo tanto, para cualquier vector $v \in Im(f)$, se debe cumplir que $p(v) = v$.
+3.  **Hipótesis**: Si $f$ fuera idéntico a $p$ ($f \equiv p$), entonces $f$ debería cumplir la misma propiedad: $f(v) = v$ para todo vector en su imagen.
+
+Al comprobar que para el vector $v_1$, la transformación $f(v_1)$ devuelve algo distinto a $v_1$, demostramos que $f$ **no es la identidad en su propia imagen**. Como un proyector *debe* ser la identidad en su imagen, entonces $f$ no puede ser ese proyector.
+
+</Info>
 
 Con esto, demostramos que **$p$ no es idéntico a $f$**. $A$ no actuaba operativamente como la identidad en su propio subespacio imagen.
 
 ---
 
-> c) Hallar una base $B$ tal que la matriz de $p$ en $B$ sea diagonal.
+c) Hallar una base $B$ tal que la matriz de $p$ en $B$ sea diagonal.
 
 ## Solución del Inciso (c)
 
-??? info "¿Qué significa que la matriz sea diagonal en una base $B$?"
-    En álgebra lineal, decir que una matriz es diagonal en una base determinada significa que todos los vectores de esa base son **autovectores** de la transformación.
+<Info titulo="¿Qué significa que la matriz sea diagonal en una base $B$?">
 
-    Para un proyector $p$, esto es especialmente sencillo ya que solo existen dos autovalores posibles:
+En álgebra lineal, decir que una matriz es diagonal en una base determinada significa que todos los vectores de esa base son **autovectores** de la transformación.
 
-    - **$\lambda = 1$**: Para cualquier vector que pertenezca a la Imagen ($Im(p)$).
-    - **$\lambda = 0$**: Para cualquier vector que pertenezca al Núcleo ($Nu(p)$).
+Para un proyector $p$, esto es especialmente sencillo ya que solo existen dos autovalores posibles:
 
-    Por lo tanto, "hallar una base $B$ tal que la matriz sea diagonal" consiste simplemente en ensamblar una base del espacio total utilizando vectores de la imagen y vectores del núcleo. Decimos entonces que la matriz del proyector $P$ es **semejante** a la matriz diagonal $D$ ($P = BDB^{-1}$), lo que significa que ambas representan la misma transformación pero expresadas en sistemas de coordenadas distintos.
+- **$\lambda = 1$**: Para cualquier vector que pertenezca a la Imagen ($Im(p)$).
+- **$\lambda = 0$**: Para cualquier vector que pertenezca al Núcleo ($Nu(p)$).
+
+Por lo tanto, "hallar una base $B$ tal que la matriz sea diagonal" consiste simplemente en ensamblar una base del espacio total utilizando vectores de la imagen y vectores del núcleo. Decimos entonces que la matriz del proyector $P$ es **semejante** a la matriz diagonal $D$ ($P = BDB^{-1}$), lo que significa que ambas representan la misma transformación pero expresadas en sistemas de coordenadas distintos.
+
+</Info>
 
 Esta respuesta la construimos inherentemente en la resolución del inciso a). Todo proyector $p$ cuyas restricciones son la suma directa iterativa de su propia imagen y núcleo ($Im \oplus Nu = \mathbb{R}^n$) es naturalmente diagonalizable, teniendo como autovalores a 1 (con multiplicidad algebraica igual a la dimensión de su imagen) y a 0 (con multiplicidad idéntica a la nulidad).
 

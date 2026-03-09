@@ -1,19 +1,24 @@
 # Ejercicio 1: Cadenas de Markov
 
-> **Ejercicio 1.** El movimiento anual entre 4 ciudades está regido por el siguiente diagrama de
-> transición. Se sabe que $v = (0, 0, \frac{1}{2}, \frac{1}{2})^t$ es un estado de equilibrio.
->
-> **(a)** Hallar la matriz de transición **P**.
->
-> **(b)** Determinar la distribución de población después de 10 años,
-> si la distribución inicial es $v_0 = (\frac{1}{2}, 0, \frac{1}{2}, 0)^t$.
->
-> **(c)** ¿Existe $P^\infty$? Si existe, calcularla.
->
-> **(d)** Implemente `estado_limite(P, v0, max_iter, tol)` en Python, que busca el estado
-> límite de la distribución inicial `v0`. En caso de no hallarlo con tolerancia `tol`,
-> o de realizar más de `max_iter` iteraciones, la función debe retornar `None`
-> con el mensaje correspondiente.
+<Enunciado titulo="Ejercicio 1.">
+
+El movimiento anual entre 4 ciudades está regido por el siguiente diagrama de
+transición. Se sabe que $v = (0, 0, \frac{1}{2}, \frac{1}{2})^t$ es un estado de equilibrio.
+
+**(a)** Hallar la matriz de transición **P**.
+
+**(b)** Determinar la distribución de población después de 10 años,
+si la distribución inicial es $v_0 = (\frac{1}{2}, 0, \frac{1}{2}, 0)^t$.
+
+**(c)** ¿Existe $P^\infty$? Si existe, calcularla.
+
+**(d)** Implemente `estado_limite(P, v0, max_iter, tol)` en Python, que busca el estado
+límite de la distribución inicial `v0`. En caso de no hallarlo con tolerancia `tol`,
+o de realizar más de `max_iter` iteraciones, la función debe retornar `None`
+con el mensaje correspondiente.
+
+</Enunciado>
+
 
 ---
 

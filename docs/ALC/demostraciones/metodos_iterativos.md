@@ -76,13 +76,15 @@ $$
 (D + \omega L) x^{(k+1)} = [(1 - \omega)D - \omega U]x^{(k)} + \omega b
 
 $$
-??? info "Propiedades de Convergencia"
+<Info titulo="Propiedades de Convergencia">
 
-    - **Condición Necesaria**: El método converge solo si $\omega \in (0, 2)$. Ver [demostración del determinante](../finales/Examen_2026_02_18/01_metodo_sor/teoria.md#inciso-b-determinante-de-iteracion-y-condicion-de-rango-cota).
-    - **Matrices SPD**: Si $A$ es Simétrica Definida Positiva, SOR converge para cualquier $\omega \in (0, 2)$.
-    - **Diagonal Dominante**: GS y Jacobi convergen si $A$ es estrictamente dominante por filas.
+- **Condición Necesaria**: El método converge solo si $\omega \in (0, 2)$. Ver [demostración del determinante](../finales/Examen_2026_02_18/01_metodo_sor/teoria.md#inciso-b-determinante-de-iteracion-y-condicion-de-rango-cota).
+- **Matrices SPD**: Si $A$ es Simétrica Definida Positiva, SOR converge para cualquier $\omega \in (0, 2)$.
+- **Diagonal Dominante**: GS y Jacobi convergen si $A$ es estrictamente dominante por filas.
 
-    Fin de la observación.
+Fin de la observación.
+
+</Info>
 
 ---
 

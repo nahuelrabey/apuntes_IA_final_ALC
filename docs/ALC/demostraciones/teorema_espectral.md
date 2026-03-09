@@ -2,10 +2,10 @@
 
 ## Interpretación del Enunciado
 
-> Demostrar formalmente el **Teorema Espectral aplicado a Matrices Reales**: si una matriz $A \in \mathbb{R}^{n \times n}$ es simétrica ($A = A^t$), entonces satisface dos propiedades espectrales:
->
-> 1) Todos sus autovalores $\lambda_i$ son **números reales** (ninguno es complejo).
-> 2) Los autovectores $v_i$ correspondientes a autovalores distintos son **ortogonales** entre sí, lo que garantiza una base ortonormal para $\mathbb{R}^n$ ($A$ es diagonalizable ortogonalmente).
+Demostrar formalmente el **Teorema Espectral aplicado a Matrices Reales**: si una matriz $A \in \mathbb{R}^{n \times n}$ es simétrica ($A = A^t$), entonces satisface dos propiedades espectrales:
+
+1) Todos sus autovalores $\lambda_i$ son **números reales** (ninguno es complejo).
+2) Los autovectores $v_i$ correspondientes a autovalores distintos son **ortogonales** entre sí, lo que garantiza una base ortonormal para $\mathbb{R}^n$ ($A$ es diagonalizable ortogonalmente).
 
 Este teorema es la base de transformaciones como SVD (Descomposición en Valores Singulares) y PCA (Análisis de Componentes Principales).
 

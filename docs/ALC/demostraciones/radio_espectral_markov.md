@@ -1,16 +1,12 @@
 # Radio Espectral de una Matriz de Markov
 
-> **Teorema.**
-> Sea $P \in \mathbb{R}^{n \times n}$ una matriz estocástica por columnas (es decir, $p_{ij} \ge 0$ para todo $i,j$ y $\sum_{i=1}^n p_{ij} = 1$ para todo $j$). Entonces, su radio espectral es exactamente 1:
->
->
+**Teorema.**
+Sea $P \in \mathbb{R}^{n \times n}$ una matriz estocástica por columnas (es decir, $p_{ij} \ge 0$ para todo $i,j$ y $\sum_{i=1}^n p_{ij} = 1$ para todo $j$). Entonces, su radio espectral es exactamente 1:
 
 $$
-> \rho(P) = 1
->
-
+\rho(P) = 1
 $$
->
+
 
 ## Interpretación del Enunciado
 

@@ -1,7 +1,7 @@
 # Demostración: Matriz Diagonalizable con Autovalores Repetidos
 
-> **Enunciado a Demostrar:**
-> Es falso afirmar que toda matriz diagonalizable requiere autovalores estrictamente distintos. Demostrar, mediante un contraejemplo analítico y su validación empírica, que una matriz estocástica (de Markov) puede ser diagonalizable teniendo autovalores repetidos (en particular, $\lambda=1$ con multiplicidad algebraica $> 1$).
+**Enunciado a Demostrar:**
+Es falso afirmar que toda matriz diagonalizable requiere autovalores estrictamente distintos. Demostrar, mediante un contraejemplo analítico y su validación empírica, que una matriz estocástica (de Markov) puede ser diagonalizable teniendo autovalores repetidos (en particular, $\lambda=1$ con multiplicidad algebraica $> 1$).
 
 ## Interpretación del Enunciado
 

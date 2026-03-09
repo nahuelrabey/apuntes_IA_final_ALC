@@ -1,33 +1,28 @@
 # Solución del Ejercicio 2
 
-> **Ejercicio 2**
->
-> 1. Calcular la descomposición en valores singulares (SVD) de la matriz:
->
->
+<Enunciado titulo="Ejercicio 2">
+
+1. Calcular la descomposición en valores singulares (SVD) de la matriz:
 
 $$
-> A = \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix}
->
-
+A = \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix}
 $$
->
-> 2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$, donde $P$ es una matriz de permutación. Además, calcular $||PA||_2$ y $\kappa_2(PA)$.
+
+2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$, donde $P$ es una matriz de permutación. Además, calcular $||PA||_2$ y $\kappa_2(PA)$.
+
+</Enunciado>
+
 
 ---
 
 ## 1. Calcular la descomposición en valores singulares (SVD) de la matriz $A$
->
-> 1. Calcular la descomposición en valores singulares (SVD) de la matriz:
->
->
+
+1. Calcular la descomposición en valores singulares (SVD) de la matriz:
 
 $$
-> A = \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix}
->
-
+A = \begin{pmatrix} 0 & -1 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & -3 \end{pmatrix}
 $$
->
+
 
 Dada la matriz:
 
@@ -96,8 +91,8 @@ $$
 ---
 
 ## 2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$
->
-> 2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$, donde $P$ es una matriz de permutación. Además, calcular $||PA||_2$ y $\kappa_2(PA)$.
+
+2. Probar que $PA$ y $AP$ tienen los mismos valores singulares que $A$, donde $P$ es una matriz de permutación. Además, calcular $||PA||_2$ y $\kappa_2(PA)$.
 
 Una matriz de permutación $P$ es siempre una matriz ortogonal; es decir, altera el orden de filas o columnas, pero respeta la isometría:
 

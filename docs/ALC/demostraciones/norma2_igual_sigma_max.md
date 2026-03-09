@@ -2,16 +2,12 @@
 
 ## Enunciado del Teorema
 
-> Sea $M \in \mathbb{R}^{m \times n}$ una matriz con descomposición SVD $M = U \Sigma V^T$, y sea $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0$ sus valores singulares. Entonces la norma matricial inducida por la norma euclídea vectorial satisface:
->
->
+Sea $M \in \mathbb{R}^{m \times n}$ una matriz con descomposición SVD $M = U \Sigma V^T$, y sea $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0$ sus valores singulares. Entonces la norma matricial inducida por la norma euclídea vectorial satisface:
 
 $$
-> \|M\|_2 = \sigma_{\max}(M) = \sigma_1
->
-
+\|M\|_2 = \sigma_{\max}(M) = \sigma_1
 $$
->
+
 
 ---
 
@@ -77,11 +73,17 @@ $$
 $$
 ---
 
-??? info "Intuición Geométrica"
-    La SVD descompone la acción de $M$ en tres pasos: rotación/reflexión ($V^T$), escalado a lo largo de ejes ortogonales ($\Sigma$), y segunda rotación/reflexión ($U$). Las rotaciones no cambian longitudes, por lo que la máxima elongación que $M$ puede aplicar a un vector unitario es precisamente $\sigma_1$, el mayor factor de escala en $\Sigma$. El vector que alcanza ese máximo es la primera columna de $V$ (es decir, $x = v_1$).
+<Info titulo="Intuición Geométrica">
 
-??? info "Consecuencia: Número de Condición en Base 2"
-    Una vez establecido que $\|M\|_2 = \sigma_{\max}$, la misma lógica aplicada a $M^{-1}$ (cuya SVD invierte y ordena los valores singulares) da $\|M^{-1}\|_2 = 1/\sigma_{\min}$. El número de condición resulta entonces:
+La SVD descompone la acción de $M$ en tres pasos: rotación/reflexión ($V^T$), escalado a lo largo de ejes ortogonales ($\Sigma$), y segunda rotación/reflexión ($U$). Las rotaciones no cambian longitudes, por lo que la máxima elongación que $M$ puede aplicar a un vector unitario es precisamente $\sigma_1$, el mayor factor de escala en $\Sigma$. El vector que alcanza ese máximo es la primera columna de $V$ (es decir, $x = v_1$).
+
+</Info>
+
+<Info titulo="Consecuencia: Número de Condición en Base 2">
+
+Una vez establecido que $\|M\|_2 = \sigma_{\max}$, la misma lógica aplicada a $M^{-1}$ (cuya SVD invierte y ordena los valores singulares) da $\|M^{-1}\|_2 = 1/\sigma_{\min}$. El número de condición resulta entonces:
+
+</Info>
 
 $$
     \kappa_2(M) = \|M\|_2 \cdot \|M^{-1}\|_2 = \frac{\sigma_{\max}}{\sigma_{\min}}

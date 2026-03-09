@@ -1,12 +1,17 @@
 # Ejercicio 4: Condicionamiento y Precondicionadores
 
-> **Ejercicio 4.** Sea $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ k^2 & 0 & k^2 \end{pmatrix}$, para $k \in \mathbb{N}, k > 1$.
->
-> **a)** Probar que $Cond_\infty(A) \ge k^2$ y que $Cond_2(A) \ge ck^2$ para alguna constante $c$.
->
-> **b)** Explicar qué consecuencias tendría un valor de $k$ alto a la hora de resolver un sistema de la forma $Ax = b$. ¿Depende esto de $b$?
->
-> **c)** Un mecanismo para mejorar la calidad de las soluciones obtenidas al resolver un sistema es multiplicarlo por un *precondicionador*: se toma una matriz $C$ y se resuelve el sistema $(CA)x = Cb$. Por supuesto, no es obvio cómo elegir $C$ en cada caso. Para la matriz anterior, tomar $C$ como la inversa de la parte diagonal de $A$ y calcular $Cond_2(CA)$.
+<Enunciado titulo="Ejercicio 4.">
+
+Sea $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ k^2 & 0 & k^2 \end{pmatrix}$, para $k \in \mathbb{N}, k > 1$.
+
+**a)** Probar que $Cond_\infty(A) \ge k^2$ y que $Cond_2(A) \ge ck^2$ para alguna constante $c$.
+
+**b)** Explicar qué consecuencias tendría un valor de $k$ alto a la hora de resolver un sistema de la forma $Ax = b$. ¿Depende esto de $b$?
+
+**c)** Un mecanismo para mejorar la calidad de las soluciones obtenidas al resolver un sistema es multiplicarlo por un *precondicionador*: se toma una matriz $C$ y se resuelve el sistema $(CA)x = Cb$. Por supuesto, no es obvio cómo elegir $C$ en cada caso. Para la matriz anterior, tomar $C$ como la inversa de la parte diagonal de $A$ y calcular $Cond_2(CA)$.
+
+</Enunciado>
+
 
 ## Interpretación del Enunciado
 
@@ -16,7 +21,7 @@ Se evalúa la sensibilidad numérica de un sistema lineal cuya matriz $A$ depend
 
 ## Solución del Ejercicio
 
-> a) Probar que $Cond_\infty(A) \ge k^2$ y que $Cond_2(A) \ge ck^2$ para alguna constante $c$.
+a) Probar que $Cond_\infty(A) \ge k^2$ y que $Cond_2(A) \ge ck^2$ para alguna constante $c$.
 
 Dada nuestra matriz paramétrica $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 0 \\ k^2 & 0 & k^2 \end{pmatrix}$, procedemos primero a calcular su número de condición bajo la norma general infinito.
 
@@ -51,8 +56,11 @@ $$
 C_{11} = \det\begin{pmatrix} 1 & 0 \\ 0 & k^2 \end{pmatrix} = k^2 \implies \bigl(A^{-1}\bigr)_{1,1} = \frac{k^2}{-k^2} = -1
 
 $$
-??? info "¿Por qué calcular solo la primera fila?"
-    El objetivo es acotar $\|A^{-1}\|_\infty$ por abajo. La norma-∞ es el máximo de las sumas absolutas de filas:
+<Info titulo="¿Por qué calcular solo la primera fila?">
+
+El objetivo es acotar $\|A^{-1}\|_\infty$ por abajo. La norma-∞ es el máximo de las sumas absolutas de filas:
+
+</Info>
 
 $$
     \|A^{-1}\|_\infty = \max_i \sum_j |\bigl(A^{-1}\bigr)_{ij}|
@@ -92,7 +100,7 @@ Se cumple $Cond_2(A) \ge ck^2$ con $c = 4/3$. $\square$
 
 ---
 
-> b) Explicar qué consecuencias tendría un valor de $k$ alto a la hora de resolver un sistema de la forma $Ax = b$. ¿Depende esto de $b$?
+b) Explicar qué consecuencias tendría un valor de $k$ alto a la hora de resolver un sistema de la forma $Ax = b$. ¿Depende esto de $b$?
 
 Para $k$ grande (por ejemplo $k=100$), $k^2 = 10000$, y el número de condición crece al menos como $O(k^2)$, lo que da valores superiores a $40000$.
 
@@ -109,7 +117,7 @@ En la práctica, esto se traduce en pérdida de dígitos significativos al resol
 
 ---
 
-> c) Para la matriz anterior, tomar $C$ como la inversa de la parte diagonal de $A$ y calcular $Cond_2(CA)$.
+c) Para la matriz anterior, tomar $C$ como la inversa de la parte diagonal de $A$ y calcular $Cond_2(CA)$.
 
 El precondicionador diagonal de Jacobi se define como la inversa de la matriz diagonal de $A$:
 

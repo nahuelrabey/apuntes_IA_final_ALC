@@ -1,47 +1,37 @@
 # Solución del Ejercicio 1
 
-> **Ejercicio 1**
->
-> Se dice que $A \in \mathbb{K}^{n \times n}$ es semejante a $B \in \mathbb{K}^{n \times n}$ si existe una matriz invertible $S \in \mathbb{K}^{n \times n}$ tal que:
->
->
+<Enunciado titulo="Ejercicio 1">
+
+Se dice que $A \in \mathbb{K}^{n \times n}$ es semejante a $B \in \mathbb{K}^{n \times n}$ si existe una matriz invertible $S \in \mathbb{K}^{n \times n}$ tal que:
 
 $$
-> SA(S^{-1}) = B
->
+SA(S^{-1}) = B
+$$
+
+1. Demostrar que la relación de semejanza es una relación de equivalencia.
+
+2. Demostrar que si $A$ es semejante a $B$, entonces:
 
 $$
->
-> 1. Demostrar que la relación de semejanza es una relación de equivalencia.
->
-> 2. Demostrar que si $A$ es semejante a $B$, entonces:
->
->
+\text{Tr}(A) = \text{Tr}(B)
+$$
+
+**Sugerencia:** Utilizar la propiedad $\text{Tr}(EC) = \text{Tr}(CE)$ para matrices $C$ y $E$.
+
+3. Probar que si $A$ es diagonalizable (es decir, $A$ es semejante a una matriz diagonal $D$) y los valores propios de $A$ son 0 y 1, entonces:
 
 $$
-> \text{Tr}(A) = \text{Tr}(B)
->
-
+A^2 = A
 $$
->
-> **Sugerencia:** Utilizar la propiedad $\text{Tr}(EC) = \text{Tr}(CE)$ para matrices $C$ y $E$.
->
-> 3. Probar que si $A$ es diagonalizable (es decir, $A$ es semejante a una matriz diagonal $D$) y los valores propios de $A$ son 0 y 1, entonces:
->
->
 
-$$
-> A^2 = A
->
+</Enunciado>
 
-$$
->
 
 ---
 
 ## 1. Demostrar que la relación de semejanza es una relación de equivalencia.
->
-> 1. Demostrar que la relación de semejanza es una relación de equivalencia.
+
+1. Demostrar que la relación de semejanza es una relación de equivalencia.
 
 Para que una relación binaria sea de equivalencia, esta debe cumplir tres propiedades fundamentales: reflexividad, simetría y transitividad.
 
@@ -128,18 +118,14 @@ Al cumplirse las tres condiciones, **la semejanza de matrices es efectivamente u
 ---
 
 ## 2. Demostrar que si $A$ es semejante a $B$, entonces $\text{Tr}(A) = \text{Tr}(B)$.
->
-> 2. Demostrar que si $A$ es semejante a $B$, entonces:
->
->
+
+2. Demostrar que si $A$ es semejante a $B$, entonces:
 
 $$
-> \text{Tr}(A) = \text{Tr}(B)
->
-
+\text{Tr}(A) = \text{Tr}(B)
 $$
->
->    **Sugerencia:** Utilizar la propiedad $\text{Tr}(EC) = \text{Tr}(CE)$ para matrices $C$ y $E$.
+
+   **Sugerencia:** Utilizar la propiedad $\text{Tr}(EC) = \text{Tr}(CE)$ para matrices $C$ y $E$.
 
 Si $A \sim B$, deducimos por definición que:
 
@@ -182,17 +168,13 @@ $$
 ---
 
 ## 3. Probar que si $A$ es diagonalizable con valores propios 0 y 1, entonces $A^2 = A$.
->
-> 3. Probar que si $A$ es diagonalizable (es decir, $A$ es semejante a una matriz diagonal $D$) y los valores propios de $A$ son 0 y 1, entonces:
->
->
+
+3. Probar que si $A$ es diagonalizable (es decir, $A$ es semejante a una matriz diagonal $D$) y los valores propios de $A$ son 0 y 1, entonces:
 
 $$
-> A^2 = A
->
-
+A^2 = A
 $$
->
+
 
 Si $A$ es diagonalizable, entonces es semejante a una matriz diagonal $D$. Por definición existe una matriz invertible $P$ tal que:
 

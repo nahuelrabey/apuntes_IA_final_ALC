@@ -1,7 +1,7 @@
 # Demostración: Criterio de Diagonalizabilidad por Bases de Autoespacios
 
-> **Teorema a Demostrar:**
-> Una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ es diagonalizable si y solo si la suma de las multiplicidades geométricas de todos sus autovalores es estrictamente igual a $n$ (el orden de la matriz), lo cual implica que para cada autovalor $\lambda_i$, su multiplicidad algebraica coincide con su multiplicidad geométrica.
+**Teorema a Demostrar:**
+Una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ es diagonalizable si y solo si la suma de las multiplicidades geométricas de todos sus autovalores es estrictamente igual a $n$ (el orden de la matriz), lo cual implica que para cada autovalor $\lambda_i$, su multiplicidad algebraica coincide con su multiplicidad geométrica.
 
 ## Interpretación del Enunciado
 

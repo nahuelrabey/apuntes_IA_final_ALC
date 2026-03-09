@@ -1,6 +1,6 @@
 # Cambio de Base: Matrices $B$ y $B^{-1}$
 
-> **Demostración.** Dada una base $B = \{v_1, v_2, \dots, v_n\}$ de un espacio vectorial $V$, demostrar que la matriz $B$ (cuyas columnas son los vectores de la base) transforma coordenadas en base $B$ a la base canónica, y que su inversa $B^{-1}$ realiza la transformación opuesta.
+**Demostración.** Dada una base $B = \{v_1, v_2, \dots, v_n\}$ de un espacio vectorial $V$, demostrar que la matriz $B$ (cuyas columnas son los vectores de la base) transforma coordenadas en base $B$ a la base canónica, y que su inversa $B^{-1}$ realiza la transformación opuesta.
 
 ## Interpretación del Enunciado
 
@@ -52,14 +52,17 @@ B^{-1} x = I [x]_B = [x]_B
 $$
 Esto demuestra que **la matriz $B^{-1}$ toma un vector en la base canónica y devuelve sus coordenadas en la base $B$**.
 
-??? info "Conclusión Táctica"
-    En la construcción de un proyector $P = B D B^{-1}$, el orden de aplicación (de derecha a izquierda) es:
+<Info titulo="Conclusión Táctica">
 
-    1.  **$B^{-1}$**: Lleva el vector al "espacio de la base $B$".
-    2.  **$D$**: Opera sobre sus componentes (proyecta).
-    3.  **$B$**: Devuelve el resultado al sistema de coordenadas estándar (canónico).
+En la construcción de un proyector $P = B D B^{-1}$, el orden de aplicación (de derecha a izquierda) es:
 
-    Fin de la conclusión.
+1.  **$B^{-1}$**: Lleva el vector al "espacio de la base $B$".
+2.  **$D$**: Opera sobre sus componentes (proyecta).
+3.  **$B$**: Devuelve el resultado al sistema de coordenadas estándar (canónico).
+
+Fin de la conclusión.
+
+</Info>
 
 ---
 

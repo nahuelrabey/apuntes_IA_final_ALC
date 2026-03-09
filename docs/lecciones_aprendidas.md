@@ -1,4 +1,8 @@
-# Lecciones y Conclusiones Aprendidas
+---
+sidebar_position: 4
+---
+
+# Lecciones Aprendidas
 
 A través de las validaciones teórico-prácticas elaboradas en nuestra metodología de estudio, derivamos las siguientes conclusiones analíticas.
 

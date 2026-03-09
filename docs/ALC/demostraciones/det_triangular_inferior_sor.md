@@ -40,8 +40,11 @@ $$
 \det(T) = \prod_{i=1}^{n} T_{ii}
 
 $$
-??? info "Justificación: expansión de Leibniz en matrices triangulares"
-    El determinante se define por la fórmula de Leibniz:
+<Info titulo="Justificación: expansión de Leibniz en matrices triangulares">
+
+El determinante se define por la fórmula de Leibniz:
+
+</Info>
 
 $$
     \det(T) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} T_{i,\sigma(i)}

@@ -1,11 +1,16 @@
 # Ejercicio 4: Factorización LU
 
-> **Ejercicio 4.** Dada una matriz $A$ de $\mathbb{R}^{n \times n}$,
->
-> **(a)** Detalle el procedimiento para encontrar la factorización $A = LU$ sin pivoteo, indicando
-> cuándo falla. ¿El fallo del algoritmo implica la inexistencia de la factorización $LU$?
->
-> **(b)** Describa condiciones conocidas para que la factorización $LU$ de $A$ exista y/o sea única.
+<Enunciado titulo="Ejercicio 4.">
+
+Dada una matriz $A$ de $\mathbb{R}^{n \times n}$,
+
+**(a)** Detalle el procedimiento para encontrar la factorización $A = LU$ sin pivoteo, indicando
+cuándo falla. ¿El fallo del algoritmo implica la inexistencia de la factorización $LU$?
+
+**(b)** Describa condiciones conocidas para que la factorización $LU$ de $A$ exista y/o sea única.
+
+</Enunciado>
+
 
 ---
 
@@ -20,8 +25,8 @@
 
 ### Inciso A — Procedimiento y Fallo
 
-> **(a)** Detalle el procedimiento para encontrar $A = LU$ sin pivoteo. ¿Cuándo falla?
-> ¿El fallo implica inexistencia de LU?
+**(a)** Detalle el procedimiento para encontrar $A = LU$ sin pivoteo. ¿Cuándo falla?
+¿El fallo implica inexistencia de LU?
 
 {/* 1. Describir la eliminación gaussiana: en el paso k se requiere que a_{kk}^{(k)} ≠ 0
         (pivote no nulo). Si es cero, el algoritmo FALLA (división por cero).
@@ -31,7 +36,7 @@
 
 ### Inciso B — Condiciones de Existencia y Unicidad
 
-> **(b)** Describa condiciones conocidas para que la factorización $LU$ exista y/o sea única.
+**(b)** Describa condiciones conocidas para que la factorización $LU$ exista y/o sea única.
 
 {/* Condiciones suficientes de existencia:
 

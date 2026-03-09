@@ -2,16 +2,12 @@
 
 ## Interpretación del Enunciado
 
-> Dada $A \in \mathbb{R}^{n \times n}$ y un escalar $k \in \mathbb{R}$, demostrar que:
->
->
+Dada $A \in \mathbb{R}^{n \times n}$ y un escalar $k \in \mathbb{R}$, demostrar que:
 
 $$
-> \det(kA) = k^n \cdot \det(A)
->
-
+\det(kA) = k^n \cdot \det(A)
 $$
->
+
 
 Esta propiedad es la razón profunda por la que, al calcular $\det\big((1-\omega)D - \omega U\big)$ en el método SOR, el factor $(1-\omega)$ de la diagonal aparece elevado a la potencia $n$. Es también una consecuencia directa de la **multilinealidad** del determinante respecto a sus filas (o columnas).
 
@@ -61,8 +57,11 @@ $$
 $$
 Q.E.D.
 
-??? info "Demostración alternativa: Fórmula de Leibniz"
-    La **fórmula de Leibniz** define el determinante como:
+<Info titulo="Demostración alternativa: Fórmula de Leibniz">
+
+La **fórmula de Leibniz** define el determinante como:
+
+</Info>
 
 $$
 \det(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i=1}^{n} a_{i,\sigma(i)}

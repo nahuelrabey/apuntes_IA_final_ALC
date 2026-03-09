@@ -2,7 +2,7 @@
 
 ## Interpretación del Enunciado
 
-> Demostrar formalmente que si una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ posee autovalores distintos entre sí ($\lambda_i \neq \lambda_j$), entonces sus autovectores correspondientes $\{v_1, v_2, \dots, v_n\}$ son vectores **linealmente independientes**.
+Demostrar formalmente que si una matriz cuadrada $A \in \mathbb{R}^{n \times n}$ posee autovalores distintos entre sí ($\lambda_i \neq \lambda_j$), entonces sus autovectores correspondientes $\{v_1, v_2, \dots, v_n\}$ son vectores **linealmente independientes**.
 
 Este teorema es la base de la **diagonalización**. Si una matriz de orden $n$ tiene $n$ autovectores linealmente independientes, éstos formarán una base para $\mathbb{R}^n$, permitiendo construir una matriz $P$ inversible que satisfaga la descomposición $A = P D P^{-1}$.
 

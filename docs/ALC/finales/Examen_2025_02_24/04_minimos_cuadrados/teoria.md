@@ -1,28 +1,27 @@
 # Solución del Ejercicio 4
 
-> **Ejercicio 4**
->
-> Dada la función:
->
->
+<Enunciado titulo="Ejercicio 4">
+
+Dada la función:
 
 $$
-> z = a y^b e^{cx+2}
->
-
+z = a y^b e^{cx+2}
 $$
->
-> 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
-> 2. Proponer puntos de datos para que la solución sea única.
-> 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
+
+1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
+2. Proponer puntos de datos para que la solución sea única.
+3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
+
+</Enunciado>
+
 
 ---
 
 Dada la función no lineal:
 
 ## 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a, b$ y $c$.
->
-> 1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
+
+1. Plantear las ecuaciones de mínimos cuadrados para estimar los parámetros $a$, $b$ y $c$.
 
 Para aplicar el método de Mínimos Cuadrados Lineales Clásicos, primero debemos transformar (linealizar) el modelo geométrico/exponencial aplicando logaritmo natural ($\ln$) a ambos lados de la ecuación:
 
@@ -90,13 +89,16 @@ Resolviendo este sistema lineal $(3 \times 3)$ se obtienen los estimadores param
 ---
 
 ## 2. Proponer puntos de datos para que la solution sea única.
->
-> 2. Proponer puntos de datos para que la solución sea única.
+
+2. Proponer puntos de datos para que la solución sea única.
 
 Para que las ecuaciones de mínimos cuadrados posean una **solución única**, la matriz normal cuadrada $(M^T M)$ debe ser estrictamente invertible. Esto ocurre si y solo si la matriz de diseño $M$ posee **rango completo por columnas**.
 
-??? info "Observación Teórica: ¿Por qué $M^TM$ debe ser invertible?"
-    Las ecuaciones normales son un sistema lineal de la forma:
+<Info titulo="Observación Teórica: ¿Por qué $M^TM$ debe ser invertible?">
+
+Las ecuaciones normales son un sistema lineal de la forma:
+
+</Info>
 
 $$
     (M^T M)\,\hat{\theta} = M^T Z
@@ -116,10 +118,13 @@ En el contexto físico del problema, esto implica que:
 
 - Los puntos de los datos $(x_i, y_i)$ no deben formar una combinación lineal perfecta. No vale que para todas las mediciones sea siempre $x_i = k \cdot \ln(y_i) + C$ (es decir, no pueden ser colineales en el plano de las características transformadas).
 
-??? info "Observación: ¿Qué significa ser colineales en el plano de características transformadas?"
-    La matriz $M$ tiene 3 columnas: la columna de unos, la columna de $\ln(y_i)$, y la columna de $x_i$.
+<Info titulo="Observación: ¿Qué significa ser colineales en el plano de características transformadas?">
 
-    Para que $M$ tenga rango 3, ninguna columna puede ser combinación lineal de las otras. El caso problemático ocurre cuando la columna de $x_i$ es proporcional (o afín) a la columna de $\ln(y_i)$, es decir, cuando para todos los datos vale:
+La matriz $M$ tiene 3 columnas: la columna de unos, la columna de $\ln(y_i)$, y la columna de $x_i$.
+
+Para que $M$ tenga rango 3, ninguna columna puede ser combinación lineal de las otras. El caso problemático ocurre cuando la columna de $x_i$ es proporcional (o afín) a la columna de $\ln(y_i)$, es decir, cuando para todos los datos vale:
+
+</Info>
 
 $$
     x_i = k \cdot \ln(y_i) + C
@@ -164,17 +169,20 @@ Por tanto, el determinante de la matriz normal $\det(M^T M) = \det(M)^2 = 4 \neq
 ---
 
 ## 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
->
-> 3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
+
+3. Determinar la mínima cantidad de puntos necesarios para que la solución sea única.
 
 El sistema general de mínimos cuadrados tiene como incógnita el vector $\vec{\theta} = [A, b, c]^T$, el cual contiene **3 parámetros** a estimar libremente.
 
 Por el Teorema de Rouché-Frobenius y el rango fundamental del álgebra matricial:
 
-??? info "Demostraciones Teóricas"
-    📌 *[Demostración: Teorema de Rouché-Frobenius](../../../demostraciones/rouche_frobenius.md)* — justifica cuándo un sistema lineal tiene solución única, infinitas soluciones o ninguna, en función del rango de la matriz y la matriz ampliada.
+<Info titulo="Demostraciones Teóricas">
 
-    📌 *[Demostración: Rango Completo y Unicidad en Mínimos Cuadrados](../../../demostraciones/rango_minimos_cuadrados.md)* — demuestra que $M^TM$ es invertible si y solo si $M$ tiene rango columna completo, lo que garantiza una solución única de las ecuaciones normales.
+📌 *[Demostración: Teorema de Rouché-Frobenius](../../../demostraciones/rouche_frobenius.md)* — justifica cuándo un sistema lineal tiene solución única, infinitas soluciones o ninguna, en función del rango de la matriz y la matriz ampliada.
+
+📌 *[Demostración: Rango Completo y Unicidad en Mínimos Cuadrados](../../../demostraciones/rango_minimos_cuadrados.md)* — demuestra que $M^TM$ es invertible si y solo si $M$ tiene rango columna completo, lo que garantiza una solución única de las ecuaciones normales.
+
+</Info>
 
 - Si aportamos $m < 3$ puntos, el sistema quedará sub-determinado (tendrá infinitas soluciones lógicas porque habrán variables libres, el rango máximo será menor a 3 penalizando a $M^T M$).
 

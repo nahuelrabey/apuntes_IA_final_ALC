@@ -1,13 +1,9 @@
 # Equivalencia de Normas Matriciales: $\|A\|_1$ y $\|A\|_2$
 
-> **Demostración.** Sea $A \in \mathbb{R}^{n \times n}$. Demostrar las siguientes desigualdades que relacionan la norma matricial inducida $\ell_1$ (máxima suma por columnas) con la norma matricial inducida $\ell_2$ (norma espectral):
->
->
+**Demostración.** Sea $A \in \mathbb{R}^{n \times n}$. Demostrar las siguientes desigualdades que relacionan la norma matricial inducida $\ell_1$ (máxima suma por columnas) con la norma matricial inducida $\ell_2$ (norma espectral):
 
 $$
-> \frac{1}{\sqrt{n}}\|A\|_1 \leq \|A\|_2 \leq \sqrt{n}\|A\|_1
->
-
+\frac{1}{\sqrt{n}}\|A\|_1 \leq \|A\|_2 \leq \sqrt{n}\|A\|_1
 $$
 ## Interpretación del Enunciado
 

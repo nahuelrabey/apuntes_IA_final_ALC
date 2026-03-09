@@ -2,7 +2,7 @@
 
 ## Interpretación del Enunciado
 
-> Demostrar analíticamente que dadas dos matrices cuadradas del mismo orden ($A, B \in \mathbb{R}^{n \times n}$), sus determinantes cumplen la propiedad multiplicativa: $|AB| = |A| |B|$ (o equivalentemente, $\det(AB) = \det(A)\det(B)$).
+Demostrar analíticamente que dadas dos matrices cuadradas del mismo orden ($A, B \in \mathbb{R}^{n \times n}$), sus determinantes cumplen la propiedad multiplicativa: $|AB| = |A| |B|$ (o equivalentemente, $\det(AB) = \det(A)\det(B)$).
 
 El determinante es un escalar que indica el factor de cambio de volumen que experimenta el hipercubo fundamental de $n$-dimensiones debido a la transformación proyectada por la matriz.
 

@@ -2,16 +2,12 @@
 
 ## Enunciado del Teorema
 
-> Sea $\|\cdot\|$ una norma matricial **inducida** por una norma vectorial $\|\cdot\|_v$. Entonces para toda matriz $M \in \mathbb{R}^{n \times n}$ y todo vector $v \in \mathbb{R}^n$:
->
->
+Sea $\|\cdot\|$ una norma matricial **inducida** por una norma vectorial $\|\cdot\|_v$. Entonces para toda matriz $M \in \mathbb{R}^{n \times n}$ y todo vector $v \in \mathbb{R}^n$:
 
 $$
-> \|Mv\|_v \leq \|M\| \cdot \|v\|_v
->
-
+\|Mv\|_v \leq \|M\| \cdot \|v\|_v
 $$
->
+
 
 Este resultado (llamado **consistencia** o **submultiplicatividad** entre matriz y vector) es lo que justifica el paso:
 
@@ -45,8 +41,11 @@ $$
 $$
 El caso $w = 0$ es trivial: $\|M \cdot 0\| = 0 \leq \|M\| \cdot 0$. $\blacksquare$
 
-??? info "Observación Teórica: ¿Por qué esto NO es Cauchy-Schwarz?"
-    La desigualdad de Cauchy-Schwarz establece que para dos vectores $u, v$:
+<Info titulo="Observación Teórica: ¿Por qué esto NO es Cauchy-Schwarz?">
+
+La desigualdad de Cauchy-Schwarz establece que para dos vectores $u, v$:
+
+</Info>
 
 $$
 |\langle u, v \rangle| \leq \|u\| \cdot \|v\|
@@ -60,12 +59,15 @@ $$
 
     Fin de la observación.
 
-??? info "Observación Teórica: ¿Es válido para cualquier norma, o sólo las inducidas?"
-    Esta propiedad de consistencia **se cumple por definición** en las normas inducidas. Para normas matriciales no inducidas (como la norma de Frobenius), la propiedad puede o no cumplirse dependiendo de cómo esté definida. Sin embargo, la norma de Frobenius sí satisface $\|Mv\|_2 \leq \|M\|_F \cdot \|v\|_2$, aunque $\|\cdot\|_F$ no sea una norma inducida.
+<Info titulo="Observación Teórica: ¿Es válido para cualquier norma, o sólo las inducidas?">
 
-    En el contexto de este ejercicio, el enunciado especifica explícitamente que $\|\cdot\|$ es una norma matricial **inducida**, lo cual garantiza la propiedad sin necesidad de verificaciones adicionales.
+Esta propiedad de consistencia **se cumple por definición** en las normas inducidas. Para normas matriciales no inducidas (como la norma de Frobenius), la propiedad puede o no cumplirse dependiendo de cómo esté definida. Sin embargo, la norma de Frobenius sí satisface $\|Mv\|_2 \leq \|M\|_F \cdot \|v\|_2$, aunque $\|\cdot\|_F$ no sea una norma inducida.
 
-    Fin de la observación.
+En el contexto de este ejercicio, el enunciado especifica explícitamente que $\|\cdot\|$ es una norma matricial **inducida**, lo cual garantiza la propiedad sin necesidad de verificaciones adicionales.
+
+Fin de la observación.
+
+</Info>
 
 ---
 

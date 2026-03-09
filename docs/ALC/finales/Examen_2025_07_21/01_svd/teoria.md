@@ -1,18 +1,23 @@
 # Solución del Ejercicio 1 (Examen 21 de julio de 2025 - SVD)
 
-> **Ejercicio 1.** Sea $A$ una matriz con coeficientes reales de $n \times 2$. Sean $U$, $\Sigma$ y $V$ las matrices que dan su descomposición SVD, con $u_i$ la columna $i$-ésima de $U$, $\Sigma_{ii} = \sigma_i$ (con $\sigma_i \neq \sigma_j$ si $i \neq j$), y $v_i$ la columna $i$-ésima de $V$. Sea $\tilde{A} = \sigma_1 u_1 v_1^t$ una aproximación de rango 1 de $A$.
->
-> a) Si $x \in \mathbb{R}^2$ es un vector perteneciente al círculo unitario, mostrar que el error cometido al calcular $Ax$ como $\tilde{A}x$ está acotado por $\sigma_2$.
->
-> b) Sea $B = A^tA$ y $x \in \mathbb{R}^2$ elegido al azar. Mostrar que el siguiente algoritmo converge al vector $v_1$ cuando $N \to \infty$:
->
-> - Para $k \in 1, \dots, N$:
->
->   - $x = Bx$
->
->   - $x = x / ||x||$
->
-> c) Escriba una rutina que calcule la mejor aproximación de rango 1 de una matriz real de $n \times 2$ en el sentido de la norma 2. Toda función que involucre operaciones más complejas que el producto matricial debe ser definida explícitamente.
+<Enunciado titulo="Ejercicio 1.">
+
+Sea $A$ una matriz con coeficientes reales de $n \times 2$. Sean $U$, $\Sigma$ y $V$ las matrices que dan su descomposición SVD, con $u_i$ la columna $i$-ésima de $U$, $\Sigma_{ii} = \sigma_i$ (con $\sigma_i \neq \sigma_j$ si $i \neq j$), y $v_i$ la columna $i$-ésima de $V$. Sea $\tilde{A} = \sigma_1 u_1 v_1^t$ una aproximación de rango 1 de $A$.
+
+a) Si $x \in \mathbb{R}^2$ es un vector perteneciente al círculo unitario, mostrar que el error cometido al calcular $Ax$ como $\tilde{A}x$ está acotado por $\sigma_2$.
+
+b) Sea $B = A^tA$ y $x \in \mathbb{R}^2$ elegido al azar. Mostrar que el siguiente algoritmo converge al vector $v_1$ cuando $N \to \infty$:
+
+- Para $k \in 1, \dots, N$:
+
+  - $x = Bx$
+
+  - $x = x / ||x||$
+
+c) Escriba una rutina que calcule la mejor aproximación de rango 1 de una matriz real de $n \times 2$ en el sentido de la norma 2. Toda función que involucre operaciones más complejas que el producto matricial debe ser definida explícitamente.
+
+</Enunciado>
+
 
 ---
 
@@ -29,7 +34,7 @@ Dado que la matriz $A$ es de dimensiones $n \times 2$, su descomposición SVD $A
 - La expresión $\tilde{A} = \sigma_1 u_1 v_1^t$ se denomina **aproximación de rango 1**. El **Teorema de Eckart-Young-Mirsky** establece que al truncar la SVD reteniendo los mayores valores singulares, se obtiene la mejor aproximación de rango reducido en el sentido de la norma 2 y de Frobenius. Por lo tanto, $\sigma_1 u_1 v_1^t$ es la aproximación de rango 1 óptima de $A$.
 
 ## Solución Inciso A
-> a) Si $x \in \mathbb{R}^2$ es un vector perteneciente al círculo unitario, mostrar que el error cometido al calcular $Ax$ como $\tilde{A}x$ está acotado por $\sigma_2$.
+a) Si $x \in \mathbb{R}^2$ es un vector perteneciente al círculo unitario, mostrar que el error cometido al calcular $Ax$ como $\tilde{A}x$ está acotado por $\sigma_2$.
 
 Sabemos por definición de la SVD truncada que como la matriz original $A$ es de orden $n \times 2$, sólo poseerá a lo sumo 2 valores singulares no nulos. Podemos entonces descomponerla como la suma de sus componentes de rango 1:
 
@@ -37,8 +42,11 @@ $$
 A = \sum_{i=1}^{k} \sigma_i u_i v_i^t = \sigma_1 u_1 v_1^t + \sigma_2 u_2 v_2^t
 
 $$
-??? info "Profundización: Descomposición en Sumatoria de Matrices de Rango 1"
-    Para cualquier matriz general $M \in \mathbb{R}^{m \times n}$ con rango $r$, la Descomposición en Valores Singulares $M = U \Sigma V^t$ puede ser reescrita lógicamente usando multiplicación por bloques como una sumatoria exacta de $r$ matrices individuales, cada una de rango estrictamente 1:
+<Info titulo="Profundización: Descomposición en Sumatoria de Matrices de Rango 1">
+
+Para cualquier matriz general $M \in \mathbb{R}^{m \times n}$ con rango $r$, la Descomposición en Valores Singulares $M = U \Sigma V^t$ puede ser reescrita lógicamente usando multiplicación por bloques como una sumatoria exacta de $r$ matrices individuales, cada una de rango estrictamente 1:
+
+</Info>
 
 $$
     M = \sum_{i=1}^{r} \sigma_i u_i v_i^t
@@ -66,16 +74,19 @@ $$
 $$
 Como un escalar positivo puede extraerse de la norma:
 
-??? info "Observación Teórica: ¿Por qué $\sigma_2$ es un escalar puramente positivo?"
-    Por definición de la SVD, todos los valores singulares $\sigma_i$ son reales **no negativos ($\sigma_i \geq 0$)**, ya que se obtienen como la raíz cuadrada de los autovalores de $A^tA$.
+<Info titulo="Observación Teórica: ¿Por qué $\sigma_2$ es un escalar puramente positivo?">
 
-    La matriz $A^tA$ es simétrica semidefinida positiva, por lo que sus autovalores satisfacen $\lambda_i \geq 0$, garantizando que los valores singulares sean reales y no negativos.
+Por definición de la SVD, todos los valores singulares $\sigma_i$ son reales **no negativos ($\sigma_i \geq 0$)**, ya que se obtienen como la raíz cuadrada de los autovalores de $A^tA$.
 
-    Dado que el enunciado establece $\sigma_i \neq \sigma_j$ y los valores singulares se ordenan descendentemente, se tiene **$\sigma_2 > 0$**.
+La matriz $A^tA$ es simétrica semidefinida positiva, por lo que sus autovalores satisfacen $\lambda_i \geq 0$, garantizando que los valores singulares sean reales y no negativos.
 
-    Por ser $\sigma_2$ un escalar positivo, puede extraerse de la norma: $|\sigma_2| = \sigma_2$ y $||\sigma_2 u|| = \sigma_2 ||u||$.
+Dado que el enunciado establece $\sigma_i \neq \sigma_j$ y los valores singulares se ordenan descendentemente, se tiene **$\sigma_2 > 0$**.
 
-    Fin de la observación.
+Por ser $\sigma_2$ un escalar positivo, puede extraerse de la norma: $|\sigma_2| = \sigma_2$ y $||\sigma_2 u|| = \sigma_2 ||u||$.
+
+Fin de la observación.
+
+</Info>
 
 $$
     ||e||_2 = \sigma_2 ||u_2 (v_2^t x)||_2
@@ -110,13 +121,13 @@ Queda así demostrado que el error cometido en la aproximación $\|A x - \tilde{
 ---
 
 ## Solución Inciso B
-> b) Sea $B = A^tA$ y $x \in \mathbb{R}^2$ elegido al azar. Mostrar que el siguiente algoritmo converge al vector $v_1$ cuando $N \to \infty$:
->
-> - Para $k \in 1, \dots, N$:
->
->   - $x = Bx$
->
->   - $x = x / ||x||$
+b) Sea $B = A^tA$ y $x \in \mathbb{R}^2$ elegido al azar. Mostrar que el siguiente algoritmo converge al vector $v_1$ cuando $N \to \infty$:
+
+- Para $k \in 1, \dots, N$:
+
+  - $x = Bx$
+
+  - $x = x / ||x||$
 
 Si $A = U \Sigma V^t$, podemos sustituirlo en lo provisto por la letra del ejercicio $B = A^t A$:
 
@@ -142,8 +153,11 @@ $$
 $$
 Los autovectores de $B$ son precisamente las columnas de la matriz $V$, denotados como $v_1$ y $v_2$.
 
-??? info "Observación Teórica: ¿Por qué los autovectores de $B$ son las columnas de $V$?"
-    De la ecuación anterior, $B = V (\Sigma^t \Sigma) V^t$. Definiendo $\Lambda = \Sigma^t \Sigma$:
+<Info titulo="Observación Teórica: ¿Por qué los autovectores de $B$ son las columnas de $V$?">
+
+De la ecuación anterior, $B = V (\Sigma^t \Sigma) V^t$. Definiendo $\Lambda = \Sigma^t \Sigma$:
+
+</Info>
 
 $$
     B = V \Lambda V^t
@@ -163,16 +177,19 @@ $$
 
 Dado que $\sigma_1 > \sigma_2 > 0$, se tiene $\lambda_1 > \lambda_2 > 0$.
 
-??? info "Observación Teórica: ¿El orden estricto $\sigma_1 > \sigma_2 > 0$ es una convención algorítmica?"
-    Sí, el ordenamiento $\sigma_1 \ge \sigma_2 \ge \dots \ge 0$ es la convención estándar adoptada por bibliotecas como NumPy y SciPy, y corresponde a la formulación canónica de la SVD.
+<Info titulo="Observación Teórica: ¿El orden estricto $\sigma_1 > \sigma_2 > 0$ es una convención algorítmica?">
 
-    La SVD ordena los valores singulares de mayor a menor, de modo que $\sigma_1$ corresponde a la dirección de máxima varianza.
+Sí, el ordenamiento $\sigma_1 \ge \sigma_2 \ge \dots \ge 0$ es la convención estándar adoptada por bibliotecas como NumPy y SciPy, y corresponde a la formulación canónica de la SVD.
 
-    El enunciado establece adicionalmente que **$\sigma_i \neq \sigma_j$** para $i \neq j$, lo que descarta la posibilidad de valores singulares repetidos.
+La SVD ordena los valores singulares de mayor a menor, de modo que $\sigma_1$ corresponde a la dirección de máxima varianza.
 
-    Combinando la convención de ordenamiento descendente con la restricción de desigualdad estricta, se obtiene **$\sigma_1 > 2 > 0$**.
+El enunciado establece adicionalmente que **$\sigma_i \neq \sigma_j$** para $i \neq j$, lo que descarta la posibilidad de valores singulares repetidos.
 
-    Fin de la observación.
+Combinando la convención de ordenamiento descendente con la restricción de desigualdad estricta, se obtiene **$\sigma_1 > 2 > 0$**.
+
+Fin de la observación.
+
+</Info>
 
 El algoritmo planteado evalúa un simple bucle $k \in 1, \dots, N$ sobre la operación iterada:
 
@@ -180,13 +197,16 @@ $$
 x^{(k)} = \frac{B x^{(k-1)}}{||B x^{(k-1)}||} = \frac{B^k x^{(0)}}{||B^k x^{(0)}||}
 
 $$
-??? info "Observación Teórica: ¿Por qué la iteración asume esta forma colapsada general?"
-    En el **Método de la Potencia** normalizado, cada paso divide por la norma del vector obtenido. Se puede demostrar por inducción que esto equivale a un reescalado que no afecta la dirección:
+<Info titulo="Observación Teórica: ¿Por qué la iteración asume esta forma colapsada general?">
 
-    1. Paso 1: $x^{(1)} = \frac{B x^{(0)}}{||B x^{(0)}||}$.
-    2. Paso 2: $x^{(2)} = \frac{B x^{(1)}}{||B x^{(1)}||} = \frac{B \left( \frac{B x^{(0)}}{||B x^{(0)}||} \right)}{||B \left( \frac{B x^{(0)}}{||B x^{(0)}||} \right)||}$.
+En el **Método de la Potencia** normalizado, cada paso divide por la norma del vector obtenido. Se puede demostrar por inducción que esto equivale a un reescalado que no afecta la dirección:
 
-    Como $c = ||B x^{(0)}||$ es un escalar real positivo, por linealidad se tiene $B(c v) = c B v$ y $||c v|| = c ||v||$, por lo que **el escalar del paso anterior se cancela en el cociente**:
+1. Paso 1: $x^{(1)} = \frac{B x^{(0)}}{||B x^{(0)}||}$.
+2. Paso 2: $x^{(2)} = \frac{B x^{(1)}}{||B x^{(1)}||} = \frac{B \left( \frac{B x^{(0)}}{||B x^{(0)}||} \right)}{||B \left( \frac{B x^{(0)}}{||B x^{(0)}||} \right)||}$.
+
+Como $c = ||B x^{(0)}||$ es un escalar real positivo, por linealidad se tiene $B(c v) = c B v$ y $||c v|| = c ||v||$, por lo que **el escalar del paso anterior se cancela en el cociente**:
+
+</Info>
 
 $$
 x^{(2)} = \frac{\frac{1}{||B x^{(0)}||} \cdot B^2 x^{(0)}}{\frac{1}{||B x^{(0)}||} \cdot ||B^2 x^{(0)}||} = \frac{B^2 x^{(0)}}{||B^2 x^{(0)}||}
@@ -204,14 +224,17 @@ $$
 x^{(0)} = c_1 v_1 + c_2 v_2
 
 $$
-??? info "Observación Teórica: ¿Por qué $v_1$ y $v_2$ forman una Base Ortonormal completa para $\mathbb{R}^2$?"
-    En la SVD, $V$ es una matriz ortogonal de $2 \times 2$. Sus columnas son mutuamente ortogonales ($v_1 \cdot v_2 = 0$) y de norma unitaria ($||v_i||_2 = 1$).
+<Info titulo="Observación Teórica: ¿Por qué $v_1$ y $v_2$ forman una Base Ortonormal completa para $\mathbb{R}^2$?">
 
-    Como $v_1$ y $v_2$ son dos vectores ortogonales en $\mathbb{R}^2$, son linealmente independientes y forman una **base ortonormal** del espacio.
+En la SVD, $V$ es una matriz ortogonal de $2 \times 2$. Sus columnas son mutuamente ortogonales ($v_1 \cdot v_2 = 0$) y de norma unitaria ($||v_i||_2 = 1$).
 
-    Por lo tanto, cualquier vector $x^{(0)} \in \mathbb{R}^2$ puede expresarse como combinación lineal: $x^{(0)} = c_1 v_1 + c_2 v_2$.
+Como $v_1$ y $v_2$ son dos vectores ortogonales en $\mathbb{R}^2$, son linealmente independientes y forman una **base ortonormal** del espacio.
 
-    Fin de la observación.
+Por lo tanto, cualquier vector $x^{(0)} \in \mathbb{R}^2$ puede expresarse como combinación lineal: $x^{(0)} = c_1 v_1 + c_2 v_2$.
+
+Fin de la observación.
+
+</Info>
 
 Aplicando el álgebra del operador iterativo con iteraciones tendientes a $\infty$:
 
@@ -219,14 +242,17 @@ $$
 B^k x^{(0)} = c_1 \lambda_1^k v_1 + c_2 \lambda_2^k v_2
 
 $$
-??? info "Observación Teórica: ¿Cómo opera $B^k$ iterativamente sobre la base de autovectores?"
-    Al aplicar $B$ reiteradamente sobre el vector inicial se obtiene la operación $B^k x^{(0)}$.
+<Info titulo="Observación Teórica: ¿Cómo opera $B^k$ iterativamente sobre la base de autovectores?">
 
-    Por definición del problema de autovalores, $B v_i = \lambda_i v_i$, es decir, la matriz actúa como un escalar sobre cada autovector.
+Al aplicar $B$ reiteradamente sobre el vector inicial se obtiene la operación $B^k x^{(0)}$.
 
-    Aplicando esto $k$ veces: $B^k v_i = \lambda_i^k v_i$.
+Por definición del problema de autovalores, $B v_i = \lambda_i v_i$, es decir, la matriz actúa como un escalar sobre cada autovector.
 
-    Sustituyendo en esta expresión nuestro vector original partido en componentes del plano:
+Aplicando esto $k$ veces: $B^k v_i = \lambda_i^k v_i$.
+
+Sustituyendo en esta expresión nuestro vector original partido en componentes del plano:
+
+</Info>
 
 $$
     B^k x^{(0)} = B^k (c_1 v_1 + c_2 v_2)
@@ -266,8 +292,11 @@ B^k x^{(0)} \approx \left( \lambda_1^k \cdot c_1 \right) v_1
 $$
 Si $c_1 = 0$ (el vector inicial es ortogonal a $v_1$), el proceso converge a $v_2$ en lugar de $v_1$.
 
-??? info "Observación Teórica: ¿Qué ocurre matemáticamente si $c_1 = 0$? ¿El vector se vuelve nulo?"
-    La factorización por $\lambda_1^k$ es válida solo cuando $c_1 \neq 0$. Si $c_1 = 0$, se debe analizar la suma original directamente:
+<Info titulo="Observación Teórica: ¿Qué ocurre matemáticamente si $c_1 = 0$? ¿El vector se vuelve nulo?">
+
+La factorización por $\lambda_1^k$ es válida solo cuando $c_1 \neq 0$. Si $c_1 = 0$, se debe analizar la suma original directamente:
+
+</Info>
 
 $$
     B^k x^{(0)} = 0 \cdot \lambda_1^k v_1 + c_2 \lambda_2^k v_2 = c_2 \lambda_2^k v_2
@@ -296,7 +325,7 @@ Esto es la base del **Método de la Potencia**.
 ---
 
 ## Solución Inciso C: Rutina en Python
-> c) Escriba una rutina que calcule la mejor aproximación de rango 1 de una matriz real de $n \times 2$ en el sentido de la norma 2. Toda función que involucre operaciones más complejas que el producto matricial debe ser definida explícitamente.
+c) Escriba una rutina que calcule la mejor aproximación de rango 1 de una matriz real de $n \times 2$ en el sentido de la norma 2. Toda función que involucre operaciones más complejas que el producto matricial debe ser definida explícitamente.
 
 A continuación se presenta la rutina, sin emplear funciones de factorización directa de la biblioteca estándar. Para obtener el valor singular dominante se utiliza el cociente de Rayleigh a partir de las iteraciones del Método de la Potencia.
 

@@ -1,22 +1,23 @@
 # Ejercicio 4: Cuadrados Mínimos con SVD_rank (Aproximación Numérica)
 
-> **Ejercicio 4.** Se desea aproximar un conjunto de datos experimentales mediante una combinación lineal de funciones dadas $\{f_1, \dots, f_m\}$, encontrando la función $f(x) = \sum_{i=1}^m \alpha_i f_i(x)$ que mejor aproxime los datos en el sentido de cuadrados mínimos, utilizando la descomposición en valores singulares (SVD) reducida por rango.
->
-> **Objetivo:** Determinar los coeficientes $\alpha_1, \dots, \alpha_m$ que minimizan el error cuadrático:
->
->
+<Enunciado titulo="Ejercicio 4.">
+
+Se desea aproximar un conjunto de datos experimentales mediante una combinación lineal de funciones dadas $\{f_1, \dots, f_m\}$, encontrando la función $f(x) = \sum_{i=1}^m \alpha_i f_i(x)$ que mejor aproxime los datos en el sentido de cuadrados mínimos, utilizando la descomposición en valores singulares (SVD) reducida por rango.
+
+**Objetivo:** Determinar los coeficientes $\alpha_1, \dots, \alpha_m$ que minimizan el error cuadrático:
 
 $$
-> EC(\mathbf{\alpha}) = \sum_{j=1}^n (f(x_j) - y_j)^2
->
-
+EC(\mathbf{\alpha}) = \sum_{j=1}^n (f(x_j) - y_j)^2
 $$
->
-> con $\mathbf{x} = (x_1, \dots, x_n)$ e $\mathbf{y} = (y_1, \dots, y_n)$ datos experimentales, con $n \ge m$.
->
-> **a)** Implementar una función en python que calcule la matriz $A \in \mathbb{R}^{n\times m}$ asociada al problema de cuadrados mínimos a partir de las funciones y de los datos. Además, asuma que existe $(U, s, V^T) = \text{SVD\_rank}(A)$. La función debe devolver $A$, $U$, $V^T$, $s$.
->
-> **b)** Implementar una función que, utilizando la descomposición del ítem anterior, calcule el vector de coeficientes $\mathbf{\alpha}$ y el correspondiente Error Cuadrático. No se permite el uso del comando algorítmico global `numpy.linalg.lstsq`. Solo se toleran operaciones atómicas (array, dot, diag, .T, @).
+
+con $\mathbf{x} = (x_1, \dots, x_n)$ e $\mathbf{y} = (y_1, \dots, y_n)$ datos experimentales, con $n \ge m$.
+
+**a)** Implementar una función en python que calcule la matriz $A \in \mathbb{R}^{n\times m}$ asociada al problema de cuadrados mínimos a partir de las funciones y de los datos. Además, asuma que existe $(U, s, V^T) = \text{SVD\_rank}(A)$. La función debe devolver $A$, $U$, $V^T$, $s$.
+
+**b)** Implementar una función que, utilizando la descomposición del ítem anterior, calcule el vector de coeficientes $\mathbf{\alpha}$ y el correspondiente Error Cuadrático. No se permite el uso del comando algorítmico global `numpy.linalg.lstsq`. Solo se toleran operaciones atómicas (array, dot, diag, .T, @).
+
+</Enunciado>
+
 
 ## Interpretación del Enunciado
 

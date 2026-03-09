@@ -1,13 +1,13 @@
 # Convergencia del Sistema según el Módulo del Autovalor (Cadenas de Markov)
 
-> **Teorema.**
-> Sea $P \in \mathbb{R}^{n \times n}$ una matriz de Markov diagonalizable y sea $v^{(k)} = P^k v^{(0)}$ la sucesión de estados con estado inicial $v^{(0)}$ arbitrario. Expresando $v^{(0)} = \sum_{i=1}^n c_i v_i$ en la base de autovectores, la contribución del $i$-ésimo término satisface:
->
-> 1. Si $|\lambda_i| < 1$, la componente $c_i \lambda_i^k v_i \to 0$ cuando $k \to \infty$.
-> 2. Si $\lambda_i = 1$, la componente $c_i \lambda_i^k v_i = c_i v_i$ es constante para todo $k$.
-> 3. Si $|\lambda_i| = 1$ y $\lambda_i \ne 1$, la componente oscila en el círculo unitario y **no converge**.
->
-> En consecuencia, la sucesión $v^{(k)}$ converge para todo $v^{(0)}$ si y sólo si no existen autovalores con $|\lambda_i| = 1$ distintos de $1$.
+**Teorema.**
+Sea $P \in \mathbb{R}^{n \times n}$ una matriz de Markov diagonalizable y sea $v^{(k)} = P^k v^{(0)}$ la sucesión de estados con estado inicial $v^{(0)}$ arbitrario. Expresando $v^{(0)} = \sum_{i=1}^n c_i v_i$ en la base de autovectores, la contribución del $i$-ésimo término satisface:
+
+1. Si $|\lambda_i| < 1$, la componente $c_i \lambda_i^k v_i \to 0$ cuando $k \to \infty$.
+2. Si $\lambda_i = 1$, la componente $c_i \lambda_i^k v_i = c_i v_i$ es constante para todo $k$.
+3. Si $|\lambda_i| = 1$ y $\lambda_i \ne 1$, la componente oscila en el círculo unitario y **no converge**.
+
+En consecuencia, la sucesión $v^{(k)}$ converge para todo $v^{(0)}$ si y sólo si no existen autovalores con $|\lambda_i| = 1$ distintos de $1$.
 
 ## Interpretación del Enunciado
 
@@ -79,8 +79,11 @@ $$
 \therefore \quad c_i \lambda_i^k v_i \text{ no converge si } c_i \ne 0.
 
 $$
-??? info "Periodicidad: casos concretos en cadenas de Markov"
-    Las cadenas de Markov **periódicas** de período $p$ presentan exactamente este fenómeno. Sus autovalores de módulo 1 son las $p$-ésimas raíces de la unidad:
+<Info titulo="Periodicidad: casos concretos en cadenas de Markov">
+
+Las cadenas de Markov **periódicas** de período $p$ presentan exactamente este fenómeno. Sus autovalores de módulo 1 son las $p$-ésimas raíces de la unidad:
+
+</Info>
 
 $$
     \lambda_k = e^{2\pi i k / p}, \quad k = 0, 1, \dots, p-1

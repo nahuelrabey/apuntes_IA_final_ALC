@@ -2,7 +2,7 @@
 
 ## Interpretación del Enunciado
 
-> Sea $M \in \mathbb{R}^{m \times n}$ la matriz de diseño de un sistema de mínimos cuadrados. La solución de mínimos cuadrados $\hat{\theta}$ es **única** si y solo si $M$ tiene **rango columna completo**, es decir, $\text{Rango}(M) = n$.
+Sea $M \in \mathbb{R}^{m \times n}$ la matriz de diseño de un sistema de mínimos cuadrados. La solución de mínimos cuadrados $\hat{\theta}$ es **única** si y solo si $M$ tiene **rango columna completo**, es decir, $\text{Rango}(M) = n$.
 
 Este resultado establece la cantidad mínima de observaciones necesarias y las condiciones sobre los datos para que el ajuste por mínimos cuadrados produzca una solución única.
 

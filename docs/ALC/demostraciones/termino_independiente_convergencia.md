@@ -1,17 +1,13 @@
 # Rol del Término Independiente $c$ en Métodos Iterativos
 
-> **Proposición.**
-> Sea el método iterativo $x^{k+1} = B\, x^k + c$. Si el método converge, el punto fijo $x^*$ satisface:
->
->
+**Proposición.**
+Sea el método iterativo $x^{k+1} = B\, x^k + c$. Si el método converge, el punto fijo $x^*$ satisface:
 
 $$
-> x^* = (I - B)^{-1} c
->
-
+x^* = (I - B)^{-1} c
 $$
->
-> La condición de convergencia ($\rho(B) < 1$) es independiente de $c$.
+
+La condición de convergencia ($\rho(B) < 1$) es independiente de $c$.
 
 ## Interpretación del Enunciado
 

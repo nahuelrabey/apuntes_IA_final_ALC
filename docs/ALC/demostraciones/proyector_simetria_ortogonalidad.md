@@ -1,6 +1,6 @@
 # Simetría y Ortogonalidad de Proyectores
 
-> **Teorema.** Sea $p: \mathbb{R}^n \to \mathbb{R}^n$ un proyector (operador idempotente, $p^2 = p$). $p$ es un proyector **ortogonal** si y solo si su matriz asociada $P$ en la base canónica es **simétrica** ($P = P^T$).
+**Teorema.** Sea $p: \mathbb{R}^n \to \mathbb{R}^n$ un proyector (operador idempotente, $p^2 = p$). $p$ es un proyector **ortogonal** si y solo si su matriz asociada $P$ en la base canónica es **simétrica** ($P = P^T$).
 
 ## Interpretación del Enunciado
 

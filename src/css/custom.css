@@ -44,3 +44,8 @@
   --ifm-color-danger-contrast-background: rgba(250, 56, 62, 0.15);
   --ifm-color-success-contrast-background: rgba(0, 164, 0, 0.15);
 }
+
+/* Fix KaTeX MathML displaying as plain text in MDX React components */
+.katex-mathml {
+  display: none !important;
+}

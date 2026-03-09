@@ -1,36 +1,34 @@
 # Ejercicio 2: Condicionamiento y Matrices de Kronecker
 
-> **Ejercicio 2.**
->
-> **a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular:
->
->
+<Enunciado titulo="Ejercicio 2.">
+
+**a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular:
 
 $$
-> \frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}
->
+\frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}
+$$
+
+**b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
 
 $$
->
-> **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
->
->
-
+a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n
 $$
-> a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n
->
 
-$$
->
->donde $\delta_{ij}$ denota el delta de Kronecker.
->
-> - **i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para alguna función $g(n) \sim n^2$.
-> - **ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
+donde $\delta_{ij}$ denota el delta de Kronecker.
+
+- **i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para alguna función $g(n) \sim n^2$.
+- **ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
+
+</Enunciado>
+
 
 ## Interpretación del Enunciado
 
-??? info "Observación Teórica: Norma Matricial Inducida"
-    Una **norma matricial inducida** (u operatoria) es aquella que se deriva directamente de una norma vectorial $\|\cdot\|$ preexistente. Se define como el máximo factor de amplificación que la matriz $A$ puede aplicar a cualquier vector $x$ no nulo:
+<Info titulo="Observación Teórica: Norma Matricial Inducida">
+
+Una **norma matricial inducida** (u operatoria) es aquella que se deriva directamente de una norma vectorial $\|\cdot\|$ preexistente. Se define como el máximo factor de amplificación que la matriz $A$ puede aplicar a cualquier vector $x$ no nulo:
+
+</Info>
 
 $$
 \|A\| = \max_{x \neq 0} \frac{\|Ax\|}{\|x\|} = \max_{\|x\|=1} \|Ax\|
@@ -50,20 +48,23 @@ En la segunda parte, se analiza la matriz de Kronecker $A_n$, cuya estructura de
 
 ### Inciso A: Distancia a la Singularidad
 
-> **a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular: $\frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}$
+**a)** Probar que si $A \in \mathbb{R}^{n \times n}$ es una matriz inversible y $\| \cdot \|$ es una norma matricial inducida, la condición de A verifica que, para toda $B$ singular: $\frac{1}{\text{cond}(A)} \leq \frac{\|A - B\|}{\|A\|}$
 
 Sea $B$ una matriz singular. Existe un vector $x \neq 0$ tal que $Bx = 0$.
 
-??? info "Observación Teórica: ¿Por qué existe un $x \neq 0$ tal que $Bx = 0$?"
-    Esta propiedad define a las **matrices singulares** y es válida para todas ellas por definición. Si una matriz $B \in \mathbb{R}^{n \times n}$ es singular:
+<Info titulo="Observación Teórica: ¿Por qué existe un $x \neq 0$ tal que $Bx = 0$?">
 
-    1. **Determinante Nulo**: $\det(B) = 0$.
-    2. **Dependencia Lineal**: Sus columnas son linealmente dependientes. Esto significa que existe una combinación lineal de sus columnas $\{b_1, \dots, b_n\}$ con coeficientes no todos nulos ($x_i$) que da como resultado el vector cero: $\sum x_i b_i = 0$.
-    3. **Núcleo No Trivial**: Por la definición de producto matriz-vector, $\sum x_i b_i$ es idéntico a $Bx$. Por lo tanto, existe un vector $x = (x_1, \dots, x_n)^T \neq \mathbf{0}$ tal que $Bx = \mathbf{0}$.
+Esta propiedad define a las **matrices singulares** y es válida para todas ellas por definición. Si una matriz $B \in \mathbb{R}^{n \times n}$ es singular:
 
-    Geométricamente, una matriz singular "colapsa" al menos una dimensión del espacio, enviando todos los puntos de esa dirección al origen ($\mathbf{0}$).
+1. **Determinante Nulo**: $\det(B) = 0$.
+2. **Dependencia Lineal**: Sus columnas son linealmente dependientes. Esto significa que existe una combinación lineal de sus columnas $\{b_1, \dots, b_n\}$ con coeficientes no todos nulos ($x_i$) que da como resultado el vector cero: $\sum x_i b_i = 0$.
+3. **Núcleo No Trivial**: Por la definición de producto matriz-vector, $\sum x_i b_i$ es idéntico a $Bx$. Por lo tanto, existe un vector $x = (x_1, \dots, x_n)^T \neq \mathbf{0}$ tal que $Bx = \mathbf{0}$.
 
-    Fin de la observación.
+Geométricamente, una matriz singular "colapsa" al menos una dimensión del espacio, enviando todos los puntos de esa dirección al origen ($\mathbf{0}$).
+
+Fin de la observación.
+
+</Info>
 
 Podemos escribir $Ax$ como:
 
@@ -106,20 +107,16 @@ Queda demostrada la propiedad para cualquier norma inducida.
 ---
 
 ### Inciso B: Condicionamiento de la Matriz $A_n$
-> **b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
->
->
+**b)** Para cada $n \in \mathbb{N}$ se define la matriz $A_n \in \mathbb{R}^{n \times n}$ cuyos coeficientes están dados por
 
 $$
-> a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n
->
-
+a_{ij} = \frac{1}{n} + \frac{1}{n^2} \delta_{ij}, 1 \leq i, j \leq n
 $$
->
->donde $\delta_{ij}$ denota el delta de Kronecker.
->
-> - **i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para alguna función $g(n) \sim n^2$.
-> - **ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
+
+donde $\delta_{ij}$ denota el delta de Kronecker.
+
+- **i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para alguna función $g(n) \sim n^2$.
+- **ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
 
 La matriz $A_n \in \mathbb{R}^{n \times n}$ se define como:
 
@@ -137,7 +134,7 @@ donde $E$ es la matriz de unos y $I_n$ la identidad.
 
 #### B-1. Cota inferior para $\text{cond}_\infty(A_n)$
 
-> **i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para una función $g(n) \sim n^2$.
+**i)** Probar que $\text{cond}_\infty(A_n) \geq g(n)$ para una función $g(n) \sim n^2$.
 
 Calculamos la norma infinito de $A_n$. Cada fila tiene $n$ entradas: $(n-1)$ entradas fuera de la diagonal con valor $\frac{1}{n}$, y una entrada diagonal con valor $\frac{1}{n} + \frac{1}{n^2}$. La suma por fila es:
 
@@ -147,12 +144,15 @@ $$
 $$
 Utilizamos la cota del inciso A. Elegimos la matriz singular $B = \frac{1}{n} E$:
 
-??? info "Observación Teórica: ¿Por qué $B = \frac{1}{n}E$ es singular?"
-    $E$ es la matriz de todos unos: cada entrada vale $1$. Por lo tanto $B = \frac{1}{n}E$ tiene **todas sus filas idénticas** (cada fila es el vector $\frac{1}{n}(1, 1, \ldots, 1)$). Filas iguales son linealmente dependientes, luego $\text{rank}(B) = 1 < n$ y $\det(B) = 0$.
+<Info titulo="Observación Teórica: ¿Por qué $B = \frac{1}{n}E$ es singular?">
 
-    Equivalentemente, cualquier vector $v$ ortogonal a $(1,\ldots,1)^T$ satisface $Ev = 0$, y por tanto $Bv = 0$: el núcleo de $B$ tiene dimensión $n-1$, confirmando que $B$ no es inversible.
+$E$ es la matriz de todos unos: cada entrada vale $1$. Por lo tanto $B = \frac{1}{n}E$ tiene **todas sus filas idénticas** (cada fila es el vector $\frac{1}{n}(1, 1, \ldots, 1)$). Filas iguales son linealmente dependientes, luego $\text{rank}(B) = 1 < n$ y $\det(B) = 0$.
 
-    Fin de la observación.
+Equivalentemente, cualquier vector $v$ ortogonal a $(1,\ldots,1)^T$ satisface $Ev = 0$, y por tanto $Bv = 0$: el núcleo de $B$ tiene dimensión $n-1$, confirmando que $B$ no es inversible.
+
+Fin de la observación.
+
+</Info>
 
 $$
 A_n - B = \frac{1}{n^2} I_n \implies \|A_n - B\|_\infty = \frac{1}{n^2}
@@ -174,7 +174,7 @@ Por lo tanto, $\text{cond}_\infty(A_n)$ crece por lo menos como $n^2$.
 
 #### B-2. Límite de $\text{cond}_2(A_n)$
 
-> **ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
+**ii)** Probar que $\text{cond}_2(A_n) \to \infty$ cuando $n \to \infty$.
 
 Para una matriz simétrica, $\text{cond}_2(A_n) = \frac{|\lambda_{\max}|}{|\lambda_{\min}|}$. Determinamos los autovalores de $A_n$:
 

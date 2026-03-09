@@ -1,13 +1,9 @@
 # Equivalencia de Normas Matriciales: $\|A\|_2$ y $\|A\|_\infty$
 
-> **Demostración.** Sea $A \in \mathbb{R}^{n \times n}$. Demostrar las siguientes desigualdades que relacionan la norma matricial inducida $\ell_2$ (norma espectral) con la norma matricial inducida $\ell_\infty$ (máxima suma por filas):
->
->
+**Demostración.** Sea $A \in \mathbb{R}^{n \times n}$. Demostrar las siguientes desigualdades que relacionan la norma matricial inducida $\ell_2$ (norma espectral) con la norma matricial inducida $\ell_\infty$ (máxima suma por filas):
 
 $$
-> \frac{1}{\sqrt{n}}\|A\|_\infty \leq \|A\|_2 \leq \sqrt{n}\|A\|_\infty
->
-
+\frac{1}{\sqrt{n}}\|A\|_\infty \leq \|A\|_2 \leq \sqrt{n}\|A\|_\infty
 $$
 ## Interpretación del Enunciado
 

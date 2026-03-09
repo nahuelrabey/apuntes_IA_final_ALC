@@ -50,7 +50,7 @@ Esto demuestra exhaustivamente que las columnas $A_p$ originales son **Linealmen
 
 ### Fuente de Referencia
 
-> **Álgebra Lineal y sus Aplicaciones** (4ta Edición), de *David C. Lay*. Capítulo 4.3 (Conjuntos Linealmente Independientes y Bases), Teorema 6: "Las columnas pivote de una matriz $A$ forman una base para $Col(A)$".
+**Álgebra Lineal y sus Aplicaciones** (4ta Edición), de *David C. Lay*. Capítulo 4.3 (Conjuntos Linealmente Independientes y Bases), Teorema 6: "Las columnas pivote de una matriz $A$ forman una base para $Col(A)$".
 
 ---
 

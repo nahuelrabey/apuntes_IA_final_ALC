@@ -1,13 +1,9 @@
 # Equivalencia de Normas: $\ell_2$ y $\ell_\infty$
 
-> **Demostración.** Sea $x \in \mathbb{R}^n$. Demostrar las siguientes desigualdades que relacionan la norma euclídea ($\|x\|_2$) con la norma del máximo ($\|x\|_\infty$):
->
->
+**Demostración.** Sea $x \in \mathbb{R}^n$. Demostrar las siguientes desigualdades que relacionan la norma euclídea ($\|x\|_2$) con la norma del máximo ($\|x\|_\infty$):
 
 $$
-> \|x\|_\infty \leq \|x\|_2 \leq \sqrt{n}\|x\|_\infty
->
-
+\|x\|_\infty \leq \|x\|_2 \leq \sqrt{n}\|x\|_\infty
 $$
 ## Interpretación del Enunciado
 

@@ -1,16 +1,12 @@
 # Módulo de Autovalores Complejos en Polinomios Cuadráticos
 
-> **Propiedad de las Raíces Complejas.**
-> Dado un polinomio cuadrático con coeficientes reales $P(\lambda) = \lambda^2 + b\lambda + c$, si el discriminante $\Delta = b^2 - 4c$ es negativo, las raíces $\lambda_1, \lambda_2$ son complejas conjugadas y su módulo es exactamente:
->
->
+**Propiedad de las Raíces Complejas.**
+Dado un polinomio cuadrático con coeficientes reales $P(\lambda) = \lambda^2 + b\lambda + c$, si el discriminante $\Delta = b^2 - 4c$ es negativo, las raíces $\lambda_1, \lambda_2$ son complejas conjugadas y su módulo es exactamente:
 
 $$
-> |\lambda| = \sqrt{c}
->
-
+|\lambda| = \sqrt{c}
 $$
->
+
 
 ## Interpretación del Enunciado
 

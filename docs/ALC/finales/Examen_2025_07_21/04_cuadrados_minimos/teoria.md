@@ -1,12 +1,17 @@
 # Solución del Ejercicio 4 (Examen 21 de julio de 2025 - Bases Ortonormales y Cuadrados Mínimos)
 
-> **Ejercicio 4.** Sea $\{q_1, q_2, q_3, q_4, q_5\}$ una base ortonormal de $\mathbb{R}^5$, $A$ una matriz de $5 \times 3$ con columnas $q_1, q_2, q_3$ y el vector $b = q_1 + 2q_2 + 3q_3 + 4q_4 + 5q_5$.
->
-> a) Mostrar que el sistema $Ax = b$ no tiene solución. Plantear las ecuaciones normales y hallar la solución $\hat{x}$ de cuadrados mínimos para dicho sistema.
->
-> b) Calcular el error cometido en la aproximación.
->
-> c) Mostrar que $A^\dagger = A^t$, siendo $A^\dagger$ la pseudoinversa de $A$.
+<Enunciado titulo="Ejercicio 4.">
+
+Sea $\{q_1, q_2, q_3, q_4, q_5\}$ una base ortonormal de $\mathbb{R}^5$, $A$ una matriz de $5 \times 3$ con columnas $q_1, q_2, q_3$ y el vector $b = q_1 + 2q_2 + 3q_3 + 4q_4 + 5q_5$.
+
+a) Mostrar que el sistema $Ax = b$ no tiene solución. Plantear las ecuaciones normales y hallar la solución $\hat{x}$ de cuadrados mínimos para dicho sistema.
+
+b) Calcular el error cometido en la aproximación.
+
+c) Mostrar que $A^\dagger = A^t$, siendo $A^\dagger$ la pseudoinversa de $A$.
+
+</Enunciado>
+
 
 ---
 
@@ -46,13 +51,16 @@ A^t A = \begin{pmatrix} - & q_1^t & - \\ - & q_2^t & - \\ - & q_3^t & - \end{pma
 $$
 Como $\{q_1, q_2, q_3, q_4, q_5\}$ es una **base ortonormal**, se tiene $q_i^t q_j = \delta_{ij}$. Por lo tanto:
 
-??? info "Observación Teórica: ¿Por qué vale $q_i^t q_j = \delta_{ij}$?"
-    El término $q_i^t q_j$ es el **producto interno** entre los vectores $q_i$ y $q_j$. El resultado $\delta_{ij}$ (delta de Kronecker) unifica dos propiedades que define una base ortonormal:
+<Info titulo="Observación Teórica: ¿Por qué vale $q_i^t q_j = \delta_{ij}$?">
 
-    - **Norma unitaria**: cada vector tiene longitud 1, por lo que $q_i^t q_i = \|q_i\|_2^2 = 1$.
-    - **Ortogonalidad**: vectores distintos son perpendiculares, por lo que $q_i^t q_j = 0$ para $i \neq j$.
+El término $q_i^t q_j$ es el **producto interno** entre los vectores $q_i$ y $q_j$. El resultado $\delta_{ij}$ (delta de Kronecker) unifica dos propiedades que define una base ortonormal:
 
-    En forma compacta:
+- **Norma unitaria**: cada vector tiene longitud 1, por lo que $q_i^t q_i = \|q_i\|_2^2 = 1$.
+- **Ortogonalidad**: vectores distintos son perpendiculares, por lo que $q_i^t q_j = 0$ para $i \neq j$.
+
+En forma compacta:
+
+</Info>
 
 $$
     \delta_{ij} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}
@@ -119,12 +127,15 @@ $$
 ||e||_2^2 = (4 ||q_4||_2)^2 + (5 ||q_5||_2)^2
 
 $$
-??? info "Observación Teórica: ¿Cómo aplica el teorema de Pitágoras aquí?"
-    El teorema de Pitágoras se generaliza a espacios con producto interno: si $u \perp v$, entonces $\|u + v\|_2^2 = \|u\|_2^2 + \|v\|_2^2$.
+<Info titulo="Observación Teórica: ¿Cómo aplica el teorema de Pitágoras aquí?">
 
-    **Paso 1: Distribuir la transpuesta**
+El teorema de Pitágoras se generaliza a espacios con producto interno: si $u \perp v$, entonces $\|u + v\|_2^2 = \|u\|_2^2 + \|v\|_2^2$.
 
-    La transpuesta es lineal, por lo que:
+**Paso 1: Distribuir la transpuesta**
+
+La transpuesta es lineal, por lo que:
+
+</Info>
 
 $$
     (u + v)^t = u^t + v^t

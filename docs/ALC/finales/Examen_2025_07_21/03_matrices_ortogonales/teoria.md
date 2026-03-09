@@ -1,30 +1,31 @@
 # Solución del Ejercicio 3 (Examen 21 de julio de 2025 - Matrices Singulares y Espectros)
 
-> **Ejercicio 3.** Sea $A \in \mathbb{R}^{n \times n}$ una matriz tal que $A^t = A = A^{-1}$.
->
-> a) ¿Cuánto vale el determinante de $A$? ¿Es $A$ diagonalizable?
->
-> b) ¿Cuáles son sus posibles autovalores?
->
-> c) Calcular la matriz $\Sigma$ de la factorización SVD de $A$. Justificar.
->
-> d) Calcular los autovalores de la siguiente matriz:
->
->
+<Enunciado titulo="Ejercicio 3.">
+
+Sea $A \in \mathbb{R}^{n \times n}$ una matriz tal que $A^t = A = A^{-1}$.
+
+a) ¿Cuánto vale el determinante de $A$? ¿Es $A$ diagonalizable?
+
+b) ¿Cuáles son sus posibles autovalores?
+
+c) Calcular la matriz $\Sigma$ de la factorización SVD de $A$. Justificar.
+
+d) Calcular los autovalores de la siguiente matriz:
 
 $$
-> B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}
->
-
+B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}
 $$
->
-> *Sugerencia: usar los items anteriores.*
+
+*Sugerencia: usar los items anteriores.*
+
+</Enunciado>
+
 
 ---
 
 ## Solución Inciso A
 
-> a) ¿Cuánto vale el determinante de $A$? ¿Es $A$ diagonalizable?
+a) ¿Cuánto vale el determinante de $A$? ¿Es $A$ diagonalizable?
 
 El enunciado establece que $A^t = A$ (es decir, $A$ es **simétrica**) y que $A = A^{-1}$ (es decir, $A$ es **involutiva**). De estas dos condiciones se obtiene que $A^t = A^{-1}$, lo que por definición implica que $A$ es también **ortogonal**.
 
@@ -40,12 +41,15 @@ A^2 = I
 $$
 Buscamos aplicar el operador determinante a ambos lados de la ecuación, recordando la propiedad multiplicativa del determinante $|A \cdot B| = |A| \cdot |B|$:
 
-??? info "Demostración Teórica: La Regla Multiplicativa del Determinante"
-    La propiedad $\det(AB) = \det(A)\det(B)$ se demuestra a partir de las matrices elementales. Toda matriz inversible se descompone en un producto finito de matrices elementales ($A = E_1\dots E_k$), y cada una contribuye multiplicativamente al determinante.
+<Info titulo="Demostración Teórica: La Regla Multiplicativa del Determinante">
 
-    📌 *Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué $\det(AB) = \det(A)\det(B)$ (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: [Demostración: Regla Multiplicativa del Determinante](../../../demostraciones/determinante_producto.md).*
+La propiedad $\det(AB) = \det(A)\det(B)$ se demuestra a partir de las matrices elementales. Toda matriz inversible se descompone en un producto finito de matrices elementales ($A = E_1\dots E_k$), y cada una contribuye multiplicativamente al determinante.
 
-    Fin de la demostración.
+📌 *Para consultar minuciosamente paso por paso este desarme matricial que demuestra por qué $\det(AB) = \det(A)\det(B)$ (anexado junto al validador por inducción Monte Carlo estocástica dictaminado por la metodología de estudio), remitirse aquí: [Demostración: Regla Multiplicativa del Determinante](../../../demostraciones/determinante_producto.md).*
+
+Fin de la demostración.
+
+</Info>
 
 $$
 |A^2| = |I|
@@ -65,18 +69,21 @@ Por lo tanto, **el determinante de la matriz estructurada $A$ puede valer $1$ o 
 
 Respecto a la diagonalizabilidad, el **Teorema Espectral** establece que toda matriz real simétrica es ortogonalmente diagonalizable sobre los reales. Como $A$ satisface $A = A^t$, **$A$ es diagonalizable**.
 
-??? info "Demostración Teórica: Teorema Espectral"
-    La demostración de que las matrices simétricas tienen autovalores reales y autovectores ortogonales se basa en propiedades del conjugado transpuesto.
+<Info titulo="Demostración Teórica: Teorema Espectral">
 
-    📌 *Revisar riguroso desarrollo paso a paso del porqué $\lambda = \overline{\lambda}$ junto con el porqué de la ortogonalidad $v_i \cdot v_j = 0$ sumado a su estrés computacional randomizado por Python, aquí: [Demostración: Teorema Espectral](../../../demostraciones/teorema_espectral.md).*
+La demostración de que las matrices simétricas tienen autovalores reales y autovectores ortogonales se basa en propiedades del conjugado transpuesto.
 
-    Fin de la demostración.
+📌 *Revisar riguroso desarrollo paso a paso del porqué $\lambda = \overline{\lambda}$ junto con el porqué de la ortogonalidad $v_i \cdot v_j = 0$ sumado a su estrés computacional randomizado por Python, aquí: [Demostración: Teorema Espectral](../../../demostraciones/teorema_espectral.md).*
+
+Fin de la demostración.
+
+</Info>
 
 ---
 
 ## Solución Inciso B
 
-> b) ¿Cuáles son sus posibles autovalores?
+b) ¿Cuáles son sus posibles autovalores?
 
 Si $A$ es diagonalizable, asume autovalores $\lambda_i$ y autovectores asociados $v_i \neq 0$ que obedecen la transformación originaria:
 
@@ -124,7 +131,7 @@ Por lo tanto, **los únicos autovalores posibles son $\lambda \in \{1, -1\}$**.
 
 ## Solución Inciso C
 
-> c) Calcular la matriz $\Sigma$ de la factorización SVD de $A$. Justificar.
+c) Calcular la matriz $\Sigma$ de la factorización SVD de $A$. Justificar.
 
 La SVD descompone $A = U \Sigma V^t$, donde la matriz diagonal $\Sigma$ contiene los **valores singulares ($\sigma_i$)** en orden descendente.
 
@@ -156,17 +163,13 @@ Todos los valores singulares son iguales a $1$. Por lo tanto, **$\Sigma = I$.**
 
 ## Solución Inciso D
 
-> d) Calcular los autovalores de la siguiente matriz:
->
->
+d) Calcular los autovalores de la siguiente matriz:
 
 $$
-> B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}
->
-
+B = \begin{pmatrix} 5/10 & -5/10 & -1/10 & -7/10 \\ -5/10 & 5/10 & -1/10 & -7/10 \\ -1/10 & -1/10 & 98/100 & -14/100 \\ -7/10 & -7/10 & -14/100 & 2/100 \end{pmatrix}
 $$
->
-> *Sugerencia: usar los items anteriores.*
+
+*Sugerencia: usar los items anteriores.*
 
 Nos proponen la matriz $4 \times 4$:
 

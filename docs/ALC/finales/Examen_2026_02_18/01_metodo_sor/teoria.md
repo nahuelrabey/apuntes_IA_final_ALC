@@ -1,12 +1,17 @@
 # Ejercicio 1: Relajación de Métodos Iterativos (SOR)
 
-> **Ejercicio 1.** Dada $A \in \mathbb{R}^{n \times n}$ con $a_{ii} \neq 0$, $1 \leq i \leq n$. $A = L + D + U$.
->
-> **a)** Demostrar que el sistema $Ax = b$ es equivalente al sistema $(D + \omega L)x = ((1 - \omega)D - \omega U)x + \omega b$, cualquiera sea $\omega \neq 0$.
->
-> **b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con $B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)$. Probar que $\det(B(\omega)) = (1 - \omega)^n$ y concluir que si el método converge $\implies \omega \in (0, 2)$.
->
-> **c)** Sea $A = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}$. Analizar que sucede con el método definido en b) para los casos $\omega = \frac{1}{2}$ y $\omega = \frac{3}{2}$.
+<Enunciado titulo="Ejercicio 1.">
+
+Dada $A \in \mathbb{R}^{n \times n}$ con $a_{ii} \neq 0$, $1 \leq i \leq n$. $A = L + D + U$.
+
+**a)** Demostrar que el sistema $Ax = b$ es equivalente al sistema $(D + \omega L)x = ((1 - \omega)D - \omega U)x + \omega b$, cualquiera sea $\omega \neq 0$.
+
+**b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con $B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)$. Probar que $\det(B(\omega)) = (1 - \omega)^n$ y concluir que si el método converge $\implies \omega \in (0, 2)$.
+
+**c)** Sea $A = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}$. Analizar que sucede con el método definido en b) para los casos $\omega = \frac{1}{2}$ y $\omega = \frac{3}{2}$.
+
+</Enunciado>
+
 
 ## Interpretación del Enunciado
 
@@ -26,7 +31,7 @@ Procederemos con el desarrollo matricial para demostrar la equivalencia y las pr
 
 ### Inciso A: Derivación de la Equivalencia Algebraica
 
-> **a)** Demostrar que el sistema $Ax = b$ es equivalente al sistema $(D + \omega L)x = ((1 - \omega)D - \omega U)x + \omega b$, cualquiera sea $\omega \neq 0$.
+**a)** Demostrar que el sistema $Ax = b$ es equivalente al sistema $(D + \omega L)x = ((1 - \omega)D - \omega U)x + \omega b$, cualquiera sea $\omega \neq 0$.
 
 Partiendo de la descomposición $A = L + D + U$:
 
@@ -72,17 +77,13 @@ Queda demostrada la equivalencia.
 
 ### Inciso B: Determinante de Iteración y Condición de Rango Cota
 
-> **b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con
->
->
+**b)** Considere el método iterativo $x^{k+1} = B(\omega)x^k + c$ con
 
 $$
-> B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)
->
-
+B(\omega) = (D + \omega L)^{-1} ((1 - \omega)D - \omega U)
 $$
->
-> Probar que $\det(B(\omega)) = (1 - \omega)^n$ y concluir que si el método converge $\implies \omega \in (0, 2)$.
+
+Probar que $\det(B(\omega)) = (1 - \omega)^n$ y concluir que si el método converge $\implies \omega \in (0, 2)$.
 
 El determinante de la matriz de iteración se calcula como:
 
@@ -104,9 +105,13 @@ $$
 \det\big((1-\omega)D - \omega U\big) = \prod_{i=1}^{n} (1-\omega)a_{ii} = (1-\omega)^n \det(D)
 
 $$
-??? info "Demostración formal de esta propiedad"
+<Info titulo="Demostración formal de esta propiedad">
 
-    > 📎 Demostración formal: [¿Por qué det(D + ωL) = det(D)?](../../../demostraciones/det_triangular_inferior_sor.md)
+
+
+</Info>
+
+📎 Demostración formal: [¿Por qué det(D + ωL) = det(D)?](../../../demostraciones/det_triangular_inferior_sor.md)
 
     Fin de la demostración.
 
@@ -142,10 +147,13 @@ $$
 $$
 Queda demostrada la condición necesaria.
 
-??? info "Observación: Condición Necesaria vs Suficiente"
-    Que $\omega \in (0, 2)$ es una condición **necesaria**, no suficiente. No garantiza convergencia, pero es un requisito previo.
+<Info titulo="Observación: Condición Necesaria vs Suficiente">
 
-    Fin de la observación.
+Que $\omega \in (0, 2)$ es una condición **necesaria**, no suficiente. No garantiza convergencia, pero es un requisito previo.
+
+Fin de la observación.
+
+</Info>
 
 ??? question "¿Qué pasa con el término independiente $c$?"
     📎 Ver demostración completa: [Rol del término independiente $c$ en métodos iterativos](../../../demostraciones/termino_independiente_convergencia.md)
@@ -156,7 +164,7 @@ Queda demostrada la condición necesaria.
 
 ### Inciso C: Análisis Particular para una Matriz A
 
-> **c)** Analizar $A = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}$ para $\omega = \frac{1}{2}$ y $\frac{3}{2}$.
+**c)** Analizar $A = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}$ para $\omega = \frac{1}{2}$ y $\frac{3}{2}$.
 
 Descomponemos $A$:
 $D = \begin{pmatrix} 2 & 0 \\ 0 & -1 \end{pmatrix}$, $L = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$, $U = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$

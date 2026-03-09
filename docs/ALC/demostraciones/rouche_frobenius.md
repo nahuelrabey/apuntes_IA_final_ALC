@@ -2,11 +2,11 @@
 
 ## Interpretación del Enunciado
 
-> Dado un sistema lineal $A\vec{x} = \vec{b}$, donde $A \in \mathbb{R}^{m \times n}$ y $\vec{b} \in \mathbb{R}^m$, el sistema tiene solución si y solo si $\text{Rango}(A) = \text{Rango}(A|\vec{b})$, donde $(A|\vec{b})$ es la matriz ampliada. Además:
->
-> - Si $\text{Rango}(A) = \text{Rango}(A|\vec{b}) = n$, la solución es **única**.
-> - Si $\text{Rango}(A) = \text{Rango}(A|\vec{b}) < n$, existen **infinitas soluciones** (con $n - \text{Rango}(A)$ variables libres).
-> - Si $\text{Rango}(A) \neq \text{Rango}(A|\vec{b})$, el sistema es **incompatible** (sin solución).
+Dado un sistema lineal $A\vec{x} = \vec{b}$, donde $A \in \mathbb{R}^{m \times n}$ y $\vec{b} \in \mathbb{R}^m$, el sistema tiene solución si y solo si $\text{Rango}(A) = \text{Rango}(A|\vec{b})$, donde $(A|\vec{b})$ es la matriz ampliada. Además:
+
+- Si $\text{Rango}(A) = \text{Rango}(A|\vec{b}) = n$, la solución es **única**.
+- Si $\text{Rango}(A) = \text{Rango}(A|\vec{b}) < n$, existen **infinitas soluciones** (con $n - \text{Rango}(A)$ variables libres).
+- Si $\text{Rango}(A) \neq \text{Rango}(A|\vec{b})$, el sistema es **incompatible** (sin solución).
 
 Este teorema es el criterio fundamental de compatibilidad de sistemas lineales. En el contexto de mínimos cuadrados, justifica cuántos puntos se necesitan para obtener una solución única.
 

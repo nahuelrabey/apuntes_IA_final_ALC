@@ -18,3 +18,12 @@ export function Advertencia({ titulo = 'Advertencia', children }) {
         </div>
     );
 }
+
+export function Info({ titulo = 'Información', children }) {
+    return (
+        <details className={styles.info}>
+            <summary className={styles.tituloInfo}>💡 {titulo}</summary>
+            <div className={styles.contenido}>{children}</div>
+        </details>
+    );
+}

@@ -1,3 +1,10 @@
+---
+id: index
+title: Análisis Avanzado
+sidebar_label: Análisis Avanzado
+sidebar_position: 1
+---
+
 # Análisis Avanzado
 
 Bienvenido a la sección de **Análisis Avanzado**. 

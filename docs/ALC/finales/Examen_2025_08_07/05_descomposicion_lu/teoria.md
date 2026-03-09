@@ -1,10 +1,15 @@
 # Ejercicio 5: Factorización LU Algebraica y Algorítmica
 
-> **Ejercicio 5.** Sea $A = \begin{pmatrix} 1 & 1 & -1 & 1 \\ 1 & 0 & 1 & -1 \\ -1 & -1 & 0 & 1 \\ 0 & 1 & -2 & 2 \end{pmatrix}$.
->
-> **a)** Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
->
-> **b)** Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
+<Enunciado titulo="Ejercicio 5.">
+
+Sea $A = \begin{pmatrix} 1 & 1 & -1 & 1 \\ 1 & 0 & 1 & -1 \\ -1 & -1 & 0 & 1 \\ 0 & 1 & -2 & 2 \end{pmatrix}$.
+
+**a)** Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
+
+**b)** Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
+
+</Enunciado>
+
 
 ## Interpretación del Enunciado
 
@@ -14,7 +19,7 @@ Este problema clásico evalúa el reconocimiento de factorizaciones exactas en �
 
 ## Solución del Ejercicio
 
-> a) Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
+a) Decidir si $A$ admite descomposición $LU$. En tal caso, hallarla. En caso contrario, dar una permutación $P$ de modo que $PA$ tenga descomposición $LU$.
 
 Para decidir de forma analítica exacta si la $LU$ plana existe, ensayamos el "escalonamiento" progresivo Gaussiano tradicional de $A$ a un estado triangular superior $U$, memorizando los multiplicadores elementales empleados debajo de la diagonal subyacente de la matriz $L$.
 
@@ -64,7 +69,7 @@ L = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 1 & 1 & 0 & 0 \\ -1 & 0 & 1 & 0 \\ 0 & -1 &
 $$
 ---
 
-> b) Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
+b) Implementar una función de Python que reciba una matriz cuadrada e intente realizar la descomposición $LU$ de $A$ sin pivoteo. Si la matriz no admite descomposición $LU$, las matrices resultantes deben ser `None`.
 
 Adjuntamos aquí la implosión algorítmica solicitada (las funciones se encuentran embebidas explícitamente y comprobadas dentro del archivo final de verificación anexado a pie de firma). El requerimiento de detectar fracasos de la $LU$ plana (pivotes cero) exige un bucle temporal iterativo tolerante a EPS flotantes sobre un bloque `try-except` o estructuras condicionadas lógicas para atar al retorno a la ausencia o "Nulidad" literal de Python general (`None, None`).
 

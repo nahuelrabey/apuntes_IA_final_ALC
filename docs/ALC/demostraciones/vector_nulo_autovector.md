@@ -2,7 +2,7 @@
 
 ## Interpretación del Enunciado
 
-> Demostrar lógicamente, a partir de la definición formal de autovalores, por qué un autovector $v$ asociado a una transformación lineal o matriz cuadrada $A$ requiere, por definición restrictiva, ser distinto del vector nulo ($v \neq \mathbf{0}$).
+Demostrar lógicamente, a partir de la definición formal de autovalores, por qué un autovector $v$ asociado a una transformación lineal o matriz cuadrada $A$ requiere, por definición restrictiva, ser distinto del vector nulo ($v \neq \mathbf{0}$).
 
 Esta demostración utiliza el método de reducción al absurdo para ilustrar qué sucedería si se omitiera la restricción de que el autovector debe ser no nulo.
 
@@ -54,7 +54,7 @@ El propósito de calcular un espectro es identificar aquellas direcciones espec�
 
 Por lo tanto:
 
-> **El Autovector $v$ debe ser no nulo ($v \neq \mathbf{0}$) para que la ecuación de autovalor defina soluciones útiles. Un Autovalor $\lambda$ en cambio puede ser igual a $0$, de presentarse la condición ($A \cdot v = 0 \cdot v \implies A \cdot v = \mathbf{0}$), significando que el autovector se aloja en el *Espacio Nulo* (Kernel) de la matriz $A$.**
+**El Autovector $v$ debe ser no nulo ($v \neq \mathbf{0}$) para que la ecuación de autovalor defina soluciones útiles. Un Autovalor $\lambda$ en cambio puede ser igual a $0$, de presentarse la condición ($A \cdot v = 0 \cdot v \implies A \cdot v = \mathbf{0}$), significando que el autovector se aloja en el *Espacio Nulo* (Kernel) de la matriz $A$.**
 
 Q.E.D.
 

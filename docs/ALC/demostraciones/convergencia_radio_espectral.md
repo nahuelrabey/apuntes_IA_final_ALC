@@ -1,26 +1,18 @@
 # Convergencia de Métodos Iterativos y Radio Espectral
 
-> **Teorema de Convergencia.**
-> Sea el sistema lineal $Ax = b$ y un método iterativo de la forma:
->
->
+**Teorema de Convergencia.**
+Sea el sistema lineal $Ax = b$ y un método iterativo de la forma:
 
 $$
-> x^{(k+1)} = B x^{(k)} + c
->
+x^{(k+1)} = B x^{(k)} + c
+$$
+
+donde $B$ es la matriz de iteración. El método converge a la solución única $x^*$ para cualquier vector inicial $x^{(0)}$ si y solo si el radio espectral de $B$ es menor a la unidad:
 
 $$
->
-> donde $B$ es la matriz de iteración. El método converge a la solución única $x^*$ para cualquier vector inicial $x^{(0)}$ si y solo si el radio espectral de $B$ es menor a la unidad:
->
->
-
+\rho(B) < 1
 $$
-> \rho(B) < 1
->
 
-$$
->
 
 ## Interpretación del Enunciado
 
@@ -94,8 +86,11 @@ $$
 \lim_{k \to \infty} B^k = \mathbf{0} \iff \rho(B) < 1
 
 $$
-??? info "Esbozo de la justificación (Jordan)"
-    Si consideramos la descomposición de Jordan $B = P J P^{-1}$, entonces $B^k = P J^k P^{-1}$. La matriz $J^k$ tiende a cero si y solo si los bloques de Jordan tienden a cero. Un bloque de Jordan $J_\lambda$ tiende a cero si y solo si su autovalor asociado cumple $|\lambda| < 1$. Si al menos un autovalor tiene $|\lambda| \ge 1$, los elementos de las potencias de ese bloque no convergerán a cero (u oscilarán o crecerán indefinidamente).
+<Info titulo="Esbozo de la justificación (Jordan)">
+
+Si consideramos la descomposición de Jordan $B = P J P^{-1}$, entonces $B^k = P J^k P^{-1}$. La matriz $J^k$ tiende a cero si y solo si los bloques de Jordan tienden a cero. Un bloque de Jordan $J_\lambda$ tiende a cero si y solo si su autovalor asociado cumple $|\lambda| < 1$. Si al menos un autovalor tiene $|\lambda| \ge 1$, los elementos de las potencias de ese bloque no convergerán a cero (u oscilarán o crecerán indefinidamente).
+
+</Info>
 
 ### 4. Conclusión
 

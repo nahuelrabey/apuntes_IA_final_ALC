@@ -1,6 +1,11 @@
 # Ejercicio 3: Cuadrados Mínimos y Pseudoinversa
 
-> **Ejercicio 3.** Dada $A \in \mathbb{R}^{m \times n}$ de rango $n$ y $b \in \mathbb{R}^m$ con $m > n$ se quiere resolver el problema de cuadrados mínimos: hallar $x \in \mathbb{R}^n$ que minimice $\|Ax - b\|_2$. Probar que $x = A^\dagger b$, donde $A^\dagger$ es la pseudo-inversa de $A$. Indicar por qué esto sirve para resolver el problema en la práctica.
+<Enunciado titulo="Ejercicio 3.">
+
+Dada $A \in \mathbb{R}^{m \times n}$ de rango $n$ y $b \in \mathbb{R}^m$ con $m > n$ se quiere resolver el problema de cuadrados mínimos: hallar $x \in \mathbb{R}^n$ que minimice $\|Ax - b\|_2$. Probar que $x = A^\dagger b$, donde $A^\dagger$ es la pseudo-inversa de $A$. Indicar por qué esto sirve para resolver el problema en la práctica.
+
+</Enunciado>
+
 
 ## Interpretación del Enunciado
 

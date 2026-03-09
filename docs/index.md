@@ -1,3 +1,8 @@
+---
+sidebar_label: 'Inicio'
+sidebar_position: 1
+---
+
 # Repositorio de Prácticas y Evaluaciones
 
 Bienvenido al repositorio central de exámenes finales, parciales, guías y demostraciones matemáticas y computacionales.

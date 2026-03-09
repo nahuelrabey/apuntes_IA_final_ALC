@@ -1,6 +1,11 @@
 # Solución del Ejercicio 5 (Examen 21 de julio de 2025 - Desigualdad de Cauchy-Schwartz)
 
-> **Ejercicio 5.** Probar la desigualdad de Cauchy-Schwartz: $|x^* y| \le ||x||_2 ||y||_2$.
+<Enunciado titulo="Ejercicio 5.">
+
+Probar la desigualdad de Cauchy-Schwartz: $|x^* y| \le ||x||_2 ||y||_2$.
+
+</Enunciado>
+
 
 ---
 
