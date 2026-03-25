@@ -9,7 +9,7 @@ Este flujo de trabajo define las reglas estrictas de redacción y formato que la
 ## 1. Estructura Indispensable del Documento
 
 1. **Cita del Enunciado**: 
-   Comienza el archivo citando **textualmente el enunciado completo** dentro de un bloque quote (`> ...`).
+   Comienza el archivo citando **textualmente el enunciado completo** envuelto en la etiqueta `<Enunciado titulo="Ejercicio X"> ... </Enunciado>`.
 2. **Subdivisiones Lógicas**:
    Subdivide el texto bajo los encabezados lógicos obligatorios: `## Interpretación del Enunciado` (identificación táctica) y `## Solución del Ejercicio` (desarrollo analítico).
 3. **Múltiples Incisos**:

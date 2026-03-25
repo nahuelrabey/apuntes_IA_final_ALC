@@ -14,6 +14,7 @@ Bienvenido al repositorio central de exámenes finales, parciales, guías y demo
 Actualmente, el contenido está organizado en las siguientes materias:
 
 - [**Álgebra Lineal y Computacional (ALC)**](ALC/index.md): Evaluaciones, demostraciones y resolución algorítmica de temas como Cadenas de Markov, SVD, Ajuste por Mínimos Cuadrados, y Métodos Iterativos.
+- [**Técnicas de Algoritmos**](Tecnicas_Algoritmos/index.md): Notas sobre diseño y análisis de algoritmos, complejidad y estructuras de datos.
 - [**Análisis Avanzado**](Analisis_Avanzado/index.md): (Próximamente) Espacio para finales y desarrollos de temas avanzados de análisis matemático continuo y aplicado.
 
 ---
